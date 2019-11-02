@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-11-02 09:57:40
+-- 產生時間： 2019-11-02 10:08:20
 -- 伺服器版本： 10.4.8-MariaDB
 -- PHP 版本： 7.2.24
 
@@ -103,6 +103,19 @@ INSERT INTO `orderdata` (`o_num`, `o_time`, `o_name`, `o_phone`, `o_citime`, `o_
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `rmodeldata`
+--
+
+CREATE TABLE `rmodeldata` (
+  `r_model` varchar(50) DEFAULT NULL,
+  `r_price` int(10) NOT NULL,
+  `r_num` int(10) NOT NULL,
+  `r_disc` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `roomdata`
 --
 
@@ -120,19 +133,6 @@ INSERT INTO `roomdata` (`r_id`, `r_model`) VALUES
 ('002', 'Double'),
 ('003', 'Triple'),
 ('004', 'Quadruple');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `roommodel`
---
-
-CREATE TABLE `roommodel` (
-  `r_model` varchar(50) DEFAULT NULL,
-  `r_price` int(10) NOT NULL,
-  `r_num` int(10) NOT NULL,
-  `r_disc` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
