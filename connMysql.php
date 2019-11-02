@@ -12,6 +12,5 @@
 	}else{
 		//設定字元集與編碼
 		$db_link->query("SET NAMES 'utf8'");
-		echo "資料庫連結成功！";
 	}
 ?>
