@@ -97,7 +97,7 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
     <script src="script/jquery-3.4.1.slim.min.js"></script>
     <script src="script/popper.min.js"></script>
     <script src="script/bootstrap.min.js"></script>
-    <script src="scrip</script>
+    <script src="script/ican.js"></script>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <!--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>-->    
     <!-- 環境建置 -->
