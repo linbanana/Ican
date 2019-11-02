@@ -1,0 +1,31 @@
+.loginpage{
+	height: 100vh;
+	padding-top: 10vh;
+	background-image: url(https://unsplash.it/1000/1000);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.loginpage::before{
+	min-height: 30px;
+}
+
+.regbox {	
+	border: 1px solid #656565;	
+	padding: 100px;	
+	width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;  
+}
+	.regbox::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: url(https://images.unsplash.com/photo-1564738007343-be7bf8dafe2c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+		z-index: -1;
+		filter: blur(5px); 
+	}
