@@ -14,31 +14,56 @@
 }
 
 .regbox {	
-	border: 2px solid #ccc;
+	border: 3px solid #ff4570;
 	border-radius: 10%;
-	color: #181a15;
-	text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+	color: #ff8fcb;
+	text-shadow: -1px 0 #ff0000, 0 1px #ff0000, 1px 0 #ff0000, 0 -1px #ff0000;
 	font-weight: bold; 	
 	padding: 100px;	
 	width: 100%;
     max-width: 330px;
     padding: 15px;
     margin: auto;	
-	background-image: url(https://unsplash.it/500/500?blur=5);   
+    background-color: #FFEBC2;
 }
 
-.regbox a{
+.regbox h4{
+	color: #ff0000;
+    text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+    font-size: 18px;
+}
+
+.regbox p a{
+	color: #8fe9ff;
+    text-shadow: -1px 0 #0020a1, 0 1px #0020a1, 1px 0 #0020a1, 0 -1px #0020a1;
+}
+
+.regbox p{
 	color: #002eed;
-    text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+    text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
 .regbox a:hover{
 	color: #007bff;
 }
 
-.heading{
-	color: #007bff;
+.loginbtn {
+    border-color: #fff;
+    color: #fff;    
+    background-color: #07b8db;
+}
+
+.loginbtn:hover {
+    border-color: #fff;
+    background-color: #0598b5;
+    color: #fffc45;    
+}
+
+.regbox .errDiv{
+    color: #ff0000;
+    text-shadow:none;
 }
 /*login.php*/
+
 
 
