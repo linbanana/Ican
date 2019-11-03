@@ -1,3 +1,51 @@
+<?php
+function GetSQLValueString($theValue, $theType) {
+  switch ($theType) {
+    case "string":
+      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_MAGIC_QUOTES) : "";
+      break;
+    case "int":
+      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_NUMBER_INT) : "";
+      break;
+    case "email":
+      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_VALIDATE_EMAIL) : "";
+      break;
+    case "url":
+      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_VALIDATE_URL) : "";
+      break;      
+  }
+  return $theValue;
+}
+
+if(isset($_POST["action"])&&($_POST["action"]=="join")){
+	require_once("connMysql.php");
+	//找尋帳號是否已經註冊
+	$query_RecFindUser = "SELECT m_username FROM memberdata WHERE m_username='{$_POST["m_username"]}'";
+	$RecFindUser=$db_link->query($query_RecFindUser);
+	if ($RecFindUser->num_rows>0){
+		header("Location: join.php?errMsg=1&username={$_POST["m_username"]}");
+	}else{
+	//若沒有執行新增的動作	
+		$query_insert = "INSERT INTO memberdata (m_name, m_username, m_passwd, m_sex, m_birthday, m_email, m_url, m_phone, m_address, m_jointime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+		/*有問題*//*$stmt = $db_link->prepare($query_insert);
+		$stmt->bind_param("sssssssss", 
+			GetSQLValueString($_POST["m_name"], 'string'),
+			GetSQLValueString($_POST["m_username"], 'string'),
+			password_hash($_POST["m_passwd"], PASSWORD_DEFAULT),
+			GetSQLValueString($_POST["m_sex"], 'string'),
+			GetSQLValueString($_POST["m_birthday"], 'string'),
+			GetSQLValueString($_POST["m_email"], 'email'),
+			GetSQLValueString($_POST["m_url"], 'url'),
+			GetSQLValueString($_POST["m_phone"], 'string'),
+			GetSQLValueString($_POST["m_address"], 'string'));
+		$stmt->execute();
+		$stmt->close();
+		$db_link->close();*/
+		header("Location: join.php?loginStats=1");
+	}
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +58,7 @@
 	<link href="css/ican.css" rel="stylesheet" />
 	<!-- 環境建置 -->
 	<!-- w3 js -->
-	<script src="Scripts/w3.js"></script>
+	<script src="scripts/w3.js"></script>
 	<!-- w3 js -->
 	<title>ican</title>
 </head>
@@ -72,10 +120,12 @@
 	</header>
 
 <div class="joincontent">
-	<?php if(isset($_GET["loginStats"]) && ($_GET["loginStats"]=="1")){?>
+	  <h3>I Can</h3>
+      <h4>大飯店</h4>
+		<?php if(isset($_GET["loginStats"]) && ($_GET["loginStats"]=="1")){?>
 <script language="javascript">
 alert('會員新增成功\n請用申請的帳號密碼登入。');
-window.location.href='index.php';		  
+window.location.href='login.php';		  
 </script>
 <?php }?>
 <table width="780" border="0" align="center" cellpadding="4" cellspacing="0">
@@ -137,7 +187,7 @@ window.location.href='index.php';
         </form></td>
         <td width="200">
         <div class="boxtl"></div><div class="boxtr"></div>
-        <div class="regbox">
+        <div class="regbox" style="border-radius:inherit;">
           <p class="heading"><strong>填寫資料注意事項：</strong></p>
           <ol>
             <li> 請提供您本人正確、最新及完整的資料。 </li>
@@ -151,12 +201,7 @@ window.location.href='index.php';
       </tr>
     </table></td>
   </tr>
-  <tr>
-    <td align="center" background="images/album_r2_c1.jpg" class="trademark">© 2016 eHappy Studio All Rights Reserved.</td>
-  </tr>
 </table>
-
-
 </div>
 
 <!-- Footer -->
