@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link href="css/ican.css" rel="stylesheet" />
     <!-- w3 js -->
-    <script src="Scripts/w3.js"></script>
+    <script src="scripts/w3.js"></script>
     <!-- w3 js -->
     <title>I CAN</title>
     <style>
@@ -202,8 +202,7 @@
         </p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-
+    <script src="scripts/ican.js"></script>
+    
 </body>
 </html>

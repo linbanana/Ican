@@ -1,6 +1,5 @@
 *{
     padding: 0;
-    margin: 0;
     list-style: none;
     font-family: 'Noto Sans TC', sans-serif;
 }
@@ -133,6 +132,9 @@ body{
 
 .content{
     margin-bottom: 3em;
+    vertical-align: middle;/*置中對齊*/
+	justify-content:center;/*置中對齊*/
+	margin: 0;
 }
 .content .welcome{
     text-align: center;
@@ -162,6 +164,18 @@ body{
     display: inline-block;
 }
 
+/*join.php table*/
+.joincontent table{
+	 text-align: left;
+}
+
+.tdbline {
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    border-bottom-color: #999999;
+}
+/*join.php table*/
+
 /*Content*/
 
 /*Footer*/
@@ -183,8 +197,8 @@ body{
 	background-repeat: no-repeat;
 	background-size: cover;
 	display:flex;
-	vertical-align: middle;
-	justify-content:center;
+	vertical-align: middle;/*置中對齊*/
+	justify-content:center;/*置中對齊*/
 }
 
 .loginpage::before{
