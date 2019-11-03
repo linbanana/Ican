@@ -51,6 +51,7 @@
     border-color: #fff;
     color: #fff;    
     background-color: #07b8db;
+    margin-top:5px;
 }
 
 .loginbtn:hover {
@@ -62,6 +63,15 @@
 .regbox .errDiv{
     color: #ff0000;
     text-shadow:none;
+}
+
+.logintextbox{
+	border: 2px solid #ccc;
+	outline:none;
+}
+
+.logintextbox:focus{
+	border: 2px solid #ff5e00;	
 }
 /*login.php*/
 

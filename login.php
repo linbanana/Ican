@@ -83,8 +83,8 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
             <p>密碼：
                 <input name="passwd" type="password" class="logintextbox" id="passwd" value="<?php if(isset($_COOKIE["remPass"]) && ($_COOKIE["remPass"]!="")) echo $_COOKIE["remPass"];?>">
             </p>
-            <p>
-                <input name="rememberme" type="checkbox" id="rememberme" value="true" checked>
+            <p style="margin-bottom: 0px;">
+                <input name="rememberme" type="checkbox" id="rememberme" value="true">
             記住我的帳號密碼。</p>
             <?php if(isset($_GET["errMsg"]) && ($_GET["errMsg"]=="1")){?>
             <div class="errDiv"> 登入帳號或密碼錯誤！</div>
