@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="css/ican.css" rel="stylesheet" />
     <!-- w3 js -->
     <script src="Scripts/w3.js"></script>
     <!-- w3 js -->
@@ -16,181 +17,7 @@
         /*@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");*/
         @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
         @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900|Lobster&display=swap');
-        *{
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            font-family: 'Noto Sans TC', sans-serif;
-        }
-        body{
-            background-color: #FFEBC2;
-            transition: transform .5 ease;
-        }
-        
-    /*Header*/   
 
-        .carousel{
-            margin-bottom: 3em;
-        }
-
-        /*LOGO跟選單*/
-        .header-menu{
-            position: fixed;
-            top:0;
-            left: 0;
-            right: 0;
-            transition: 1s;
-            z-index: 1;
-        }
-
-        .header-menu.scrolldown{
-            background-color: #fff;
-            transition: 1.5s;
-        }
-        .header-menu.scrolldown .menu a{
-            color: #000;
-            transition: 1.5s;
-        }
-
-        .header-menu .container{
-            display: flex;
-            justify-content:space-evenly;
-            padding: 20px;
-            align-items: center;
-            
-        }
-        
-        .header-menu .logo{
-            width: 100px;
-            
-        }
-        .header-menu .logo img{
-            width: 100%;
-        }
-        .header-menu .menu {
-          display: flex;
-          margin: auto;
-        }
-        .header-menu .menu a{
-            color: #fff;
-            text-decoration: none;
-            font-size: 23px;
-            padding: 20px;
-            font-weight: 500;
-            transition: 1s;
-        }
-        .header-menu .menu a:hover{
-            color: rgb(175, 5, 5);
-            font-weight: 900;
-        }
-        /*LOGO跟選單*/
-
-        /*側邊選單Sidebar*/
-        #sidebar{
-            position: fixed;
-            top:0;
-            right:0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            padding:20px 10px;
-            transform: translateX(100%);
-            transition: transform .5s ease;
-            z-index: 1;
-        }
-        .active-nav #sidebar{
-            transform: translateX(0);
-        }
-        .toggle-btn{
-            font-size: 30px;
-            color:#fff;   
-            padding: 0 10px;
-            position: fixed;
-            top: 30px;
-            right: 10px;
-            z-index: 1;
-        }
-        .toggle-btn:hover{
-            border: 2px solid #fff;
-            border-radius: 10px;
-        }    
-        #sidebar .logo{
-            width: 80px;
-            position: absolute;
-            top: 30px;
-            left:30px;
-        }
-        #sidebar .logo img{
-            width: 100%;
-        }
-        #sidebar .closebtn{
-            font-size: 30px;
-            position: absolute;
-            top: 30px;
-            right:25px;
-        }
-        
-        #sidebar .side-nav a{
-            display: block;
-            text-decoration: none;
-            padding: 15px;
-            color:#000;
-            font-size: 20px;
-        }
-        #sidebar .side-nav{
-            margin-top: 150px;
-        }
-        #sidebar,.toggle-btn{
-            display: none;
-        }
-        /*Sidebar*/
-
-    /*Header*/
-
-    /*Content*/    
-
-        .content{
-            margin-bottom: 3em;
-        }
-        .content .welcome{
-            text-align: center;
-        }
-        .content .welcome .container{
-            padding: 40px;
-            border-bottom: 1px solid rgb(226, 182, 94);
-        }
-        .content .welcome h3{
-            font-size: 40px;
-            color: #5aecf7;
-            display: inline-block;
-            font-family: 'Lobster', cursive;
-            text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
-        }
-        .content .welcome h4{
-            font-size: 35px;
-            color: #000;
-            display: inline-block;
-            font-weight: 700;
-        }
-        .content .welcome p{
-            padding: 10px;
-            font-size: 22px;
-            font-weight: 300;
-            color: #000;
-            display: inline-block;
-        }
-
-    /*Content*/
-
-    /*Footer*/
-        .blog-footer {
-            padding: 2.5rem 0;
-            color: #fff;
-            text-align: center;
-            background-color: #456;
-            border-top: .05rem solid #e5e5e5;
-        }
-    /*Footer*/
         
     @media screen and (max-width: 1200px) {
         .header-menu .menu a{
@@ -375,43 +202,7 @@
         </p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        
-        (function(){
-            /*漢堡選單開跟關Sidebar/On/Off*/
-            var bodyEl = $('body');
-            $(".toggle-btn").on('click', function(e) {
-                bodyEl.toggleClass('active-nav');
-                e.preventDefault();
-            });
-            $(".closebtn").on('click', function(e) {
-                bodyEl.toggleClass('active-nav');
-                e.preventDefault();
-            });
 
-            $('#BackTop').click(function(){ 
-                $('html,body').animate({scrollTop:0}, 333);
-            });
-
-            $(window).scroll(function() {
-                if ( $(this).scrollTop() > 300 ){
-                    $('#BackTop').fadeIn(222);
-                    $('.header-menu').addClass('scrolldown');
-                } else {
-                    $('#BackTop').stop().fadeOut(222);
-                    $('.header-menu').removeClass('scrolldown');
-                }
-            }).scroll();
-
-        })();
-
-
-    </script>        
-    
-
-
-
-    
 
 
 </body>
