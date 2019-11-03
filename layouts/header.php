@@ -1,22 +1,55 @@
-  <header>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-        <strong>Album</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-inverse side-collapse-right in">
-　 <nav role="navigation" class="navbar-collapse">
-　 　 <ul class="nav navbar-nav navbar-right">
-　 　 　 <li><a href="#">選單1</a></li>
-　 　 　 <li><a href="#">選單2</a></li>
-　 　 　 <li><a href="＃">選單3</a></li>
-　 　 </ul>
-　 </nav>
-</div>
-    </div>
-  </div>
-</header>
+    <header>
+        <!--背景輪播Carousel-->
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://picsum.photos/900/500/?random=1" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img src="https://picsum.photos/900/500/?random=2" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img src="https://picsum.photos/900/500/?random=3" class="d-block w-100" alt="...">
+                </div>
+            </div>
+        </div>
+        <!--Logo跟選單-->
+        
+        <div class="header-menu">
+            <div class="container">
+                <div class="logo">
+                    <img src="images/logo.gif" alt="com.logo">
+                </div>
+                <div class="menu">
+                    <a href="#">最新消息</a>
+                    <a href="#">客房介紹</a>
+                    <a href="#">關於我們</a>
+                    <a href="#">聯絡我們</a>
+                    <a href="#">線上訂房</a>
+                    <a href="#">會員登入</a>
+                </div>
+            </div>
+            <div class="toggle-btn" onclick="toggleSidebar()"><i class="fa fa-bars"></i></div>
+        </div>
+        
+        <!--側邊選單Sidebar-->
+        
+        
+        <div id="sidebar">
+            <div class="logo">
+                <img src="images/logo.gif" alt="com.logo">
+            </div>
+            <div class="closebtn" onclick="toggleSidebar()">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            
+            <div class="side-nav">
+                <a href="#">最新消息</a>
+                <a href="#">客房介紹</a>
+                <a href="#">關於我們</a>
+                <a href="#">聯絡我們</a>
+                <a href="#">線上訂房</a>
+                <a href="#">會員登入</a>
+            </div>
+        </div>
+    </header>
