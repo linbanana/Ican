@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-tw">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <title>I CAN</title>
+
     <style>
         /*@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");*/
         @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
@@ -16,7 +17,6 @@
         *{
             padding: 0;
             margin: 0;
-            list-style: none;
             font-family: 'Noto Sans TC', sans-serif;
         }
         body{
@@ -90,11 +90,11 @@
             right:0;
             width: 100%;
             height: 100%;
-            background-color: #fff;
+            background-color: #000;
             padding:20px 10px;
             transform: translateX(100%);
             transition: transform .5s ease;
-            z-index: 1;
+            z-index: 11;
         }
         .active-nav #sidebar{
             transform: translateX(0);
@@ -123,6 +123,7 @@
         }
         #sidebar .closebtn{
             font-size: 30px;
+            color: #fff;
             position: absolute;
             top: 30px;
             right:25px;
@@ -132,11 +133,12 @@
             display: block;
             text-decoration: none;
             padding: 15px;
-            color:#000;
+            color:#fff;
             font-size: 20px;
         }
         #sidebar .side-nav{
             margin-top: 150px;
+            text-align: center;
         }
         #sidebar,.toggle-btn{
             display: none;
@@ -230,7 +232,7 @@
             margin: auto;
         }
         .introducing .item{
-            margin-bottom: 70px;
+            margin-bottom: 80px;
             display: flex;
             align-items: center;
             font-family: 'Noto Sans TC', sans-serif;
@@ -245,8 +247,7 @@
         }
         .introducing .item .txt{
             width: 55%;
-            padding: 50px 30px;
-            background-color: #fa8;
+            padding: 50px 30px 80px;
             flex-shrink: 0;
             box-sizing: border-box;
             position: relative;
@@ -279,17 +280,26 @@
             color:#e08a09;
             padding: 10px 20px;
             text-decoration: none;
-            
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+        }
+        .introducing .item .txt a:hover{
+            border: 1px solid #f7ab3a;
+            color: #f7ab3a;
         }
     /*Content*/
 
     /*Footer*/
         footer {
-            padding: 2.5rem 0;
+            padding: 100px 0;
             color: #fff;
             text-align: center;
             background-color: #456;
             border-top: .05rem solid #e5e5e5;
+        }
+        footer .logo{
+            text-align: left;
         }
         footer .logo-img{
             width: 100px;
@@ -324,31 +334,63 @@
             display: inline-block;
             color: #fff;
             padding: 5px 10px;
-            font-size: 2px;
+            font-size: 20px;
         }
         .contact-info p{
             display: inline-block;
             font-size: 20px;
         }
+        .social-link{
+            text-align: right;
+        }
         .social-link a{
-            color: #456;
+            color: #fff;
             font-size: 30px;
             padding: 5px 10px;
             margin: 20px;
-            border-radius: 10px;
+            
             text-decoration: none;
-            background-color: #fff;
+            
         }
         .social-link a:hover{
-            color: #fff;
-            background-color: #456;
+            color: rgb(255, 187, 0);
         }
+        .back-to-top{
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 5;
+        }
+        
+        
+            
+        
     /*Footer*/
         
     @media screen and (max-width: 1200px) {
         .header-menu .menu a{
             font-size: 20px;
             padding: 10px;
+        }
+        .introducing .item .txt{
+            padding: 30px 30px 50px;
+        }
+        .introducing .item .txt h2{
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .introducing .item .txt p{
+            font-weight: 300;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .introducing .item .txt a{
+            font-size: 16px;
+            font-weight: 300;
+            padding: 10px 20px;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
         }
     }
 
@@ -366,10 +408,11 @@
         .header-menu .container{
             padding: 50px;
         }
+        
         .header-menu .logo{
-            width: 80px;
+            width: 70px;
             position: fixed;
-            top: 30px;
+            top: 20px;
             left: 30px;
         }
         .header-menu .logo img{
@@ -381,21 +424,85 @@
         .header-menu.scrolldown .toggle-btn{
             color:#000;
         }
-            /*非header*/
-
-            .content .recommend{
-                display: none;
-            }
-            .col-sm-4{
-                text-align: center;
-            }
-            .card{
-                margin: 20px auto;
-            }
+            
+        /*content*/
+        .welcome h3{
+            font-size: 25px;
+            color: #5aecf7;
+            display: inline-block;
+            font-family: 'Lobster', cursive;
+            text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
+        }
+        .welcome h4{
+            font-size: 25px;
+            color: #000;
+            display: inline-block;
+            font-weight: 700;
+        }
+        .welcome p{
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 300;
+            color: #000;
+            display: inline-block;
+        }
+        .content .recommend{
+            display: none;
+        }
+        .introducing .item .txt{
+            padding: 30px 30px;
+        }
+        .introducing .item .txt h2{
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .introducing .item .txt p{
+            font-weight: 300;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+        .introducing .item .txt a{
+            font-size: 14px;
+            font-weight: 300;
+            padding: 0;
+            text-decoration: solid;
+            border: none;
+            position: absolute;
+            right: 30px;
+            bottom: 10px;
+        }
     }
-    @media screen and (max-width: 600px) {  
+    @media screen and (max-width: 650px) {  
         .header-menu .logo{
-            width: 50px;
+            width: 60px;
+        }
+        .welcome .container{
+            padding: 10px;
+        }
+        .welcome h3{
+            font-size: 18px;
+        }
+        .welcome h4{
+            font-size: 18px;
+        }
+        .welcome p{
+            padding: 10px;
+            font-size: 12px;
+        }
+        
+        .introducing .container{
+            padding: 50px 0;
+        }
+        .introducing .item{
+            margin-bottom: 50px;
+            padding: 30px;
+            display: block;
+        }
+        .introducing .item .pic{
+            width: 100%;
+        }
+        .introducing .item .txt{
+            width: 100%;
         }
     }
     </style>
@@ -549,15 +656,15 @@
             <div class="contact-info">
                 <div class="item">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <p>地址:80144高雄市民生二路202號</p>
+                    <p>地址:</p><p>80144高雄市民生二路202號</p>
                 </div>
                 <div class="item">
                     <i class="fa fa-phone" aria-hidden="true"></i>
-                    <p>電話:(07)1234567</p>
+                    <p>電話:</p><p>(07)1234567</p>
                 </div>
                 <div class="item">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                    <p>E-mail:qaz1234567@gmail.com</p>
+                    <p>E-mail:</p><p>qaz1234567@gmail.com</p>
                 </div>
             </div>
             <div class="social-link">
@@ -567,8 +674,10 @@
             </div>
         </div>
         
-        <a href="#">^</a>
-        </p>
+        <a id="back-to-top" href="" class="btn btn-primary btn-lg back-to-top fa fa-angle-up" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -600,6 +709,19 @@
                 }
             }).scroll();
 
+            /*$(".txt").each(function(){
+                var maxwidth = 100;//設置最多顯示的字數
+                var text=$(this).text();
+
+                if($(this).text().length > maxwidth){
+                    $(this).text($(this).text().substring(0, maxwidth));
+                    $(this).html($(this).html()+"..."+"<a href='###'> 點擊展開</a>");//如果字數超過最大字數，超出部分用...代替，並且在後面加上點擊展開的鏈接；
+
+                };
+                $(this).find("a").click(function(){
+                    $(this).parent().text(text);//點擊“點擊展開”，展開全文
+                })
+            })*/
         })();
 
 
