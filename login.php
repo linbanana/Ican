@@ -28,8 +28,8 @@
       <p>密碼：<br>
         <input name="passwd" type="password" class="logintextbox" id="passwd" value="<?php if(isset($_COOKIE["remPass"]) && ($_COOKIE["remPass"]!="")) echo $_COOKIE["remPass"];?>">
       </p>
-      <p>
-        <input name="rememberme" type="checkbox" id="rememberme" value="true" checked>
+      <p style="margin-bottom: 0px;">
+        <input name="rememberme" type="checkbox" id="rememberme" value="true">
       記住我的帳號密碼。</p>
       <p align="center">
         <input type="submit" name="button" id="button" value="登入系統">
