@@ -179,6 +179,7 @@
             color: #000;
             display: inline-block;
         }
+
         .recommend .container{
             display: flex;
             margin: 50px auto;
@@ -362,15 +363,16 @@
             z-index: 5;
         }
         
-        
-            
-        
     /*Footer*/
         
     @media screen and (max-width: 1200px) {
         .header-menu .menu a{
             font-size: 20px;
             padding: 10px;
+        }
+
+        .recommend .item h3{
+            font-size: 22px;
         }
         .introducing .item .txt{
             padding: 30px 30px 50px;
@@ -402,6 +404,7 @@
     }
 
     @media screen and (max-width: 840px) {
+    /*Header*/ 
         .header-menu .menu{
             display: none;
         }
@@ -424,8 +427,9 @@
         .header-menu.scrolldown .toggle-btn{
             color:#000;
         }
-            
-        /*content*/
+    /*Header*/ 
+
+    /*content*/
         .welcome h3{
             font-size: 25px;
             color: #5aecf7;
@@ -471,11 +475,25 @@
             right: 30px;
             bottom: 10px;
         }
+    /*Content*/
+    /*Footer*/
+        footer .logo-img{
+            width: 80px;
+        }
+        footer .logo-font h3{
+            font-size: 30px;
+        }
+        footer .logo-font h4{
+            font-size: 25px;
+        }
+    /*Footer*/
     }
     @media screen and (max-width: 650px) {  
         .header-menu .logo{
             width: 60px;
         }
+     
+    /*Content*/   
         .welcome .container{
             padding: 10px;
         }
@@ -504,6 +522,73 @@
         .introducing .item .txt{
             width: 100%;
         }
+        .introducing .item .txt h2{
+            font-weight: 500;
+            font-size: 16px;
+        }
+        .introducing .item .txt p{
+            font-weight: 300;
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+        .introducing .item .txt a{
+            font-size: 12px;
+            font-weight: 300;
+            padding: 0;
+            text-decoration: solid;
+            border: none;
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+        }
+    /*Content*/ 
+
+    /*Footer*/
+        footer {
+            padding: 50px 0;
+        }
+        footer .logo{
+            text-align: center;
+        }
+        footer .logo-img{
+            width: 50px;
+        }
+        footer .logo-font h3{
+            font-size: 25px;
+        }
+        footer .logo-font h4{
+            font-size: 20px;
+        }
+        .contact-info{
+            display: block;
+            margin: 30px;
+        }
+        .contact-info i{
+            display: inline-block;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+        .contact-info p{
+            display: inline-block;
+            font-size: 16px;
+        }
+        .social-link{
+            text-align: center;
+        }
+        .social-link a{
+            color: #fff;
+            font-size: 20px;
+            padding: 5px 10px;
+            margin: 10px;
+            
+            text-decoration: none;
+            
+        }
+        .social-link a:hover{
+            color: rgb(255, 187, 0);
+        }
+    /*Footer*/
     }
     </style>
 </head>
