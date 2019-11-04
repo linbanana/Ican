@@ -8,16 +8,342 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link href="css/ican.css" rel="stylesheet" />
-    <!-- w3 js -->
-    <script src="scripts/w3.js"></script>
-    <!-- w3 js -->
     <title>I CAN</title>
     <style>
         /*@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");*/
         @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
         @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900|Lobster&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        body{
+            background-color: #FFEBC2;
+            transition: transform .5 ease;
+        }
+        
+    /*Header*/   
 
+        .carousel{
+            margin-bottom: 3em;
+        }
+
+        /*LOGO跟選單*/
+        .header-menu{
+            position: fixed;
+            top:0;
+            left: 0;
+            right: 0;
+            transition: 1s;
+            z-index: 1;
+        }
+
+        .header-menu.scrolldown{
+            background-color: #fff;
+            z-index: 10;
+            transition: 1.5s;
+        }
+        .header-menu.scrolldown .menu a{
+            color: #000;
+            transition: 1.5s;
+        }
+
+        .header-menu .container{
+            display: flex;
+            justify-content:space-evenly;
+            padding: 20px;
+            align-items: center;
+            
+        }
+        
+        .header-menu .logo{
+            width: 100px;
+            
+        }
+        .header-menu .logo img{
+            width: 100%;
+        }
+        .header-menu .menu {
+          display: flex;
+          margin: auto;
+        }
+        .header-menu .menu a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 23px;
+            padding: 20px;
+            font-weight: 500;
+            transition: 1s;
+        }
+        .header-menu .menu a:hover{
+            color: rgb(175, 5, 5);
+            font-weight: 900;
+        }
+        /*LOGO跟選單*/
+
+        /*側邊選單Sidebar*/
+        #sidebar{
+            position: fixed;
+            top:0;
+            right:0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            padding:20px 10px;
+            transform: translateX(100%);
+            transition: transform .5s ease;
+            z-index: 1;
+        }
+        .active-nav #sidebar{
+            transform: translateX(0);
+        }
+        .toggle-btn{
+            font-size: 30px;
+            color:#fff;   
+            padding: 0 10px;
+            position: fixed;
+            top: 30px;
+            right: 10px;
+            z-index: 1;
+        }
+        .toggle-btn:hover{
+            border: 2px solid #fff;
+            border-radius: 10px;
+        }    
+        #sidebar .logo{
+            width: 80px;
+            position: absolute;
+            top: 30px;
+            left:30px;
+        }
+        #sidebar .logo img{
+            width: 100%;
+        }
+        #sidebar .closebtn{
+            font-size: 30px;
+            position: absolute;
+            top: 30px;
+            right:25px;
+        }
+        
+        #sidebar .side-nav a{
+            display: block;
+            text-decoration: none;
+            padding: 15px;
+            color:#000;
+            font-size: 20px;
+        }
+        #sidebar .side-nav{
+            margin-top: 150px;
+        }
+        #sidebar,.toggle-btn{
+            display: none;
+        }
+        /*Sidebar*/
+
+    /*Header*/
+
+    /*Content*/    
+
+        .content{
+            margin-bottom: 3em;
+        }
+        .welcome{
+            text-align: center;
+        }
+        .welcome .container{
+            padding: 40px;
+            border-bottom: 1px solid rgb(226, 182, 94);
+        }
+        .welcome h3{
+            font-size: 40px;
+            color: #5aecf7;
+            display: inline-block;
+            font-family: 'Lobster', cursive;
+            text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
+        }
+        .welcome h4{
+            font-size: 35px;
+            color: #000;
+            display: inline-block;
+            font-weight: 700;
+        }
+        .welcome p{
+            padding: 10px;
+            font-size: 24px;
+            font-weight: 300;
+            color: #000;
+            display: inline-block;
+        }
+        .recommend .container{
+            display: flex;
+            margin: 50px auto;
+            padding: 75px 0 100px;
+            border-bottom: 1px solid rgb(226, 182, 94);
+        } 
+        .recommend .container .item{
+            width: 370px;
+            margin: 0 15px;
+            text-align: center;
+            border: 10px solid #f8d187;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 10px 20px 50px #fcd896;
+        }
+        .recommend .item .txt{
+            padding: 20px;
+        }
+        .recommend .item .icon{
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            margin: -75px auto 0;
+            font-size: 65px;
+            line-height: 150px;
+            border-radius: 50%;
+            color:#f7bf58;
+            position: relative;
+        }
+        .recommend .item .icon:before{
+            content:'';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-top: 10px solid #f8d187;
+            border-right: 10px solid #f8d187;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid transparent;
+            left: 0px;
+            top: 0px;
+            border-radius: 50%;
+            transform: rotate(-45deg);
+        }
+        .recommend .item h3{
+            color:#f7bf58;
+        }
+
+        
+        .introducing .container{
+            padding: 100px 50px;
+            margin: auto;
+        }
+        .introducing .item{
+            margin-bottom: 70px;
+            display: flex;
+            align-items: center;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .introducing .item .pic{
+            width:55%;
+            flex-shrink: 0;
+        }
+        .introducing .item .pic img{
+            width:100%;
+            vertical-align: middle;
+        }
+        .introducing .item .txt{
+            width: 55%;
+            padding: 50px 30px;
+            background-color: #fa8;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+        }
+        .introducing .item > :first-child{
+            margin-right: -10%;
+        }
+        .introducing .item:nth-child(1) .txt{
+            background-color: rgba(240, 174, 193, .8);
+        }
+        .introducing .item:nth-child(2) .txt{
+            background-color: rgb(42, 253, 208, .8);
+        }
+        .introducing .item:nth-child(3) .txt{
+            background-color: rgb(254, 201, 121, .8);
+        }
+        .introducing .item .txt h2{
+            font-weight: 900;
+        }
+        .introducing .item .txt p{
+            font-weight: 300;
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+        .introducing .item .txt a{
+            border: 1px solid #e08a09;
+            font-size: 20px;
+            font-weight: 500;
+            color:#e08a09;
+            padding: 10px 20px;
+            text-decoration: none;
+            
+        }
+    /*Content*/
+
+    /*Footer*/
+        footer {
+            padding: 2.5rem 0;
+            color: #fff;
+            text-align: center;
+            background-color: #456;
+            border-top: .05rem solid #e5e5e5;
+        }
+        footer .logo-img{
+            width: 100px;
+            display: inline-block;
+        }
+        footer .logo-img img{
+            width: 100%;
+            vertical-align: middle;
+        }
+        footer .logo-font{
+            display: inline-block;
+            padding: 0 20px;
+        }
+        footer .logo-font h3{
+            font-size: 40px;
+            color: #5aecf7;
+            display: inline-block;
+            font-family: 'Lobster', cursive;
+            text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
+        }
+        footer .logo-font h4{
+            font-size: 35px;
+            color: #fff;
+            display: inline-block;
+            font-weight: 700;
+        }
+        .contact-info{
+            display: block;
+            margin: 20px;
+        }
+        .contact-info i{
+            display: inline-block;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 2px;
+        }
+        .contact-info p{
+            display: inline-block;
+            font-size: 20px;
+        }
+        .social-link a{
+            color: #456;
+            font-size: 30px;
+            padding: 5px 10px;
+            margin: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            background-color: #fff;
+        }
+        .social-link a:hover{
+            color: #fff;
+            background-color: #456;
+        }
+    /*Footer*/
         
     @media screen and (max-width: 1200px) {
         .header-menu .menu a{
@@ -56,6 +382,10 @@
             color:#000;
         }
             /*非header*/
+
+            .content .recommend{
+                display: none;
+            }
             .col-sm-4{
                 text-align: center;
             }
@@ -102,7 +432,7 @@
                     <a href="#">會員登入</a>
                 </div>
             </div>
-            <div class="toggle-btn" onclick="toggleSidebar()"><i class="fa fa-bars"></i></div>
+            <div class="toggle-btn"><i class="fa fa-bars"></i></div>
         </div>
         
         <!--側邊選單Sidebar-->
@@ -112,7 +442,7 @@
             <div class="logo">
                 <img src="images/logo.gif" alt="com.logo">
             </div>
-            <div class="closebtn" onclick="toggleSidebar()">
+            <div class="closebtn">
                 <i class="fa fa-times" aria-hidden="true"></i>
             </div>
             
@@ -137,72 +467,149 @@
             </div>
         </div>
         <div class="recommend">
-            <div class="item">
-                <div class="icon">
-                    <i class="fa fa-thumbs-up"></i>
+            <div class="container">
+                <div class="item">
+                    <div class="icon">
+                        <i class="fa fa-thumbs-up"></i>
+                    </div>
+                    <div class="txt">
+                        <h3>誠摯的服務態度</h3>
+                        <h3>親切的待人處事</h3>
+                    </div>
                 </div>
-                <div class="txt">
-                    誠摯的服務態度
-                    親切的
+                <div class="item">
+                    <div class="icon">
+                        <i class="fa fa-wifi" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <h3>提供免費WIFI</h3>
+                        <h3>各項設施使用</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="item">
-                <div class="icon">
-                    
-                </div>
-                <div class="txt">
-                    提供免費WIFI
-                    各項設施使用
-                </div>
-            </div>
-            <div class="item">
-                <div class="icon">
-                    
-                </div>
-                <div class="txt">
-                    全新客房
-                    舒適享受
+                <div class="item">
+                    <div class="icon">
+                        <i class="fa fa-bed" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <h3>全新客房</h3>
+                        <h3>舒適享受</h3>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="introducing">
-            <img src="https://picsum.photos/400/400/?random=1">
-        </div>
-        
-           
-        
-            
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3>Column 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            <div class="container">
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://picsum.photos/600/400/?random=1">
+                    </div>
+                    <div class="txt">
+                        <h2>聖誕節優待</h2>
+                        <p>檢察官今日下午會同法醫相驗，檢視大體頭部有明顯外傷，美國籍男子涉嫌過失致死罪嫌，檢察官諭知交保新台幣20萬元，且限制出境出海，並同時命其交付護照及旅行文件以防止逃匿。</p>
+                        <a href="#">查看詳情</a>
+                    </div>
                 </div>
-                <div class="col-sm-4">
-                    <h3>Column 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <div class="item">
+                    <div class="txt">
+                        <h2>全新客房</h2>
+                        <p>美國籍男子David昨天拒絕夜間偵訊，今天在律師陪同下進行偵訊，下午移送屏東地檢署，步上偵防車前一度懊悔的說「extremely sorry！」</p>
+                        <a href="#">查看詳情</a>
+                    </div>
+                    <div class="pic">
+                        <img src="https://picsum.photos/600/400/?random=2">
+                    </div>
                 </div>
-                <div class="col-sm-4">
-                    <h3>Column 3</h3>        
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://picsum.photos/600/400/?random=3">
+                    </div>
+                    <div class="txt">
+                        <h2>完善租車系統</h2>
+                        <p>據了解，David當發現飛機在視線中已無法找尋，不見了就開始尋找，結果飛機竟撞死了人，令他驚慌失措，根本就沒料想到會發生如此憾事。</p>
+                        <a href="#">查看詳情</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
         
     <!--Footer部分(未改)-->    
-    <footer class="blog-footer">
-        <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-        <p>
-        <a href="#">Back to top</a>
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="images/logo.gif">
+                </div>
+                <div class="logo-font">
+                    <h3>I Can</h3>
+                    <h4>大飯店</h4>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <div class="item">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <p>地址:80144高雄市民生二路202號</p>
+                </div>
+                <div class="item">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <p>電話:(07)1234567</p>
+                </div>
+                <div class="item">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <p>E-mail:qaz1234567@gmail.com</p>
+                </div>
+            </div>
+            <div class="social-link">
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        
+        <a href="#">^</a>
         </p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="scripts/ican.js"></script>
+    <script type="text/javascript">
+        
+        (function(){
+            /*漢堡選單開跟關Sidebar/On/Off*/
+            var bodyEl = $('body');
+            $(".toggle-btn").on('click', function(e) {
+                bodyEl.toggleClass('active-nav');
+                e.preventDefault();
+            });
+            $(".closebtn").on('click', function(e) {
+                bodyEl.toggleClass('active-nav');
+                e.preventDefault();
+            });
+
+            $('#BackTop').click(function(){ 
+                $('html,body').animate({scrollTop:0}, 333);
+            });
+
+            /*判斷輪軸往下後header-menu變色*/
+            $(window).scroll(function() {
+                if ( $(this).scrollTop() > 300 ){
+                    $('#BackTop').fadeIn(222);
+                    $('.header-menu').addClass('scrolldown');
+                } else {
+                    $('#BackTop').stop().fadeOut(222);
+                    $('.header-menu').removeClass('scrolldown');
+                }
+            }).scroll();
+
+        })();
+
+
+    </script>        
     
+
+
+
+    
+
+
 </body>
 </html>
