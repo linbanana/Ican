@@ -1,0 +1,19 @@
+foreach($student as $ppp){
+                    echo "<tr>";
+                    for($i=0;$i<count($ppp);$i++){
+                        if($i!=0){
+                            if($ppp[$i]>90)
+                                echo "<td style='color:blue;'>".$ppp[$i]."</td>";
+                            else if($ppp[$i]<60)
+                                echo "<td style='color:red;'>".$ppp[$i]."</td>";
+                            else
+                                echo "<td>".$ppp[$i]."</td>";
+                        }else{
+                            echo "<td>".$ppp[$i]."</td>";
+                        }
+                        
+                    }   
+                    echo "<td>".($sum[]/5)."</td>";
+                    echo "</tr>";
+                    $sum = 0;
+                }
