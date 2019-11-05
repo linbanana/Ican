@@ -141,20 +141,20 @@ window.location.href='login.php';
 </table>
 </div>
 
-<!-- Footer -->
-<div w3-include-html="layouts/footer.php"></div>
-<!-- Footer -->
+    <!-- Footer -->
+    <div w3-include-html="layouts/footer.php"></div>
+    <!-- Footer -->
 
-<!-- 環境建置 -->
-<script src="scripts/jquery-3.4.1.slim.min.js"></script>
-<script src="scripts/popper.min.js"></script>
-<script src="scripts/bootstrap.min.js"></script>
-<script src="scripts/ican.js"></script>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
-<!-- 環境建置 -->
-<!-- w3 js -->
-<script>w3.includeHTML();</script>
-<!-- w3 js -->
+    <!-- 環境建置 -->
+    <script src="scripts/jquery-3.4.1.slim.min.js"></script>
+    <script src="scripts/popper.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/ican.js"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
+    <!-- 環境建置 -->
+    <!-- w3 js -->
+    <script>w3.includeHTML();</script>
+    <!-- w3 js -->
 </body>
 </html>
