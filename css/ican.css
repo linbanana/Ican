@@ -1,7 +1,7 @@
 *{
     padding: 0;
-    list-style: none;
     font-family: 'Noto Sans TC', sans-serif;
+    list-style: none;
 }
 body{
     background-color: #FFEBC2;
@@ -169,24 +169,96 @@ body{
 	 text-align: left;
 }
 
+.tbody{
+    border: 2px solid #fff;
+}
+
 .tdbline {
     border-bottom-width: 1px;
     border-bottom-style: dotted;
     border-bottom-color: #999999;
 }
+
+.joincontent #mlogo{
+    margin: 0px 50% 0px 50%;
+}
 /*join.php table*/
 
-/*Content*/
+/*Content*/ 
 
-/*Footer*/
-.blog-footer {
-    padding: 2.5rem 0;
-    color: #fff;
-    text-align: center;
-    background-color: #456;
-    border-top: .05rem solid #e5e5e5;
-}
-/*Footer*/
+    /*Footer*/
+        footer {
+            padding: 100px 0;
+            color: #fff;
+            text-align: center;
+            background-color: #456;
+            border-top: .05rem solid #e5e5e5;
+        }
+        footer .logo{
+            text-align: left;
+        }
+        footer .logo-img{
+            width: 100px;
+            display: inline-block;
+        }
+        footer .logo-img img{
+            width: 100%;
+            vertical-align: middle;
+        }
+        footer .logo-font{
+            display: inline-block;
+            padding: 0 20px;
+        }
+        footer .logo-font h3{
+            font-size: 40px;
+            color: #5aecf7;
+            display: inline-block;
+            font-family: 'Lobster', cursive;
+            text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
+        }
+        footer .logo-font h4{
+            font-size: 35px;
+            color: #fff;
+            display: inline-block;
+            font-weight: 700;
+        }
+        .contact-info{
+            display: block;
+            margin: 20px;
+        }
+        .contact-info i{
+            display: inline-block;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 20px;
+        }
+        .contact-info p{
+            display: inline-block;
+            font-size: 20px;
+        }
+        .social-link{
+            text-align: right;
+        }
+        .social-link a{
+            color: #fff;
+            font-size: 30px;
+            padding: 5px 10px;
+            margin: 20px;
+            
+            text-decoration: none;
+            
+        }
+        .social-link a:hover{
+            color: rgb(255, 187, 0);
+        }
+        .back-to-top{
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 5;
+        }
+        
+    /*Footer*/
 
 
 

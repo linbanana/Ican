@@ -26,21 +26,20 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
 		header("Location: join.php?errMsg=1&username={$_POST["m_username"]}");
 	}else{
 	//若沒有執行新增的動作	
-		$query_insert = "INSERT INTO memberdata (m_name, m_username, m_passwd, m_sex, m_birthday, m_email, m_url, m_phone, m_address, m_jointime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
-		/*有問題*//*$stmt = $db_link->prepare($query_insert);
-		$stmt->bind_param("sssssssss", 
+		$query_insert = "INSERT INTO memberdata (m_name, m_username, m_passwd, m_sex, m_birthday, m_email, m_phone, m_address, m_jointime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+		$stmt = $db_link->prepare($query_insert);
+		$stmt->bind_param("ssssssss", 
 			GetSQLValueString($_POST["m_name"], 'string'),
 			GetSQLValueString($_POST["m_username"], 'string'),
 			password_hash($_POST["m_passwd"], PASSWORD_DEFAULT),
 			GetSQLValueString($_POST["m_sex"], 'string'),
 			GetSQLValueString($_POST["m_birthday"], 'string'),
 			GetSQLValueString($_POST["m_email"], 'email'),
-			GetSQLValueString($_POST["m_url"], 'url'),
 			GetSQLValueString($_POST["m_phone"], 'string'),
 			GetSQLValueString($_POST["m_address"], 'string'));
 		$stmt->execute();
 		$stmt->close();
-		$db_link->close();*/
+		$db_link->close();
 		header("Location: join.php?loginStats=1");
 	}
 }
@@ -63,61 +62,8 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
 	<title>ican</title>
 </head>
 <body>
-	<header>
-		<!--背景輪播Carousel-->
-		<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img src="https://picsum.photos/900/500/?random=1" class="d-block w-100" alt="...">
-				</div>
-				<div class="carousel-item">
-					<img src="https://picsum.photos/900/500/?random=2" class="d-block w-100" alt="...">
-				</div>
-				<div class="carousel-item">
-					<img src="https://picsum.photos/900/500/?random=3" class="d-block w-100" alt="...">
-				</div>
-			</div>
-		</div>
-		<!--Logo跟選單-->
-
-		<div class="header-menu">
-			<div class="container">
-				<div class="logo">
-					<img src="images/logo.gif" alt="com.logo">
-				</div>
-				<div class="menu">
-					<a href="#">最新消息</a>
-					<a href="#">客房介紹</a>
-					<a href="#">關於我們</a>
-					<a href="#">聯絡我們</a>
-					<a href="#">線上訂房</a>
-					<a href="#">會員登入</a>
-				</div>
-			</div>
-			<div class="toggle-btn" onclick="toggleSidebar()"><i class="fa fa-bars"></i></div>
-		</div>
-
-		<!--側邊選單Sidebar-->
-
-
-		<div id="sidebar">
-			<div class="logo">
-				<img src="images/logo.gif" alt="com.logo">
-			</div>
-			<div class="closebtn" onclick="toggleSidebar()">
-				<i class="fa fa-times" aria-hidden="true"></i>
-			</div>
-
-			<div class="side-nav">
-				<a href="#">最新消息</a>
-				<a href="#">客房介紹</a>
-				<a href="#">關於我們</a>
-				<a href="#">聯絡我們</a>
-				<a href="#">線上訂房</a>
-				<a href="#">會員登入</a>
-			</div>
-		</div>
-	</header>
+	<!-- header --> 
+  	<div w3-include-html="layouts/header.php"></div>
 
 <div class="joincontent">
 	  <h3>I Can</h3>
@@ -130,7 +76,7 @@ window.location.href='login.php';
 <?php }?>
 <table width="780" border="0" align="center" cellpadding="4" cellspacing="0">
   <tr>
-    <td class="tdbline"><img src="images/mlogo.png" alt="會員系統" width="164" height="67"></td>
+    <td class="tdbline"><img src="images/mlogo.png" id="mlogo" alt="會員系統" width="164" height="67"></td>
   </tr>
   <tr>
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
@@ -180,24 +126,15 @@ window.location.href='login.php';
           <hr size="1" />
           <p align="center">
             <input name="action" type="hidden" id="action" value="join">
-            <input type="submit" name="Submit2" value="送出申請">
-            <input type="reset" name="Submit3" value="重設資料">
-            <input type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
+            <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="送出申請">
+            <input class="btn btn-info btn-sm" type="reset" name="Submit3" value="重設資料">
+            <input class="btn btn-primary btn-sm" type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
           </p>
         </form></td>
-        <td width="200">
-        <div class="boxtl"></div><div class="boxtr"></div>
-        <div class="regbox" style="border-radius:inherit;">
-          <p class="heading"><strong>填寫資料注意事項：</strong></p>
-          <ol>
-            <li> 請提供您本人正確、最新及完整的資料。 </li>
-            <li> 在欄位後方出現「*」符號表示為必填的欄位。</li>
-            <li>填寫時請您遵守各個欄位後方的補助說明。</li>
-            <li>關於您的會員註冊以及其他特定資料，本系統不會向任何人出售或出借你所填寫的個人資料。</li>
-            <li>在註冊成功後，除了「使用帳號」外您可以在會員專區內修改您所填寫的個人資料。</li>
-          </ol>
-          </div>
-        <div class="boxbl"></div><div class="boxbr"></div></td>
+        <script language="javascript">
+		alert('1、請提供您本人正確、最新及完整的資料。\n\n2、 在欄位後方出現「*」符號表示為必填的欄位。\n\n3、填寫時請您遵守各個欄位後方的補助說明。\n\n4、關於您的會員註冊以及其他特定資料，本系統不會向任何人出售或出借你所填寫的個人資料。\n\n5、在註冊成功後，除了「使用帳號」外您可以在會員專區內修改您所填寫的個人資料。');		  
+		</script>
+        <td width="200">     
       </tr>
     </table></td>
   </tr>
