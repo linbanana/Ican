@@ -159,14 +159,14 @@
             padding: 40px;
             border-bottom: 1px solid rgb(226, 182, 94);
         }
-        .welcome h3{
+        #ican-logo{
             font-size: 40px;
             color: #5aecf7;
             display: inline-block;
             font-family: 'Lobster', cursive;
             text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
         }
-        .welcome h4{
+        #hotel-logo{
             font-size: 35px;
             color: #000;
             display: inline-block;
@@ -430,14 +430,14 @@
     /*Header*/ 
 
     /*content*/
-        .welcome h3{
+        #ican-logo{
             font-size: 25px;
             color: #5aecf7;
             display: inline-block;
             font-family: 'Lobster', cursive;
             text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
         }
-        .welcome h4{
+        #hotel-logo{
             font-size: 25px;
             color: #000;
             display: inline-block;
@@ -497,10 +497,10 @@
         .welcome .container{
             padding: 10px;
         }
-        .welcome h3{
+        #ican-logo{
             font-size: 18px;
         }
-        .welcome h4{
+        #hotel-logo{
             font-size: 18px;
         }
         .welcome p{
@@ -653,10 +653,8 @@
         <!--Content部分(未改)-->
         <div class="welcome">
             <div class="container">
-                <div id="logo-font">
-                    <h3>I Can</h3>
-                    <h4>大飯店</h4>
-                </div>
+                <h3 id="ican-logo">I Can</h3>
+                <h4 id="hotel-logo">大飯店</h4>
                 <p>I Can大飯店今年在高雄全新開幕，給顧客不一樣的全新體驗，歡迎各位能蒞臨，您的到來使我們蓬蓽生輝，我們持續的新增不同的設施，並且招募與我們有共同理念的新成員，希望能帶給顧客更好的享受。I Can理念為努力、真誠、親切、熱忱，對待每一位顧客都以最高待遇服務，秉持著「真誠I Can心，服務最用心」的經營理念，提供顧客最高品質的産品，最親切細緻的服務，讓顧客有物超所值、賓至如歸的感受。</p>
             </div>
         </div>
