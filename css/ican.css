@@ -429,9 +429,14 @@ footer .logo-font h4{
 }
 /*login.php*/
 
-/*join.php table*/
+/*join.php*/
+.joincontent{
+    text-align: center;
+}
+
 .joincontent table{
      text-align: left;
+     border: 2px solid #fff;
 }
 
 .tbody{

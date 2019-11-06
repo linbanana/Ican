@@ -1,4 +1,4 @@
-<header>
+    <header>
         <!--背景輪播Carousel-->
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -6,10 +6,10 @@
                     <img src="https://picsum.photos/900/500/?random=1" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                <img src="https://picsum.photos/900/500/?random=2" class="d-block w-100" alt="...">
+                    <img src="https://picsum.photos/900/500/?random=2" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                <img src="https://picsum.photos/900/500/?random=3" class="d-block w-100" alt="...">
+                    <img src="https://picsum.photos/900/500/?random=3" class="d-block w-100" alt="...">
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
         <div class="header-menu">
             <div class="container">
                 <div class="logo">
-                    <img src="images/logo.gif" alt="com.logo">
+                    <img src="images/logo.png" alt="com.logo">
                 </div>
                 <div class="menu">
                     <a href="#">最新消息</a>

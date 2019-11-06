@@ -93,8 +93,7 @@ window.location.href='login.php';
             <p class="heading">帳號資料</p>
             <p><strong>使用帳號</strong>：
             <input name="m_username" type="text" class="normalinput" id="m_username">
-            <font color="#FF0000">*
-              
+            <font color="#FF0000">*              
               <?php 
                 if(isset($_GET["errusernameMsg"]) && ($_GET["errusernameMsg"]=="1")){
               ?>
@@ -106,7 +105,6 @@ window.location.href='login.php';
               <?php 
                 }
               ?>
-
             </font><br><span class="smalltext">請填入5~12個字元以內的小寫英文字母、數字、以及_ 符號。</span></p>
             <p><strong>使用密碼</strong>：
             <input name="m_passwd" type="password" class="normalinput" id="m_passwd">
@@ -128,12 +126,20 @@ window.location.href='login.php';
             <font color="#FF0000">*</font> <br>
             <span class="smalltext">為西元格式(YYYY-MM-DD)。</span></p>
             <p><strong>電子郵件</strong>：
-            <input name="m_email" type="text" class="normalinput" id="m_email">
-            <?php if(isset($_GET["erremailMsg"]) && ($_GET["erremailMsg"]=="1")){
-            ?>
-          <div class="errDiv">信箱 <?php echo $_GET["email"];?> 已經有人使用！</div>
-          <?php }?>
-            <font color="#FF0000">*</font><br><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span></p>
+            <input name="m_email" type="text" class="normalinput" id="m_email">            
+            <font color="#FF0000">*
+              <?php 
+                if(isset($_GET["erremailMsg"]) && ($_GET["erremailMsg"]=="1")){
+              ?>
+              信箱 
+              <?php 
+                  echo "<font color='#0000ff'>".$_GET["email"]."</font>";
+              ?> 
+              已經有人使用！
+              <?php 
+                }
+              ?>
+            </font><br><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span></p>
             <p><strong>個人網頁</strong>：
             <input name="m_url" type="text" class="normalinput" id="m_url">
             <br><span class="smalltext">請以「http://」 為開頭。</span></p>

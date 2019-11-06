@@ -23,13 +23,7 @@
         body{
             background-color: #FFEBC2;
             transition: transform .5 ease;
-        }      
-
-
-
-
-
-        
+        }              
 
     }
 </style>
@@ -55,7 +49,7 @@
         <div class="header-menu">
             <div class="container">
                 <div class="logo">
-                    <img src="images/logo.gif" alt="com.logo">
+                    <img src="images/logo.png" alt="logo">
                 </div>
                 <div class="menu">
                     <a href="#">最新消息</a>
