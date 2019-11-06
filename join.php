@@ -66,8 +66,8 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
   	<div w3-include-html="layouts/header.php"></div>
 
 <div class="joincontent">
-	  <h3>I Can</h3>
-      <h4>大飯店</h4>
+    <h3 id="ican-logo">I Can</h3>
+    <h4 id="hotel-logo">大飯店</h4>
 		<?php if(isset($_GET["loginStats"]) && ($_GET["loginStats"]=="1")){?>
 <script language="javascript">
 alert('會員新增成功\n請用申請的帳號密碼登入。');

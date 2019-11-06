@@ -8,123 +8,127 @@ body{
     transition: transform .5 ease;
 }
 
+/*index.php*/
 /*Header*/   
 
-.carousel{
-    margin-bottom: 3em;
-}
+    .carousel{
+        margin-bottom: 3em;
+    }
 
-/*LOGO跟選單*/
-.header-menu{
-    position: fixed;
-    top:0;
-    left: 0;
-    right: 0;
-    transition: 1s;
-    z-index: 1;
-}
+    /*LOGO跟選單*/
+    .header-menu{
+        position: fixed;
+        top:0;
+        left: 0;
+        right: 0;
+        transition: 1s;
+        z-index: 1;
+    }
 
-.header-menu.scrolldown{
-    background-color: #fff;
-    transition: 1.5s;
-}
-.header-menu.scrolldown .menu a{
-    color: #000;
-    transition: 1.5s;
-}
+    .header-menu.scrolldown{
+        background-color: #fff;
+        z-index: 10;
+        transition: 1.5s;
+    }
+    .header-menu.scrolldown .menu a{
+        color: #000;
+        transition: 1.5s;
+    }
 
-.header-menu .container{
-    display: flex;
-    justify-content:space-evenly;
-    padding: 20px;
-    align-items: center;
+    .header-menu .container{
+        display: flex;
+        justify-content:space-evenly;
+        padding: 20px;
+        align-items: center;
+        
+    }
     
-}
+    .header-menu .logo{
+        width: 100px;
+        
+    }
+    .header-menu .logo img{
+        width: 100%;
+    }
+    .header-menu .menu {
+      display: flex;
+      margin: auto;
+    }
+    .header-menu .menu a{
+        color: #fff;
+        text-decoration: none;
+        font-size: 23px;
+        padding: 20px;
+        font-weight: 500;
+        transition: 1s;
+    }
+    .header-menu .menu a:hover{
+        color: rgb(175, 5, 5);
+        font-weight: 900;
+    }
+    /*LOGO跟選單*/
 
-.header-menu .logo{
-    width: 100px;
+    /*側邊選單Sidebar*/
+    #sidebar{
+        position: fixed;
+        top:0;
+        right:0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        padding:20px 10px;
+        transform: translateX(100%);
+        transition: transform .5s ease;
+        z-index: 11;
+    }
+    .active-nav #sidebar{
+        transform: translateX(0);
+    }
+    .toggle-btn{
+        font-size: 30px;
+        color:#fff;   
+        padding: 0 10px;
+        position: fixed;
+        top: 30px;
+        right: 10px;
+        z-index: 1;
+    }
+    .toggle-btn:hover{
+        border: 2px solid #fff;
+        border-radius: 10px;
+    }    
+    #sidebar .logo{
+        width: 80px;
+        position: absolute;
+        top: 30px;
+        left:30px;
+    }
+    #sidebar .logo img{
+        width: 100%;
+    }
+    #sidebar .closebtn{
+        font-size: 30px;
+        color: #fff;
+        position: absolute;
+        top: 30px;
+        right:25px;
+    }
     
-}
-.header-menu .logo img{
-    width: 100%;
-}
-.header-menu .menu {
-  display: flex;
-  margin: auto;
-}
-.header-menu .menu a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 23px;
-    padding: 20px;
-    font-weight: 500;
-    transition: 1s;
-}
-.header-menu .menu a:hover{
-    color: rgb(175, 5, 5);
-    font-weight: 900;
-}
-/*LOGO跟選單*/
-
-/*側邊選單Sidebar*/
-#sidebar{
-    position: fixed;
-    top:0;
-    right:0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    padding:20px 10px;
-    transform: translateX(100%);
-    transition: transform .5s ease;
-    z-index: 1;
-}
-.active-nav #sidebar{
-    transform: translateX(0);
-}
-.toggle-btn{
-    font-size: 30px;
-    color:#fff;   
-    padding: 0 10px;
-    position: fixed;
-    top: 30px;
-    right: 10px;
-    z-index: 1;
-}
-.toggle-btn:hover{
-    border: 2px solid #fff;
-    border-radius: 10px;
-}    
-#sidebar .logo{
-    width: 80px;
-    position: absolute;
-    top: 30px;
-    left:30px;
-}
-#sidebar .logo img{
-    width: 100%;
-}
-#sidebar .closebtn{
-    font-size: 30px;
-    position: absolute;
-    top: 30px;
-    right:25px;
-}
-
-#sidebar .side-nav a{
-    display: block;
-    text-decoration: none;
-    padding: 15px;
-    color:#000;
-    font-size: 20px;
-}
-#sidebar .side-nav{
-    margin-top: 150px;
-}
-#sidebar,.toggle-btn{
-    display: none;
-}
-/*Sidebar*/
+    #sidebar .side-nav a{
+        display: block;
+        text-decoration: none;
+        padding: 15px;
+        color:#fff;
+        font-size: 20px;
+    }
+    #sidebar .side-nav{
+        margin-top: 150px;
+        text-align: center;
+    }
+    #sidebar,.toggle-btn{
+        display: none;
+    }
+    /*Sidebar*/
 
 /*Header*/
 
@@ -132,133 +136,219 @@ body{
 
 .content{
     margin-bottom: 3em;
-    vertical-align: middle;/*置中對齊*/
-	justify-content:center;/*置中對齊*/
-	margin: 0;
 }
-.content .welcome{
+.welcome{
     text-align: center;
 }
-.content .welcome .container{
+.welcome .container{
     padding: 40px;
     border-bottom: 1px solid rgb(226, 182, 94);
 }
-.content .welcome h3{
+#ican-logo{
     font-size: 40px;
     color: #5aecf7;
     display: inline-block;
     font-family: 'Lobster', cursive;
     text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
 }
-.content .welcome h4{
+#hotel-logo{
     font-size: 35px;
     color: #000;
     display: inline-block;
     font-weight: 700;
 }
-.content .welcome p{
+.welcome p{
     padding: 10px;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 300;
     color: #000;
     display: inline-block;
 }
 
-/*join.php table*/
-.joincontent table{
-	 text-align: left;
+.recommend .container{
+    display: flex;
+    margin: 50px auto;
+    padding: 75px 0 100px;
+    border-bottom: 1px solid rgb(226, 182, 94);
+} 
+.recommend .container .item{
+    width: 370px;
+    margin: 0 15px;
+    text-align: center;
+    border: 10px solid #f8d187;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 10px 20px 50px #fcd896;
+}
+.recommend .item .txt{
+    padding: 20px;
+}
+.recommend .item .icon{
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    margin: -75px auto 0;
+    font-size: 65px;
+    line-height: 150px;
+    border-radius: 50%;
+    color:#f7bf58;
+    position: relative;
+}
+.recommend .item .icon:before{
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-top: 10px solid #f8d187;
+    border-right: 10px solid #f8d187;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    left: 0px;
+    top: 0px;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+}
+.recommend .item h3{
+    color:#f7bf58;
 }
 
-.tbody{
-    border: 2px solid #fff;
-}
 
-.tdbline {
-    border-bottom-width: 1px;
-    border-bottom-style: dotted;
-    border-bottom-color: #999999;
+.introducing .container{
+    padding: 100px 50px;
+    margin: auto;
 }
-
-.joincontent #mlogo{
-    margin: 0px 50% 0px 50%;
+.introducing .item{
+    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    font-family: 'Noto Sans TC', sans-serif;
 }
-/*join.php table*/
-
+.introducing .item .pic{
+    width:55%;
+    flex-shrink: 0;
+}
+.introducing .item .pic img{
+    width:100%;
+    vertical-align: middle;
+}
+.introducing .item .txt{
+    width: 55%;
+    padding: 50px 30px 80px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+.introducing .item > :first-child{
+    margin-right: -10%;
+}
+.introducing .item:nth-child(1) .txt{
+    background-color: rgba(240, 174, 193, .8);
+}
+.introducing .item:nth-child(2) .txt{
+    background-color: rgb(42, 253, 208, .8);
+}
+.introducing .item:nth-child(3) .txt{
+    background-color: rgb(254, 201, 121, .8);
+}
+.introducing .item .txt h2{
+    font-weight: 900;
+}
+.introducing .item .txt p{
+    font-weight: 300;
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+.introducing .item .txt a{
+    border: 1px solid #e08a09;
+    font-size: 20px;
+    font-weight: 500;
+    color:#e08a09;
+    padding: 10px 20px;
+    text-decoration: none;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
+.introducing .item .txt a:hover{
+    border: 1px solid #f7ab3a;
+    color: #f7ab3a;
+}
 /*Content*/ 
 
-    /*Footer*/
-        footer {
-            padding: 100px 0;
-            color: #fff;
-            text-align: center;
-            background-color: #456;
-            border-top: .05rem solid #e5e5e5;
-        }
-        footer .logo{
-            text-align: left;
-        }
-        footer .logo-img{
-            width: 100px;
-            display: inline-block;
-        }
-        footer .logo-img img{
-            width: 100%;
-            vertical-align: middle;
-        }
-        footer .logo-font{
-            display: inline-block;
-            padding: 0 20px;
-        }
-        footer .logo-font h3{
-            font-size: 40px;
-            color: #5aecf7;
-            display: inline-block;
-            font-family: 'Lobster', cursive;
-            text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
-        }
-        footer .logo-font h4{
-            font-size: 35px;
-            color: #fff;
-            display: inline-block;
-            font-weight: 700;
-        }
-        .contact-info{
-            display: block;
-            margin: 20px;
-        }
-        .contact-info i{
-            display: inline-block;
-            color: #fff;
-            padding: 5px 10px;
-            font-size: 20px;
-        }
-        .contact-info p{
-            display: inline-block;
-            font-size: 20px;
-        }
-        .social-link{
-            text-align: right;
-        }
-        .social-link a{
-            color: #fff;
-            font-size: 30px;
-            padding: 5px 10px;
-            margin: 20px;
-            
-            text-decoration: none;
-            
-        }
-        .social-link a:hover{
-            color: rgb(255, 187, 0);
-        }
-        .back-to-top{
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 5;
-        }
-        
-    /*Footer*/
+/*Footer*/
+footer {
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+    background-color: #456;
+    border-top: .05rem solid #e5e5e5;
+}
+footer .logo{
+    text-align: left;
+}
+footer .logo-img{
+    width: 100px;
+    display: inline-block;
+}
+footer .logo-img img{
+    width: 100%;
+    vertical-align: middle;
+}
+footer .logo-font{
+    display: inline-block;
+    padding: 0 20px;
+}
+footer .logo-font h3{
+    font-size: 40px;
+    color: #5aecf7;
+    display: inline-block;
+    font-family: 'Lobster', cursive;
+    text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
+}
+footer .logo-font h4{
+    font-size: 35px;
+    color: #fff;
+    display: inline-block;
+    font-weight: 700;
+}
+.contact-info{
+    display: block;
+    margin: 20px;
+}
+.contact-info i{
+    display: inline-block;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+.contact-info p{
+    display: inline-block;
+    font-size: 20px;
+}
+.social-link{
+    text-align: right;
+}
+.social-link a{
+    color: #fff;
+    font-size: 30px;
+    padding: 5px 10px;
+    margin: 20px;
+    
+    text-decoration: none;
+    
+}
+.social-link a:hover{
+    color: rgb(255, 187, 0);
+}
+.back-to-top{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 5;
+}
+
+/*Footer*/
 
 
 
@@ -339,6 +429,25 @@ body{
 }
 /*login.php*/
 
+/*join.php table*/
+.joincontent table{
+     text-align: left;
+}
+
+.tbody{
+    border: 2px solid #fff;
+}
+
+.tdbline {
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    border-bottom-color: #999999;
+}
+
+.joincontent #mlogo{
+    margin: 0px 50% 0px 50%;
+}
+/*join.php table*/
 
 
 /*@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");*/
@@ -347,51 +456,244 @@ body{
 
 
 @media screen and (max-width: 1200px) {
-.header-menu .menu a{
-    font-size: 20px;
-    padding: 10px;
-}
+    .header-menu .menu a{
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .recommend .item h3{
+        font-size: 22px;
+    }
+    .introducing .item .txt{
+        padding: 30px 30px 50px;
+    }
+    .introducing .item .txt h2{
+        font-weight: 700;
+        font-size: 20px;
+    }
+    .introducing .item .txt p{
+        font-weight: 300;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+    .introducing .item .txt a{
+        font-size: 16px;
+        font-weight: 300;
+        padding: 10px 20px;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+    }
 }
 
 @media screen and (max-width: 960px) {
-.header-menu .menu a{
-    font-size: 18px;
-    padding: 10px;
-}
+    .header-menu .menu a{
+        font-size: 18px;
+        padding: 10px;
+    }
 }
 
 @media screen and (max-width: 840px) {
-.header-menu .menu{
-    display: none;
+/*Header*/ 
+    .header-menu .menu{
+        display: none;
+    }
+    .header-menu .container{
+        padding: 50px;
+    }
+    
+    .header-menu .logo{
+        width: 70px;
+        position: fixed;
+        top: 20px;
+        left: 30px;
+    }
+    .header-menu .logo img{
+        width: 100%;
+    }
+    #sidebar,.toggle-btn{
+        display: inherit;
+    }   
+    .header-menu.scrolldown .toggle-btn{
+        color:#000;
+    }
+/*Header*/ 
+
+/*content*/
+    #ican-logo{
+        font-size: 25px;
+        color: #5aecf7;
+        display: inline-block;
+        font-family: 'Lobster', cursive;
+        text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
+    }
+    #hotel-logo{
+        font-size: 25px;
+        color: #000;
+        display: inline-block;
+        font-weight: 700;
+    }
+    .welcome p{
+        padding: 10px;
+        font-size: 16px;
+        font-weight: 300;
+        color: #000;
+        display: inline-block;
+    }
+    .content .recommend{
+        display: none;
+    }
+    .introducing .item .txt{
+        padding: 30px 30px;
+    }
+    .introducing .item .txt h2{
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .introducing .item .txt p{
+        font-weight: 300;
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+    .introducing .item .txt a{
+        font-size: 14px;
+        font-weight: 300;
+        padding: 0;
+        text-decoration: solid;
+        border: none;
+        position: absolute;
+        right: 30px;
+        bottom: 10px;
+    }
+/*Content*/
+/*Footer*/
+    footer .logo-img{
+        width: 80px;
+    }
+    footer .logo-font h3{
+        font-size: 30px;
+    }
+    footer .logo-font h4{
+        font-size: 25px;
+    }
+/*Footer*/
 }
-.header-menu .container{
-    padding: 50px;
-}
-.header-menu .logo{
-    width: 80px;
-    position: fixed;
-    top: 30px;
-    left: 30px;
-}
-.header-menu .logo img{
-    width: 100%;
-}
-#sidebar,.toggle-btn{
-    display: inherit;
-}   
-.header-menu.scrolldown .toggle-btn{
-    color:#000;
-}
-    /*非header*/
-    .col-sm-4{
+@media screen and (max-width: 650px) {  
+    .header-menu .logo{
+        width: 60px;
+    }
+ 
+/*Content*/   
+    .welcome .container{
+        padding: 10px;
+    }
+    
+    #ican-logo{
+        font-size: 18px;
+    }
+
+    #hotel-logo{
+        font-size: 18px;
+    }
+
+    .welcome p{
+        padding: 10px;
+        font-size: 12px;
+    }
+    
+    .introducing .container{
+        padding: 50px 0;
+    }
+
+    .introducing .item{
+        margin-bottom: 50px;
+        padding: 30px;
+        display: block;
+    }
+
+    .introducing .item .pic{
+        width: 100%;
+    }
+
+    .introducing .item .txt{
+        width: 100%;
+    }
+
+    .introducing .item .txt h2{
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    .introducing .item .txt p{
+        font-weight: 300;
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+
+    .introducing .item .txt a{
+        font-size: 12px;
+        font-weight: 300;
+        padding: 0;
+        text-decoration: solid;
+        border: none;
+        position: absolute;
+        right: 20px;
+        bottom: 10px;
+    }    
+/*Content*/ 
+
+/*Footer*/
+    footer {
+        padding: 50px 0;
+    }
+    footer .logo{
         text-align: center;
     }
-    .card{
-        margin: 20px auto;
+
+    footer .logo-img{
+        width: 50px;
     }
-}
-@media screen and (max-width: 600px) {  
-.header-menu .logo{
-    width: 50px;
-}
-}
+
+    footer .logo-font h3{
+        font-size: 25px;
+    }
+
+    footer .logo-font h4{
+        font-size: 20px;
+    }
+
+    .contact-info{
+        display: block;
+        margin: 30px;
+    }
+
+    .contact-info i{
+        display: inline-block;
+        color: #fff;
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+
+    .contact-info p{
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    .social-link{
+        text-align: center;
+    }
+
+    .social-link a{
+        color: #fff;
+        font-size: 20px;
+        padding: 5px 10px;
+        margin: 10px;
+        
+        text-decoration: none;
+        
+    }
+
+    .social-link a:hover{
+        color: rgb(255, 187, 0);
+    }
+/*Footer*/
