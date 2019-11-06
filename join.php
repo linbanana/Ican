@@ -9,10 +9,7 @@ function GetSQLValueString($theValue, $theType) {
       break;
     case "email":
       $theValue = ($theValue != "") ? filter_var($theValue, FILTER_VALIDATE_EMAIL) : "";
-      break;
-    case "url":
-      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_VALIDATE_URL) : "";
-      break;      
+      break;          
   }
   return $theValue;
 }
@@ -21,10 +18,15 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
 	require_once("connMysql.php");
 	//找尋帳號是否已經註冊
 	$query_RecFindUser = "SELECT m_username FROM memberdata WHERE m_username='{$_POST["m_username"]}'";
+  $query_RecFindemail = "SELECT m_email FROM memberdata WHERE m_email='{$_POST["m_email"]}'";
 	$RecFindUser=$db_link->query($query_RecFindUser);
-	if ($RecFindUser->num_rows>0){
-		header("Location: join.php?errMsg=1&username={$_POST["m_username"]}");
-	}else{
+  $RecFindemail=$db_link->query($query_RecFindemail);
+	if ($RecFindUser->num_rows>0){    
+    header("Location: join.php?errusernameMsg=1&username={$_POST["m_username"]}");
+	}elseif ($RecFindemail->num_rows>0) {
+    header("Location: join.php?erremailMsg=1&email={$_POST["m_email"]}");
+  }
+  else{
 	//若沒有執行新增的動作	
 		$query_insert = "INSERT INTO memberdata (m_name, m_username, m_passwd, m_sex, m_birthday, m_email, m_phone, m_address, m_jointime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 		$stmt = $db_link->prepare($query_insert);
@@ -62,6 +64,9 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
 	<title>ican</title>
 </head>
 <body>
+  <script language="javascript">
+    alert('1、請提供您本人正確、最新及完整的資料。\n\n2、 在欄位後方出現「*」符號表示為必填的欄位。\n\n3、填寫時請您遵守各個欄位後方的補助說明。\n\n4、關於您的會員註冊以及其他特定資料，本系統不會向任何人出售或出借你所填寫的個人資料。\n\n5、在註冊成功後，除了「使用帳號」外您可以在會員專區內修改您所填寫的個人資料。');     
+    </script>
 	<!-- header --> 
   	<div w3-include-html="layouts/header.php"></div>
 
@@ -82,16 +87,27 @@ window.location.href='login.php';
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
       <tr valign="top">
         <td class="tdrline"><form action="" method="POST" name="formJoin" id="formJoin" onSubmit="return checkForm();">
-          <p class="title">加入會員</p>
-		  <?php if(isset($_GET["errMsg"]) && ($_GET["errMsg"]=="1")){?>
-          <div class="errDiv">帳號 <?php echo $_GET["username"];?> 已經有人使用！</div>
-          <?php }?>
+          <p class="title">加入會員</p>		 
           <div class="dataDiv">
             <hr size="1" />
             <p class="heading">帳號資料</p>
             <p><strong>使用帳號</strong>：
             <input name="m_username" type="text" class="normalinput" id="m_username">
-            <font color="#FF0000">*</font><br><span class="smalltext">請填入5~12個字元以內的小寫英文字母、數字、以及_ 符號。</span></p>
+            <font color="#FF0000">*
+              
+              <?php 
+                if(isset($_GET["errusernameMsg"]) && ($_GET["errusernameMsg"]=="1")){
+              ?>
+              帳號
+              <?php 
+                echo "<font color='#0000ff'>".$_GET["username"]."</font>";              
+              ?>
+              已經有人使用！
+              <?php 
+                }
+              ?>
+
+            </font><br><span class="smalltext">請填入5~12個字元以內的小寫英文字母、數字、以及_ 符號。</span></p>
             <p><strong>使用密碼</strong>：
             <input name="m_passwd" type="password" class="normalinput" id="m_passwd">
             <font color="#FF0000">*</font><br><span class="smalltext">請填入5~10個字元以內的英文字母、數字、以及各種符號組合，</span></p>
@@ -113,6 +129,10 @@ window.location.href='login.php';
             <span class="smalltext">為西元格式(YYYY-MM-DD)。</span></p>
             <p><strong>電子郵件</strong>：
             <input name="m_email" type="text" class="normalinput" id="m_email">
+            <?php if(isset($_GET["erremailMsg"]) && ($_GET["erremailMsg"]=="1")){
+            ?>
+          <div class="errDiv">信箱 <?php echo $_GET["email"];?> 已經有人使用！</div>
+          <?php }?>
             <font color="#FF0000">*</font><br><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span></p>
             <p><strong>個人網頁</strong>：
             <input name="m_url" type="text" class="normalinput" id="m_url">
@@ -131,9 +151,6 @@ window.location.href='login.php';
             <input class="btn btn-primary btn-sm" type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
           </p>
         </form></td>
-        <script language="javascript">
-		alert('1、請提供您本人正確、最新及完整的資料。\n\n2、 在欄位後方出現「*」符號表示為必填的欄位。\n\n3、填寫時請您遵守各個欄位後方的補助說明。\n\n4、關於您的會員註冊以及其他特定資料，本系統不會向任何人出售或出借你所填寫的個人資料。\n\n5、在註冊成功後，除了「使用帳號」外您可以在會員專區內修改您所填寫的個人資料。');		  
-		</script>
         <td width="200">     
       </tr>
     </table></td>
