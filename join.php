@@ -25,10 +25,6 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
     header("Location: join.php?errusernameMsg=1&username={$_POST["m_username"]}");
 	}elseif ($RecFindemail->num_rows>0) {
     header("Location: join.php?erremailMsg=1&email={$_POST["m_email"]}");
-  }elseif(empty($_POST["m_username"])){
-    header("Location: join.php?errnullusernameMsg=1");
-  }elseif(empty($_POST["m_email"])){
-    header("Location: join.php?errnullemailMsg=1");
   }else{
   //若沒有執行新增的動作	
 		$query_insert = "INSERT INTO memberdata (m_name, m_username, m_passwd, m_sex, m_birthday, m_email, m_phone, m_address, m_jointime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())";
@@ -100,7 +96,7 @@ window.location.href='login.php';
             <p>
               <font color="#FF0000">*</font> 表示為<font color="#FF0000">必填</font>的欄位
             </p>
-            <p><strong>使用帳號</strong>：
+            <p><strong>帳號</strong>：
             <input name="m_username" type="text" class="normalinput" id="m_username">
             <font color="#FF0000">*              
               <?php 
@@ -112,17 +108,16 @@ window.location.href='login.php';
               ?>
               已經有人使用！
               <?php 
-                }elseif($_GET["errnullusernameMsg"]=="1"){
-                  echo "請輸入帳號！";  
                 }
               ?>
-            </font><br><span class="smalltext">請填入5~12個字元以內的小寫英文字母、數字、以及_ 符號。</span></p>
-            <p><strong>使用密碼</strong>：
+            </font><br>
+            <span class="smalltext">請填入6~12個字元以內的小寫英文字母、數字、以及_ 符號。</span></p>
+            <p><strong>密碼</strong>：
             <input name="m_passwd" type="password" class="normalinput" id="m_passwd">
             <font color="#FF0000">*</font><br><span class="smalltext">請填入5~10個字元以內的英文字母、數字、以及各種符號組合，</span></p>
             <p><strong>確認密碼</strong>：
             <input name="m_passwdrecheck" type="password" class="normalinput" id="m_passwdrecheck">
-            <font color="#FF0000">*</font> <br><span class="smalltext">再輸入一次密碼</span></p>
+            <font color="#FF0000">*</font><br></p>
             <hr size="1" />
             <p class="heading">個人資料</p>
             <p><strong>真實姓名</strong>：
@@ -148,10 +143,6 @@ window.location.href='login.php';
               ?> 
               已經有人使用！
               <?php 
-                }elseif($_GET["errnullemailMsg"]=="1"){
-                  echo "請輸入信箱！";  
-                }elseif ($_GET["errnullemailMsg"] != empty($_GET["errnullemailMsg"])) {
-                  echo " ";
                 }
               ?>
             </font><br><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span></p>
@@ -166,7 +157,7 @@ window.location.href='login.php';
           <hr size="1" />
           <p align="center">
             <input name="action" type="hidden" id="action" value="join">
-            <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="送出申請" onclick="btclick()">
+            <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="送出申請">
             <input class="btn btn-info btn-sm" type="reset" name="Submit3" value="重設資料">
             <input class="btn btn-primary btn-sm" type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
           </p>
@@ -183,22 +174,14 @@ window.location.href='login.php';
 
     <!-- 環境建置 -->
     <script src="scripts/jquery-3.4.1.slim.min.js"></script>
-    <script src="scripts/popper.min.js"></script>
+    <script src="scripts/umd/popper.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/ican.js"></script>
+    <script type="text/javascript" src="scripts/ican.js"></script>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
     <!-- w3 js -->
     <script>w3.includeHTML();</script>
     <!-- w3 js -->
-
-    <script type="text/javascript">
-function btclick(){
-    if (!((document.getElementById("np").value).match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}$/))){
-        alert( "your password : "+document.getElementById("np").value );
-    }
-}
-</script>
 </body>
 </html>

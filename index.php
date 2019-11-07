@@ -68,7 +68,7 @@
         
         <div id="sidebar">
             <div class="logo">
-                <img src="images/logo.png">
+                <img src="images/logo.gif" alt="com.logo">
             </div>
             <div class="closebtn">
                 <i class="fa fa-times" aria-hidden="true"></i>
@@ -166,8 +166,12 @@
         <div class="container">
             <div class="logo">
                 <div class="logo-img">
-                    <img src="images/logo.png">
-                </div>             
+                    <img src="images/logo.gif">
+                </div>
+                <div class="logo-font">
+                    <h3>I Can</h3>
+                    <h4>大飯店</h4>
+                </div>
             </div>
             
             <div class="contact-info">
@@ -211,34 +215,20 @@
                 e.preventDefault();
             });
 
-            $('#back-to-top').click(function(){ 
+            $('#BackTop').click(function(){ 
                 $('html,body').animate({scrollTop:0}, 333);
             });
 
             /*判斷輪軸往下後header-menu變色*/
             $(window).scroll(function() {
                 if ( $(this).scrollTop() > 300 ){
-                    $('#back-to-top').fadeIn(222);
+                    $('#BackTop').fadeIn(222);
                     $('.header-menu').addClass('scrolldown');
                 } else {
-                    $('#back-to-top').stop().fadeOut(222);
+                    $('#BackTop').stop().fadeOut(222);
                     $('.header-menu').removeClass('scrolldown');
                 }
-            }).scroll();
-
-            /*$(".txt").each(function(){
-                var maxwidth = 100;//設置最多顯示的字數
-                var text=$(this).text();
-
-                if($(this).text().length > maxwidth){
-                    $(this).text($(this).text().substring(0, maxwidth));
-                    $(this).html($(this).html()+"..."+"<a href='###'> 點擊展開</a>");//如果字數超過最大字數，超出部分用...代替，並且在後面加上點擊展開的鏈接；
-
-                };
-                $(this).find("a").click(function(){
-                    $(this).parent().text(text);//點擊“點擊展開”，展開全文
-                })
-            })*/
+            }).scroll();            
         })();
 
 

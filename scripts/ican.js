@@ -1,29 +1,30 @@
-/*漢堡選單開跟關Sidebar/On/Off*/
-(function(){            
-    var bodyEl = $('body');
-    $(".toggle-btn").on('click', function(e) {
-        bodyEl.toggleClass('active-nav');
-        e.preventDefault();
-    });
-    $(".closebtn").on('click', function(e) {
-        bodyEl.toggleClass('active-nav');
-        e.preventDefault();
-    });
+        (function(){
+            /*漢堡選單開跟關Sidebar/On/Off*/
+            var bodyEl = $('body');
+            $(".toggle-btn").on('click', function(e) {
+                bodyEl.toggleClass('active-nav');
+                e.preventDefault();
+            });
+            $(".closebtn").on('click', function(e) {
+                bodyEl.toggleClass('active-nav');
+                e.preventDefault();
+            });
 
-    $('#BackTop').click(function(){ 
-        $('html,body').animate({scrollTop:0}, 333);
-    });
+            $('#back-to-top').click(function(){ 
+                $('html,body').animate({scrollTop:0}, 333);
+            });
 
-/*判斷輪軸往下後header-menu變色*/
-$(window).scroll(function() {
-    if ( $(this).scrollTop() > 300 ){
-        $('#BackTop').fadeIn(222);
-        $('.header-menu').addClass('scrolldown');
-    } else {
-        $('#BackTop').stop().fadeOut(222);
-        $('.header-menu').removeClass('scrolldown');
-    }
-}).scroll();
+            /*判斷輪軸往下後header-menu變色*/
+            $(window).scroll(function() {
+                if ( $(this).scrollTop() > 300 ){
+                    $('#back-to-top').fadeIn(222);
+                    $('.header-menu').addClass('scrolldown');
+                } else {
+                    $('#back-to-top').stop().fadeOut(222);
+                    $('.header-menu').removeClass('scrolldown');
+                }
+            }).scroll();            
+        })();
 
 
 /*join.php*/
@@ -34,8 +35,8 @@ $(window).scroll(function() {
         return false;
     }else{
         uid=document.formJoin.m_username.value;
-        if(uid.length<5 || uid.length>12){
-            alert( "您的帳號長度只能5至12個字元!" );
+        if(uid.length<6 || uid.length>12){
+            alert( "您的帳號長度只能6至12個字元!" );
             document.formJoin.m_username.focus();
             return false;}
         if(!(uid.charAt(0)>='a' && uid.charAt(0)<='z')){
@@ -43,10 +44,10 @@ $(window).scroll(function() {
             document.formJoin.m_username.focus();
             return false;}
         for(idx=0;idx<uid.length;idx++){
-            if(uid.charAt(idx)>='A'&&uid.charAt(idx)<='Z'){
+            /*if(uid.charAt(idx)>='A'&&uid.charAt(idx)<='Z'){
                 alert("帳號不可以含有大寫字元!" );
                 document.formJoin.m_username.focus();
-                return false;}
+                return false;}*/
             if(!(( uid.charAt(idx)>='a'&&uid.charAt(idx)<='z')||(uid.charAt(idx)>='0'&& uid.charAt(idx)<='9')||( uid.charAt(idx)=='_'))){
                 alert( "您的帳號只能是數字,英文字母及「_」等符號,其他的符號都不能使用!" );
                 document.formJoin.m_username.focus();
@@ -85,8 +86,8 @@ function check_passwd(pw1,pw2){
         if(pw1.charAt(idx) == ' ' || pw1.charAt(idx) == '\"'){
             alert("密碼不可以含有空白或雙引號 !\n");
             return false;}
-        if(pw1.length<5 || pw1.length>10){
-            alert( "密碼長度只能5到10個字母 !\n" );
+        if(pw1.length<6 || pw1.length>10){
+            alert( "密碼長度只能6到10個字母 !\n" );
             return false;}
         if(pw1!= pw2){
             alert("密碼二次輸入不一樣,請重新輸入 !\n");
