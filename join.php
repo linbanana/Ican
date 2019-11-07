@@ -26,7 +26,9 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
 	}elseif ($RecFindemail->num_rows>0) {
     header("Location: join.php?erremailMsg=1&email={$_POST["m_email"]}");
   }elseif(empty($_POST["m_username"])){
-    alert('請輸入帳號');
+    header("Location: join.php?errnullusernameMsg=1");
+  }elseif(empty($_POST["m_email"])){
+    header("Location: join.php?errnullemailMsg=1");
   }else{
   //若沒有執行新增的動作	
 		$query_insert = "INSERT INTO memberdata (m_name, m_username, m_passwd, m_sex, m_birthday, m_email, m_phone, m_address, m_jointime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())";
@@ -110,6 +112,8 @@ window.location.href='login.php';
               ?>
               已經有人使用！
               <?php 
+                }elseif($_GET["errnullusernameMsg"]=="1"){
+                  echo "請輸入帳號！";  
                 }
               ?>
             </font><br><span class="smalltext">請填入5~12個字元以內的小寫英文字母、數字、以及_ 符號。</span></p>
@@ -144,6 +148,10 @@ window.location.href='login.php';
               ?> 
               已經有人使用！
               <?php 
+                }elseif($_GET["errnullemailMsg"]=="1"){
+                  echo "請輸入信箱！";  
+                }elseif ($_GET["errnullemailMsg"] != empty($_GET["errnullemailMsg"])) {
+                  echo " ";
                 }
               ?>
             </font><br><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span></p>
