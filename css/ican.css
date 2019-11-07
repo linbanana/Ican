@@ -432,11 +432,13 @@ footer .logo-font h4{
 /*join.php*/
 .joincontent{
     text-align: center;
+    padding:unset;
 }
 
 .joincontent table{
-     text-align: left;
-     border: 2px solid #fff;
+    text-align: left;
+    border: solid 3px #fff;
+    outline: solid 2px #ffa3f3;  
 }
 
 .tbody{
@@ -450,9 +452,27 @@ footer .logo-font h4{
 }
 
 .joincontent #mlogo{
-    margin: 0px 50% 0px 50%;
+    float: right;
 }
-/*join.php table*/
+
+.tdbline #cute{
+  position: relative;
+  top:-35px;
+  left:-30px;
+  transition-property: margin-left;
+  transition-property: margin-right;
+  transition-duration: 3s;
+}
+
+.tdbline #cute:hover{
+    margin-left: calc(100% - 78%);
+    margin-right: calc(100% - 90%);
+    -moz-transform:scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);
+}
+/*join.php*/
 
 
 /*@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");*/
@@ -521,7 +541,7 @@ footer .logo-font h4{
     }   
     .header-menu.scrolldown .toggle-btn{
         color:#000;
-    }
+    }    
 /*Header*/ 
 
 /*content*/

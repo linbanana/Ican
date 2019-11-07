@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-11-02 10:08:20
+-- 產生時間： 2019-11-04 05:59:28
 -- 伺服器版本： 10.4.8-MariaDB
--- PHP 版本： 7.2.24
+-- PHP 版本： 7.2.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `ican`
+-- 資料庫： `qeqe`
 --
 
 -- --------------------------------------------------------
@@ -113,6 +113,16 @@ CREATE TABLE `rmodeldata` (
   `r_disc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- 傾印資料表的資料 `rmodeldata`
+--
+
+INSERT INTO `rmodeldata` (`r_model`, `r_price`, `r_num`, `r_disc`) VALUES
+('Single', 1000, 20, '房間有一張床，供1人入住'),
+('雙人房', 1500, 5, '房間有一張雙人床，供2人入住'),
+('三人房', 2500, 8, '房間有一張雙人床還有加一張單人床，供3人入住'),
+('三加一人房', 3000, 5, '房間有兩張雙人床，供4人入住');
+
 -- --------------------------------------------------------
 
 --
@@ -121,18 +131,20 @@ CREATE TABLE `rmodeldata` (
 
 CREATE TABLE `roomdata` (
   `r_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `r_model` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `r_model` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `r_price` int(10) NOT NULL,
+  `r_disc` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 傾印資料表的資料 `roomdata`
 --
 
-INSERT INTO `roomdata` (`r_id`, `r_model`) VALUES
-('001', 'Single'),
-('002', 'Double'),
-('003', 'Triple'),
-('004', 'Quadruple');
+INSERT INTO `roomdata` (`r_id`, `r_model`, `r_price`, `r_disc`) VALUES
+('001', 'Single', 1000, 'Single room, room has one bed for 1 perso'),
+('002', 'Double', 2000, 'Double room, room has one bed for 2 perso'),
+('003', 'Triple', 3000, 'Triple room, room has one bed for 3 perso'),
+('004', 'Quadruple', 4000, 'Quadruple room, room has one bed for 4 perso');
 
 -- --------------------------------------------------------
 
@@ -149,25 +161,15 @@ CREATE TABLE `scooterdata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 已傾印資料表的索引
+-- 傾印資料表的資料 `scooterdata`
 --
 
---
--- 資料表索引 `memberdata`
---
-ALTER TABLE `memberdata`
-  ADD PRIMARY KEY (`m_id`),
-  ADD UNIQUE KEY `m_username` (`m_username`);
-
---
--- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
---
-
---
--- 使用資料表自動遞增(AUTO_INCREMENT) `memberdata`
---
-ALTER TABLE `memberdata`
-  MODIFY `m_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+INSERT INTO `scooterdata` (`s_id`, `s_model`, `s_price`, `s_num`, `s_disc`) VALUES
+(1, 'wew001', 500, 10, 'HS1鷹眼雙大燈(車款式樣與顏色以實車為準)'),
+(2, 'www002', 350, 20, 'LEDV形光條設計搭配燻黑尾燈，顯現出豐富細膩的科技感'),
+(3, 'eee003', 240, 30, '跑車級彩晶儀表(車款式樣與顏色以實車為準)'),
+(4, 'eed004', 630, 20, '最新BOSCH ABS 9.1MB搭載(車款式樣與顏色以實車為準)'),
+(5, 'sdd005', 200, 30, '後輪單缸卡鉗(車款式樣與顏色以實車為準)');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
