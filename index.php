@@ -80,7 +80,7 @@
                 <a href="#">關於我們</a>
                 <a href="#">聯絡我們</a>
                 <a href="#">線上訂房</a>
-                <a href="#">會員登入</a>
+                <a href="join.php">會員登入</a>
             </div>
         </div>
     </header>
