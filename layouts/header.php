@@ -18,7 +18,7 @@
         <div class="header-menu">
             <div class="container">
                 <div class="logo">
-                    <img src="images/logo.png" alt="com.logo">
+                    <img src="images/logo.png">
                 </div>
                 <div class="menu">
                     <a href="#">最新消息</a>
@@ -37,7 +37,7 @@
         
         <div id="sidebar">
             <div class="logo">
-                <img src="images/logo.gif" alt="com.logo">
+                <img src="images/logo.png">
             </div>
             <div class="closebtn">
                 <i class="fa fa-times" aria-hidden="true"></i>

@@ -3,7 +3,7 @@
         <div class="container">
             <div class="logo">
                 <div class="logo-img">
-                    <img src="images/logo.gif">
+                    <img src="images/logo.png">
                 </div>
                 <div class="logo-font">
                     <h3>I Can</h3>
