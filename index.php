@@ -68,7 +68,7 @@
         
         <div id="sidebar">
             <div class="logo">
-                <img src="images/logo.gif" alt="com.logo">
+                <img src="images/logo.png">
             </div>
             <div class="closebtn">
                 <i class="fa fa-times" aria-hidden="true"></i>
@@ -166,12 +166,8 @@
         <div class="container">
             <div class="logo">
                 <div class="logo-img">
-                    <img src="images/logo.gif">
-                </div>
-                <div class="logo-font">
-                    <h3>I Can</h3>
-                    <h4>大飯店</h4>
-                </div>
+                    <img src="images/logo.png">
+                </div>             
             </div>
             
             <div class="contact-info">
@@ -215,17 +211,17 @@
                 e.preventDefault();
             });
 
-            $('#BackTop').click(function(){ 
+            $('#back-to-top').click(function(){ 
                 $('html,body').animate({scrollTop:0}, 333);
             });
 
             /*判斷輪軸往下後header-menu變色*/
             $(window).scroll(function() {
                 if ( $(this).scrollTop() > 300 ){
-                    $('#BackTop').fadeIn(222);
+                    $('#back-to-top').fadeIn(222);
                     $('.header-menu').addClass('scrolldown');
                 } else {
-                    $('#BackTop').stop().fadeOut(222);
+                    $('#back-to-top').stop().fadeOut(222);
                     $('.header-menu').removeClass('scrolldown');
                 }
             }).scroll();

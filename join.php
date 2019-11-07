@@ -25,9 +25,12 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
     header("Location: join.php?errusernameMsg=1&username={$_POST["m_username"]}");
 	}elseif ($RecFindemail->num_rows>0) {
     header("Location: join.php?erremailMsg=1&email={$_POST["m_email"]}");
-  }
-  else{
-	//若沒有執行新增的動作	
+  }elseif(empty($_POST["m_username"])){
+    header("Location: join.php?errnullusernameMsg=1");
+  }elseif(empty($_POST["m_email"])){
+    header("Location: join.php?errnullemailMsg=1");
+  }else{
+  //若沒有執行新增的動作	
 		$query_insert = "INSERT INTO memberdata (m_name, m_username, m_passwd, m_sex, m_birthday, m_email, m_phone, m_address, m_jointime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 		$stmt = $db_link->prepare($query_insert);
 		$stmt->bind_param("ssssssss", 
@@ -81,7 +84,10 @@ window.location.href='login.php';
 <?php }?>
 <table width="780" border="0" align="center" cellpadding="4" cellspacing="0">
   <tr>
-    <td class="tdbline"><img src="images/mlogo.png" id="mlogo" alt="會員系統" width="164" height="67"></td>
+    <td class="tdbline">
+      <img src="images/cute.png" id="cute"  title="忍法~影分身之術" width="164" height="67">
+      <img src="images/mlogo.png" id="mlogo" alt="會員系統" width="164" height="67">
+    </td>
   </tr>
   <tr>
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
@@ -91,6 +97,9 @@ window.location.href='login.php';
           <div class="dataDiv">
             <hr size="1" />
             <p class="heading">帳號資料</p>
+            <p>
+              <font color="#FF0000">*</font> 表示為<font color="#FF0000">必填</font>的欄位
+            </p>
             <p><strong>使用帳號</strong>：
             <input name="m_username" type="text" class="normalinput" id="m_username">
             <font color="#FF0000">*              
@@ -103,6 +112,8 @@ window.location.href='login.php';
               ?>
               已經有人使用！
               <?php 
+                }elseif($_GET["errnullusernameMsg"]=="1"){
+                  echo "請輸入帳號！";  
                 }
               ?>
             </font><br><span class="smalltext">請填入5~12個字元以內的小寫英文字母、數字、以及_ 符號。</span></p>
@@ -137,6 +148,10 @@ window.location.href='login.php';
               ?> 
               已經有人使用！
               <?php 
+                }elseif($_GET["errnullemailMsg"]=="1"){
+                  echo "請輸入信箱！";  
+                }elseif ($_GET["errnullemailMsg"] != empty($_GET["errnullemailMsg"])) {
+                  echo " ";
                 }
               ?>
             </font><br><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span></p>
@@ -146,20 +161,18 @@ window.location.href='login.php';
             <p><strong>電　　話</strong>：
             <input name="m_phone" type="text" class="normalinput" id="m_phone"></p>
             <p><strong>住　　址</strong>：
-            <input name="m_address" type="text" class="normalinput" id="m_address" size="40"></p>
-            <p> <font color="#FF0000">*</font> 表示為必填的欄位</p>
+            <input name="m_address" type="text" class="normalinput" id="m_address" size="40"></p>            
           </div>
           <hr size="1" />
           <p align="center">
             <input name="action" type="hidden" id="action" value="join">
-            <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="送出申請">
+            <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="送出申請" onclick="btclick()">
             <input class="btn btn-info btn-sm" type="reset" name="Submit3" value="重設資料">
             <input class="btn btn-primary btn-sm" type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
           </p>
-        </form></td>
-        <td width="200">     
+        </form></td>          
       </tr>
-    </table></td>
+    </table>
   </tr>
 </table>
 </div>
@@ -179,5 +192,13 @@ window.location.href='login.php';
     <!-- w3 js -->
     <script>w3.includeHTML();</script>
     <!-- w3 js -->
+
+    <script type="text/javascript">
+function btclick(){
+    if (!((document.getElementById("np").value).match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}$/))){
+        alert( "your password : "+document.getElementById("np").value );
+    }
+}
+</script>
 </body>
 </html>
