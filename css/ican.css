@@ -722,3 +722,9 @@ footer .logo-font h4{
         color: rgb(255, 187, 0);
     }
 /*Footer*/
+
+/*join.php*/
+    .joincontent table{
+       width: 375px;
+    }
+}

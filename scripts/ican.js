@@ -1,31 +1,32 @@
-        (function(){
-            /*漢堡選單開跟關Sidebar/On/Off*/
-            var bodyEl = $('body');
-            $(".toggle-btn").on('click', function(e) {
-                bodyEl.toggleClass('active-nav');
-                e.preventDefault();
-            });
-            $(".closebtn").on('click', function(e) {
-                bodyEl.toggleClass('active-nav');
-                e.preventDefault();
-            });
+/*header*/
+(function(){
+    /*漢堡選單開跟關Sidebar/On/Off*/
+    var bodyEl = $('body');
+    $(".toggle-btn").on('click', function(e) {
+        bodyEl.toggleClass('active-nav');
+        e.preventDefault();
+    });
+    $(".closebtn").on('click', function(e) {
+        bodyEl.toggleClass('active-nav');
+        e.preventDefault();
+    });
 
-            $('#back-to-top').click(function(){ 
-                $('html,body').animate({scrollTop:0}, 333);
-            });
+    $('#back-to-top').click(function(){ 
+        $('html,body').animate({scrollTop:0}, 333);
+    });
 
-            /*判斷輪軸往下後header-menu變色*/
-            $(window).scroll(function() {
-                if ( $(this).scrollTop() > 300 ){
-                    $('#back-to-top').fadeIn(222);
-                    $('.header-menu').addClass('scrolldown');
-                } else {
-                    $('#back-to-top').stop().fadeOut(222);
-                    $('.header-menu').removeClass('scrolldown');
-                }
-            }).scroll();            
-        })();
-
+    /*判斷輪軸往下後header-menu變色*/
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 300 ){
+            $('#back-to-top').fadeIn(222);
+            $('.header-menu').addClass('scrolldown');
+        } else {
+            $('#back-to-top').stop().fadeOut(222);
+            $('.header-menu').removeClass('scrolldown');
+        }
+    }).scroll();            
+})();
+/*header*/
 
 /*join.php*/
  function checkForm(){
@@ -76,6 +77,12 @@
     if(!checkmail(document.formJoin.m_email)){
         document.formJoin.m_email.focus();
         return false;}
+    if(!checkphone(document.formJoin.m_phone)){
+        document.formJoin.m_phone.focus();
+        return false;}
+    if(!checkbirthday(document.formJoin.m_birthday)){
+    document.formJoin.m_birthday.focus();
+    return false;}          
     return confirm('確定送出嗎？');
 }
 function check_passwd(pw1,pw2){
@@ -101,5 +108,20 @@ function checkmail(myEmail) {
         return true;}
     alert("電子郵件格式不正確");
     return false;
+}
+
+function checkphone(myphone) {
+    var phonenum =/(^[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{3}$)/
+    if(phonenum.test(myphone.value)){
+        return true;
+    }
+    alert("手機號碼格式不正確");
+    return false;
+}
+
+function checkbirthday(mybirthday){
+    var birthday = /(^[1900-2055]{4})+\-([01-12]{2})+\-([01-31]{2})/
+    alert("生日格式不正確")
+    return false; 
 }
 /*join.php*/

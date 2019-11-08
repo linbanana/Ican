@@ -49,25 +49,22 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
 <!DOCTYPE html>
 <html lang="zh-tw">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<!-- 環境建置 -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-	<link href="css/bootstrap.min.css" rel="stylesheet" />
-	<link href="css/ican.css" rel="stylesheet" />
-	<!-- 環境建置 -->
-	<!-- w3 js -->
-	<script src="scripts/w3.js"></script>
-	<!-- w3 js -->
-	<title>ican</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 環境建置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/ican.css" rel="stylesheet" />
+    <!-- 環境建置 -->
+    <title>ican</title>
 </head>
 <body>
-  <script language="javascript">
-    alert('1、請提供您本人正確、最新及完整的資料。\n\n2、 在欄位後方出現「*」符號表示為必填的欄位。\n\n3、填寫時請您遵守各個欄位後方的補助說明。\n\n4、關於您的會員註冊以及其他特定資料，本系統不會向任何人出售或出借你所填寫的個人資料。\n\n5、在註冊成功後，除了「使用帳號」外您可以在會員專區內修改您所填寫的個人資料。');     
-    </script>
-	<!-- header --> 
-  	<div w3-include-html="layouts/header.php"></div>
+
+    <?php
+        include("layouts/header.php");
+    ?> 
 
 <div class="joincontent">
     <h3 id="ican-logo">I Can</h3>
@@ -168,20 +165,30 @@ window.location.href='login.php';
 </table>
 </div>
 
-    <!-- Footer -->
-    <div w3-include-html="layouts/footer.php"></div>
-    <!-- Footer -->
-
+    <?php
+        include("layouts/footer.php");
+    ?>
+        
     <!-- 環境建置 -->
     <script src="scripts/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="scripts/umd/popper.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/ican.js"></script>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
-    <!-- w3 js -->
-    <script>w3.includeHTML();</script>
-    <!-- w3 js -->
 </body>
 </html>
+
+/*  <?php
+//(^[1900~2100]{4})
+  $str="1999-08-06";
+  if(preg_match("/^[1-2]\\d{3}-(0?[1-9]||1[0-2])-(0?[1-9]||[1-2][1-9]||3[0-1])$/",$str)){
+    echo "驗證成功".$str;
+ 
+  }else{
+    echo "驗證失敗";
+  }
+
+  ?>*/

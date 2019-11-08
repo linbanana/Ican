@@ -2,88 +2,22 @@
 <html lang="zh-tw">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 環境建置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/ican.css" rel="stylesheet" />
-    <title>I CAN</title>
-
-    <style>
-        /*@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");*/
-        @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
-        @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900|Lobster&display=swap');
-        *{
-            padding: 0;
-            margin: 0;
-            font-family: 'Noto Sans TC', sans-serif;
-        }
-        body{
-            background-color: #FFEBC2;
-            transition: transform .5 ease;
-        }              
-
-    }
-</style>
+    <!-- 環境建置 -->
+    <title>ican</title>
 </head>
 <body>
-    <header>
-        <!--背景輪播Carousel-->
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://picsum.photos/900/500/?random=1" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://picsum.photos/900/500/?random=2" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://picsum.photos/900/500/?random=3" class="d-block w-100" alt="...">
-                </div>
-            </div>
-        </div>
-        <!--Logo跟選單-->
-        
-        <div class="header-menu">
-            <div class="container">
-                <div class="logo">
-                    <img src="images/logo.png" alt="logo">
-                </div>
-                <div class="menu">
-                    <a href="#">最新消息</a>
-                    <a href="#">客房介紹</a>
-                    <a href="#">關於我們</a>
-                    <a href="#">聯絡我們</a>
-                    <a href="#">線上訂房</a>
-                    <a href="#">會員登入</a>
-                </div>
-            </div>
-            <div class="toggle-btn"><i class="fa fa-bars"></i></div>
-        </div>
-        
-        <!--側邊選單Sidebar-->
-        
-        
-        <div id="sidebar">
-            <div class="logo">
-                <img src="images/logo.gif" alt="com.logo">
-            </div>
-            <div class="closebtn">
-                <i class="fa fa-times" aria-hidden="true"></i>
-            </div>
-            
-            <div class="side-nav">
-                <a href="#">最新消息</a>
-                <a href="#">客房介紹</a>
-                <a href="#">關於我們</a>
-                <a href="#">聯絡我們</a>
-                <a href="#">線上訂房</a>
-                <a href="join.php">會員登入</a>
-            </div>
-        </div>
-    </header>
+
+    <?php
+        include("layouts/header.php");
+    ?>
+ 
 
     <div class="content">
         <!--Content部分(未改)-->
@@ -161,84 +95,18 @@
         </div>
     </div>
     
-    <!--Footer部分(未改)-->    
-    <footer>
-        <div class="container">
-            <div class="logo">
-                <div class="logo-img">
-                    <img src="images/logo.gif">
-                </div>
-                <div class="logo-font">
-                    <h3>I Can</h3>
-                    <h4>大飯店</h4>
-                </div>
-            </div>
-            
-            <div class="contact-info">
-                <div class="item">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <p>地址:</p><p>80144高雄市民生二路202號</p>
-                </div>
-                <div class="item">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    <p>電話:</p><p>(07)1234567</p>
-                </div>
-                <div class="item">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                    <p>E-mail:</p><p>qaz1234567@gmail.com</p>
-                </div>
-            </div>
-            <div class="social-link">
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            </div>
-        </div>
+    <?php
+        include("layouts/footer.php");
+    ?>
         
-        <a id="back-to-top" href="" class="btn btn-primary btn-lg back-to-top fa fa-angle-up" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
-            <span class="glyphicon glyphicon-chevron-up"></span>
-        </a>
-        
-    </footer>
+    <!-- 環境建置 -->
+    <script src="scripts/jquery-3.4.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        
-        (function(){
-            /*漢堡選單開跟關Sidebar/On/Off*/
-            var bodyEl = $('body');
-            $(".toggle-btn").on('click', function(e) {
-                bodyEl.toggleClass('active-nav');
-                e.preventDefault();
-            });
-            $(".closebtn").on('click', function(e) {
-                bodyEl.toggleClass('active-nav');
-                e.preventDefault();
-            });
-
-            $('#BackTop').click(function(){ 
-                $('html,body').animate({scrollTop:0}, 333);
-            });
-
-            /*判斷輪軸往下後header-menu變色*/
-            $(window).scroll(function() {
-                if ( $(this).scrollTop() > 300 ){
-                    $('#BackTop').fadeIn(222);
-                    $('.header-menu').addClass('scrolldown');
-                } else {
-                    $('#BackTop').stop().fadeOut(222);
-                    $('.header-menu').removeClass('scrolldown');
-                }
-            }).scroll();            
-        })();
-
-
-    </script>        
-    
-
-
-
-    
-
-
+    <script src="scripts/umd/popper.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/ican.js"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
+    <!-- 環境建置 -->
 </body>
 </html>
