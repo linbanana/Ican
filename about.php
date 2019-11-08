@@ -17,22 +17,22 @@
 <body>
   <style>
 /*about.php*/
-.about{
+.aboutcontent{
     text-align: center;
 }
 
-.about .container{
+.aboutcontent .container{
     padding: 40px;
     border-bottom: 1px solid rgb(226, 182, 94);
 }
 
-.about .container title{
+.aboutcontent .container title{
     padding: 40px;
     font-size: 27px;
     text-align: center;
 }
 
-.about .container p{
+.aboutcontent .container p{
     padding: 10px;
     font-size: 12px;
     font-weight: 300;
@@ -44,7 +44,7 @@
 	<!-- header --> 
   	<div w3-include-html="layouts/header.php"></div>
     <!-- header -->
-    <div class="about" >
+    <div class="aboutcontent" >
 	   <div class="container">
          <h3 class="title"><strong>關於我們</strong></h3><br/>
 			
