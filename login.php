@@ -75,6 +75,7 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
 <body class="text-center">
     <div class="loginpage">
         <div class="regbox">
+        <img src="images/logo.png" id="logo" alt="會員系統">   
         <p>登入會員系統</p>
         <form name="form1" method="post" action="">
             <p>帳號：

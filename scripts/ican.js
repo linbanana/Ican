@@ -1,33 +1,3 @@
-/*header*/
-(function(){
-    /*漢堡選單開跟關Sidebar/On/Off*/
-    var bodyEl = $('body');
-    $(".toggle-btn").on('click', function(e) {
-        bodyEl.toggleClass('active-nav');
-        e.preventDefault();
-    });
-    $(".closebtn").on('click', function(e) {
-        bodyEl.toggleClass('active-nav');
-        e.preventDefault();
-    });
-
-    $('#back-to-top').click(function(){ 
-        $('html,body').animate({scrollTop:0}, 333);
-    });
-
-    /*判斷輪軸往下後header-menu變色*/
-    $(window).scroll(function() {
-        if ( $(this).scrollTop() > 300 ){
-            $('#back-to-top').fadeIn(222);
-            $('.header-menu').addClass('scrolldown');
-        } else {
-            $('#back-to-top').stop().fadeOut(222);
-            $('.header-menu').removeClass('scrolldown');
-        }
-    }).scroll();            
-})();
-/*header*/
-
 /*join.php*/
  function checkForm(){
     if(document.formJoin.m_username.value==""){     
@@ -118,6 +88,49 @@ function checkphone(myphone) {
     alert("手機號碼格式不正確");
     return false;
 }
-
-
 /*join.php*/
+
+/*header*/
+(function(){
+    /*漢堡選單開跟關Sidebar/On/Off*/
+    var bodyEl = $('body');
+    $(".toggle-btn").on('click', function(e) {
+        bodyEl.toggleClass('active-nav');
+        e.preventDefault();
+    });
+    $(".closebtn").on('click', function(e) {
+        bodyEl.toggleClass('active-nav');
+        e.preventDefault();
+    });
+
+    $('#back-to-top').click(function(){ 
+        $('html,body').animate({scrollTop:0}, 333);
+    });
+
+    /*判斷輪軸往下後header-menu變色*/
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 300 ){
+            $('#back-to-top').fadeIn(222);
+            $('.header-menu').addClass('scrolldown');
+        } else {
+            $('#back-to-top').stop().fadeOut(222);
+            $('.header-menu').removeClass('scrolldown');
+        }
+    }).scroll();            
+})();
+/*header*/
+
+/*footer*/
+/*時間自動更新*/
+$('#date').datetimepicker({
+    format: 'yyyy-mm-dd',
+    weekStart: 1,
+    todayBtn:  true,
+    autoclose: true,
+    todayHighlight: true,
+    startView: 2,
+    minView: 2,
+    forceParse: 0,
+    locale:moment.locale('zh-tw'),
+});
+/*footer*/

@@ -21,7 +21,7 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
   $query_RecFindemail = "SELECT m_email FROM memberdata WHERE m_email='{$_POST["m_email"]}'";
 	$RecFindUser=$db_link->query($query_RecFindUser);
   $RecFindemail=$db_link->query($query_RecFindemail);
-	if ($RecFindUser->num_rows>0){    
+	if ($RecFindUser->num_rows>0 || $_POST["m_username"]=""){    
     header("Location: join.php?errusernameMsg=1&username={$_POST["m_username"]}");
 	}elseif ($RecFindemail->num_rows>0) {
     header("Location: join.php?erremailMsg=1&email={$_POST["m_email"]}");
@@ -57,9 +57,6 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/ican.css" rel="stylesheet" />
-    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" rel="stylesheet" />
-
     <!-- 環境建置 -->
     <title>ican</title>
 </head>
@@ -170,8 +167,8 @@ window.location.href='login.php';
     ?>
         
     <!-- 環境建置 -->
-    <script src="scripts/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="scripts/umd/popper.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/ican.js"></script>
@@ -179,17 +176,7 @@ window.location.href='login.php';
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
     <script>
-    $('#date').datetimepicker({
-        format: 'yyyy-mm-dd',
-        weekStart: 1,
-        todayBtn:  true,
-        autoclose: true,
-        todayHighlight: true,
-        startView: 2,
-        minView: 2,
-        forceParse: 0
-        locale:moment.locale('zh-tw')
-    });
+
 </script>
 </body>
 </html>

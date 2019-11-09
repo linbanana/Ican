@@ -153,9 +153,10 @@ body{
 }
 #hotel-logo{
     font-size: 35px;
-    color: #000;
+    color: #fff;
     display: inline-block;
     font-weight: 700;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 .welcome p{
     padding: 10px;
@@ -278,7 +279,6 @@ body{
 
 /*Footer*/
 footer {
-    padding: 100px 0;
     color: #fff;
     text-align: center;
     background-color: #456;
@@ -286,6 +286,8 @@ footer {
 }
 footer .logo{
     text-align: left;
+    padding-bottom: 50px;
+    margin: 50px 30px 30px 30px;
 }
 footer .logo-img{
     width: 12rem;
@@ -313,13 +315,12 @@ footer .logo-font h4{
     font-weight: 700;
 }
 .contact-info{
-    display: block;
-    margin: 20px;
+    margin: 50px 30px 30px 30px;
+    text-align: left;
 }
 .contact-info i{
     display: inline-block;
     color: #fff;
-    padding: 5px 10px;
     font-size: 20px;
 }
 .contact-info p{
@@ -327,7 +328,9 @@ footer .logo-font h4{
     font-size: 20px;
 }
 .social-link{
-    text-align: right;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 50px 30px 30px 30px;
 }
 .social-link a{
     color: #fff;
@@ -399,6 +402,13 @@ footer .logo-font h4{
 
 .regbox a:hover{
 	color: #007bff;
+}
+
+#logo{
+    width: 150px;
+    height: 60px;
+    vertical-align: middle;/*置中對齊*/
+    justify-content:center;/*置中對齊*/
 }
 
 .loginbtn {
@@ -554,9 +564,10 @@ footer .logo-font h4{
     }
     #hotel-logo{
         font-size: 25px;
-        color: #000;
+        color: #fff;
         display: inline-block;
         font-weight: 700;
+        text-shadow: -1px 0 #ff0000, 0 1px #ff0000, 1px 0 #ff0000, 0 -1px #ff0000;
     }
     .welcome p{
         padding: 10px;
@@ -672,11 +683,12 @@ footer .logo-font h4{
         padding: 50px 0;
     }
     footer .logo{
-        text-align: center;
+        text-align: left;
+        font-size: 16px;
     }
 
     footer .logo-img{
-        width: 50px;
+        width: 100px;
     }
 
     footer .logo-font h3{
@@ -688,14 +700,12 @@ footer .logo-font h4{
     }
 
     .contact-info{
-        display: block;
-        margin: 30px;
+        margin: 50px 30px 30px 30px;
     }
 
     .contact-info i{
         display: inline-block;
         color: #fff;
-        padding: 5px 10px;
         font-size: 16px;
     }
 
@@ -725,6 +735,18 @@ footer .logo-font h4{
 
 /*join.php*/
     .joincontent table{
-       width: 375px;
+           width: 375px;
+        }
+    .tdbline #cute{
+      position: relative;
+      top:-25px;
+      left:-10px;
+      transition-property: margin-left;
+      transition-property: margin-right;
+      transition-duration: 3s;
     }
+/*join.php*/
+
+
+
 }
