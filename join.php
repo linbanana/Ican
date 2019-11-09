@@ -83,7 +83,7 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
     <?php 
         }
     ?>
-<table id="jointable" width="780" border="0" align="center" cellpadding="4" cellspacing="0">
+<table id="jointable" width="65%" border="0" align="center" cellpadding="4" cellspacing="0">
   <tr>
     <td class="tdbline">
       <img src="images/cute.png" id="cute"  title="忍法~影分身之術" width="164" height="67">
@@ -197,8 +197,5 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
-    <script>
-
-</script>
 </body>
 </html>

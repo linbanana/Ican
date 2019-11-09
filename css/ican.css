@@ -9,7 +9,7 @@ body{
 }
 
 /*index.php*/
-/*Header*/   
+/*header*/   
 
     .carousel{
         margin-bottom: 3em;
@@ -130,7 +130,7 @@ body{
     }
     /*Sidebar*/
 
-/*Header*/
+/*header*/
 
 /*Content*/    
 
@@ -277,7 +277,7 @@ body{
 }
 /*Content*/ 
 
-/*Footer*/
+/*footer*/
 footer {
     color: #fff;
     text-align: center;
@@ -352,8 +352,8 @@ footer .logo-font h4{
     border-radius: 50%;
 }
 
-/*Footer*/
-
+/*footer*/
+/*index.php*/
 
 
 /*login.php*/
@@ -371,7 +371,7 @@ footer .logo-font h4{
 	min-height: 30px;
 }
 
-.regbox {	
+.regbox {
 	border: 3px solid #ff4570;
 	border-radius: 10%;
 	color: #ff8fcb;
@@ -530,7 +530,7 @@ footer .logo-font h4{
 }
 
 @media screen and (max-width: 840px) {
-/*Header*/ 
+/*header*/ 
     .header-menu .menu{
         display: none;
     }
@@ -553,7 +553,7 @@ footer .logo-font h4{
     .header-menu.scrolldown .toggle-btn{
         color:#000;
     }    
-/*Header*/ 
+/*header*/ 
 
 /*content*/
     #ican-logo{
@@ -603,7 +603,7 @@ footer .logo-font h4{
         bottom: 10px;
     }
 /*Content*/
-/*Footer*/
+/*footer*/
     footer .logo-img{
         width: 80px;
     }
@@ -613,7 +613,7 @@ footer .logo-font h4{
     footer .logo-font h4{
         font-size: 25px;
     }
-/*Footer*/
+/*footer*/
 }
 @media screen and (max-width: 650px) {  
     .header-menu .logo{
@@ -679,7 +679,7 @@ footer .logo-font h4{
     }    
 /*Content*/ 
 
-/*Footer*/
+/*footer*/
     footer {
         padding: 50px 0;
     }
@@ -723,8 +723,7 @@ footer .logo-font h4{
         color: #fff;
         font-size: 20px;
         padding: 5px 10px;
-        margin: 10px;
-        
+        margin: 10px;        
         text-decoration: none;
         
     }
@@ -732,7 +731,7 @@ footer .logo-font h4{
     .social-link a:hover{
         color: rgb(255, 187, 0);
     }
-/*Footer*/
+/*footer*/
 
 /*join.php*/
     .joincontent table{
