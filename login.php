@@ -96,7 +96,7 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
         <hr size="1" />
         <h4>還沒有會員帳號?</p>
         <h4>註冊帳號免費又容易</p>
-        <p align="right"><a href="member_join.php">馬上申請會員</a></p>
+        <p align="right"><a href="join.php">馬上申請會員</a></p>
         </div>
     </div>
 </body>
