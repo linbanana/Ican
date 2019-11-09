@@ -3,7 +3,31 @@
         <div class="container">
             <div class="logo">
                 <div class="logo-img">
-                    <img src="images/logo.png">
+                    <img src="images/logo.png"><br>
+                    <?php
+                        date_default_timezone_set("Asia/Taipei");
+                        echo '台灣時間：<div id="time">台灣時間：</div>
+            <script type="text/javascript">
+                var dayNames = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+                    function get_obj(time){
+                        return document.getElementById(time);
+                    }
+                    var ts='.(round(microtime(true)*1000)).';
+                    function getTime(){
+                        var t=new Date(ts);
+                        with(t){
+                            var _time=""+getFullYear()+"-" + (getMonth()+1)+"-"+getDate()+" " + (getHours()<10 ? "0" :"") + getHours() + ":" + (getMinutes()<10 ? "0" :"") + getMinutes() + ":" + (getSeconds()<10 ? "0" :"") + getSeconds() + " " + dayNames[t.getDay()];
+                        }
+                        get_obj("time").innerHTML=_time;
+                        setTimeout("getTime()",1000);
+                        ts+=1000;
+                    }
+                    getTime();
+            </script>';
+                    ?>
+
+
+                   
                 </div>
                 <div class="logo-font">
                     <h3>I Can</h3>
@@ -23,6 +47,9 @@
                 <div class="item">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
                     <p>E-mail:</p><p>qaz1234567@gmail.com</p>
+                </div>
+                <div class="item">
+                    <p>Copyright © 2019 - <?php echo date("Y")?> by ican開發團隊</p>
                 </div>
             </div>
             <div class="social-link">

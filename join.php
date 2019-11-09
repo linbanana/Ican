@@ -57,6 +57,9 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/ican.css" rel="stylesheet" />
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" rel="stylesheet" />
+
     <!-- 環境建置 -->
     <title>ican</title>
 </head>
@@ -75,7 +78,7 @@ alert('會員新增成功\n請用申請的帳號密碼登入。');
 window.location.href='login.php';		  
 </script>
 <?php }?>
-<table width="780" border="0" align="center" cellpadding="4" cellspacing="0">
+<table id="jointable" width="780" border="0" align="center" cellpadding="4" cellspacing="0">
   <tr>
     <td class="tdbline">
       <img src="images/cute.png" id="cute"  title="忍法~影分身之術" width="164" height="67">
@@ -107,7 +110,7 @@ window.location.href='login.php';
               <?php 
                 }
               ?>
-            </font><br>
+            </font>
             <span class="smalltext">請填入6~12個字元以內的小寫英文字母、數字、以及_ 符號。</span></p>
             <p><strong>密碼</strong>：
             <input name="m_passwd" type="password" class="normalinput" id="m_passwd">
@@ -125,7 +128,7 @@ window.location.href='login.php';
             <input name="m_sex" type="radio" value="男">男
             <font color="#FF0000">*</font></p>
             <p><strong>生　　日</strong>：
-            <input name="m_birthday" type="text" class="normalinput" id="m_birthday">
+            <input name="m_birthday" type="date" class="normalinput" id="m_birthday">
             <font color="#FF0000">*</font> <br>
             <span class="smalltext">為西元格式(YYYY-MM-DD)。</span></p>
             <p><strong>電子郵件</strong>：
@@ -143,9 +146,6 @@ window.location.href='login.php';
                 }
               ?>
             </font><br><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span></p>
-            <p><strong>個人網頁</strong>：
-            <input name="m_url" type="text" class="normalinput" id="m_url">
-            <br><span class="smalltext">請以「http://」 為開頭。</span></p>
             <p><strong>電　　話</strong>：
             <input name="m_phone" type="text" class="normalinput" id="m_phone"></p>
             <p><strong>住　　址</strong>：
@@ -178,17 +178,18 @@ window.location.href='login.php';
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
+    <script>
+    $('#date').datetimepicker({
+        format: 'yyyy-mm-dd',
+        weekStart: 1,
+        todayBtn:  true,
+        autoclose: true,
+        todayHighlight: true,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+        locale:moment.locale('zh-tw')
+    });
+</script>
 </body>
 </html>
-
-/*  <?php
-//(^[1900~2100]{4})
-  $str="1999-08-06";
-  if(preg_match("/^[1-2]\\d{3}-(0?[1-9]||1[0-2])-(0?[1-9]||[1-2][1-9]||3[0-1])$/",$str)){
-    echo "驗證成功".$str;
- 
-  }else{
-    echo "驗證失敗";
-  }
-
-  ?>*/

@@ -119,9 +119,5 @@ function checkphone(myphone) {
     return false;
 }
 
-function checkbirthday(mybirthday){
-    var birthday = /(^[1900-2055]{4})+\-([01-12]{2})+\-([01-31]{2})/
-    alert("生日格式不正確")
-    return false; 
-}
+
 /*join.php*/

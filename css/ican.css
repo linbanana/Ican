@@ -435,7 +435,7 @@ footer .logo-font h4{
     padding:unset;
 }
 
-.joincontent table{
+.joincontent #jointable{
     text-align: left;
     border: solid 3px #fff;
     outline: solid 2px #ffa3f3;  
