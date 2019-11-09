@@ -90,6 +90,14 @@ function checkphone(myphone) {
 }
 /*join.php*/
 
+/*admin*/
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+ }
+)
+/*admin*/
+
 /*header*/
 (function(){
     /*漢堡選單開跟關Sidebar/On/Off*/

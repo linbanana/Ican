@@ -485,6 +485,120 @@ footer .logo-font h4{
 }
 /*join.php*/
 
+/*admin.php*/
+#sidebar-wrapper {
+    min-height: 100vh;
+    min-width: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+    #sidebar-wrapper .sidebar-heading {
+        font-size: 2.5rem;
+        padding: 0px;
+        text-align: center;
+        background-color: #ff75b1;
+        border: #ff0000 3px solid;
+    }
+
+    #sidebar-wrapper .list-group {
+        width: 15rem;
+    }
+
+.sidebar-heading{
+    width: 240px;
+}
+
+.sidebar-heading img{
+    width: 240px;
+}
+
+.list-group-item {
+    overflow: hidden;
+    border: 2px solid #ff75b1;
+}
+/*選單滑鼠滑入按鈕*/
+#sidebar-wrapper .list-group-item:hover{
+    background-color: #ffd800;
+    color: #0026ff;
+    border: #ff0000 2px solid;
+    text-decoration: underline;
+    text-decoration-color: #000;
+}
+
+.sidebar- footer {
+    display: flex;
+    flex-direction: column;
+    text-align: bottom;
+}
+
+ul { /*取消ul預設的內縮及樣式*/
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    ul.list-group li {
+        position: relative;
+        white-space: nowrap;
+        border-color: #ccc 2px solid;
+    }
+
+
+
+    ul.list-group a {
+        background-color: #000000;
+        color: #ffd800;
+        display: block;        
+    }
+
+    /*改變次選單位置*/ /*/#
+    ul.list-group ul {
+        border: #ccc 2px solid;
+        position: absolute;
+        z-index: 999;
+        top: 0%;
+        left: 100%;
+    }
+    /*改變次選單位置*/
+
+
+    ul.list-group ul li {
+        border-bottom: #ccc 2px solid;
+        text-align: right;
+    }
+
+        ul.list-group ul li:last-child {
+            border-bottom: none;
+        }
+
+    ul.list-group ul ul { /*第三層以後的選單出現位置與第二層不同*/
+        position: absolute;
+        z-index: 999;
+        top: 10%;
+        left: 100%;
+    }
+
+
+    ul.list-group ul { /*隱藏次選單*/
+        display: none;
+    }
+
+    ul.list-group li:hover > ul { /* 滑鼠滑入展開次選單+顏色區分*/
+        display: block;
+        border: #0026ff 5px solid;
+        border-bottom-style: double;
+    }
+
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0rem;
+}
+/*admin.php*/
+
 
 /*@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");*/
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
@@ -747,6 +861,8 @@ footer .logo-font h4{
     }
 /*join.php*/
 
-
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+}
 
 }
