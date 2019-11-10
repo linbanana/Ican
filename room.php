@@ -20,24 +20,27 @@
             font-family: 'Noto Sans TC', sans-serif;
         }
         body{
-            background-color: #000;
+            background-color: #FFEBC2;
+        }
+        .room_info{
+            margin:100px 0;
         }
         .room_info h1{
             font-size: 40px;
             text-align: center;
-            color:#fff;
+            color:#000;
         }
         .room_info .container{
             max-width: 1200px;
-            width: 85%;
+            width: 90%;
             margin: auto;
         }
         .room_menu{
             text-align: center;
             padding: 30px 0;
-            border-bottom: 1px solid #fff;
+            border-bottom: 1px solid rgb(226, 182, 94);
         }
-        .room_menu a{
+        .room_menu button{
             display:inline-block;
             width:150px;
             padding: 10px 0;
@@ -45,24 +48,34 @@
             margin: 10px 30px;
             text-decoration: none;
             text-align: center;
-            background-color: rgb(64, 69, 100);
-            color: rgb(0, 148, 74);
+            background-color: #DAF7A6;
+            color: #0160F2;
+            border: none;
         }
-        .room_menu a:hover{
-            background-color: rgb(0, 148, 74);
+        .room_menu button:hover{
+            background-color: #0160F2;
             color: #fff;
         }
+        .room_menu .room-active{
+            background-color: #0160F2;
+            color: #fff;
+        }
+
         .room_info .info{
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 30px 0;
+            justify-content: center;
+            margin: 50px auto 0;
         }
         .room_info .room-type{
             width: 300px;
             margin: 20px;
             position: relative;
             overflow:hidden;
+            display: none;
+        }
+        .room_info .room-type.show{
+            display: inline-block;
         }
         .room_info .room-type img{
             width: 100%;
@@ -79,24 +92,21 @@
             bottom: 0;
             left : 0;
             right: 0;
-            padding: 30px;
+            padding: 50px 30px;
             background-color: rgba(0, 0, 0, .6);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            text-align: center;
             opacity: 0;
         }
         .room_info .room-type:hover .txt{
             opacity: 1;
         }
-        .room_info .room-type .txt p{
+        .room_info .room-type .txt h3{
             text-align: center;
             font-size: 24px;
             font-weight: 700;
             color: #fff;
-            
         }
-        .room-type p:after{
+        .room-type h3:after{
             content: '';
             display: block;
             width: 0%;
@@ -105,28 +115,73 @@
             background-color: #ff0;
             transition: width .3s .3s;
         }
-        .room-type:hover p::after{
+        .room-type:hover h3::after{
             width: 100%;
         }
-        .room_info .room-type .txt h3{
+        .room_info .room-type .txt p{
             text-align: center;
             font-size: 18px;
-            color: #fff;
+            color: rgb(245, 0, 245);
             text-decoration: underline;
             padding: 10px;
             
         }
         @media screen and (max-width: 1200px) {
             .room_info .room-type{
-                width: 230px;
+                width: 220px;
+            }
+            .room_info .room-type .txt{
+                position: relative;
+                padding: 10px 20px;
+                background-color: transparent;
+                align-items: center;
+                opacity: 1;
+            }
+            .room_info .room-type .txt h3{
+                font-size: 18px;
+                font-weight: 500;
+                color: #000;
+            }
+            .room-type h3:after{
+                display: none;
+            }
+            .room_info .room-type .txt p{
+                display: none;
             }
         }
-        @media screen and (max-width: 960px) {
-            .room_info .room-type{
-                width: 250px;
-            }
+        
+        @media screen and (max-width: 760px) {
             .room_info .info{
-                justify-content: center;
+                margin-top: 10px;
+            }
+            .room_menu{
+                border-top: 1px solid rgb(226, 182, 94);
+                border-bottom: none;
+            }
+        }
+        @media screen and (max-width: 650px) {
+            .room_info .container{
+                width: 80%;
+            }
+            .room_info h1{
+                font-size: 30px;
+            }
+            .room_menu{
+                padding: 10px 0;
+                margin: 10px 0;
+            }
+            .room_menu button{
+                display:block;
+                width:100%;
+                margin: 10px 0;
+            }
+            .room_info .room-type{
+                width:100%;
+                margin: 20px 0;
+            }
+            .room_info .room-type .txt h3{
+                font-size: 25px;
+                font-weight: 500;
             }
         }
     </style>
@@ -140,119 +195,117 @@
         <div class="container">
             <h1>客房簡介</h1>
             <div class="room_menu">
-                <nav>
-                    <a href="#">房型總覽</a>
-                    <a href="#">單人/雙人客房</a>
-                    <a href="#">四人家庭房</a>
-                    <a href="#">套房</a>
-                </nav>
+                <button class="room-active" onclick="filterSelection('all')">房型總覽</button>
+                <button onclick="filterSelection('double')">單人/雙人客房</button>
+                <button onclick="filterSelection('family')">四人家庭房</button>
+                <button onclick="filterSelection('suite')">套房</button>
             </div>
             <div class="info">
-                <div class="room-type">
+                <div class="room-type double">
                     <a href="#">
                         <img src="https://picsum.photos/400/300/?random=1">    
                         <div class="txt">                       
-                            <p>漫威主題客房</p>
-                            <h3>查看介紹</h3>
+                            <h3>漫威主題客房</h3>
+                            <p>查看介紹</p>
                         </div>
                     </a>
                 </div>
-                <div class="room-type">
+                <div class="room-type double">
                     <a href="#">
                         <img src="https://picsum.photos/400/300/?random=2">    
                         <div class="txt">                       
-                            <p>迪士尼主題客房</p>
-                            <h3>查看介紹</h3>
+                            <h3>迪士尼主題客房</h3>
+                            <p>查看介紹</p>
                         </div>
                     </a>
                 </div>
-                <div class="room-type">
+                <div class="room-type double">
                     <a href="#">
                         <img src="https://picsum.photos/400/300/?random=3">    
                         <div class="txt">                       
-                            <p>海洋世界主題客房</p>
-                            <h3>查看介紹</h3>
+                            <h3>海洋世界主題客房</h3>
+                            <p>查看介紹</p>
                         </div>
                     </a>
                 </div>
-                <div class="room-type">
+                <div class="room-type double">
                     <a href="#">
                         <img src="https://picsum.photos/400/300/?random=4">    
                         <div class="txt">                       
-                            <p>星空主題客房</p>
-                            <h3>查看介紹</h3>
+                            <h3>星空主題客房</h3>
+                            <p>查看介紹</p>
                         </div>
                     </a>
                 </div>
-                <div class="room-type">
+                <div class="room-type double">
                     <a href="#">
                         <img src="https://picsum.photos/400/300/?random=5">    
                         <div class="txt">                       
-                            <p>埃及主題客房</p>
-                            <h3>查看介紹</h3>
+                            <h3>埃及主題客房</h3>
+                            <p>查看介紹</p>
                         </div>
                     </a>
                 </div>
-                <div class="room-type">
+                <div class="room-type double">
                     <a href="#">
                         <img src="https://picsum.photos/400/300/?random=6">    
                         <div class="txt">                       
-                            <p>羅馬主題客房</p>
-                            <h3>查看介紹</h3>
+                            <h3>羅馬主題客房</h3>
+                            <p>查看介紹</p>
                         </div>
                     </a>
                 </div>
-                <div class="room-type">
+                <div class="room-type double">
                     <a href="#">
                         <img src="https://picsum.photos/400/300/?random=7">    
                         <div class="txt">                       
-                            <p>歐式客房</p>
-                            <h3>查看介紹</h3>
+                            <h3>歐式客房</h3>
+                            <p>查看介紹</p>
                         </div>
                     </a>
                 </div>
-                <div class="room-type">
+                <div class="room-type double">
                     <a href="#">
                         <img src="https://picsum.photos/400/300/?random=8">    
                         <div class="txt">                       
-                            <p>和式客房</p>
-                            <h3>查看介紹</h3>
+                            <h3>和式客房</h3>
+                            <p>查看介紹</p>
                         </div>
                     </a>
                 </div>
-                <div class="room-type">
+                <div class="room-type family">
                     <a href="#">
                         <img src="https://picsum.photos/400/300/?random=9">    
                         <div class="txt">                       
-                            <p>經濟家庭房</p>
-                            <h3>查看介紹</h3>
+                            <h3>經濟家庭房</h3>
+                            <p>查看介紹</p>
                         </div>
                     </a>
                 </div>
-                <div class="room-type">
+                <div class="room-type family">
                     <a href="#">
                         <img src="https://picsum.photos/400/300/?random=10">    
                         <div class="txt">                       
-                            <p>豪華家庭房</p>
-                            <h3>查看介紹</h3>
+                            <h3>豪華家庭房</h3>
+                            <p>查看介紹</p>
                         </div>
                     </a>
                 </div>
-                <div class="room-type">
+                <div class="room-type suite">
                     <a href="#">
                         <img src="https://picsum.photos/400/300/?random=11">    
                         <div class="txt">                       
-                            <p>商務套房</p>
-                            <h3>查看介紹</h3>
+                            <h3>商務套房</h3>
+                            <p>查看介紹</p>
                         </div>
                     </a>
                 </div>
-                <div class="room-type">
+                <div class="room-type suite">
                     <a href="#">
                         <img src="https://picsum.photos/400/300/?random=12">    
                         <div class="txt">                       
-                            <p>總統套房</p>
-                            <h3>查看介紹</h3>
+                            <h3>總統套房</h3>
+                            <p>查看介紹</p>
                         </div>
                     </a>
                 </div>
@@ -276,5 +329,53 @@
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
+    <script type="text/javascript">
+        $(document).ready(function (){
+            $(".room_menu > button").click(function(){
+                $(".room_menu > button").removeClass("room-active");
+                $(this).addClass("room-active");
+            })
+            
+            
+        });
+        
+    </script>
+
+    <script type="text/javascript">
+        filterSelection("all")
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("room-type");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                Remove_Class(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) Add_Class(x[i], "show");
+            }
+        }
+
+        function Add_Class(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+            }
+        }
+
+        function Remove_Class(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            /*for (i = 0; i < arr1.length; i++) {
+                document.write(arr1[1]);
+            }*/
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);     
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+    </script>   
 </body>
 </html>
