@@ -11,10 +11,6 @@ body{
 /*index.php*/
 /*header*/   
 
-    .carousel{
-        margin-bottom: 3em;
-    }
-
     /*LOGO跟選單*/
     .header-menu{
         position: fixed;
@@ -486,17 +482,16 @@ footer .logo-font h4{
 /*join.php*/
 
 /*admin.php*/
-#sidebar-wrapper {
-    min-height: 100vh;
-    min-width: 100vh;
-    margin-left: -15rem;
+.adminsidebar {
+    width: 20%;
+    margin-left: -20rem;
     -webkit-transition: margin .25s ease-out;
     -moz-transition: margin .25s ease-out;
     -o-transition: margin .25s ease-out;
     transition: margin .25s ease-out;
 }
 
-    #sidebar-wrapper .sidebar-heading {
+    .adminsidebar .sidebar-heading {
         font-size: 2.5rem;
         padding: 0px;
         text-align: center;
@@ -504,7 +499,7 @@ footer .logo-font h4{
         border: #ff0000 3px solid;
     }
 
-    #sidebar-wrapper .list-group {
+    .adminsidebar .list-group {
         width: 15rem;
     }
 
@@ -521,7 +516,7 @@ footer .logo-font h4{
     border: 2px solid #ff75b1;
 }
 /*選單滑鼠滑入按鈕*/
-#sidebar-wrapper .list-group-item:hover{
+.adminsidebar .list-group-item:hover{
     background-color: #ffd800;
     color: #0026ff;
     border: #ff0000 2px solid;
@@ -594,8 +589,15 @@ ul { /*取消ul預設的內縮及樣式*/
     }
 
 
-#wrapper.toggled #sidebar-wrapper {
-    margin-left: 0rem;
+.adminwrapper.toggled .adminsidebar {
+    margin-left: -1rem;
+}
+
+.admincontent{
+    float: right;
+    width: 80%;
+    height: 100%;
+    padding: 0px;
 }
 /*admin.php*/
 
@@ -861,8 +863,9 @@ ul { /*取消ul預設的內縮及樣式*/
     }
 /*join.php*/
 
-#wrapper.toggled #sidebar-wrapper {
-    margin-left: -15rem;
-}
+/*admin*/
+    .adminwrapper.toggled .adminsidebar {
+        margin-left: -20rem;
+    }
 
 }

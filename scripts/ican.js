@@ -90,14 +90,6 @@ function checkphone(myphone) {
 }
 /*join.php*/
 
-/*admin*/
-$("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
- }
-)
-/*admin*/
-
 /*header*/
 (function(){
     /*漢堡選單開跟關Sidebar/On/Off*/
@@ -127,6 +119,14 @@ $("#menu-toggle").click(function(e) {
     }).scroll();            
 })();
 /*header*/
+
+/*admin*/
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#showsidebar").toggleClass("toggled");
+ }
+)
+/*admin*/
 
 /*footer*/
 /*時間自動更新*/
