@@ -63,8 +63,8 @@ function check_passwd(pw1,pw2){
         if(pw1.charAt(idx) == ' ' || pw1.charAt(idx) == '\"'){
             alert("密碼不可以含有空白或雙引號 !\n");
             return false;}
-        if(pw1.length<6 || pw1.length>10){
-            alert( "密碼長度只能6到10個字母 !\n" );
+        if(pw1.length<6 || pw1.length>12){
+            alert( "密碼長度只能6到12個字母 !\n" );
             return false;}
         if(pw1!= pw2){
             alert("密碼二次輸入不一樣,請重新輸入 !\n");
@@ -119,6 +119,14 @@ function checkphone(myphone) {
     }).scroll();            
 })();
 /*header*/
+
+/*admin*/
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#showsidebar").toggleClass("toggled");
+ }
+)
+/*admin*/
 
 /*footer*/
 /*時間自動更新*/

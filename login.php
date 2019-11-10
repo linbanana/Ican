@@ -48,15 +48,17 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
    header("Location: member_center.php");
         //否則則導向管理中心
  }else{
-   header("Location: member_admin.php");    
+   header("Location:admin.php");    
  }
 }else{
   header("Location: login.php?errMsg=1");
 }
 }
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 環境建置 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -65,13 +67,9 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/ican.css" rel="stylesheet" />
     <!-- 環境建置 -->
-    <!-- w3 js -->
-    <script src="scripts/w3.js"></script>
-    <!-- w3 js -->
-
-    <title>帳號登入</title>
+    <title>ican</title>
 </head>
-
+<html>
 <body class="text-center">
     <div class="loginpage">
         <div class="regbox">
@@ -98,12 +96,8 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
         <hr size="1" />
         <h4>還沒有會員帳號?</p>
         <h4>註冊帳號免費又容易</p>
-        <p align="right"><a href="member_join.php">馬上申請會員</a></p>
+        <p align="right"><a href="join.php">馬上申請會員</a></p>
+        </div>
     </div>
-</div>
-
-<!-- footer -->
-<div w3-include-html="layouts/footer.php"></div>
-<!-- footer -->
-
 </body>
+</html>

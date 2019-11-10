@@ -9,11 +9,7 @@ body{
 }
 
 /*index.php*/
-/*Header*/   
-
-    .carousel{
-        margin-bottom: 3em;
-    }
+/*header*/   
 
     /*LOGO跟選單*/
     .header-menu{
@@ -130,7 +126,7 @@ body{
     }
     /*Sidebar*/
 
-/*Header*/
+/*header*/
 
 /*Content*/    
 
@@ -277,7 +273,7 @@ body{
 }
 /*Content*/ 
 
-/*Footer*/
+/*footer*/
 footer {
     color: #fff;
     text-align: center;
@@ -346,13 +342,14 @@ footer .logo-font h4{
 }
 .back-to-top{
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 10px;
+    right: 80px;
     z-index: 5;
+    border-radius: 50%;
 }
 
-/*Footer*/
-
+/*footer*/
+/*index.php*/
 
 
 /*login.php*/
@@ -370,7 +367,7 @@ footer .logo-font h4{
 	min-height: 30px;
 }
 
-.regbox {	
+.regbox {
 	border: 3px solid #ff4570;
 	border-radius: 10%;
 	color: #ff8fcb;
@@ -484,6 +481,133 @@ footer .logo-font h4{
 }
 /*join.php*/
 
+/*admin.php*/
+.adminsidebar {
+    width: 20%;
+    margin-left: -20rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+    .adminsidebar .sidebar-heading {
+        font-size: 2.5rem;
+        padding: 0px;
+        text-align: center;
+        background-color: #ff75b1;
+        border: #ff0000 3px solid;
+    }
+
+    .adminsidebar .list-group {
+        width: 15rem;
+    }
+
+.sidebar-heading{
+    width: 240px;
+}
+
+.sidebar-heading img{
+    width: 240px;
+}
+
+.list-group-item {
+    overflow: hidden;
+    border: 2px solid #ff75b1;
+}
+/*選單滑鼠滑入按鈕*/
+.adminsidebar .list-group-item:hover{
+    background-color: #ffd800;
+    color: #0026ff;
+    border: #ff0000 2px solid;
+    text-decoration: underline;
+    text-decoration-color: #000;
+}
+
+.sidebar- footer {
+    display: flex;
+    flex-direction: column;
+    text-align: bottom;
+}
+
+ul { /*取消ul預設的內縮及樣式*/
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    ul.list-group li {
+        position: relative;
+        white-space: nowrap;
+        border-color: #ccc 2px solid;
+    }
+
+
+
+    ul.list-group a {
+        background-color: #000000;
+        color: #ffd800;
+        display: block;        
+    }
+
+    /*改變次選單位置*/ /*/#
+    ul.list-group ul {
+        border: #ccc 2px solid;
+        position: absolute;
+        z-index: 999;
+        top: 0%;
+        left: 100%;
+    }
+    /*改變次選單位置*/
+
+
+    ul.list-group ul li {
+        border-bottom: #ccc 2px solid;
+        text-align: right;
+    }
+
+        ul.list-group ul li:last-child {
+            border-bottom: none;
+        }
+
+    ul.list-group ul ul { /*第三層以後的選單出現位置與第二層不同*/
+        position: absolute;
+        z-index: 999;
+        top: 10%;
+        left: 100%;
+    }
+
+
+    ul.list-group ul { /*隱藏次選單*/
+        display: none;
+    }
+
+    ul.list-group li:hover > ul { /* 滑鼠滑入展開次選單+顏色區分*/
+        display: block;
+        border: #0026ff 5px solid;
+        border-bottom-style: double;
+    }
+
+
+.adminwrapper.toggled .adminsidebar {
+    margin-left: -1rem;
+}
+
+.admincontent{
+    float: right;
+    width: 80%;
+    height: 100%;
+    padding: 0px;
+    margin-left: 50px;
+}
+
+#menu-toggle{
+    height: 120px;
+    z-index: 1;
+    margin-top: 10rem;
+}
+/*admin.php*/
+
 
 /*@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");*/
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
@@ -529,7 +653,7 @@ footer .logo-font h4{
 }
 
 @media screen and (max-width: 840px) {
-/*Header*/ 
+/*header*/ 
     .header-menu .menu{
         display: none;
     }
@@ -552,7 +676,7 @@ footer .logo-font h4{
     .header-menu.scrolldown .toggle-btn{
         color:#000;
     }    
-/*Header*/ 
+/*header*/ 
 
 /*content*/
     #ican-logo{
@@ -602,7 +726,7 @@ footer .logo-font h4{
         bottom: 10px;
     }
 /*Content*/
-/*Footer*/
+/*footer*/
     footer .logo-img{
         width: 80px;
     }
@@ -612,7 +736,7 @@ footer .logo-font h4{
     footer .logo-font h4{
         font-size: 25px;
     }
-/*Footer*/
+/*footer*/
 }
 @media screen and (max-width: 650px) {  
     .header-menu .logo{
@@ -678,7 +802,7 @@ footer .logo-font h4{
     }    
 /*Content*/ 
 
-/*Footer*/
+/*footer*/
     footer {
         padding: 50px 0;
     }
@@ -722,8 +846,7 @@ footer .logo-font h4{
         color: #fff;
         font-size: 20px;
         padding: 5px 10px;
-        margin: 10px;
-        
+        margin: 10px;        
         text-decoration: none;
         
     }
@@ -731,7 +854,7 @@ footer .logo-font h4{
     .social-link a:hover{
         color: rgb(255, 187, 0);
     }
-/*Footer*/
+/*footer*/
 
 /*join.php*/
     .joincontent table{
@@ -747,6 +870,9 @@ footer .logo-font h4{
     }
 /*join.php*/
 
-
+/*admin*/
+    .adminwrapper.toggled .adminsidebar {
+        margin-left: -20rem;
+    }
 
 }

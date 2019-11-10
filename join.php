@@ -19,12 +19,16 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
 	//找尋帳號是否已經註冊
 	$query_RecFindUser = "SELECT m_username FROM memberdata WHERE m_username='{$_POST["m_username"]}'";
   $query_RecFindemail = "SELECT m_email FROM memberdata WHERE m_email='{$_POST["m_email"]}'";
+  $query_RecFindphone = "SELECT m_phone FROM memberdata WHERE m_phone='{$_POST["m_phone"]}'";
 	$RecFindUser=$db_link->query($query_RecFindUser);
   $RecFindemail=$db_link->query($query_RecFindemail);
-	if ($RecFindUser->num_rows>0 || $_POST["m_username"]=""){    
+  $RecFindphone=$db_link->query($query_RecFindphone);
+	if ($RecFindUser->num_rows>0){    
     header("Location: join.php?errusernameMsg=1&username={$_POST["m_username"]}");
 	}elseif ($RecFindemail->num_rows>0) {
     header("Location: join.php?erremailMsg=1&email={$_POST["m_email"]}");
+  }elseif ($RecFindphone->num_rows>0) {
+    header("Location: join.php?errphoneMsg=1&phone={$_POST["m_phone"]}");
   }else{
   //若沒有執行新增的動作	
 		$query_insert = "INSERT INTO memberdata (m_name, m_username, m_passwd, m_sex, m_birthday, m_email, m_phone, m_address, m_jointime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())";
@@ -69,13 +73,17 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
 <div class="joincontent">
     <h3 id="ican-logo">I Can</h3>
     <h4 id="hotel-logo">大飯店</h4>
-		<?php if(isset($_GET["loginStats"]) && ($_GET["loginStats"]=="1")){?>
-<script language="javascript">
-alert('會員新增成功\n請用申請的帳號密碼登入。');
-window.location.href='login.php';		  
-</script>
-<?php }?>
-<table id="jointable" width="780" border="0" align="center" cellpadding="4" cellspacing="0">
+		<?php 
+      if(isset($_GET["loginStats"]) && ($_GET["loginStats"]=="1")){
+    ?>
+    <script language="javascript">
+        alert('會員新增成功\n請用申請的帳號密碼登入。');
+        window.location.href='login.php';		  
+    </script>
+    <?php 
+        }
+    ?>
+<table id="jointable" width="65%" border="0" align="center" cellpadding="4" cellspacing="0">
   <tr>
     <td class="tdbline">
       <img src="images/cute.png" id="cute"  title="忍法~影分身之術" width="164" height="67">
@@ -144,7 +152,21 @@ window.location.href='login.php';
               ?>
             </font><br><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span></p>
             <p><strong>電　　話</strong>：
-            <input name="m_phone" type="text" class="normalinput" id="m_phone"></p>
+            <input name="m_phone" type="text" class="normalinput" id="m_phone">
+            <font color="#FF0000">*
+              <?php 
+                if(isset($_GET["errphoneMsg"]) && ($_GET["errphoneMsg"]=="1")){
+              ?>
+              該電話 
+              <?php 
+                  echo "<font color='#0000ff'>".$_GET["phone"]."</font>";
+              ?> 
+              已經有人使用！
+              <?php 
+                }
+              ?>
+            </font><br>
+            </p>
             <p><strong>住　　址</strong>：
             <input name="m_address" type="text" class="normalinput" id="m_address" size="40"></p>            
           </div>
@@ -175,8 +197,5 @@ window.location.href='login.php';
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
-    <script>
-
-</script>
 </body>
 </html>
