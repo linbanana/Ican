@@ -598,6 +598,13 @@ ul { /*取消ul預設的內縮及樣式*/
     width: 80%;
     height: 100%;
     padding: 0px;
+    margin-left: 50px;
+}
+
+#menu-toggle{
+    height: 120px;
+    z-index: 1;
+    margin-top: 10rem;
 }
 /*admin.php*/
 
