@@ -121,7 +121,7 @@
         .room_info .room-type .txt p{
             text-align: center;
             font-size: 18px;
-            color: rgb(245, 0, 245);
+            color: #fff;
             text-decoration: underline;
             padding: 10px;
             
