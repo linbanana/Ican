@@ -76,7 +76,7 @@ $total_pages = ceil($total_records/$pageRow_records);
     <?php
     include("layouts/header.php");
     ?>
-    <div class="adminwrapper col-2" id="showsidebar">
+    <div class="adminwrapper" id="showsidebar">
         <div class="row">
         <button class="btn btn-primary" id="menu-toggle">
             管<br>
