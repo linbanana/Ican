@@ -48,7 +48,7 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
    header("Location: member_center.php");
         //否則則導向管理中心
  }else{
-   header("Location: member_admin.php");    
+   header("Location:admin.php");    
  }
 }else{
   header("Location: login.php?errMsg=1");
