@@ -120,14 +120,6 @@ function checkphone(myphone) {
 })();
 /*header*/
 
-/*admin*/
-$("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#showsidebar").toggleClass("toggled");
- }
-)
-/*admin*/
-
 /*footer*/
 /*時間自動更新*/
 $('#date').datetimepicker({
