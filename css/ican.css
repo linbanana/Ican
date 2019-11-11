@@ -483,6 +483,7 @@ footer .logo-font h4{
 
 /*admin.php*/
 .adminsidebar {
+    position: absolute;
     width: 20%;
     margin-left: -20rem;
     -webkit-transition: margin .25s ease-out;
@@ -591,14 +592,6 @@ ul { /*取消ul預設的內縮及樣式*/
 
 .adminwrapper.toggled .adminsidebar {
     margin-left: -1rem;
-}
-
-.admincontent{
-    float: right;
-    width: 80%;
-    height: 100%;
-    padding: 0px;
-    margin-left: 50px;
 }
 
 #menu-toggle{
