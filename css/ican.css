@@ -597,8 +597,9 @@ ul { /*取消ul預設的內縮及樣式*/
         border-bottom-style: double;
     }
 
-    ul.list-group:hover < li{
+    a.list-group-item.py-2.list-group-item:hover{
         background-color: #ff0000;
+        color:#000;
     }
 
 
