@@ -530,6 +530,10 @@ footer .logo-font h4{
     transform: scaleX(-1);
 }
 
+.side-menu label .fa-angle-right:hover {
+    color: #ffd800;
+}
+
 #adminlogo{
     width: 100%;
     height: 100%;
@@ -538,75 +542,48 @@ footer .logo-font h4{
     text-align: center;
 }
 
-ul { /*取消ul預設的內縮及樣式*/
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
 
-    ul.list-group li {
-        position: relative;
-        white-space: nowrap;
-        border-color: #ccc 2px solid;
+
+    /*第一層初始化*/
+    ul li a.list-group-item.py-2.list-group-item{
+        background-color: #0000ff;
+        color: #ff2f00;
+        border: 2px solid #ff4570;
+        font-weight: bold;
     }
 
-
-
-    ul.list-group a {
-        background-color: transparent;
-        color: #ffd800;
-        display: block;        
+    /*第二層初始化*/
+    ol i a.list-group-item.py-2.list-group-item{
+        background-color: #00b7ff;
+        color:#0000ff;
+        border: 2px solid #fff;
     }
 
-    /*改變次選單位置*/ /*/#
-    ul.list-group ul {
-        border: #ccc 2px solid;
-        position: absolute;
-        z-index: 999;
-        top: 0%;
-        left: 100%;
+    ul li a.list-group:hover > ol i a.list-group{
+        background-color: #ff0000;
+        color: #ff8800;
+        border: 2px solid #ff4570;
+        font-weight: bold;
     }
-    /*改變次選單位置*/
 
-
-    ul.list-group ul li {
-        border-bottom: #ccc 2px solid;
+    /* 滑鼠滑入展開次選單+顏色區分*/
+    ul.list-group li:hover > ol{
+        display: block;
+        background-color: #ffd800;
+        border-top: 2px solid #fff;
         text-align: right;
+        font-weight: bold;
+        text-decoration:underline;
     }
 
-        ul.list-group ul li:last-child {
-            border-bottom: none;
-        }
-
-    ul.list-group ul ul { /*第三層以後的選單出現位置與第二層不同*/
-        position: absolute;
-        z-index: 999;
-        top: 10%;
-        left: 100%;
-    }
-
-
-    ul.list-group ul { /*隱藏次選單*/
+    /*隱藏次選單*/
+    ul.list-group ol { 
         display: none;
     }
 
-    ul.list-group li:hover > ul  { /* 滑鼠滑入展開次選單+顏色區分*/
-        display: block;
-        background-color: #ffd800;
-        border: #0026ff 5px solid;
-        border-bottom-style: double;
+    .admincontent{
+        margin-left: 60px;
     }
-
-    a.list-group-item.py-2.list-group-item:hover{
-        background-color: #ff0000;
-        color:#000;
-    }
-
-
-
-
-
-
 
 /*admin.php*/
 

@@ -1,61 +1,20 @@
-<?php 
+<?php
 require_once("connMysql.php");
 session_start();
 //檢查是否經過登入
 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
-	header("Location: index.php");
-}
-//檢查權限是否足夠
-if($_SESSION["memberLevel"]=="member"){
-	header("Location: member_center.php");
+  header("Location: index.php");
 }
 //執行登出動作
 if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
-	unset($_SESSION["loginMember"]);
-	unset($_SESSION["memberLevel"]);
-	header("Location: index.php");
+  unset($_SESSION["loginMember"]);
+  unset($_SESSION["memberLevel"]);
+  header("Location: index.php");
 }
-//刪除會員
-if(isset($_GET["action"])&&($_GET["action"]=="delete")){
-	$query_delMember = "DELETE FROM memberdata WHERE m_id=?";
-	$stmt=$db_link->prepare($query_delMember);
-	$stmt->bind_param("i", $_GET["id"]);
-	$stmt->execute();
-	$stmt->close();
-	//重新導向回到主畫面
-	header("Location: admin.php");
-}
-//選取管理員資料
-$query_RecAdmin = "SELECT m_id, m_name, m_logintime FROM memberdata WHERE m_username=?";
-$stmt=$db_link->prepare($query_RecAdmin);
-$stmt->bind_param("s", $_SESSION["loginMember"]);
-$stmt->execute();
-$stmt->bind_result($mid, $mname, $mlogintime);
-$stmt->fetch();
-$stmt->close();
-//選取所有一般會員資料
-//預設每頁筆數
-$pageRow_records = 5;
-//預設頁數
-$num_pages = 1;
-//若已經有翻頁，將頁數更新
-if (isset($_GET['page'])) {
-  $num_pages = $_GET['page'];
-}
-//本頁開始記錄筆數 = (頁數-1)*每頁記錄筆數
-$startRow_records = ($num_pages -1) * $pageRow_records;
-//未加限制顯示筆數的SQL敘述句
-$query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'admin' ORDER BY m_jointime DESC";
-//加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
-$query_limit_RecMember = $query_RecMember." LIMIT {$startRow_records}, {$pageRow_records}";
-//以加上限制顯示筆數的SQL敘述句查詢資料到 $resultMember 中
-$RecMember = $db_link->query($query_limit_RecMember);
-//以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_resultMember 中
-$all_RecMember = $db_link->query($query_RecMember);
-//計算總筆數
-$total_records = $all_RecMember->num_rows;
-//計算總頁數=(總筆數/每頁筆數)後無條件進位。
-$total_pages = ceil($total_records/$pageRow_records);
+//繫結登入會員資料
+$query_RecMember = "SELECT * FROM memberdata WHERE m_username = '{$_SESSION["loginMember"]}'";
+$RecMember = $db_link->query($query_RecMember); 
+$row_RecMember=$RecMember->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
@@ -123,7 +82,7 @@ $total_pages = ceil($total_records/$pageRow_records);
 
 
 
-  <div class="admincontent">
+  <div class="membercontent">
     <table width="780" border="0" align="center" cellpadding="4" cellspacing="0">
       <tr>
         <td class="tdbline"><img src="images/logo.png" alt="會員系統" width="164" height="67"></td>
