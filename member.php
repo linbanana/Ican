@@ -83,63 +83,48 @@ $row_RecMember=$RecMember->fetch_assoc();
 
 
   <div class="membercontent">
-    <table width="780" border="0" align="center" cellpadding="4" cellspacing="0">
-      <tr>
-        <td class="tdbline"><img src="images/logo.png" alt="會員系統" width="164" height="67"></td>
+<table width="780" border="0" align="center" cellpadding="4" cellspacing="0">
+  <tr>
+    <td class="tdbline"><img src="images/mlogo.png" alt="會員系統" width="164" height="67"></td>
+  </tr>
+  <tr>
+    <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
+      <tr valign="top">
+        <td class="tdrline"><p class="title">歡迎光臨網站會員系統</p>
+          <p>感謝各位來到會員系統， 所有的會員功能都必須經由登入後才能使用，請您在右方視窗中執行登入動作。</p>
+          <p class="heading"> 本會員系統擁有以下的功能：</p>
+          <ol>
+            <li>免費加入會員 。</li>
+            <li>每個會員可修改本身資料。</li>
+            <li>若是遺忘密碼，會員可由系統發出電子信函通知。</li>
+            <li>管理者可以修改、刪除會員的資料。</li>
+          </ol>
+          <p class="heading">請各位會員遵守以下規則： </p>
+          <ol>
+            <li> 遵守政府的各項有關法律法規。</li>
+            <li> 不得在發佈任何色情非法， 以及危害國家安全的言論。</li>
+            <li>嚴禁連結有關政治， 色情， 宗教， 迷信等違法訊息。</li>
+            <li> 承擔一切因您的行為而直接或間接導致的民事或刑事法律責任。</li>
+            <li> 互相尊重， 遵守互聯網絡道德；嚴禁互相惡意攻擊， 漫罵。</li>
+            <li> 管理員擁有一切管理權力。</li>
+          </ol></td>
+        <td width="200">
+        <div class="boxtl"></div><div class="boxtr"></div>
+<div class="regbox">
+          <p class="heading"><strong>會員系統</strong></p>
+          
+            <p><strong><?php echo $row_RecMember["m_name"];?></strong> 您好。</p>
+            <p>您總共登入了 <?php echo $row_RecMember["m_login"];?> 次。<br>
+            本次登入的時間為：<br>
+            <?php echo $row_RecMember["m_logintime"];?></p>
+            <p align="center"><a href="member_update.php">修改資料</a> | <a href="?logout=true">登出系統</a></p>
+</div>
+        <div class="boxbl"></div><div class="boxbr"></div></td>
       </tr>
-      <tr>
-        <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
-          <tr valign="top">
-            <td class="tdrline"><p class="title">會員資料列表 </p>
-              <table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#F0F0F0">
-                <tr>
-                  <th width="10%" bgcolor="#CCCCCC">&nbsp;</th>
-                  <th width="20%" bgcolor="#CCCCCC"><p>姓名</p></th>
-                  <th width="20%" bgcolor="#CCCCCC"><p>帳號</p></th>
-                  <th width="20%" bgcolor="#CCCCCC"><p>加入時間</p></th>
-                  <th width="20%" bgcolor="#CCCCCC"><p>上次登入</p></th>
-                  <th width="10%" bgcolor="#CCCCCC"><p>登入</p></th>
-                </tr>
-    			<?php while($row_RecMember=$RecMember->fetch_assoc()){ ?>
-                <tr>
-                  <td width="10%" align="center" bgcolor="#FFFFFF"><p><a href="member_adminupdate.php?id=<?php echo $row_RecMember["m_id"];?>">修改</a><br>
-                    <a href="?action=delete&id=<?php echo $row_RecMember["m_id"];?>" onClick="return deletesure();">刪除</a></p></td>
-                  <td width="20%" align="center" bgcolor="#FFFFFF"><p><?php echo $row_RecMember["m_name"];?></p></td>
-                  <td width="20%" align="center" bgcolor="#FFFFFF"><p><?php echo $row_RecMember["m_username"];?></p></td>
-                  <td width="20%" align="center" bgcolor="#FFFFFF"><p><?php echo $row_RecMember["m_jointime"];?></p></td>
-                  <td width="20%" align="center" bgcolor="#FFFFFF"><p><?php echo $row_RecMember["m_logintime"];?></p></td>
-                  <td width="10%" align="center" bgcolor="#FFFFFF"><p><?php echo $row_RecMember["m_login"];?></p></td>
-                </tr>
-    			<?php }?>
-              </table>          
-              <hr size="1" />
-              <table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
-                <tr>
-                  <td valign="middle"><p>資料筆數：<?php echo $total_records;?></p></td>
-                  <td align="right"><p>
-                      <?php if ($num_pages > 1) { // 若不是第一頁則顯示 ?>
-                      <a href="?page=1">第一頁</a> | <a href="?page=<?php echo $num_pages-1;?>">上一頁</a> |
-                    <?php }?>
-                      <?php if ($num_pages < $total_pages) { // 若不是最後一頁則顯示 ?>
-                      <a href="?page=<?php echo $num_pages+1;?>">下一頁</a> | <a href="?page=<?php echo $total_pages;?>">最末頁</a>
-                      <?php }?>
-                  </p></td>
-                </tr>
-              </table><p>&nbsp;</p>
-              </td>
-            <td width="200">
-            <div class="boxtl"></div><div class="boxtr"></div>
-            <div class="regbox">
-              <p class="heading"><strong>會員系統</strong></p>
-                <p><strong><?php echo $mname;?></strong>您好。<br>
-                本次登入的時間為：<br><?php echo $mlogintime;?></p>
-                <p align="center"><a href="member_adminupdate.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a></p>
-            </div>
-            <div class="boxbl"></div><div class="boxbr"></div></td>
-          </tr>
-        </table></td>
-      </tr>
-    </table>
+    </table></td>
+  </tr>
+  <tr>
+</table>
   </div>
     <?php
     include("layouts/footer.php");
