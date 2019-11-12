@@ -493,7 +493,7 @@ footer .logo-font h4{
     height: 100%;
     padding: 50px 0;
     box-sizing: border-box;
-    background-image: linear-gradient(0deg,#3381b0,#c2196c);
+    background-image: linear-gradient(0deg,#3381b0,#fff);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -553,7 +553,7 @@ ul { /*取消ul預設的內縮及樣式*/
 
 
     ul.list-group a {
-        background-color: #000000;
+        background-color: transparent;
         color: #ffd800;
         display: block;        
     }
@@ -590,11 +590,22 @@ ul { /*取消ul預設的內縮及樣式*/
         display: none;
     }
 
-    ul.list-group li:hover > ul { /* 滑鼠滑入展開次選單+顏色區分*/
+    ul.list-group li:hover > ul  { /* 滑鼠滑入展開次選單+顏色區分*/
         display: block;
+        background-color: #ffd800;
         border: #0026ff 5px solid;
         border-bottom-style: double;
     }
+
+    a.list-group-item.py-2.list-group-item:hover{
+        background-color: #ff0000;
+        color:#000;
+    }
+
+
+
+
+
 
 
 /*admin.php*/
