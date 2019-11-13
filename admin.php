@@ -172,7 +172,7 @@ $total_pages = ceil($total_records/$pageRow_records);
             <div class="boxtl"></div><div class="boxtr"></div>
             <div class="regbox">
               <p class="heading"><strong>會員系統</strong></p>
-                <p><strong><?php echo $mname;?></strong>您好。<br>
+                <p><strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong>您好。<br>
                 本次登入的時間為：<br><?php echo $mlogintime;?></p>
                 <p align="center"><a href="member_adminupdate.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a></p>
             </div>
