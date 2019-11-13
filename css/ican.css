@@ -585,6 +585,11 @@ footer .logo-font h4{
         margin-left: 60px;
     }
 
+    font#usernamestyle{
+        color: #ef4370;
+        text-shadow: -1px 0 #ffc107, 0 1px #ffc107, 1px 0 #ffc107, 0 -1px #ffc107;
+    }
+
 /*admin.php*/
 
 

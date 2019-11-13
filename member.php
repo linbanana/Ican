@@ -113,7 +113,7 @@ $row_RecMember=$RecMember->fetch_assoc();
 <div class="regbox">
           <p class="heading"><strong>會員系統</strong></p>
           
-            <p><strong><?php echo $row_RecMember["m_name"];?></strong> 您好。</p>
+            <p><strong><?php echo "<font id='usernamestyle'>".$row_RecMember["m_name"]."</font>";?></strong> 您好。</p>
             <p>您總共登入了 <?php echo $row_RecMember["m_login"];?> 次。<br>
             本次登入的時間為：<br>
             <?php echo $row_RecMember["m_logintime"];?></p>
