@@ -102,8 +102,8 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
               <font color="#FF0000">*</font> 表示為<font color="#FF0000">必填</font>的欄位
             </p>
             <p><strong>帳號</strong>：
-            <input name="m_username" type="text" class="normalinput" id="m_username">
-            <font color="#FF0000">*              
+              <input name="m_username" type="text" class="normalinput" id="m_username">
+              <font color="#FF0000">*              
               <?php 
                 if(isset($_GET["errusernameMsg"]) && ($_GET["errusernameMsg"]=="1")){
               ?>
@@ -115,30 +115,40 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
               <?php 
                 }
               ?>
-            </font>
-            <span class="smalltext">請填入6~12個字元以內的小寫英文字母、數字、以及_ 符號。</span></p>
+              </font>
+              <span class="smalltext">請填入6~12個字元以內的小寫英文字母、數字、以及_ 符號。</span>
+            </p>
             <p><strong>密碼</strong>：
-            <input name="m_passwd" type="password" class="normalinput" id="m_passwd">
-            <font color="#FF0000">*</font><br><span class="smalltext">請填入5~10個字元以內的英文字母、數字、以及各種符號組合，</span></p>
+                <input name="m_passwd" type="password" class="normalinput" id="m_passwd">
+                <font color="#FF0000">*</font>
+                <span class="smalltext">
+                請填入5~10個字元以內的英文字母、數字、以及各種符號組合。
+                </span>
+            </p>
             <p><strong>確認密碼</strong>：
-            <input name="m_passwdrecheck" type="password" class="normalinput" id="m_passwdrecheck">
-            <font color="#FF0000">*</font><br></p>
+              <input name="m_passwdrecheck" type="password" class="normalinput" id="m_passwdrecheck">
+              <font color="#FF0000">*</font><br>
+            </p>
             <hr size="1" />
             <p class="heading">個人資料</p>
             <p><strong>真實姓名</strong>：
-            <input name="m_name" type="text" class="normalinput" id="m_name">
-            <font color="#FF0000">*</font></p>
+                <input name="m_name" type="text" class="normalinput" id="m_name">
+                <font color="#FF0000">*</font>
+            </p>
             <p><strong>性　　別</strong>：
-            <input name="m_sex" type="radio" value="女" checked>女
-            <input name="m_sex" type="radio" value="男">男
-            <font color="#FF0000">*</font></p>
+              <input name="m_sex" type="radio" value="女" checked>女
+              <input name="m_sex" type="radio" value="男">男
+              <font color="#FF0000">*</font>
+            </p>
             <p><strong>生　　日</strong>：
-            <input name="m_birthday" type="date" class="normalinput" id="m_birthday">
-            <font color="#FF0000">*</font> <br>
-            <span class="smalltext">為西元格式(YYYY-MM-DD)。</span></p>
+              <input name="m_birthday" type="date" class="normalinput" id="m_birthday">
+              <font color="#FF0000">*</font>
+              <span class="smalltext">為西元格式(YYYY-MM-DD)。
+              </span>
+            </p>
             <p><strong>電子郵件</strong>：
-            <input name="m_email" type="text" class="normalinput" id="m_email">            
-            <font color="#FF0000">*
+              <input name="m_email" type="text" class="normalinput" id="m_email">            
+              <font color="#FF0000">*
               <?php 
                 if(isset($_GET["erremailMsg"]) && ($_GET["erremailMsg"]=="1")){
               ?>
@@ -150,7 +160,8 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
               <?php 
                 }
               ?>
-            </font><br><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span></p>
+              </font><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span>
+            </p>
             <p><strong>電　　話</strong>：
             <input name="m_phone" type="text" class="normalinput" id="m_phone">
             <font color="#FF0000">*
@@ -167,8 +178,9 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
               ?>
             </font><br>
             </p>
-            <p><strong>住　　址</strong>：
-            <input name="m_address" type="text" class="normalinput" id="m_address" size="40"></p>            
+          <p><strong>住　　址</strong>：
+            <input name="m_address" type="text" class="normalinput" id="m_address" size="40">
+          </p>            
           </div>
           <hr size="1" />
           <p align="center">

@@ -137,9 +137,10 @@ $('#date').datetimepicker({
 
 /* Follow */
 function querymember() {
-  var x = document.getElementById("memberdata");
+  var x = document.getElementById("memberdata");  
   if (x.style.display === "none") {
     x.style.display = "block";
+
   } else {
     x.style.display = "none";
   }

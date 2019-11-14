@@ -482,6 +482,19 @@ footer .logo-font h4{
 /*join.php*/
 
 /*admin.php*/
+.Logininformation{
+    border: 3px solid #ff4570;
+    border-radius: 10%;
+    color: #002eed;    
+    font-weight: bold;  
+    padding: 100px; 
+    width: 100%;
+    max-width: 200px;
+    padding: 15px;
+    position: absolute;
+    right:0;
+}
+
 .adminsidebar{
     position: absolute;
     top:-30;
@@ -592,6 +605,7 @@ footer .logo-font h4{
     #memberdata{
         margin-left: 40%;
         margin-right: 60%;
+        position: relative;
     }
 
 
@@ -599,7 +613,6 @@ footer .logo-font h4{
         color: #ef4370;
         text-shadow: -1px 0 #ffc107, 0 1px #ffc107, 1px 0 #ffc107, 0 -1px #ffc107;
     }
-
 /*admin.php*/
 
 
