@@ -485,7 +485,7 @@ footer .logo-font h4{
 .adminsidebar{
     position: absolute;
     top:-30;
-    bottom:50;
+    bottom:50;    
 }
 
 .side-menu{
@@ -499,6 +499,7 @@ footer .logo-font h4{
     position: relative;
     transform: translateX(-100%);
     transition: .3s;
+    z-index: 1;
 }
 .side-menu label{
     position: absolute;
@@ -563,7 +564,7 @@ footer .logo-font h4{
     ol i a.list-group-item.py-2.list-group-item:hover{
         background-color: #00b7ff;
         color:#ffd000;
-        border: 2px solid #ff0000;
+        border: 2px solid #ffd000;
         text-decoration:underline;
     }
 
@@ -588,9 +589,11 @@ footer .logo-font h4{
         display: none;
     }
 
-    .admincontent{
-        margin-left: 60px;
+    #memberdata{
+        margin-left: 40%;
+        margin-right: 60%;
     }
+
 
     font#usernamestyle{
         color: #ef4370;

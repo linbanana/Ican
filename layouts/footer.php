@@ -5,7 +5,7 @@
         <div class="logo  col-sm">
             <div class="logo-img">
                 <img src="images/logo.png"><br>
-                <?php
+                <!--<?php/*
                     date_default_timezone_set("Asia/Taipei");
                     echo '<div id="time" style="font-size: 18px; width: 250px;"></div>
         <script type="text/javascript">
@@ -24,8 +24,8 @@
                     ts+=1000;
                 }
                 getTime();
-        </script>';
-                ?>                   
+        </script>';*/
+                ?>   -->               
             </div>                
         </div>
         

@@ -121,7 +121,7 @@ function checkphone(myphone) {
 /*header*/
 
 /*footer*/
-/*時間自動更新*/
+/*時間自動更新(有問題)
 $('#date').datetimepicker({
     format: 'yyyy-mm-dd',
     weekStart: 1,
@@ -134,3 +134,14 @@ $('#date').datetimepicker({
     locale:moment.locale('zh-tw'),
 });
 /*footer*/
+
+/* Follow */
+function querymember() {
+  var x = document.getElementById("memberdata");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+/* Follow */

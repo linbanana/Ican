@@ -110,6 +110,9 @@ $total_pages = ceil($total_records/$pageRow_records);
                   <a class="list-group-item py-2 list-group-item-action">會員系統管理</a>
                     <ol>
                         <i>
+                          <a href="#" class="list-group-item py-2 list-group-item-action" id="searchmember" onclick="querymember()" >查詢會員資料</a>
+                        </i>                        
+                        <i>
                           <a href="#" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
                         </i>
                         <i>
@@ -133,7 +136,7 @@ $total_pages = ceil($total_records/$pageRow_records);
 
 
   <div class="admincontent">
-    <table width="780" border="0" align="center" cellpadding="4" cellspacing="0">
+    <table width="780" border="0" align="center" cellpadding="4" cellspacing="0" id="memberdata" style="display: none">
       <tr>
         <td class="tdbline"><img src="images/logo.png" alt="會員系統" width="164" height="67"></td>
       </tr>

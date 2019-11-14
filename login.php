@@ -39,8 +39,8 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
      setcookie("remPass", $_POST["passwd"], time()+365*24*60);
    }else{
      if(isset($_COOKIE["remUser"])){
-      setcookie("remUser", $_POST["username"], time()-100);
-      setcookie("remPass", $_POST["passwd"], time()-100);
+      setcookie("remUser", $_POST["username"], time());
+      setcookie("remPass", $_POST["passwd"], time());
     }
   }
         //若帳號等級為 member 則導向會員中心
@@ -83,7 +83,7 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
                 <input name="passwd" type="password" class="logintextbox" id="passwd" value="<?php if(isset($_COOKIE["remPass"]) && ($_COOKIE["remPass"]!="")) echo $_COOKIE["remPass"];?>">
             </p>
             <p style="margin-bottom: 0px;">
-                <input name="rememberme" type="checkbox" id="rememberme" value="true">
+                <input name="rememberme" type="checkbox" id="rememberme" value="true" <?php if(isset($_COOKIE["remUser"]) && ($_COOKIE["remUser"]!="")) echo "checked";?>>
             記住我的帳號密碼。</p>
             <?php if(isset($_GET["errMsg"]) && ($_GET["errMsg"]=="1")){?>
             <div class="errDiv"> 登入帳號或密碼錯誤！</div>
