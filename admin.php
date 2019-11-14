@@ -93,13 +93,16 @@ $total_pages = ceil($total_records/$pageRow_records);
                 <!--py-2於RWD有BUG -->
                 <!--限時優惠 -->
                 <li>
-                  <a class="list-group-item py-2 list-group-item-action">會員系統管理</a>
+                  <a class="list-group-item py-2 list-group-item-action">後台管理系統</a>
                     <ol>
                         <i>
-                          <a href="#" class="list-group-item py-2 list-group-item-action">系統管理員設定</a>
+                          <a href="#" class="list-group-item py-2 list-group-item-action">訂單管理</a>
                         </i>
                         <i>
-                          <a href="#" class="list-group-item py-2 list-group-item-action">會員設定</a>
+                          <a href="#" class="list-group-item py-2 list-group-item-action">商品管理</a>
+                        </i>
+                        <i>
+                          <a href="#" class="list-group-item py-2 list-group-item-action">網站圖片更新</a>
                         </i>
                     </ol>
                 </li>
@@ -107,10 +110,16 @@ $total_pages = ceil($total_records/$pageRow_records);
                   <a class="list-group-item py-2 list-group-item-action">會員系統管理</a>
                     <ol>
                         <i>
-                          <a href="#" class="list-group-item py-2 list-group-item-action">系統管理員設定</a>
+                          <a href="#" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
                         </i>
                         <i>
-                          <a href="#" class="list-group-item py-2 list-group-item-action">會員設定</a>
+                          <a href="#" class="list-group-item py-2 list-group-item-action">訂單查詢</a>
+                        </i>
+                        <i>
+                          <a href="#" class="list-group-item py-2 list-group-item-action">立即訂房</a>
+                        </i>
+                        <i>
+                          <a href="#" class="list-group-item py-2 list-group-item-action">旅遊行程規劃</a>
                         </i>
                     </ol>
                 </li>
