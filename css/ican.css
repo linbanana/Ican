@@ -557,6 +557,14 @@ footer .logo-font h4{
         background-color: #00b7ff;
         color:#0000ff;
         border: 2px solid #fff;
+        font-style: normal;
+    }
+
+    ol i a.list-group-item.py-2.list-group-item:hover{
+        background-color: #00b7ff;
+        color:#ffd000;
+        border: 2px solid #ff0000;
+        text-decoration:underline;
     }
 
     ul li a.list-group:hover > ol i a.list-group{
@@ -573,7 +581,6 @@ footer .logo-font h4{
         border-top: 2px solid #fff;
         text-align: right;
         font-weight: bold;
-        text-decoration:underline;
     }
 
     /*隱藏次選單*/
