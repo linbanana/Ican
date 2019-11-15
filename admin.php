@@ -83,7 +83,16 @@ $total_pages = ceil($total_records/$pageRow_records);
     include("layouts/header.php");
     ?>
 
-<div class="adminsidebar">
+
+      <div class="Logininformation">
+          <p class="heading"><strong>會員系統</strong></p>
+            <p><strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong>您好。<br>
+            本次登入的時間為：<br><?php echo $mlogintime;?>
+          </p>
+            <p align="center"><a href="member_adminupdate.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
+          </p>
+      </div>
+
     <input type="checkbox" name="" id="showsidebar">
     <div class="side-menu">
         <div class="sidebar-heading">
@@ -131,21 +140,11 @@ $total_pages = ceil($total_records/$pageRow_records);
             <i class="fa fa-angle-right"></i>
         </label>
     </div>
-</div>
 
 
 
-  <div class="admincontent">
-      <div class="Logininformation">
-          <p class="heading"><strong>會員系統</strong></p>
-            <p><strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong>您好。<br>
-            本次登入的時間為：<br><?php echo $mlogintime;?>
-          </p>
-            <p align="center"><a href="member_adminupdate.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
-          </p>
-      </div>
-      <div class="blankspace">
-        &nbsp;          
+
+  <div class="admincontent">      
       <table width="780" border="0" align="center" cellpadding="4" cellspacing="0" id="memberdata" style="display: none">
         <tr>
           <td class="tdbline"><img src="images/logo.png" alt="會員系統" width="164" height="67"></td>
@@ -193,8 +192,7 @@ $total_pages = ceil($total_records/$pageRow_records);
             </tr>
           </table></td>
         </tr>
-      </table>
-      </div>   
+      </table>  
   </div>
     <?php
     include("layouts/footer.php");
