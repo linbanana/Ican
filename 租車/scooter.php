@@ -1,12 +1,12 @@
 <?php
 require("connect.php");  //呼叫connect.php文件
 //接收數值
-$guestname=$_POST['guestname'];    
-$guestgender=$_POST['guestgender'];
-$guestphone=$_POST['guestphone'];
-$guestemail=$_POST['guestemail'];
-$guestcontent=$_POST['guestcontent'];
-$guesttime=date("Y:m:d H:i:s",time()+28800);
+$s_id=$_POST['s_id'];    
+$s_model=$_POST['s_model'];
+$s_price=$_POST['s_price'];
+$s_num=$_POST['s_num'];
+$s_disc=$_POST['s_disc'];
+//$guesttime=date("Y:m:d H:i:s",time()+28800);
 //如果guestname資料存在,再輸入資料,避免先輸入空白資料
 if(isset($guestname)){
     //將資料輸入到MySQL資料表中
