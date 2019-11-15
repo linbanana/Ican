@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-11-15 01:12:32
+-- 產生時間： 2019-11-15 02:29:38
 -- 伺服器版本： 10.4.8-MariaDB
 -- PHP 版本： 7.3.10
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- 資料庫： `ican`
 --
-CREATE DATABASE IF NOT EXISTS `ican` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `ican`;
 
 -- --------------------------------------------------------
 
@@ -81,13 +79,36 @@ INSERT INTO `memberdata` (`m_id`, `m_name`, `m_username`, `m_passwd`, `m_sex`, `
 
 CREATE TABLE `message` (
   `guestID` int(11) NOT NULL,
-  `guestname` varchar(25) CHARACTER SET utf8mb4 DEFAULT '0',
-  `guestgender` varchar(1) CHARACTER SET utf8mb4 NOT NULL,
+  `guestname` varchar(25) COLLATE utf8_unicode_ci DEFAULT '0',
+  `guestgender` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
   `guestphone` int(15) NOT NULL,
-  `guestemail` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
-  `guestcontent` text CHARACTER SET utf8mb4 NOT NULL,
+  `guestemail` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `guestcontent` text COLLATE utf8_unicode_ci NOT NULL,
   `guesttime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `modeldata`
+--
+
+CREATE TABLE `modeldata` (
+  `r_model` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `r_price` int(10) NOT NULL,
+  `r_num` int(10) NOT NULL,
+  `r_disc` varchar(50) CHARACTER SET utf8mb4 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 傾印資料表的資料 `modeldata`
+--
+
+INSERT INTO `modeldata` (`r_model`, `r_price`, `r_num`, `r_disc`) VALUES
+('Single', 1000, 20, '房間有一張床，供1人入住'),
+('雙人房', 1500, 5, '房間有一張雙人床，供2人入住'),
+('三人房', 2500, 8, '房間有一張雙人床還有加一張單人床，供3人入住'),
+('三加一人房', 3000, 5, '房間有兩張雙人床，供4人入住');
 
 -- --------------------------------------------------------
 
@@ -131,61 +152,23 @@ INSERT INTO `orderdata` (`o_num`, `o_time`, `o_name`, `o_phone`, `o_citime`, `o_
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `rmodeldata`
---
-
-CREATE TABLE `rmodeldata` (
-  `r_model` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `r_price` int(10) NOT NULL,
-  `r_num` int(10) NOT NULL,
-  `r_disc` varchar(50) CHARACTER SET utf8mb4 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- 傾印資料表的資料 `rmodeldata`
---
-
-INSERT INTO `rmodeldata` (`r_model`, `r_price`, `r_num`, `r_disc`) VALUES
-('Single', 1000, 20, '房間有一張床，供1人入住'),
-('雙人房', 1500, 5, '房間有一張雙人床，供2人入住'),
-('三人房', 2500, 8, '房間有一張雙人床還有加一張單人床，供3人入住'),
-('三加一人房', 3000, 5, '房間有兩張雙人床，供4人入住');
-
--- --------------------------------------------------------
-
---
 -- 資料表結構 `roomdata`
 --
 
 CREATE TABLE `roomdata` (
   `r_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `r_model` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `r_price` int(10) NOT NULL,
-  `r_disc` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `r_model` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 傾印資料表的資料 `roomdata`
 --
 
-INSERT INTO `roomdata` (`r_id`, `r_model`, `r_price`, `r_disc`) VALUES
-('001', 'Single', 1000, 'Single room, room has one bed for 1 perso'),
-('002', 'Double', 2000, 'Double room, room has one bed for 2 perso'),
-('003', 'Triple', 3000, 'Triple room, room has one bed for 3 perso'),
-('004', 'Quadruple', 4000, 'Quadruple room, room has one bed for 4 perso');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `roommodel`
---
-
-CREATE TABLE `roommodel` (
-  `r_model` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `r_price` int(10) NOT NULL,
-  `r_num` int(10) NOT NULL,
-  `r_disc` varchar(50) CHARACTER SET utf8mb4 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+INSERT INTO `roomdata` (`r_id`, `r_model`) VALUES
+('001', 'Single'),
+('002', 'Double'),
+('003', 'Triple'),
+('004', 'Quadruple');
 
 -- --------------------------------------------------------
 
@@ -195,10 +178,10 @@ CREATE TABLE `roommodel` (
 
 CREATE TABLE `scooterdata` (
   `s_id` int(10) NOT NULL,
-  `s_model` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
+  `s_model` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `s_price` int(10) NOT NULL,
   `s_num` int(10) NOT NULL,
-  `s_disc` varchar(50) CHARACTER SET utf8mb4 NOT NULL
+  `s_disc` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
