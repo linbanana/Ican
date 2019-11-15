@@ -482,10 +482,23 @@ footer .logo-font h4{
 /*join.php*/
 
 /*admin.php*/
+.Logininformation{
+    border: 3px solid #ff4570;
+    border-radius: 10%;
+    color: #002eed;    
+    font-weight: bold;  
+    padding: 100px; 
+    width: 100%;
+    max-width: 200px;
+    padding: 15px;
+    position: absolute;
+    right:0;
+}
+
 .adminsidebar{
     position: absolute;
     top:-30;
-    bottom:50;
+    bottom:50;    
 }
 
 .side-menu{
@@ -499,6 +512,7 @@ footer .logo-font h4{
     position: relative;
     transform: translateX(-100%);
     transition: .3s;
+    z-index: 1;
 }
 .side-menu label{
     position: absolute;
@@ -563,7 +577,7 @@ footer .logo-font h4{
     ol i a.list-group-item.py-2.list-group-item:hover{
         background-color: #00b7ff;
         color:#ffd000;
-        border: 2px solid #ff0000;
+        border: 2px solid #ffd000;
         text-decoration:underline;
     }
 
@@ -588,15 +602,17 @@ footer .logo-font h4{
         display: none;
     }
 
-    .admincontent{
-        margin-left: 60px;
+    #memberdata{
+        margin-left: 40%;
+        margin-right: 60%;
+        position: relative;
     }
+
 
     font#usernamestyle{
         color: #ef4370;
         text-shadow: -1px 0 #ffc107, 0 1px #ffc107, 1px 0 #ffc107, 0 -1px #ffc107;
     }
-
 /*admin.php*/
 
 
