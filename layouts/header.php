@@ -19,7 +19,7 @@
     <div class="header-menu">
         <div class="container">
             <div class="logo">
-                <img src="images/logo.png">
+                <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true">
             </div>
             <div class="menu">
                 <a href="#">最新消息</a>
@@ -38,7 +38,7 @@
     
     <div id="sidebar">
         <div class="logo">
-            <img src="images/logo.png">
+            <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true">
         </div>
         <div class="closebtn">
             <i class="fa fa-times" aria-hidden="true"></i>

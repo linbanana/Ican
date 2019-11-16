@@ -135,7 +135,7 @@ $('#date').datetimepicker({
 });
 /*footer*/
 
-/* Follow */
+/* Follow *//*
 function querymember() {
   var x = document.getElementById("memberdata");  
   if (x.style.display === "none") {
@@ -144,5 +144,5 @@ function querymember() {
   } else {
     x.style.display = "none";
   }
-}
+}*/
 /* Follow */

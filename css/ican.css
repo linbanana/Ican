@@ -8,10 +8,10 @@ body{
     transition: transform .5 ease;
 }
 
-/*index.php*/
-/*header*/   
+/* index.php */
+/* header */   
 
-    /*LOGO跟選單*/
+    /* LOGO跟選單 */
     .header-menu{
         position: fixed;
         top:0;
@@ -62,9 +62,9 @@ body{
         color: rgb(175, 5, 5);
         font-weight: 900;
     }
-    /*LOGO跟選單*/
+    /* LOGO跟選單 */
 
-    /*側邊選單Sidebar*/
+    /* 側邊選單Sidebar */
     #sidebar{
         position: fixed;
         top:0;
@@ -124,11 +124,11 @@ body{
     #sidebar,.toggle-btn{
         display: none;
     }
-    /*Sidebar*/
+    /* Sidebar */
 
-/*header*/
+/* header */
 
-/*Content*/    
+/* Content */    
 
 .content{
     margin-bottom: 3em;
@@ -271,9 +271,9 @@ body{
     border: 1px solid #f7ab3a;
     color: #f7ab3a;
 }
-/*Content*/ 
+/* Content */ 
 
-/*footer*/
+/* footer */
 footer {
     color: #fff;
     text-align: center;
@@ -348,19 +348,19 @@ footer .logo-font h4{
     border-radius: 50%;
 }
 
-/*footer*/
-/*index.php*/
+/* footer */
+/* index.php */
 
 
-/*login.php*/
+/* login.php */
 .loginpage{
 	height: 100vh;	
 	background-image: url(https://unsplash.it/1000/1000);
 	background-repeat: no-repeat;
 	background-size: cover;
 	display:flex;
-	vertical-align: middle;/*置中對齊*/
-	justify-content:center;/*置中對齊*/
+	vertical-align: middle;/* 置中對齊 */
+	justify-content:center;/* 置中對齊 */
 }
 
 .loginpage::before{
@@ -404,8 +404,8 @@ footer .logo-font h4{
 #logo{
     width: 150px;
     height: 60px;
-    vertical-align: middle;/*置中對齊*/
-    justify-content:center;/*置中對齊*/
+    vertical-align: middle;/* 置中對齊 */
+    justify-content:center;/* 置中對齊 */
 }
 
 .loginbtn {
@@ -434,9 +434,9 @@ footer .logo-font h4{
 .logintextbox:focus{
 	border: 2px solid #ff5e00;	
 }
-/*login.php*/
+/* login.php */
 
-/*join.php*/
+/* join.php */
 .joincontent{
     text-align: center;
     padding:unset;
@@ -479,9 +479,9 @@ footer .logo-font h4{
     -o-transform:scaleX(-1);
     transform:scaleX(-1);
 }
-/*join.php*/
+/* join.php */
 
-/*admin.php*/
+/* admin.php */
 .admincontent{
     position: relative;
 }
@@ -497,19 +497,20 @@ footer .logo-font h4{
     padding: 15px;
     position: absolute;
     right:0;
+    z-index: 1;
 }
 
 .side-menu{
     width: 300px;
-    height: 100%;
     padding: 50px 0;
     box-sizing: border-box;
     background-image: linear-gradient(0deg,#3381b0,#fff);
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: absolute;
     transform: translateX(-100%);
     transition: .3s;
+    z-index: 1;
 }
 .side-menu label{
     position: absolute;
@@ -555,7 +556,7 @@ footer .logo-font h4{
 
 
 
-    /*第一層初始化*/
+    /* 第一層初始化 */
     ul li a.list-group-item.py-2.list-group-item{
         background-color: #0000ff;
         color: #ff2f00;
@@ -563,7 +564,7 @@ footer .logo-font h4{
         font-weight: bold;
     }
 
-    /*第二層初始化*/
+    /* 第二層初始化 */
     ol i a.list-group-item.py-2.list-group-item{
         background-color: #00b7ff;
         color:#0000ff;
@@ -585,7 +586,7 @@ footer .logo-font h4{
         font-weight: bold;
     }
 
-    /* 滑鼠滑入展開次選單+顏色區分*/
+    /* 滑鼠滑入展開次選單+顏色區分 */
     ul.list-group li:hover > ol{
         display: block;
         background-color: #ffd800;
@@ -594,28 +595,16 @@ footer .logo-font h4{
         font-weight: bold;
     }
 
-    /*隱藏次選單*/
+    /* 隱藏次選單 */
     ul.list-group ol { 
         display: none;
-    }
-
-    #memberdata{
-        margin-left: 40%;
-        margin-right: 60%;
-
     }
 
     font#usernamestyle{
         color: #ef4370;
         text-shadow: -1px 0 #ffc107, 0 1px #ffc107, 1px 0 #ffc107, 0 -1px #ffc107;
     }
-/*admin.php*/
-
-
-/*@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");*/
-@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900|Lobster&display=swap');
-
+/* admin.php */
 
 @media screen and (max-width: 1200px) {
     .header-menu .menu a{
@@ -648,15 +637,17 @@ footer .logo-font h4{
     }
 }
 
-@media screen and (max-width: 960px) {
+/* Large devices (desktops, 992px and up) */
+@media screen and (max-width: 992px) {
     .header-menu .menu a{
         font-size: 18px;
         padding: 10px;
     }
 }
 
-@media screen and (max-width: 840px) {
-/*header*/ 
+/* Medium devices (tablets, 768px and up) */
+@media screen and (max-width: 768px) {
+/* header*/ 
     .header-menu .menu{
         display: none;
     }
@@ -679,9 +670,9 @@ footer .logo-font h4{
     .header-menu.scrolldown .toggle-btn{
         color:#000;
     }    
-/*header*/ 
+/* header */ 
 
-/*content*/
+/* content */
     #ican-logo{
         font-size: 25px;
         color: #5aecf7;
@@ -728,8 +719,8 @@ footer .logo-font h4{
         right: 30px;
         bottom: 10px;
     }
-/*Content*/
-/*footer*/
+/* Content */
+/* footer */
     footer .logo-img{
         width: 80px;
     }
@@ -739,14 +730,22 @@ footer .logo-font h4{
     footer .logo-font h4{
         font-size: 25px;
     }
-/*footer*/
+/* footer */
+/* admin.php */
+    #memberdata{
+        margin-top: 206px;
+        width: 100%;
+    }
+/* admin.php */
 }
-@media screen and (max-width: 650px) {  
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (max-width: 576px) {  
     .header-menu .logo{
         width: 60px;
     }
  
-/*Content*/   
+/* Content */   
     .welcome .container{
         padding: 10px;
     }
@@ -803,9 +802,9 @@ footer .logo-font h4{
         right: 20px;
         bottom: 10px;
     }    
-/*Content*/ 
+/* Content */ 
 
-/*footer*/
+/* footer */
     footer {
         padding: 50px 0;
     }
@@ -857,9 +856,9 @@ footer .logo-font h4{
     .social-link a:hover{
         color: rgb(255, 187, 0);
     }
-/*footer*/
+/* footer */
 
-/*join.php*/
+/* join.php */
     .joincontent table{
            width: 375px;
         }
@@ -871,5 +870,17 @@ footer .logo-font h4{
       transition-property: margin-right;
       transition-duration: 3s;
     }
-/*join.php*/
+/* join.php */
+
+/* admin.php */
+    #memberdata{
+        width: 100%;
+    }
+
+    #queryadmin{
+        width: 100% !important;
+    }
+
+
+/* admin.php */
 }
