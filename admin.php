@@ -84,11 +84,11 @@ $stmt->close();
               <a class="list-group-item py-2 list-group-item-action">會員系統管理</a>
                 <ol>
                     <i>
-                      <a href="layouts/admin/queryadmin.php" class="list-group-item py-2 list-group-item-action" id="searchmember" >查詢管理員資料</a>
+                      <a href="layouts/admin/queryadmin.php" class="list-group-item py-2 list-group-item-action">查詢管理員資料</a>
                     </i>
                     <i>
-                      <a href="layouts/admin/querymember.php" class="list-group-item py-2 list-group-item-action" id="searchmember" >查詢會員資料</a>
-                    </i>                                            
+                      <a href="layouts/admin/querymember.php" class="list-group-item py-2 list-group-item-action">查詢會員資料</a>
+                    </i>                                         
                     <i>
                       <a href="#" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
                     </i>
@@ -97,6 +97,9 @@ $stmt->close();
                     </i>
                     <i>
                       <a href="#" class="list-group-item py-2 list-group-item-action">立即訂房</a>
+                    </i>
+                    <i>
+                      <a href="querymember.php" class="list-group-item py-2 list-group-item-action">取消訂房</a>
                     </i>
                     <i>
                       <a href="#" class="list-group-item py-2 list-group-item-action">旅遊行程規劃</a>
