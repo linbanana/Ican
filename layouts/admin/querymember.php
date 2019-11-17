@@ -3,27 +3,27 @@ require_once("../../connMysql.php");
 session_start();
 //檢查是否經過登入
 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
-	header("Location: index.php");
+  header("Location: index.php");
 }
 //檢查權限是否足夠
 if($_SESSION["memberLevel"]=="member"){
-	header("Location: member_center.php");
+  header("Location: member_center.php");
 }
 //執行登出動作
 if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
-	unset($_SESSION["loginMember"]);
-	unset($_SESSION["memberLevel"]);
-	header("Location: index.php");
+  unset($_SESSION["loginMember"]);
+  unset($_SESSION["memberLevel"]);
+  header("Location: ../../index.php");
 }
 //刪除會員
 if(isset($_GET["action"])&&($_GET["action"]=="delete")){
-	$query_delMember = "DELETE FROM memberdata WHERE m_id=?";
-	$stmt=$db_link->prepare($query_delMember);
-	$stmt->bind_param("i", $_GET["id"]);
-	$stmt->execute();
-	$stmt->close();
-	//重新導向回到主畫面
-	header("Location: admin.php");
+  $query_delMember = "DELETE FROM memberdata WHERE m_id=?";
+  $stmt=$db_link->prepare($query_delMember);
+  $stmt->bind_param("i", $_GET["id"]);
+  $stmt->execute();
+  $stmt->close();
+  //重新導向回到主畫面
+  header("Location: admin.php");
 }
 //選取管理員資料
 $query_RecAdmin = "SELECT m_id, m_name, m_logintime FROM memberdata WHERE m_username=?";
@@ -71,7 +71,7 @@ $total_pages = ceil($total_records/$pageRow_records);
     <!-- 環境建置 -->
     <script language="javascript">
     function deletesure(){
-    if (confirm('\n您確定要刪除這個會員嗎?\n刪除後無法恢復!\n')) return true;
+    if (confirm('\n您確定要刪除這個管理員嗎?\n刪除後無法恢復!\n')) return true;
     return false;
 }
 </script>
@@ -96,40 +96,87 @@ $total_pages = ceil($total_records/$pageRow_records);
           <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
             <tr valign="top">
               <td class="tdrline">
-                <table width="120%" border="0" cellpadding="2" cellspacing="1">
+                <table width="120%" border="0" cellpadding="2" cellspacing="1" id="queryadmin">
                   <tr>                    
-                    <td width="15%" align="center" bgcolor="#CCC"><p>會員編號</p></td>
-                    <td width="15%" align="center" bgcolor="#CCC"><p>姓名</p></td>
-                    <td width="15%" align="center" bgcolor="#CCC"><p>帳號</p></td>
-                    <td width="15%" align="center" bgcolor="#CCC"><p>加入時間</p></td>
-                    <td width="15%" align="center" bgcolor="#CCC"><p>上次登入</p></td>
-                    <td width="15%" align="center" bgcolor="#CCC"><p>登入次數</p></td>
-                    <td width="30%" align="center" bgcolor="#CCC">&nbsp;</td>
+                    <td width="15%" align="center" bgcolor="#CCC">管理員編號</td>
+                    <td width="15%" align="center" bgcolor="#CCC">姓名</td>
+                    <td width="15%" align="center" bgcolor="#CCC">帳號</td>
+                    <td width="15%" align="center" bgcolor="#CCC">加入時間</td>
+                    <td width="15%" align="center" bgcolor="#CCC">上次登入</td>
+                    <!-- 登入次數排序 尚未完成 -->
+                    <td width="15%" align="center" bgcolor="#CCC">
+                      登入次數
+                    <a href="queryadmin.php?order=<?php echo $order; ?>"></a>
+                    </td>
+                    <td width="30%" align="center" bgcolor="#CCC">操作</td>
                   </tr>
-      			<?php while($row_RecMember=$RecMember->fetch_assoc()){ ?>
+            <?php 
+                while($row_RecMember=$RecMember->fetch_assoc()){ 
+            ?>
                   <tr>                    
-                    <td width="15%" align="center" bgcolor="#FFF"><p><?php echo $row_RecMember["m_id"];?></p></td>
-                    <td width="15%" align="center" bgcolor="#FFF"><p><?php echo $row_RecMember["m_name"];?></p></td>
-                    <td width="15%" align="center" bgcolor="#FFF"><p><?php echo $row_RecMember["m_username"];?></p></td>
-                    <td width="15%" align="center" bgcolor="#FFF"><p><?php echo $row_RecMember["m_jointime"];?></p></td>
-                    <td width="15%" align="center" bgcolor="#FFF"><p><?php echo $row_RecMember["m_logintime"];?></p></td>
-                    <td width="15%" align="center" bgcolor="#FFF"><p><?php echo $row_RecMember["m_login"];?></p></td>
-                    <td width="30%" align="center" bgcolor="#FFF"><p>
-                      <a href="?action=delete&id=<?php echo $row_RecMember["m_id"];?>" onClick="return deletesure();"><font color="#ff0000">刪除</font></a></p></td>
+                    <td width="15%" align="center" bgcolor="#FFF">
+                      <?php 
+                          echo $row_RecMember["m_id"];
+                      ?>                        
+                    </td>
+                    <td width="15%" align="center" bgcolor="#FFF">
+                      <?php 
+                          echo $row_RecMember["m_name"];
+                      ?>                        
+                    </td>
+                    <td width="15%" align="center" bgcolor="#FFF">
+                      <?php 
+                          echo $row_RecMember["m_username"];
+                      ?>                        
+                    </td>
+                    <td width="15%" align="center" bgcolor="#FFF">
+                      <?php 
+                          echo $row_RecMember["m_jointime"];
+                      ?>                        
+                    </td>
+                    <td width="15%" align="center" bgcolor="#FFF">
+                      <?php 
+                          echo $row_RecMember["m_logintime"];
+                      ?>                        
+                    </td>
+                    <td width="15%" align="center" bgcolor="#FFF">
+                      <?php 
+                          echo $row_RecMember["m_login"];
+                      ?>                        
+                    </td>
+                    <td width="30%" align="center" bgcolor="#FFF">
+                      <!-- 判斷要刪除的目標是否為自己 -->
+                      <?php 
+                        if($row_RecMember["m_id"] != $mid){
+                      ?>
+                      <a href="?action=delete&id=<?php echo $row_RecMember["m_id"];?>" onClick="return deletesure();"><font color="#ff0000">刪除</font></a>
+                    </td>
+                      <?php
+                        }
+                      ?>
                   </tr>
-      			<?php }?>
+            <?php 
+              }
+            ?>
                 </table>          
                 <hr size="1" />
                 <table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
                   <tr>
                     <td valign="middle"><p>資料筆數：<?php echo $total_records;?></p></td>
                     <td align="right"><p>
-                        <?php if ($num_pages > 1) { // 若不是第一頁則顯示 ?>
+                        <?php 
+                          if ($num_pages > 1) { // 若不是第一頁則顯示 ?>
                         <a href="?page=1">第一頁</a> | <a href="?page=<?php echo $num_pages-1;?>">上一頁</a> |
-                      <?php }?>
-                        <?php if ($num_pages < $total_pages) { // 若不是最後一頁則顯示 ?>
+                        <?php 
+                          }
+                        ?>
+                        <?php 
+                          if ($num_pages < $total_pages) { // 若不是最後一頁則顯示 
+                        ?>
                         <a href="?page=<?php echo $num_pages+1;?>">下一頁</a> | <a href="?page=<?php echo $total_pages;?>">最末頁</a>
-                        <?php }?>
+                        <?php 
+                          }
+                        ?>
                     </p></td>
                   </tr>
                 </table>
@@ -155,5 +202,5 @@ $total_pages = ceil($total_records/$pageRow_records);
 </body>
 </html>
 <?php
-	$db_link->close();
+  $db_link->close();
 ?>

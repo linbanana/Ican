@@ -98,53 +98,85 @@ $total_pages = ceil($total_records/$pageRow_records);
               <td class="tdrline">
                 <table width="120%" border="0" cellpadding="2" cellspacing="1" id="queryadmin">
                   <tr>                    
-                    <td width="15%" align="center" bgcolor="#CCC"><p>管理員編號</p></td>
-                    <td width="15%" align="center" bgcolor="#CCC"><p>姓名</p></td>
-                    <td width="15%" align="center" bgcolor="#CCC"><p>帳號</p></td>
-                    <td width="15%" align="center" bgcolor="#CCC"><p>加入時間</p></td>
-                    <td width="15%" align="center" bgcolor="#CCC"><p>上次登入</p></td>
+                    <td width="15%" align="center" bgcolor="#CCC">管理員編號</td>
+                    <td width="15%" align="center" bgcolor="#CCC">姓名</td>
+                    <td width="15%" align="center" bgcolor="#CCC">帳號</td>
+                    <td width="15%" align="center" bgcolor="#CCC">加入時間</td>
+                    <td width="15%" align="center" bgcolor="#CCC">上次登入</td>
                     <!-- 登入次數排序 尚未完成 -->
-                    <td width="15%" align="center" bgcolor="#CCC"><button  onclick="query_m_login()"><p>登入次數
-                    <script type="text/javascript">
-                      function query_m_login(){
-                        
-                          SELECT * FROM memberdata WHERE m_level<>'member' ORDER BY `memberdata`.`m_login` DESC;
-                                         
-                      }
-                    </script>
-                    <!-- 登入次數排序 尚未完成 -->
-                    </p></button></td>
-                    <td width="30%" align="center" bgcolor="#CCC">&nbsp;</td>
+                    <td width="15%" align="center" bgcolor="#CCC">
+                      登入次數
+                    <a href="queryadmin.php?order=<?php echo $order; ?>"></a>
+                    </td>
+                    <td width="30%" align="center" bgcolor="#CCC">操作</td>
                   </tr>
-      			<?php while($row_RecMember=$RecMember->fetch_assoc()){ ?>
+      			<?php 
+                while($row_RecMember=$RecMember->fetch_assoc()){ 
+            ?>
                   <tr>                    
-                    <td width="15%" align="center" bgcolor="#FFF"><p><?php echo $row_RecMember["m_id"];?></p></td>
-                    <td width="15%" align="center" bgcolor="#FFF"><p><?php echo $row_RecMember["m_name"];?></p></td>
-                    <td width="15%" align="center" bgcolor="#FFF"><p><?php echo $row_RecMember["m_username"];?></p></td>
-                    <td width="15%" align="center" bgcolor="#FFF"><p><?php echo $row_RecMember["m_jointime"];?></p></td>
-                    <td width="15%" align="center" bgcolor="#FFF"><p><?php echo $row_RecMember["m_logintime"];?></p></td>
-                    <td width="15%" align="center" bgcolor="#FFF"><p><?php echo $row_RecMember["m_login"];?></p></td>
-                    <td width="30%" align="center" bgcolor="#FFF"><p>
+                    <td width="15%" align="center" bgcolor="#FFF">
+                      <?php 
+                          echo $row_RecMember["m_id"];
+                      ?>                        
+                    </td>
+                    <td width="15%" align="center" bgcolor="#FFF">
+                      <?php 
+                          echo $row_RecMember["m_name"];
+                      ?>                        
+                    </td>
+                    <td width="15%" align="center" bgcolor="#FFF">
+                      <?php 
+                          echo $row_RecMember["m_username"];
+                      ?>                        
+                    </td>
+                    <td width="15%" align="center" bgcolor="#FFF">
+                      <?php 
+                          echo $row_RecMember["m_jointime"];
+                      ?>                        
+                    </td>
+                    <td width="15%" align="center" bgcolor="#FFF">
+                      <?php 
+                          echo $row_RecMember["m_logintime"];
+                      ?>                        
+                    </td>
+                    <td width="15%" align="center" bgcolor="#FFF">
+                      <?php 
+                          echo $row_RecMember["m_login"];
+                      ?>                        
+                    </td>
+                    <td width="30%" align="center" bgcolor="#FFF">
                       <!-- 判斷要刪除的目標是否為自己 -->
-                      <?php if($row_RecMember["m_id"] != $mid){?>
-                      <a href="?action=delete&id=<?php echo $row_RecMember["m_id"];?>" onClick="return deletesure();"><font color="#ff0000">刪除</font></a></p></td>
+                      <?php 
+                        if($row_RecMember["m_id"] != $mid){
+                      ?>
+                      <a href="?action=delete&id=<?php echo $row_RecMember["m_id"];?>" onClick="return deletesure();"><font color="#ff0000">刪除</font></a>
+                    </td>
                       <?php
-                      }
+                        }
                       ?>
                   </tr>
-      			<?php }?>
+      			<?php 
+              }
+            ?>
                 </table>          
                 <hr size="1" />
                 <table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
                   <tr>
                     <td valign="middle"><p>資料筆數：<?php echo $total_records;?></p></td>
                     <td align="right"><p>
-                        <?php if ($num_pages > 1) { // 若不是第一頁則顯示 ?>
+                        <?php 
+                          if ($num_pages > 1) { // 若不是第一頁則顯示 ?>
                         <a href="?page=1">第一頁</a> | <a href="?page=<?php echo $num_pages-1;?>">上一頁</a> |
-                      <?php }?>
-                        <?php if ($num_pages < $total_pages) { // 若不是最後一頁則顯示 ?>
+                        <?php 
+                          }
+                        ?>
+                        <?php 
+                          if ($num_pages < $total_pages) { // 若不是最後一頁則顯示 
+                        ?>
                         <a href="?page=<?php echo $num_pages+1;?>">下一頁</a> | <a href="?page=<?php echo $total_pages;?>">最末頁</a>
-                        <?php }?>
+                        <?php 
+                          }
+                        ?>
                     </p></td>
                   </tr>
                 </table>
