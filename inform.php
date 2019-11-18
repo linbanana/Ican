@@ -42,6 +42,10 @@
     vertical-align: top;
    /* display: inline-block;*/
 }
+
+.contactcontent .container ul li{
+	display: inline;
+}
 /*about.php*/
   </style>
     <?php
@@ -49,11 +53,62 @@
     ?>
     <div class="contactcontent" >
 	   <div class="container">
-        <div class="title"><strong>周邊資訊</strong></div><br/>
+        <div class="title"><strong>推薦行程</strong></div><br/>
 			<p>親愛的貴賓您好，如果您想更了解ican，或是其他有任何疑問，歡迎您線上留言給我們，收到您的訊息後，我們盡快請專人回覆您的問題。謝謝您!</p>
        </div>
        <div class="container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29523.122798580654!2d120.35375504651635!3d22.33888510447923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3471ef8b9905a955%3A0xc695f3e2705e695b!2z55CJ55CD5ba8!5e0!3m2!1szh-TW!2stw!4v1573544722470!5m2!1szh-TW!2stw" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+	     <ul class="travelList">
+		   <li>
+		     <div class="item">
+			   <div class="Img">
+			       <a href="" title="琉球兩日遊">
+				  <img src="https://res.klook.com/image/upload/fl_lossy.progressive/q_auto/f_auto/blogtw/2018/03/%E8%8A%B1%E7%93%B6%E5%B2%A9-1.jpg" height=20% width=20% alt="琉球兩日遊">
+                </a>
+			   </div>
+			   <div class="Txt">
+			     <h3>
+				   <a href="" title="琉球兩日遊">琉球兩日遊</a>
+				 </h3>
+			   <div class="button">
+				   <a href="" >查看詳情</a>
+			   </div>
+			   </div>
+			 </div>
+		   </li>
+		   <li>
+		     <div class="item">
+			   <div class="Img">
+			       <a href="" title="琉球兩日遊">
+				  <img src="https://res.klook.com/image/upload/fl_lossy.progressive/q_auto/f_auto/blogtw/2018/03/%E8%8A%B1%E7%93%B6%E5%B2%A9-1.jpg" height=20% width=20% alt="琉球兩日遊">
+                </a>
+			   </div>
+			   <div class="Txt">
+			     <h3>
+				   <a href="" title="琉球兩日遊">琉球兩日遊</a>
+				 </h3>
+			   <div class="button">
+				   <a href="" >查看詳情</a>
+			   </div>
+			   </div>
+			 </div>
+		   </li>
+		   <li>
+		     <div class="item">
+			   <div class="Img">
+			       <a href="" title="琉球兩日遊">
+				  <img src="https://res.klook.com/image/upload/fl_lossy.progressive/q_auto/f_auto/blogtw/2018/03/%E8%8A%B1%E7%93%B6%E5%B2%A9-1.jpg" height=20% width=20% alt="琉球兩日遊">
+                </a>
+			   </div>
+			   <div class="Txt">
+			     <h3>
+				   <a href="" title="琉球兩日遊">琉球兩日遊</a>
+				 </h3>
+			   <div class="button">
+				   <a href="" >查看詳情</a>
+			   </div>
+			   </div>
+			 </div>
+		   </li>
        </div>
 	   
     </div>
