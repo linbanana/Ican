@@ -11,6 +11,7 @@
         echo "描述:".$rs['s_disc']."<br>";
 		echo "價格:".$rs['s_price']."元<br>";
         if($rs['s_num']>0){
+			
 			 echo '可租借'."<br>";
 		}  
         else {
