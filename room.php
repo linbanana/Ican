@@ -202,7 +202,7 @@
             </div>
             <div class="info">
                 <div class="room-type double">
-                    <a href="room-details.php">
+                    <a href="room_details.php">
                         <img src="images/marvel.jpg">    
                         <div class="txt">                       
                             <h3>漫威主題客房</h3>
@@ -211,7 +211,7 @@
                     </a>
                 </div>
                 <div class="room-type double">
-                    <a href="room-details.php">
+                    <a href="room_details.php">
                         <img src="images/disney.jpg">    
                         <div class="txt">                       
                             <h3>迪士尼主題客房</h3>
@@ -220,7 +220,7 @@
                     </a>
                 </div>
                 <div class="room-type double">
-                    <a href="room-details.php">
+                    <a href="room_details.php">
                         <img src="images/Ocean.jpg">    
                         <div class="txt">                       
                             <h3>海洋世界主題客房</h3>
@@ -229,7 +229,7 @@
                     </a>
                 </div>
                 <div class="room-type double">
-                    <a href="room-details.php">
+                    <a href="room_details.php">
                         <img src="images/shinestar.jpg">    
                         <div class="txt">                       
                             <h3>星空主題客房</h3>
@@ -238,7 +238,7 @@
                     </a>
                 </div>
                 <div class="room-type double">
-                    <a href="room-details.php">
+                    <a href="room_details.php">
                         <img src="images/egypt.jpg">    
                         <div class="txt">                       
                             <h3>埃及主題客房</h3>
@@ -247,7 +247,7 @@
                     </a>
                 </div>
                 <div class="room-type double">
-                    <a href="room-details.php">
+                    <a href="room_details.php">
                         <img src="images/rome.jpg">    
                         <div class="txt">                       
                             <h3>羅馬主題客房</h3>
@@ -256,7 +256,7 @@
                     </a>
                 </div>
                 <div class="room-type double">
-                    <a href="room-details.php">
+                    <a href="room_details.php">
                         <img src="images/Europe.jpg">    
                         <div class="txt">                       
                             <h3>歐式客房</h3>
@@ -265,7 +265,7 @@
                     </a>
                 </div>
                 <div class="room-type double">
-                    <a href="room-details.php">
+                    <a href="room_details.php">
                         <img src="images/jp-style.jpg">    
                         <div class="txt">                       
                             <h3>和式客房</h3>
@@ -274,7 +274,7 @@
                     </a>
                 </div>
                 <div class="room-type family">
-                    <a href="room-details.php">
+                    <a href="room_details.php">
                         <img src="images/parity-family.jpg">    
                         <div class="txt">                       
                             <h3>經濟家庭房</h3>
@@ -283,7 +283,7 @@
                     </a>
                 </div>
                 <div class="room-type family">
-                    <a href="room-details.php">
+                    <a href="room_details.php">
                         <img src="images/luxury-family.jpg">    
                         <div class="txt">                       
                             <h3>豪華家庭房</h3>
@@ -292,7 +292,7 @@
                     </a>
                 </div>
                 <div class="room-type suite">
-                    <a href="room-details.php">
+                    <a href="room_details.php">
                         <img src="images/business.jpg">    
                         <div class="txt">                       
                             <h3>商務套房</h3>
@@ -301,7 +301,7 @@
                     </a>
                 </div>
                 <div class="room-type suite">
-                    <a href="room-details.php">
+                    <a href="room_details.php">
                         <img src="images/president.jpg">    
                         <div class="txt">                       
                             <h3>總統套房</h3>
