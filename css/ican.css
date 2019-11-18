@@ -604,6 +604,10 @@ footer .logo-font h4{
         color: #ef4370;
         text-shadow: -1px 0 #ffc107, 0 1px #ffc107, 1px 0 #ffc107, 0 -1px #ffc107;
     }
+
+    #queryadmin p{
+        margin-bottom: 0;
+    }
 /* admin.php */
 
 @media screen and (max-width: 1200px) {
