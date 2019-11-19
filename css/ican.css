@@ -610,6 +610,114 @@ footer .logo-font h4{
     }
 /* admin.php */
 
+/* room.php */
+.room_info{
+    margin:100px 0;
+}
+.room_info h1{
+    font-size: 40px;
+    text-align: center;
+    color:#000;
+}
+.room_info .container{
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+}
+.room_menu{
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 1px solid rgb(226, 182, 94);
+}
+.room_menu button{
+    display:inline-block;
+    width:150px;
+    padding: 10px 0;
+    font-size: 18px;
+    margin: 10px 30px;
+    text-decoration: none;
+    text-align: center;
+    background-color: #DAF7A6;
+    color: #0160F2;
+    border: none;
+}
+.room_menu button:hover{
+    background-color: #0160F2;
+    color: #fff;
+}
+.room_menu .room-active{
+    background-color: #0160F2;
+    color: #fff;
+}
+
+.room_info .info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px auto 0;
+}
+.room_info .room-type{
+    width: 300px;
+    margin: 20px;
+    position: relative;
+    overflow:hidden;
+    display: none;
+}
+.room_info .room-type.show{
+    display: inline-block;
+}
+.room_info .room-type img{
+    width: 100%;
+    z-index: 0;
+    transform:scale(1,1);
+    transition: all .6s ease-out;
+}
+.room_info .room-type:hover img{
+    transform:scale(1.2,1.2);
+}
+.room_info .room-type .txt{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left : 0;
+    right: 0;
+    padding: 50px 30px;
+    background-color: rgba(0, 0, 0, .6);
+    text-align: center;
+    opacity: 0;
+}
+.room_info .room-type:hover .txt{
+    opacity: 1;
+}
+.room_info .room-type .txt h3{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+.room-type h3:after{
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    margin: 10px 0;
+    background-color: #ff0;
+    transition: width .3s .3s;
+}
+.room-type:hover h3::after{
+    width: 100%;
+}
+.room_info .room-type .txt p{
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: underline;
+    padding: 10px;
+    
+}
+/* room.php */
+
+
 @media screen and (max-width: 1200px) {
     .header-menu .menu a{
         font-size: 20px;
