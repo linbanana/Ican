@@ -36,8 +36,7 @@
 
 .aboutcontent .container .photo{
         width: 100%;
-        height: 0;
-        //float: left;
+        height: 100%;
         margin: 15px;
 }
 
@@ -93,7 +92,7 @@
 
     .aboutcontent .container .title{
         padding: 40px;
-        font-size: 30px;
+        font-size: 26px;
         text-align: center;
        /* -webkit -writing-mode: vertical-lr;
         writing-mode: vertical-lr;*/
@@ -120,7 +119,7 @@
 
     .aboutcontent .container .title{
         padding: 40px;
-        font-size: 30px;
+        font-size: 26px;
         text-align: center;
        /* -webkit -writing-mode: vertical-lr;
         writing-mode: vertical-lr;*/

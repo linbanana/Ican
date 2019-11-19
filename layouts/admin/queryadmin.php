@@ -45,17 +45,33 @@ if (isset($_GET['page'])) {
 //本頁開始記錄筆數 = (頁數-1)*每頁記錄筆數
 $startRow_records = ($num_pages -1) * $pageRow_records;
 //未加限制顯示筆數的SQL敘述句
-$query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'member' ORDER BY `memberdata`.`m_id` ASC";
-//加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
-$query_limit_RecMember = $query_RecMember." LIMIT {$startRow_records}, {$pageRow_records}";
-//以加上限制顯示筆數的SQL敘述句查詢資料到 $resultMember 中
-$RecMember = $db_link->query($query_limit_RecMember);
-//以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_resultMember 中
-$all_RecMember = $db_link->query($query_RecMember);
-//計算總筆數
-$total_records = $all_RecMember->num_rows;
-//計算總頁數=(總筆數/每頁筆數)後無條件進位。
-$total_pages = ceil($total_records/$pageRow_records);
+ $_GET['order'];
+if(isset($_GET["order"]) && ($_GET["order"]%2=="0")){
+  $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'member' ORDER BY `memberdata`.`m_id` ASC";
+  //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
+  $query_limit_RecMember = $query_RecMember." LIMIT {$startRow_records}, {$pageRow_records}";
+  //以加上限制顯示筆數的SQL敘述句查詢資料到 $resultMember 中
+  $RecMember = $db_link->query($query_limit_RecMember);
+  //以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_resultMember 中
+  $all_RecMember = $db_link->query($query_RecMember);
+  //計算總筆數
+  $total_records = $all_RecMember->num_rows;
+  //計算總頁數=(總筆數/每頁筆數)後無條件進位。
+  $total_pages = ceil($total_records/$pageRow_records);
+}else{
+  $query_RecMember2 = "SELECT * FROM memberdata WHERE m_level<>'member' ORDER BY `memberdata`.`m_id` DESC";
+  $query_limit_RecMember = $query_RecMember2." LIMIT {$startRow_records}, {$pageRow_records}";
+  $RecMember = $db_link->query($query_limit_RecMember);
+  //以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_resultMember 中
+  $all_RecMember = $db_link->query($query_RecMember2);
+  //計算總筆數
+  $total_records = $all_RecMember->num_rows;
+  //計算總頁數=(總筆數/每頁筆數)後無條件進位。
+  $total_pages = ceil($total_records/$pageRow_records);
+
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
@@ -104,9 +120,10 @@ $total_pages = ceil($total_records/$pageRow_records);
                     <td width="15%" align="center" bgcolor="#CCC">加入時間</td>
                     <td width="15%" align="center" bgcolor="#CCC">上次登入</td>
                     <!-- 登入次數排序 尚未完成 -->
-                    <td width="15%" align="center" bgcolor="#CCC">
-                      登入次數
-                    <a href="queryadmin.php?order=<?php echo $order; ?>"></a>
+                    <td width="15%" align="center" bgcolor="#CCC">                      
+                    <form name="form"  action="" method="GET">
+                      <input type="button" name="order" id="order" value="order">
+                    </form>
                     </td>
                     <td width="30%" align="center" bgcolor="#CCC">操作</td>
                   </tr>
