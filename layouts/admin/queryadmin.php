@@ -45,7 +45,9 @@ if (isset($_GET['page'])) {
 //本頁開始記錄筆數 = (頁數-1)*每頁記錄筆數
 $startRow_records = ($num_pages -1) * $pageRow_records;
 //未加限制顯示筆數的SQL敘述句
- $_GET['order'];
+ 
+ $getorder = $_GET['order'];
+ $order = $getorder."=0";
 if(isset($_GET["order"]) && ($_GET["order"]%2=="0")){
   $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'member' ORDER BY `memberdata`.`m_id` ASC";
   //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
