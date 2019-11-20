@@ -1,0 +1,18 @@
+1.組合資料表tb1,tb2
+SELECT * FROM tb1 UNION select * from tb2
+
+2.join設定1(錯誤)
+
+SELECT * FROM `tb` 
+JOIN `tb1`
+on tb.bang=tb1.bang
+
+3.join設定2(正確)
+
+SELECT tb.bang,tb1.nama,tb.uria,tb.tuki FROM `tb` JOIN `tb1` on tb.bang=tb1.bang
+
+4.使用別名產生欄位
+SELECT x.bang,y.nama,x.uria,x.tuki FROM `tb` as x JOIN `tb1` as y on x.bang=y.bang
+
+5.使用using取代bang參照索引
+SELECT x.bang as '員工編號',y.nama as '員工姓名',x.uria as '業績' FROM `tb` as x JOIN `tb1` as y USING(bang) where uria>=100

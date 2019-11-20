@@ -1,0 +1,26 @@
+1.查詢user_details顯示所有欄位
+select * from `user_details`
+
+2.查詢user_details顯示特別欄位加入別名
+SELECT `user_id` as '客戶編號',`username` as '客戶名稱',`gender` as '性別' FROM `user_details`
+
+3.排除重覆值
+SELECT DISTINCT `gender` FROM `user_details`
+
+4.顯示目前排序後之設定筆數
+SELECT * FROM `user_details` LIMIT 50
+
+5.使用username欄位排序
+SELECT * FROM `user_details` ORDER BY `username`
+
+6.自訂兩欄位以上排序
+SELECT * FROM `user_details` ORDER by `gender` DESC,`username` ASC
+
+7.顯示指定特定欄位篩選值
+SELECT * FROM `customers` WHERE `city`='Nantes'
+
+8.篩選與排序複合
+SELECT * FROM `customers` WHERE `city`='Paris'  ORDER by `postalCode` DESC
+
+9.加入關係運算子條件篩選
+SELECT * FROM `customers` WHERE `city`='Paris' or `city`='bergen'

@@ -1,0 +1,11 @@
+1.JOIN 兩資料表
+SELECT x.bang,y.nama,x.uria,x.tuki FROM `tb` as x JOIN `tb1` as y on x.bang=y.bang
+
+2.使用集合做為條件判斷結果(錯誤)
+SELECT * FROM `tb1a` where tosi=max(tosi)
+
+3.使用子集合檢索資料表
+SELECT * FROM `tb1a` where tosi in(SELECT max(tosi) from tb1a)
+
+4.顯示大於tosi平均值的所有資料
+SELECT * FROM `tb1` WHERE  tosi >=(SELECT AVG(tosi) from `tb1`)
