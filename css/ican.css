@@ -719,6 +719,7 @@ footer .logo-font h4{
 
 
 @media screen and (max-width: 1200px) {
+    /* header */
     .header-menu .menu a{
         font-size: 20px;
         padding: 10px;
@@ -747,14 +748,36 @@ footer .logo-font h4{
         right: 20px;
         bottom: 20px;
     }
+    /* header */
+    /* admin.php */
+    .admincontent{
+        right: 3rem;
+    }
+
+    #queryadmin{
+        width: 100% !important;
+    }
+    /* admin.php */
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (max-width: 992px) {
+    /* header */
     .header-menu .menu a{
         font-size: 18px;
         padding: 10px;
     }
+    /* header */
+
+    /* admin.php */
+    #queryadmin{
+        width: 100% !important;
+    }
+
+    .admincontent{
+        right: 3rem;
+    }
+    /* admin.php */
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -847,6 +870,14 @@ footer .logo-font h4{
     #memberdata{
         margin-top: 206px;
         width: 100%;
+    }
+
+    #queryadmin{
+        width: 100% !important;
+    }
+
+    .admincontent{
+        right: 0rem;
     }
 /* admin.php */
 }
@@ -991,6 +1022,10 @@ footer .logo-font h4{
 
     #queryadmin{
         width: 100% !important;
+    }
+
+    .admincontent{
+        right: 0rem;
     }
 
 /* admin.php */

@@ -124,7 +124,12 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
   <div class="admincontent">      
       <table width="530" border="0" align="center" cellpadding="4" cellspacing="0" id="memberdata">
         <tr>
-          <td class="tdbline"><img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" alt="會員系統" width="164" height="67"></td>
+          <td class="tdbline">
+            <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" alt="會員系統" width="164" height="67">            
+            <div style="float='right'">
+              <font color="#ff0000">　警告！任意刪除資料須負民事侵權損害賠償及刑事妨害電腦使用罪責任。</font>
+            </div>
+          </td>
         </tr>
         <tr>
           <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
@@ -139,7 +144,7 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
                     <td width="15%" align="center" bgcolor="#CCC">上次登入</td>
                     <!-- 登入次數排序 尚未完成 -->
                     <td width="15%" align="center" bgcolor="#CCC">                      
-                    <form name="form"  onclick="javascript:location.href='queryadmin.php?order=<?php 
+                    <form name="form"  onclick="javascript:location.href='?order=<?php 
                         echo $ordernum;
                       ?>'" 
                       method="GET">
@@ -164,7 +169,7 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
                     <td width="15%" align="center" bgcolor="#FFF">
                       <?php 
                           echo $row_RecMember["m_id"];
-                      ?>                        
+                      ?>     
                     </td>
                     <td width="15%" align="center" bgcolor="#FFF">
                       <?php 
