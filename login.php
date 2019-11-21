@@ -58,7 +58,6 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
 <!DOCTYPE html>
 <html lang="zh-tw">
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 環境建置 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -73,7 +72,9 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
 <body class="text-center">
     <div class="loginpage">
         <div class="regbox">
-        <img src="images/logo.png" id="logo" alt="會員系統">   
+        <a href="index.php">
+          <img src="images/logo.png" id="logo" alt="會員系統" title="點擊回首頁">
+        </a>
         <p>登入會員系統</p>
         <form name="form1" method="post" action="">
             <p>帳號：

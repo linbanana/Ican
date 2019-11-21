@@ -3,7 +3,7 @@
       <p><strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong>您好。<br>
       本次登入的時間為：<br><?php echo $mlogintime;?>
     </p>
-      <p align="center"><a href="member_adminupdate.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
+      <p align="center"><a href="updateadmin.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
     </p>
 </div>
 
@@ -37,7 +37,7 @@
                       <a href="querymember.php" class="list-group-item py-2 list-group-item-action" id="searchmember" >查詢會員資料</a>
                     </i>                                            
                     <i>
-                      <a href="updateadmin.php" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
+                      <a href="updateadmin.php?id=<?php echo $mid;?>" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
                     </i>
                     <i>
                       <a href="#" class="list-group-item py-2 list-group-item-action">訂單查詢</a>

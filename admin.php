@@ -27,7 +27,6 @@ $stmt->close();
 <!DOCTYPE html>
 <html lang="zh-tw">
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 環境建置 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -56,7 +55,7 @@ $stmt->close();
             <p><strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong>您好。<br>
             本次登入的時間為：<br><?php echo $mlogintime;?>
           </p>
-            <p align="center"><a href="member_adminupdate.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
+            <p align="center"><a href="layouts/admin/updateadmin.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
           </p>
       </div>
 
@@ -90,7 +89,7 @@ $stmt->close();
                       <a href="layouts/admin/querymember.php" class="list-group-item py-2 list-group-item-action">查詢會員資料</a>
                     </i>                                         
                     <i>
-                      <a href="updateadmin.php" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
+                      <a href="layouts/admin/updateadmin.php?id=<?php echo $mid;?>" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
                     </i>
                     <i>
                       <a href="#" class="list-group-item py-2 list-group-item-action">訂單查詢</a>

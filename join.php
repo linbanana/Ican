@@ -53,7 +53,6 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
 <!DOCTYPE html>
 <html lang="zh-tw">
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 環境建置 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -87,7 +86,7 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
   <tr>
     <td class="tdbline">
       <img src="images/cute.png" id="cute"  title="忍法~影分身之術" width="164" height="67">
-      <img src="images/mlogo.png" id="mlogo" alt="會員系統" width="164" height="67">
+      <img src="images/mlogo.gif" id="mlogo" alt="會員系統" width="164" height="67">
     </td>
   </tr>
   <tr>

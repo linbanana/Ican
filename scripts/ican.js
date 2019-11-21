@@ -55,6 +55,36 @@
     return false;}          
     return confirm('確定送出嗎？');
 }
+/* update */
+function checkupdate(){
+    if(document.formJoin.m_passwd.value!="" || document.formJoin.m_passwdrecheck.value!=""){
+        if(!check_passwd(document.formJoin.m_passwd.value,document.formJoin.m_passwdrecheck.value)){
+            document.formJoin.m_passwd.focus();
+            return false;
+        }
+    }   
+    if(document.formJoin.m_name.value==""){
+        alert("請填寫姓名!");
+        document.formJoin.m_name.focus();
+        return false;
+    }
+    if(document.formJoin.m_birthday.value==""){
+        alert("請填寫生日!");
+        document.formJoin.m_birthday.focus();
+        return false;
+    }
+    if(document.formJoin.m_email.value==""){
+        alert("請填寫電子郵件!");
+        document.formJoin.m_email.focus();
+        return false;
+    }
+    if(!checkmail(document.formJoin.m_email)){
+        document.formJoin.m_email.focus();
+        return false;
+    }
+    return confirm('確定送出嗎？');
+}
+/* update */
 function check_passwd(pw1,pw2){
     if(pw1==''){
         alert("密碼不可以空白!");

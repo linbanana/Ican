@@ -486,6 +486,10 @@ footer .logo-font h4{
     position: relative;
 }
 
+.admincontent img#mlogo{
+   float: right;
+}
+
 .Logininformation{
     border: 3px solid #ff4570;
     border-radius: 10%;

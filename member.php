@@ -3,7 +3,7 @@ require_once("connMysql.php");
 session_start();
 //檢查是否經過登入
 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
-  header("Location: index.php");
+  header("Location: login.php");
 }
 //執行登出動作
 if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
@@ -19,7 +19,6 @@ $row_RecMember=$RecMember->fetch_assoc();
 <!DOCTYPE html>
 <html lang="zh-tw">
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 環境建置 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
