@@ -197,15 +197,16 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
                       ?>                        
                     </td>
                     <td width="30%" align="center" bgcolor="#FFF">
+                      <a href="updateadmin.php?id=<?php echo $row_RecMember["m_id"];?>">修改</a><br> 
                       <!-- 判斷要刪除的目標是否為自己 -->
                       <?php 
                         if($row_RecMember["m_id"] != $mid){
-                      ?>
+                      ?>                      
                       <a href="?action=delete&id=<?php echo $row_RecMember["m_id"];?>" onClick="return deletesure();"><font color="#ff0000">刪除</font></a>
                     </td>
                       <?php
                         }
-                      ?>
+                      ?>  
                   </tr>
       			<?php 
               }

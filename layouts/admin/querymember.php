@@ -145,6 +145,7 @@ $total_pages = ceil($total_records/$pageRow_records);
                       ?>                        
                     </td>
                     <td width="30%" align="center" bgcolor="#FFF">
+                      <a href="updateadmin.php?id=<?php echo $row_RecMember["m_id"];?>">修改</a><br>
                       <!-- 判斷要刪除的目標是否為自己 -->
                       <?php 
                         if($row_RecMember["m_id"] != $mid){

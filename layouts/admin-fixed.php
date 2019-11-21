@@ -37,7 +37,7 @@
                       <a href="querymember.php" class="list-group-item py-2 list-group-item-action" id="searchmember" >查詢會員資料</a>
                     </i>                                            
                     <i>
-                      <a href="#" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
+                      <a href="updateadmin.php" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
                     </i>
                     <i>
                       <a href="#" class="list-group-item py-2 list-group-item-action">訂單查詢</a>
