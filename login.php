@@ -27,9 +27,9 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
         //計算登入次數及更新登入時間
         $query_RecLoginUpdate = "UPDATE memberdata SET m_login=m_login+1, m_logintime=NOW() WHERE m_username=?";
         $stmt=$db_link->prepare($query_RecLoginUpdate);
-   $stmt->bind_param("s", $username);
-   $stmt->execute();    
-   $stmt->close();
+        $stmt->bind_param("s", $username);
+        $stmt->execute();    
+        $stmt->close();
         //設定登入者的名稱及等級
    $_SESSION["loginMember"]=$username;
    $_SESSION["memberLevel"]=$level;
@@ -86,9 +86,13 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
             <p style="margin-bottom: 0px;">
                 <input name="rememberme" type="checkbox" id="rememberme" value="true" <?php if(isset($_COOKIE["remUser"]) && ($_COOKIE["remUser"]!="")) echo "checked";?>>
             記住我的帳號密碼。</p>
-            <?php if(isset($_GET["errMsg"]) && ($_GET["errMsg"]=="1")){?>
-            <div class="errDiv"> 登入帳號或密碼錯誤！</div>
-        <?php }?>
+            <?php 
+                if(isset($_GET["errMsg"]) && ($_GET["errMsg"]=="1")){
+            ?>
+                <div class="errDiv"> 登入帳號或密碼錯誤！</div>
+            <?php 
+                }
+            ?>
             <p align="center">
                 <input class="btn loginbtn" type="submit" name="button" id="button" value="登入">
             </p>
