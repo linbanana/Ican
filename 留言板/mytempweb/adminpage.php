@@ -1,26 +1,40 @@
 <?php
-require("connect.php");  //呼叫connect.php文件
+require("connMysql.php");  //呼叫connectMysql.php文件
 $sql_query="select * from guest";  //將SQL指令設定在$sql_query
-$result=mysqli_query($con,$sql_query);//從guest資料庫中選擇所有的資料表
+//$result=mysqli_query($con,$sql_query);//從guest資料庫中選擇所有的資料表
+$result=$db_link->query($sql_query);//從guest資料庫中選擇所有的資料表
 
-
- echo    "總共幾筆資料".mysqli_num_rows($result)."筆<br>";  //使用mysqli_num_rows顯示筆數
-
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 環境建置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/ican.css" rel="stylesheet" />
     <title>Adminpage</title>
+    <!-- 環境建置 -->
+    <style>
+    #backtoboard{
+    border:0px;
+    width:200px;
+    height:50px;
+    background-color: orange;
+    }
+    </style>
 </head>
 <body>
+
+    <a href="messageboard.php"><input type="button" value="回留言頁" id="backtoboard"></a><br>
+
    <?php    //列出所有資料
-
-
-   for($i=0;$i<mysqli_num_rows($result);$i++){
-    $rs=mysqli_fetch_assoc($result);
+   echo    "總共幾筆資料".$result->num_rows."筆<br>";  //使用num_rows顯示筆數
+   for($i=0;$i<$result->num_rows;$i++){
+    $rs=$result->fetch_assoc();
    
         echo "編號:".$rs['guestID']."<br>";
     
@@ -43,3 +57,5 @@ $result=mysqli_query($con,$sql_query);//從guest資料庫中選擇所有的資�
     
 </body>
 </html>
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
+              <tr>  
