@@ -7,16 +7,15 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 }
 
 require_once("../connMysql.php");  //呼叫connectMysql.php文件
-date_default_timezone_set("Asia/Taipei"); //設定台灣時區
-//接收數值
-$guestname=$_POST['guestname'];    
-$guestgender=$_POST['guestgender'];
-$guestphone=$_POST['guestphone'];
-$guestemail=$_POST['guestemail'];
-$guestcontent=$_POST['guestcontent'];
-$guesttime=date("Y:m:d H:i:s",time());
+date_default_timezone_set("Asia/Taipei"); //設定台灣時區   
+
 //如果guestname資料存在,再輸入資料,避免先輸入空白資料
-if(isset($guestname)){
+if(isset($_POST['guestname'])){
+    $guestgender=$_POST['guestgender'];
+    $guestphone=$_POST['guestphone'];
+    $guestemail=$_POST['guestemail'];
+    $guestcontent=$_POST['guestcontent'];
+    $guesttime=date("Y:m:d H:i:s",time());
     //將資料輸入到MySQL資料表中
     $sql_query="insert into guest value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
    $db_link->query($sql_query);
