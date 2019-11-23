@@ -11,6 +11,7 @@ date_default_timezone_set("Asia/Taipei"); //設定台灣時區
 
 //如果guestname資料存在,再輸入資料,避免先輸入空白資料
 if(isset($_POST['guestname'])){
+    $guestname=$_POST['guestname'];
     $guestgender=$_POST['guestgender'];
     $guestphone=$_POST['guestphone'];
     $guestemail=$_POST['guestemail'];
@@ -18,7 +19,7 @@ if(isset($_POST['guestname'])){
     $guesttime=date("Y:m:d H:i:s",time());
     //將資料輸入到MySQL資料表中
     $sql_query="insert into guest value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
-   $db_link->query($sql_query);
+    $db_link->query($sql_query);
 }
 if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     unset($_SESSION["membername"]);
