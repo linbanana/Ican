@@ -13,6 +13,7 @@ function GetSQLValueString($theValue, $theType) {
   }
   return $theValue;
 }
+
 require_once("../../connMysql.php");
 session_start();
 //檢查是否經過登入
@@ -30,44 +31,6 @@ if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
 	header("Location: ../../index.php");
 }
 
-//檢查是否與原密碼相符
-if(isset($_POST["m_username"]) && isset($_POST["m_passwd"])){
-    //繫結登入會員資料
-    $query_RecLogin = "SELECT m_username, m_passwd, m_level FROM memberdata WHERE m_username=?";
-    $stmt=$db_link->prepare($query_RecLogin);
-    $stmt->bind_param("s", $_POST["m_username"]);
-    $stmt->execute();
-    //取出帳號密碼的值綁定結果
-    $stmt->bind_result($username, $passwd, $level); 
-    $stmt->fetch();
-    $stmt->close();
-}else{
-  header("&errMsg=1");
-}
-
-//執行更新動作
-if(isset($_POST["action"])&&($_POST["action"]=="update")){	
-	$query_update = "UPDATE memberdata SET m_passwd=?, m_name=?, m_sex=?, m_birthday=?, m_email=?, m_phone=?, m_address=? WHERE m_id=?";
-	$stmt = $db_link->prepare($query_update);
-	//檢查是否有修改密碼
-	$mpass = $_POST["m_passwdo"];
-	if(($_POST["m_newpasswd"]!="")&&($_POST["m_newpasswd"]==$_POST["m_passwdrecheck"])){
-		$mpass = password_hash($_POST["m_newpasswd"], PASSWORD_DEFAULT);
-	}
-	$stmt->bind_param("sssssssi", 
-		$mpass,
-		GetSQLValueString($_POST["m_name"], 'string'),
-		GetSQLValueString($_POST["m_sex"], 'string'),		
-		GetSQLValueString($_POST["m_birthday"], 'string'),
-		GetSQLValueString($_POST["m_email"], 'email'),
-		GetSQLValueString($_POST["m_phone"], 'string'),
-		GetSQLValueString($_POST["m_address"], 'string'),		
-		GetSQLValueString($_POST["m_id"], 'int'));
-	$stmt->execute();
-	$stmt->close();
-  //重新導向
-  header("Location: ../../admin.php?loginStats=1");	
-}
 //選取管理員資料
 $query_RecAdmin = "SELECT * FROM memberdata WHERE m_username='{$_SESSION["loginMember"]}'";
 $RecAdmin = $db_link->query($query_RecAdmin);	
@@ -76,7 +39,6 @@ $row_RecAdmin=$RecAdmin->fetch_assoc();
 $query_RecMember = "SELECT * FROM memberdata WHERE m_id='{$_GET["id"]}'";
 $RecMember = $db_link->query($query_RecMember);	
 $row_RecMember=$RecMember->fetch_assoc();
-
 //選取管理員資料
 $query_RecAdmin = "SELECT m_id, m_name, m_logintime FROM memberdata WHERE m_username=?";
 $stmt=$db_link->prepare($query_RecAdmin);
@@ -85,6 +47,41 @@ $stmt->execute();
 $stmt->bind_result($mid, $mname, $mlogintime);
 $stmt->fetch();
 $stmt->close();
+
+//執行更新動作
+if(isset($_POST["action"])&&($_POST["action"]=="update")){  
+  $query_update = "UPDATE memberdata SET m_passwd=?, m_name=?, m_sex=?, m_birthday=?, m_email=?, m_phone=?, m_address=? WHERE m_id=?";
+  $stmt = $db_link->prepare($query_update);
+  //先檢查原密碼是否相符再檢查是否有修改密碼
+  if(password_verify($_POST["oripasswd"],$row_RecMember["m_passwd"])){
+      $mpass = $row_RecMember["m_passwd"];
+      //檢查新密碼是否一致
+      if(($_POST["m_newpasswd"]!="")&&($_POST["m_newpasswd"]==$_POST["m_passwdrecheck"])){
+          //檢查密碼格式
+          if(preg_match('/^[\.\-\']+$/',$_POST["m_newpasswd"])){
+            header("Location: updateadmin.php?id=$mid&errMsg=3");
+          }else{            
+            $mpass = password_hash($_POST["m_newpasswd"], PASSWORD_DEFAULT);
+          }  
+      }else{
+         header("Location: updateadmin.php?id=$mid&errMsg=2");
+      }
+  }else{
+    header("Location: updateadmin.php?id=$mid&errMsg=1");    
+  } 
+  $stmt->bind_param("sssssssi",$mpass,
+  GetSQLValueString($_POST["m_name"], 'string'),
+  GetSQLValueString($_POST["m_sex"], 'string'),   
+  GetSQLValueString($_POST["m_birthday"], 'string'),
+  GetSQLValueString($_POST["m_email"], 'email'),
+  GetSQLValueString($_POST["m_phone"], 'string'),
+  GetSQLValueString($_POST["m_address"], 'string'),   
+  GetSQLValueString($_POST["m_id"], 'int'));
+  $stmt->execute();
+  $stmt->close();
+  //重新導向  
+  header("Location: updateadmin.php?id=$mid&loginStats=1"); 
+}
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
@@ -115,7 +112,7 @@ $stmt->close();
     ?>
     <script language="javascript">
         alert('會員資料修改成功\n請用申請的帳號密碼登入。');
-        window.location.href='login.php';     
+        window.location.href='../../admin.php';     
     </script>
     <?php 
         }
@@ -132,42 +129,74 @@ $stmt->close();
   <tr>
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
       <tr valign="top">
-        <td class="tdrline"><form action="" method="POST" name="formJoin" id="formJoin" onSubmit="return checkupdate();">
+        <td class="tdrline"><form action="" method="POST" name="formupdate" id="formupdate" onSubmit="return checkupdate();">
           <div class="dataDiv">
             <hr size="1" />
             <p class="heading">帳號資料</p>
-            <p><strong>輸入帳號</strong>：<?php echo $row_RecMember["m_username"];?></p>
+            <p>
+              <font color="#FF0000">*</font> 表示為必填的欄位
+            </p>
+            <p><strong>會員帳號</strong>：
+              <?php echo $row_RecMember["m_username"];?>
+            </p>
             <p><strong>輸入原密碼</strong> ：
-            <input name="m_passwd" type="password" class="normalinput" id="m_passwdrecheck">
+            <input name="oripasswd" type="password" class="normalinput">
             <?php 
                 if(isset($_GET["errMsg"]) && ($_GET["errMsg"]=="1")){
             ?>
-                <span class="smalltext">123</span>
+                <span class="smalltext">
+                  <font color="#ff0000">密碼錯誤</font>
+                </span>
             <?php 
                 }
             ?><br>
             </p>
             <p><strong>輸入新密碼</strong> ：
-            <input name="m_newpasswd" type="password" class="normalinput" id="m_passwd">
-            <input name="m_passwdo" type="hidden" id="m_passwdo" value="<?php echo $row_RecMember["m_passwd"];?>"></p>
+            <input name="m_newpasswd" type="password" class="normalinput" id="m_newpasswd">
+            <?php 
+                if(isset($_GET["errMsg"]) && ($_GET["errMsg"]=="2")){
+            ?>
+                <span class="smalltext"><font color="#ff0000">密碼二次輸入不一樣,請重新輸入 !</font></span>
+            <?php 
+                }elseif (isset($_GET["errMsg"]) && ($_GET["errMsg"]=="3")){
+            ?>
+                <span class="smalltext">
+                  <font color="#ff0000">密碼格式不可含有.-'</font>
+                </span>   
+            <?php    
+                }elseif (isset($_GET["errMsg"]) && ($_GET["errMsg"]=="4")) {
+            ?>
+                <span class="smalltext">
+                  <font color="#ff0000">密碼長度只能6到12個字母 !</font>
+                </span>
+            <?php
+                }
+            ?>
+            </p>
             <p><strong>確認新密碼</strong> ：
             <input name="m_passwdrecheck" type="password" class="normalinput" id="m_passwdrecheck"><br>
-            <span class="smalltext">若不修改密碼，請不要填寫。若要修改，請輸入密碼二次。</span></p>
+              <span class="smalltext">不修改密碼，請不要填寫。若要修改，請輸入密碼二次。</span>
+            </p>
             <hr size="1" />
             <p class="heading">個人資料</p>
             <p><strong>真實姓名</strong>：
             <input name="m_name" type="text" class="normalinput" id="m_name" value="<?php echo $row_RecMember["m_name"];?>">
-            <font color="#FF0000">*</font> </p>
+              <font color="#FF0000">*</font> 
+            </p>
             <p><strong>性　　別</strong>：
             <input name="m_sex" type="radio" value="女" <?php if($row_RecMember["m_sex"]=="女") echo "checked";?>>女
             <input name="m_sex" type="radio" value="男" <?php if($row_RecMember["m_sex"]=="男") echo "checked";?>>男
-            <font color="#FF0000">*</font></p>
+              <font color="#FF0000">*</font>
+            </p>
             <p><strong>生　　日</strong>：
             <input name="m_birthday" type="date" class="normalinput" id="m_birthday" value="<?php echo $row_RecMember["m_birthday"];?>">
-            <font color="#FF0000">*</font><br><span class="smalltext">為西元格式(YYYY-MM-DD)。 </span></p>
+              <font color="#FF0000">*</font><br>
+              <span class="smalltext">為西元格式(YYYY-MM-DD)。 </span>
+            </p>
             <p><strong>電子郵件</strong>：
             <input name="m_email" type="text" class="normalinput" id="m_email" value="<?php echo $row_RecMember["m_email"];?>">
-            <font color="#FF0000">*</font><br><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span></p>
+              <font color="#FF0000">*</font><br><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span>
+            </p>
             <p><strong>電　　話</strong>：
             <input name="m_phone" type="text" class="normalinput" id="m_phone" value="<?php echo $row_RecMember["m_phone"];?>">
             <font color="#FF0000">*
@@ -186,15 +215,14 @@ $stmt->close();
             </p>
             <p><strong>住　　址</strong>：
             <input name="m_address" type="text" class="normalinput" id="m_address" value="<?php echo $row_RecMember["m_address"];?>" size="40"></p>
-            <p><font color="#FF0000">*</font> 表示為必填的欄位</p>
           </div>
           <hr size="1" />
           <p align="center">
             <input name="m_id" type="hidden" id="m_id" value="<?php echo $row_RecMember["m_id"];?>">
             <input name="action" type="hidden" id="action" value="update">
-            <input type="submit" name="Submit2" value="修改資料">
-            <input type="reset" name="Submit3" value="重設資料">
-            <input type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
+            <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="修改資料">
+            <input class="btn btn-info btn-sm" type="reset" name="Submit3" value="重設資料">
+            <input class="btn btn-primary btn-sm" type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
           </p>
         </form></td>
       </tr>

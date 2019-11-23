@@ -49,42 +49,43 @@
         return false;}
     if(!checkphone(document.formJoin.m_phone)){
         document.formJoin.m_phone.focus();
-        return false;}
-    if(!checkbirthday(document.formJoin.m_birthday)){
-    document.formJoin.m_birthday.focus();
-    return false;}          
+        return false;}       
     return confirm('確定送出嗎？');
 }
 /* update */
 function checkupdate(){
-    if(document.formJoin.m_passwd.value!="" || document.formJoin.m_passwdrecheck.value!=""){
-        if(!check_passwd(document.formJoin.m_passwd.value,document.formJoin.m_passwdrecheck.value)){
-            document.formJoin.m_passwd.focus();
+    if(document.formupdate.m_newpasswd.value!="" || document.formupdate.m_passwdrecheck.value!=""){
+        if(!check_passwd(document.formupdate.m_newpasswd.value,document.formupdate.m_passwdrecheck.value)){
+            document.formupdate.oripasswd.focus();
             return false;
         }
     }   
-    if(document.formJoin.m_name.value==""){
+    if(document.formupdate.m_name.value==""){
         alert("請填寫姓名!");
-        document.formJoin.m_name.focus();
+        document.formupdate.m_name.focus();
         return false;
     }
-    if(document.formJoin.m_birthday.value==""){
+    if(document.formupdate.m_birthday.value==""){
         alert("請填寫生日!");
-        document.formJoin.m_birthday.focus();
+        document.formupdate.m_birthday.focus();
         return false;
     }
-    if(document.formJoin.m_email.value==""){
+    if(document.formupdate.m_email.value==""){
         alert("請填寫電子郵件!");
-        document.formJoin.m_email.focus();
+        document.formupdate.m_email.focus();
         return false;
     }
-    if(!checkmail(document.formJoin.m_email)){
-        document.formJoin.m_email.focus();
+    if(!checkmail(document.formupdate.m_email)){
+        document.formupdate.m_email.focus();
         return false;
     }
+    if(!checkphone(document.formJoin.m_phone)){
+        document.formJoin.m_phone.focus();
+        return false;}   
     return confirm('確定送出嗎？');
 }
 /* update */
+
 function check_passwd(pw1,pw2){
     if(pw1==''){
         alert("密碼不可以空白!");

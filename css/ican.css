@@ -881,7 +881,7 @@ footer .logo-font h4{
     }
 
     .admincontent{
-        right: 0rem;
+        right: 3rem;
     }
 /* admin.php */
 }
@@ -1033,4 +1033,11 @@ footer .logo-font h4{
     }
 
 /* admin.php */
+
+/* updateadmin.php*/
+
+    .admincontent table#jointable{
+        margin-top: 15rem;
+    }
+/* updateadmin.php*/
 }

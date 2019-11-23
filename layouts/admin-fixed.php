@@ -31,19 +31,22 @@
               <a class="list-group-item py-2 list-group-item-action">會員系統管理</a>
                 <ol>
                     <i>
-                      <a href="queryadmin.php" class="list-group-item py-2 list-group-item-action" id="searchmember" >查詢管理員資料</a>
+                      <a href="updateadmin.php?id=<?php echo $mid;?>" class="list-group-item py-2 list-group-item-action">修改資料</a>
                     </i>
                     <i>
-                      <a href="querymember.php" class="list-group-item py-2 list-group-item-action" id="searchmember" >查詢會員資料</a>
-                    </i>                                            
+                      <a href="queryadmin.php" class="list-group-item py-2 list-group-item-action">查詢、修改管理員資料</a>
+                    </i>
                     <i>
-                      <a href="updateadmin.php?id=<?php echo $mid;?>" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
+                      <a href="querymember.php" class="list-group-item py-2 list-group-item-action">查詢、修改會員資料</a>
                     </i>
                     <i>
                       <a href="#" class="list-group-item py-2 list-group-item-action">訂單查詢</a>
                     </i>
                     <i>
                       <a href="#" class="list-group-item py-2 list-group-item-action">立即訂房</a>
+                    </i>
+                    <i>
+                      <a href="querymember.php" class="list-group-item py-2 list-group-item-action">取消訂房</a>
                     </i>
                     <i>
                       <a href="#" class="list-group-item py-2 list-group-item-action">旅遊行程規劃</a>

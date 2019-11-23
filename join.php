@@ -121,7 +121,7 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
                 <input name="m_passwd" type="password" class="normalinput" id="m_passwd">
                 <font color="#FF0000">*</font>
                 <span class="smalltext">
-                請填入5~10個字元以內的英文字母、數字、以及各種符號組合。
+                請填入6~10個字元以內的英文字母、數字、以及各種符號組合。
                 </span>
             </p>
             <p><strong>確認密碼</strong>：
