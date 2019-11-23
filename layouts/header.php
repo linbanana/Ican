@@ -28,14 +28,13 @@
                 <a href="#">聯絡我們</a>
                 <a href="#">線上訂房</a>
                 <a href="login.php">會員登入</a>
+                <a href="join.php">會員註冊</a>
             </div>
         </div>
         <div class="toggle-btn"><i class="fa fa-bars"></i></div>
     </div>
     
-    <!--側邊選單Sidebar-->
-    
-    
+    <!--側邊選單Sidebar--> 
     <div id="sidebar">
         <div class="logo">
             <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true">
@@ -51,6 +50,7 @@
             <a href="#">聯絡我們</a>
             <a href="#">線上訂房</a>
             <a href="login.php">會員登入</a>
+            <a href="join.php">會員註冊</a>
         </div>
     </div>
 </header>
