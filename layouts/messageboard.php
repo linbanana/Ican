@@ -18,12 +18,12 @@ if(isset($_POST['guestname'])){
     $guestcontent=$_POST['guestcontent'];
     $guesttime=date("Y:m:d H:i:s",time());
     //將資料輸入到MySQL資料表中
-    $sql_query="insert into guest value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
+    $sql_query="insert into `message` value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
     $db_link->query($sql_query);
 }
 if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     unset($_SESSION["membername"]);
-    header("Location: member.php");
+    header("Location: ../index.php");
   }
 
 ?>
