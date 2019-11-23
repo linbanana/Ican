@@ -18,7 +18,7 @@ if(isset($_POST['guestname'])){
     $guestcontent=$_POST['guestcontent'];
     $guesttime=date("Y:m:d H:i:s",time());
     //將資料輸入到MySQL資料表中
-    $sql_query="insert into guest value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
+    $sql_query="INSERT INTO `message`("", `guestname`, `guestgender`, `guestphone`, `guestemail`, `guestcontent`, `guesttime`) VALUES ("",[$guestname],[$guestgender],[$guestphone],[$guestemail],[$guestcontent],[$guesttime])";
     $db_link->query($sql_query);
 }
 if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
@@ -39,7 +39,7 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/ican.css" rel="stylesheet" />   
     <!-- 環境建置 -->
-<title>留言板</title> 
+    <title>留言板</title> 
 <style>
 .divboard{
     padding-top:50px;
