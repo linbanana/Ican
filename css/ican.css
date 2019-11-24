@@ -19,10 +19,11 @@ body{
         right: 0;
         transition: 1s;
         z-index: 1;
+        background-color: rgba(0, 0, 0,0.6);
     }
 
     .header-menu.scrolldown{
-        background-color: #fff;
+        background-color: rgba(255, 255, 255);
         z-index: 10;
         transition: 1.5s;
     }
@@ -59,8 +60,8 @@ body{
         transition: 1s;
     }
     .header-menu .menu a:hover{
-        color: rgb(175, 5, 5);
-        font-weight: 900;
+        color: #17a2b8;
+        text-decoration:underline;
     }
     /* LOGO跟選單 */
 
@@ -887,11 +888,12 @@ footer .logo-font h4{
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media screen and (max-width: 576px) {  
+@media screen and (max-width: 576px) { 
+    
     .header-menu .logo{
         width: 60px;
     }
- 
+
 /* Content */   
     .welcome .container{
         padding: 10px;

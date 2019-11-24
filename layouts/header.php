@@ -1,3 +1,13 @@
+
+<?php
+    //執行登出動作
+    if(isset($_GET["logout"]) && ($_GET["logout"]=="true")) {
+        unset($_SESSION["loginMember"]);
+        unset($_SESSION["memberLevel"]);
+        header("Location: index.php");
+    }
+?>
+
 <!-- header -->
 <header>
     <!--背景輪播Carousel-->
@@ -27,8 +37,18 @@
                 <a href="about.php">關於我們</a>
                 <a href="#">聯絡我們</a>
                 <a href="#">線上訂房</a>
-                <a href="login.php">會員登入</a>
-                <a href="join.php">會員註冊</a>
+                <?php 
+                if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
+                ?>
+                    <a href="login.php">會員登入</a>
+                    <a href="join.php">會員註冊</a>
+                <?php
+                }else{
+                ?>
+                    <a href="?logout=true">登出系統</a>
+                <?php
+                }
+                ?>
             </div>
         </div>
         <div class="toggle-btn"><i class="fa fa-bars"></i></div>
@@ -49,8 +69,18 @@
             <a href="about.php">關於我們</a>
             <a href="#">聯絡我們</a>
             <a href="#">線上訂房</a>
-            <a href="login.php">會員登入</a>
-            <a href="join.php">會員註冊</a>
+            <?php 
+            if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
+            ?>
+                <a href="login.php">會員登入</a>
+                <a href="join.php">會員註冊</a>
+            <?php
+            }else{
+            ?>
+                <a href="?logout=true">登出系統</a>
+            <?php
+            }
+            ?>  
         </div>
     </div>
 </header>
