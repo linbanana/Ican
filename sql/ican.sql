@@ -118,13 +118,13 @@ INSERT INTO `modeldata` (`r_model`, `r_price`, `r_num`, `r_disc`) VALUES
 
 CREATE TABLE `orderdata` (
   `o_num` int(10) NOT NULL,
-  `o_time` datetime NOT NULL,
+  `o_time` date NOT NULL,
   `o_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `o_phone` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
-  `o_citime` datetime NOT NULL,
+  `o_citime` date NOT NULL,
   `o_day` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `o_total` int(10) NOT NULL,
-  `o_cotime` datetime NOT NULL
+  `o_total` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `o_cotime` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --

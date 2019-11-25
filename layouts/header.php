@@ -36,7 +36,7 @@
                 <a href="room.php">客房介紹</a>
                 <a href="about.php">關於我們</a>
                 <a href="#">聯絡我們</a>
-                <a href="#">線上訂房</a>
+                <a href="layouts/order/selet.php">線上訂房</a>
                 <?php 
                 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
                 ?>
@@ -68,7 +68,7 @@
             <a href="room.php">客房介紹</a>
             <a href="about.php">關於我們</a>
             <a href="#">聯絡我們</a>
-            <a href="#">線上訂房</a>
+            <a href="layouts/order/selet.php">線上訂房</a>
             <?php 
             if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
             ?>
