@@ -257,48 +257,48 @@
                 <div class="icons">
                     <ul>
                         <li>
-                            <img src="images/r01.png" class="img-responsive">
+                            <img src="images/room_details/r01.png" class="img-responsive">
                             <span>冷氣機</span>
                         </li>
                         <li>
-                            <img src="images/r02.png" class="img-responsive">
+                            <img src="images/room_details/r02.png" class="img-responsive">
                             <span>液晶電視</span>
                         </li>
                         <li>
-                            <img src="images/r03.png" class="img-responsive">
+                            <img src="images/room_details/r03.png" class="img-responsive">
                             <span>房內冰箱</span>
                         </li>
                         <li>
-                            <img src="images/r04.png" class="img-responsive">
+                            <img src="images/room_details/r04.png" class="img-responsive">
                             <span>吹風機</span>
                         </li>
                         <li>
-                            <img src="images/r05.png" class="img-responsive">
+                            <img src="images/room_details/r05.png" class="img-responsive">
                             <span>電熱水瓶</span>
                         </li>
                         <li>
-                            <img src="images/r06.png" class="img-responsive">
+                            <img src="images/room_details/r06.png" class="img-responsive">
                             <span>毛巾浴巾</span>
                         </li>
                         <li>
-                            <img src="images/r07.png" class="img-responsive">
+                            <img src="images/room_details/r07.png" class="img-responsive">
                             <span>牙膏牙刷</span>
                         </li>
                         <li>
-                            <img src="images/r08.png" class="img-responsive">
+                            <img src="images/room_details/r08.png" class="img-responsive">
                             <span>沐浴用品</span>
                         </li>
                         
                         <li>
-                            <img src="images/s04.png" class="img-responsive">
+                            <img src="images/room_details/s04.png" class="img-responsive">
                             <span>Wifi網路</span>
                         </li>
                         <li>
-                            <img src="images/r10.png" class="img-responsive">
+                            <img src="images/room_details/r10.png" class="img-responsive">
                             <span>淋浴</span>
                         </li>
                         <li>
-                            <img src="images/r12.png" class="img-responsive">
+                            <img src="images/room_details/r12.png" class="img-responsive">
                             <span>免費飲品</span>
                         </li>
                     </ul>

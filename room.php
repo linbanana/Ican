@@ -98,7 +98,7 @@
             <div class="info">
                 <div class="room-type double">
                     <a href="room_details.php">
-                        <img src="images/marvel.jpg">    
+                        <img src="images/room/marvel.jpg">    
                         <div class="txt">                       
                             <h3>漫威主題客房</h3>
                             <p>查看介紹</p>
@@ -107,7 +107,7 @@
                 </div>
                 <div class="room-type double">
                     <a href="room_details.php">
-                        <img src="images/disney.jpg">    
+                        <img src="images/room/disney.jpg">    
                         <div class="txt">                       
                             <h3>迪士尼主題客房</h3>
                             <p>查看介紹</p>
@@ -116,7 +116,7 @@
                 </div>
                 <div class="room-type double">
                     <a href="room_details.php">
-                        <img src="images/Ocean.jpg">    
+                        <img src="images/room/Ocean.jpg">    
                         <div class="txt">                       
                             <h3>海洋世界主題客房</h3>
                             <p>查看介紹</p>
@@ -125,7 +125,7 @@
                 </div>
                 <div class="room-type double">
                     <a href="room_details.php">
-                        <img src="images/shinestar.jpg">    
+                        <img src="images/room/shinestar.jpg">    
                         <div class="txt">                       
                             <h3>星空主題客房</h3>
                             <p>查看介紹</p>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="room-type double">
                     <a href="room_details.php">
-                        <img src="images/egypt.jpg">    
+                        <img src="images/room/egypt.jpg">    
                         <div class="txt">                       
                             <h3>埃及主題客房</h3>
                             <p>查看介紹</p>
@@ -143,7 +143,7 @@
                 </div>
                 <div class="room-type double">
                     <a href="room_details.php">
-                        <img src="images/rome.jpg">    
+                        <img src="images/room/rome.jpg">    
                         <div class="txt">                       
                             <h3>羅馬主題客房</h3>
                             <p>查看介紹</p>
@@ -152,7 +152,7 @@
                 </div>
                 <div class="room-type double">
                     <a href="room_details.php">
-                        <img src="images/Europe.jpg">    
+                        <img src="images/room/Europe.jpg">    
                         <div class="txt">                       
                             <h3>歐式客房</h3>
                             <p>查看介紹</p>
@@ -161,7 +161,7 @@
                 </div>
                 <div class="room-type double">
                     <a href="room_details.php">
-                        <img src="images/jp-style.jpg">    
+                        <img src="images/room/jp-style.jpg">    
                         <div class="txt">                       
                             <h3>和式客房</h3>
                             <p>查看介紹</p>
@@ -170,7 +170,7 @@
                 </div>
                 <div class="room-type family">
                     <a href="room_details.php">
-                        <img src="images/parity-family.jpg">    
+                        <img src="images/room/parity-family.jpg">    
                         <div class="txt">                       
                             <h3>經濟家庭房</h3>
                             <p>查看介紹</p>
@@ -179,7 +179,7 @@
                 </div>
                 <div class="room-type family">
                     <a href="room_details.php">
-                        <img src="images/luxury-family.jpg">    
+                        <img src="images/room/luxury-family.jpg">    
                         <div class="txt">                       
                             <h3>豪華家庭房</h3>
                             <p>查看介紹</p>
@@ -188,7 +188,7 @@
                 </div>
                 <div class="room-type suite">
                     <a href="room_details.php">
-                        <img src="images/business.jpg">    
+                        <img src="images/room/business.jpg">    
                         <div class="txt">                       
                             <h3>商務套房</h3>
                             <p>查看介紹</p>
@@ -197,7 +197,7 @@
                 </div>
                 <div class="room-type suite">
                     <a href="room_details.php">
-                        <img src="images/president.jpg">    
+                        <img src="images/room/president.jpg">    
                         <div class="txt">                       
                             <h3>總統套房</h3>
                             <p>查看介紹</p>
