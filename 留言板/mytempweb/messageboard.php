@@ -4,28 +4,37 @@ session_start();
 //判斷是否有登入
 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
    echo "<script>alert('尚未登入')</script>";
-   header("Location: login.php");
+   header("Location: ../login.php");
   
 }
 
-require_once("connMysql.php");  //呼叫connectMysql.php文件
+require_once("../connMysql.php");  //呼叫connectMysql.php文件
 date_default_timezone_set("Asia/Taipei"); //設定台灣時區
+$selectmember="SELECT `m_username`,`m_sex`,`m_email`,`m_phone`,`m_level` FROM `memberdata` WHERE `m_username`= '{$_SESSION["loginMember"]}'";
+$pick=$db_link->query($selectmember);
+$messagemember=$pick->fetch_assoc();
+echo "會員名稱:".$messagemember['m_username']."<br>";
+echo "性別:".$messagemember['m_sex']."<br>";
+echo "信箱:".$messagemember['m_email']."<br>";
+echo "手機:".$messagemember['m_phone']."<br>";
+echo "會員等級:".$messagemember['m_level']."<br>";
+
 //接收數值
-$guestname=$_POST['guestname'];    
-$guestgender=$_POST['guestgender'];
-$guestphone=$_POST['guestphone'];
-$guestemail=$_POST['guestemail'];
+$guestname=$messagemember['m_username'];    
+$guestgender=$messagemember['m_sex'];
+$guestphone=$messagemember['m_phone'];
+$guestemail=$messagemember['m_email'];
 $guestcontent=$_POST['guestcontent'];
 $guesttime=date("Y:m:d H:i:s",time());
 //如果guestname資料存在,再輸入資料,避免先輸入空白資料
-if(isset($guestname)){
+if(isset($guestname)&& $guestcontent!=""){
     //將資料輸入到MySQL資料表中
-    $sql_query="insert into message value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
+    $sql_query="INSERT INTO `message`(`guestID`, `guestname`, `guestgender`, `guestphone`, `guestemail`, `guestcontent`, `guesttime`) value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
    $db_link->query($sql_query);
 }
 if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     unset($_SESSION["membername"]);
-    header("Location: member.php");
+    header("Location: ../login.php");
   }
 
 ?>
@@ -46,17 +55,17 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
 .divboard{
     padding-top:50px;
 }   
-#tdcontent{   /*留言內容的td*/
- background-color:yellow;
-}
-#boardcontent{  /*留言內容的div*/
-   margin-top:100px; 
-   margin-bottom:50px;
+
+#boardform{   /*form表單*/
+    background-image: url(https://picsum.photos/900/500/);
+    width:693px;
+    height:300px;
+    margin:0px auto;
 }
 #guestcontent{  /*留言內容的框框*/
   /*調整大小*/ 
- width: 175px;
- height:100px;
+ width: 200px;
+ height:120px;
 }
 #adminpagebutton{  /*看留言按鈕*/ 
     background-color: orange;
@@ -64,8 +73,22 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     height:50px;
     border:0px;
 }
-#boardfooter{     /*留言板底部*/
-    background-color: red;
+#boardcontent{  /*留言內容的div*/
+   margin-top:100px; 
+   margin-bottom:50px;
+   margin:0px;
+   height:400px;
+}
+#boardhead{
+    width:693px;
+    height:50px;
+    margin:0px auto;
+}
+#boardheadL{
+    float:left;
+}
+#boardheadR{
+    float:right;
 }
 
 </style>
@@ -75,74 +98,31 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
 
 <!--留言板-->
 <div class="divboard">
-<!--用table排版,用td分別放切好的圖片-->
-<table align="center" cellpadding="0" cellspacing="0" id="boardtable">
-    <!--放header圖-->
-    <tr>
-        <td> 
-            <table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
-              <tr>         
-                <td><img name="board_r1_c1" src="images/post_r1_c1.jpg" width="465" height="36" border="0" alt=""></td>
-                <!--要改的看留言按鈕-->
-                <td><a href="adminpage.php"><input type="button" value="要改的看留言" id="adminpagebutton"></a></td>               
-                <td width="15"><img name="board_r1_c8" src="images/post_r1_c8.jpg" width="15" height="36" border="0" alt=""></td>
-              </tr>
-            </table>
-        </td>
-    </tr>
-    <!--放content圖,背景圖放在td裡面,div負責移動留言的框框-->
-    <tr>
-        <td id="tdcontent">
-        <div id="boardcontent">
-        <form id="form1" name="form1" method="POST" action="">     
-        <table align="center">
-            <tr>
-                <td width="160" align="center">會員名稱</td>
-                <td><input id="guestname" name="guestname" type="text"></td>
-            </tr>
-
-            <tr>
-                <td width="160" align="center">會員性別</td>
-                <td><input type="radio" name="guestgender" id="male" value="男">男<input type="radio" name="guestgender" id="female" value="女">女</td>
-            </tr>
-
-            <tr>
-                <td width="160" align="center">　　電話</td>
-                <td><input id="guestphone" name="guestphone" type="text"></td>
-            </tr>
-
-            <tr>
-                <td width="160" align="center">　　信箱</td>
-                <td><input id="guestemail" name="guestemail" type="text"></td>
-            </tr>
-
-            <tr>
-                <td width="160" align="center">留言內容</td>
-                <td><textarea name="guestcontent" id="guestcontent" cols="30" rows="10"></textarea></td>
-            </tr>
-
-            <tr>
-                <td><input id="submit" name="submit" type="submit" value="送出資料" ></td>
-                <td><input id="logout" name="logout" type="button" value="登出" onclick="location.href='member.php?logout=true'"></td>
-            </tr>
-
-        </table>
-        </form>   
+  <!--用div排版-->
+    <div id="boardhead" >
+        <div id="boardheadL">
+            <img name="board_r1_c1" src="../images/messageboard/messagelogo.gif" width="493" height="50" border="0" alt="">
         </div>
-        </td>
-    </tr>
-<!--放footer圖,圖直接丟下面-->
-    <tr>
-        <td id="boardfooter">
-        <img src="" alt="">
-        </td>
-    </tr>
+        <div id="boardheadR">
+            <a href="admin/adminmessage.php"><img src="../images/messageboard/querymessage.png" alt="" name="adminpagebutton"></a>
+        </div>
+    </div>
 
+    <div id="boardcontent">
+        <form id="boardform" name="form1" method="POST" action="">     
+            <table align="center" width="700px">
+                <tr>
+                    <td width="275px" height="200" align="right">留言內容</td>
+                    <td height="200px"><textarea name="guestcontent" id="guestcontent" cols="30" rows="10"></textarea></td>
+                </tr>
 
-
-</table>
-   
-
+                <tr>
+                    <td height="70px" align="right"><input id="submit"  name="submit" type="submit" value="送出資料" ></td>
+                    <td height="70px"  align="center"><a href="../member.php"><input id="logout" name="logout" type="button" value="回會員中心" ></a></td>
+                </tr>
+            </table>
+        </form>   
+    </div>
 </div>   
 
 

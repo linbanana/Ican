@@ -10,25 +10,32 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 
 require_once("../connMysql.php");  //呼叫connectMysql.php文件
 date_default_timezone_set("Asia/Taipei"); //設定台灣時區
+$selectmember="SELECT `m_username`,`m_sex`,`m_email`,`m_phone`,`m_level` FROM `memberdata` WHERE `m_username`= '{$_SESSION["loginMember"]}'";
+$pick=$db_link->query($selectmember);
+$messagemember=$pick->fetch_assoc();
+echo "會員名稱:".$messagemember['m_username']."<br>";
+echo "性別:".$messagemember['m_sex']."<br>";
+echo "信箱:".$messagemember['m_email']."<br>";
+echo "手機:".$messagemember['m_phone']."<br>";
+echo "會員等級:".$messagemember['m_level']."<br>";
+
 //接收數值
-$guestname=$_POST['guestname'];    
-$guestgender=$_POST['guestgender'];
-$guestphone=$_POST['guestphone'];
-$guestemail=$_POST['guestemail'];
+$guestname=$messagemember['m_username'];    
+$guestgender=$messagemember['m_sex'];
+$guestphone=$messagemember['m_phone'];
+$guestemail=$messagemember['m_email'];
 $guestcontent=$_POST['guestcontent'];
 $guesttime=date("Y:m:d H:i:s",time());
 //如果guestname資料存在,再輸入資料,避免先輸入空白資料
-if(isset($guestname)){
+if(isset($guestname)&& $guestcontent!=""){
     //將資料輸入到MySQL資料表中
     $sql_query="INSERT INTO `message`(`guestID`, `guestname`, `guestgender`, `guestphone`, `guestemail`, `guestcontent`, `guesttime`) value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
    $db_link->query($sql_query);
 }
-
-    if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
-        unset($_SESSION["loginMember"]);
-        unset($_SESSION["memberLevel"]);
-        header("Location: ../index.php");
-    }
+if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
+    unset($_SESSION["membername"]);
+    header("Location: ../login.php");
+  }
 
 ?>
 <!DOCTYPE html>
@@ -48,30 +55,29 @@ if(isset($guestname)){
 .divboard{
     padding-top:50px;
 }   
-#tdcontent{   /*留言內容的td*/
+
+#boardform{   /*form表單*/
     background-image: url(https://picsum.photos/900/500/);
-}
-#boardcontent{  /*留言內容的div*/
-   margin-top:100px; 
-   margin-bottom:50px;
-   margin:0px;
-}
-#boardform{
-    background-image: url(https://picsum.photos/900/500/);
-    width:700px;
-    height:243;
+    width:693px;
+    height:300px;
     margin:0px auto;
 }
 #guestcontent{  /*留言內容的框框*/
   /*調整大小*/ 
- width: 175px;
- height:100px;
+ width: 200px;
+ height:120px;
 }
 #adminpagebutton{  /*看留言按鈕*/ 
     background-color: orange;
     width:200px;
     height:50px;
     border:0px;
+}
+#boardcontent{  /*留言內容的div*/
+   margin-top:100px; 
+   margin-bottom:50px;
+   margin:0px;
+   height:400px;
 }
 #boardhead{
     width:693px;
@@ -104,35 +110,15 @@ if(isset($guestname)){
 
     <div id="boardcontent">
         <form id="boardform" name="form1" method="POST" action="">     
-            <table align="center">
+            <table align="center" width="700px">
                 <tr>
-                    <td width="160" align="center">會員名稱</td>
-                    <td><input id="guestname" name="guestname" type="text"></td>
+                    <td width="275px" height="200" align="right">留言內容</td>
+                    <td height="200px"><textarea name="guestcontent" id="guestcontent" cols="30" rows="10"></textarea></td>
                 </tr>
 
                 <tr>
-                    <td width="160" align="center">會員性別</td>
-                    <td><input type="radio" name="guestgender" id="male" value="男">男<input type="radio" name="guestgender" id="female" value="女">女</td>
-                </tr>
-
-                <tr>
-                    <td width="160" align="center">　　電話</td>
-                    <td><input id="guestphone" name="guestphone" type="text"></td>
-                </tr>
-
-                <tr>
-                    <td width="160" align="center">　　信箱</td>
-                    <td><input id="guestemail" name="guestemail" type="text"></td>
-                </tr>
-
-                <tr>
-                    <td width="160" align="center">留言內容</td>
-                    <td><textarea name="guestcontent" id="guestcontent" cols="30" rows="10"></textarea></td>
-                </tr>
-
-                <tr>
-                    <td><input id="submit" name="submit" type="submit" value="送出資料" ></td>
-                    <td><input id="logout" name="logout" type="button" value="登出" onclick="location.href='?logout=true'"></td>
+                    <td height="70px" align="right"><input id="submit"  name="submit" type="submit" value="送出資料" ></td>
+                    <td height="70px"  align="center"><a href="../member.php"><input id="logout" name="logout" type="button" value="回會員中心" ></a></td>
                 </tr>
             </table>
         </form>   
