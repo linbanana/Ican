@@ -44,7 +44,7 @@ $result=$db_link->query($sql_query);//從guest資料庫中選擇所有的資料�
      
         echo "電話號碼:".$rs['guestphone']."<br>";
    
-        echo "信箱:".$rs['guestmail']."<br>";
+        echo "信箱:".$rs['guestemail']."<br>";
      
         echo "留言內容:".$rs['guestcontent']."<br>";
   
