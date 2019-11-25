@@ -11,7 +11,7 @@
           echo $row_RecMember["m_logintime"];
         ?>
       </p>
-      <p align="center"><a href="updateadmin.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
+      <p align="center"><a href="updatemember.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
     </p>
 </div>
 
@@ -19,28 +19,28 @@
     <input type="checkbox" name="" id="showsidebar" checked>
     <div class="side-menu">
         <div class="sidebar-heading">
-            <img src="images/logo.png" id="adminlogo">
+            <img src="../../images/logo.png" id="adminlogo">
         </div>
             <ul class="list-group list-group-flush ">
                 <li>
                   <a class="list-group-item py-2 list-group-item-action">會員中心</a>
                     <ol>
                         <i>
-                          <a href="../member/updatemember.php?id=<?php echo $row_RecMember["m_id"];?>" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
+                          <a href="updatemember.php?id=<?php echo $row_RecMember["m_id"];?>" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
                         </i>
                         <i>
-                          <a href="#" class="list-group-item py-2 list-group-item-action">會員設定</a>
+                          <a href="../messageboard.php" class="list-group-item py-2 list-group-item-action">留言板</a>
                         </i>
                     </ol>
                 </li>
                <li>
-                  <a class="list-group-item py-2 list-group-item-action">會員系統管理</a>
+                  <a class="list-group-item py-2 list-group-item-action">暫無功能</a>
                     <ol>
                         <i>
-                          <a href="#" class="list-group-item py-2 list-group-item-action">系統管理員設定</a>
+                          <a href="#" class="list-group-item py-2 list-group-item-action">暫無功能</a>
                         </i>
                         <i>
-                          <a href="#" class="list-group-item py-2 list-group-item-action">會員設定</a>
+                          <a href="#" class="list-group-item py-2 list-group-item-action">暫無功能</a>
                         </i>
                     </ol>
                 </li>

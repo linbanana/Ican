@@ -95,7 +95,7 @@ if(isset($_POST["action"])&&($_POST["action"]=="update")){
     ?>
 
     <?php
-    include("member-fixed.php");
+    include("../member-fixed.php");
     ?>
 
     <?php 
