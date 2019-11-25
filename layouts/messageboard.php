@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+error_reporting(0);
+session_start();
 //判斷是否有登入
 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
    echo "<script>alert('尚未登入')</script>";
@@ -6,20 +8,20 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
   
 }
 
-require_once("../connMysql.php");  //呼叫connectMysql.php文件
-date_default_timezone_set("Asia/Taipei"); //設定台灣時區   
-
+require_once("connMysql.php");  //呼叫connectMysql.php文件
+date_default_timezone_set("Asia/Taipei"); //設定台灣時區
+//接收數值
+$guestname=$_POST['guestname'];    
+$guestgender=$_POST['guestgender'];
+$guestphone=$_POST['guestphone'];
+$guestemail=$_POST['guestemail'];
+$guestcontent=$_POST['guestcontent'];
+$guesttime=date("Y:m:d H:i:s",time());
 //如果guestname資料存在,再輸入資料,避免先輸入空白資料
-if(isset($_POST['guestname'])){
-    $guestname=$_POST['guestname'];
-    $guestgender=$_POST['guestgender'];
-    $guestphone=$_POST['guestphone'];
-    $guestemail=$_POST['guestemail'];
-    $guestcontent=$_POST['guestcontent'];
-    $guesttime=date("Y:m:d H:i:s",time());
+if(isset($guestname)){
     //將資料輸入到MySQL資料表中
-    $sql_query="INSERT INTO `message`("", `guestname`, `guestgender`, `guestphone`, `guestemail`, `guestcontent`, `guesttime`) VALUES ("",[$guestname],[$guestgender],[$guestphone],[$guestemail],[$guestcontent],[$guesttime])";
-    $db_link->query($sql_query);
+    $sql_query="insert into message value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
+   $db_link->query($sql_query);
 }
 if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     unset($_SESSION["membername"]);
@@ -34,12 +36,12 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     <!-- 環境建置 -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="../font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-    <link href="../css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../css/ican.css" rel="stylesheet" />   
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/ican.css" rel="stylesheet" />   
     <!-- 環境建置 -->
-    <title>留言板</title> 
+<title>留言板</title> 
 <style>
 .divboard{
     padding-top:50px;
@@ -144,15 +146,7 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
 </div>   
 
 
-    <!-- 環境建置 -->
-    <script src="../scripts/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../scripts/umd/popper.min.js"></script>
-    <script src="../scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="scripts/ican.js"></script>
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
-    <!-- 環境建置 -->
+
 </body>
 <?php $db_link->close();?>
 </html>
