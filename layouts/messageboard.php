@@ -8,7 +8,7 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
   
 }
 
-require_once("connMysql.php");  //呼叫connectMysql.php文件
+require_once("../connMysql.php");  //呼叫connectMysql.php文件
 date_default_timezone_set("Asia/Taipei"); //設定台灣時區
 //接收數值
 $guestname=$_POST['guestname'];    

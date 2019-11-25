@@ -1,5 +1,5 @@
 <?php
-require("connMysql.php");  //呼叫connectMysql.php文件
+require("../../connMysql.php");  //呼叫connectMysql.php文件
 $sql_query="select * from message";  //將SQL指令設定在$sql_query
 //$result=mysqli_query($con,$sql_query);//從guest資料庫中選擇所有的資料表
 $result=$db_link->query($sql_query);//從guest資料庫中選擇所有的資料表
@@ -7,7 +7,7 @@ $result=$db_link->query($sql_query);//從guest資料庫中選擇所有的資料�
  
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-tw">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 環境建置 -->
