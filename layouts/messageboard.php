@@ -47,11 +47,12 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     padding-top:50px;
 }   
 #tdcontent{   /*留言內容的td*/
-    background-image: url(https://picsum.photos/900/500/?random=3 });
+    
 }
 #boardcontent{  /*留言內容的div*/
    margin-top:100px; 
    margin-bottom:50px;
+   background-image: url(https://picsum.photos/900/500/});
 }
 #guestcontent{  /*留言內容的框框*/
   /*調整大小*/ 
