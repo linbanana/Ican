@@ -23,10 +23,12 @@ if(isset($guestname)){
     $sql_query="INSERT INTO `message`(`guestID`, `guestname`, `guestgender`, `guestphone`, `guestemail`, `guestcontent`, `guesttime`) value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
    $db_link->query($sql_query);
 }
-if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
-    unset($_SESSION["membername"]);
-    header("Location: ../login.php");
-  }
+
+    if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
+        unset($_SESSION["loginMember"]);
+        unset($_SESSION["memberLevel"]);
+        header("Location: ../index.php");
+    }
 
 ?>
 <!DOCTYPE html>
@@ -130,7 +132,7 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
 
                 <tr>
                     <td><input id="submit" name="submit" type="submit" value="送出資料" ></td>
-                    <td><input id="logout" name="logout" type="button" value="登出" onclick="location.href='member.php?logout=true'"></td>
+                    <td><input id="logout" name="logout" type="button" value="登出" onclick="location.href='?logout=true'"></td>
                 </tr>
             </table>
         </form>   

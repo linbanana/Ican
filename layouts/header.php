@@ -1,13 +1,3 @@
-
-<?php
-    //執行登出動作
-    if(isset($_GET["logout"]) && ($_GET["logout"]=="true")) {
-        unset($_SESSION["loginMember"]);
-        unset($_SESSION["memberLevel"]);
-        header("Location: index.php");
-    }
-?>
-
 <!-- header -->
 <header>
     <!--背景輪播Carousel-->
@@ -31,11 +21,11 @@
             <div class="logo">
                 <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true">
             </div>
-            <div class="menu">
+            <div class="menu"> 
+                <a href="index.php">首頁</a>
                 <a href="#">最新消息</a>
                 <a href="room.php">客房介紹</a>
                 <a href="about.php">關於我們</a>
-                <a href="#">聯絡我們</a>
                 <a href="layouts/order/selet.php">線上訂房</a>
                 <?php 
                 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
@@ -46,6 +36,17 @@
                 }else{
                 ?>
                     <a href="?logout=true">登出系統</a>
+                <?php 
+                    if($_SESSION["memberLevel"]=="member"){
+                ?>
+                    <a href="member.php">管理中心</a> 
+                <?php                   
+                    }else{
+                ?>
+                    <a href="admin.php">管理中心</a>  
+                <?php      
+                    }
+                ?>                    
                 <?php
                 }
                 ?>
@@ -64,10 +65,16 @@
         </div>
         
         <div class="side-nav">
+            <?php 
+            if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
+            ?>
+                <a href="index.php">首頁</a>
+            <?php
+            }
+            ?>
             <a href="#">最新消息</a>
             <a href="room.php">客房介紹</a>
             <a href="about.php">關於我們</a>
-            <a href="#">聯絡我們</a>
             <a href="layouts/order/selet.php">線上訂房</a>
             <?php 
             if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
@@ -78,6 +85,17 @@
             }else{
             ?>
                 <a href="?logout=true">登出系統</a>
+            <?php 
+                if($_SESSION["memberLevel"]=="member"){
+            ?>
+                <a href="member.php">管理中心</a> 
+            <?php                   
+                }else{
+            ?>
+                <a href="admin.php">管理中心</a>  
+            <?php      
+                }
+            ?>                    
             <?php
             }
             ?>  

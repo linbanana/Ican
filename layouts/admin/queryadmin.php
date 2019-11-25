@@ -117,7 +117,7 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
   ?>
 
   <?php
-  include("../../layouts/admin-fixed.php");
+  include("admin-fixed.php");
   ?>
 
   <div class="admincontent">      
@@ -135,7 +135,7 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
             <tr valign="top">
               <td class="tdrline">
                 <table width="120%" border="0" cellpadding="2" cellspacing="1" id="queryadmin">
-                  <tr>                    
+                  <tr style="border: 2px solid;">                    
                     <td width="15%" align="center" bgcolor="#CCC">管理員編號</td>
                     <td width="15%" align="center" bgcolor="#CCC">姓名</td>
                     <td width="15%" align="center" bgcolor="#CCC">帳號</td>
@@ -164,7 +164,7 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
       			<?php 
                 while($row_RecMember=$RecMember->fetch_assoc()){ 
             ?>
-                  <tr>                    
+                  <tr style="border: 2px solid;">                    
                     <td width="15%" align="center" bgcolor="#FFF">
                       <?php 
                           echo $row_RecMember["m_id"];
@@ -238,6 +238,7 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
         </tr>
       </table>  
   </div>
+
     <?php
     include("../../layouts/footer.php");
     ?>

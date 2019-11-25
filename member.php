@@ -9,7 +9,7 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
   unset($_SESSION["loginMember"]);
   unset($_SESSION["memberLevel"]);
-  header("Location: index.php");
+  header("Location:index.php");
 }
 //繫結登入會員資料
 $query_RecMember = "SELECT * FROM memberdata WHERE m_username = '{$_SESSION["loginMember"]}'";
@@ -41,34 +41,49 @@ $row_RecMember=$RecMember->fetch_assoc();
     include("layouts/header.php");
     ?>
 
+<div class="Logininformation">
+    <p class="heading"><strong>會員系統</strong></p>
+      <p>
+        <strong>
+          <?php 
+            echo "<font id='usernamestyle'>".$row_RecMember["m_name"]."</font>";
+            ?>
+        </strong>您好。<br>
+        本次登入的時間為：<br>
+        <?php 
+          echo $row_RecMember["m_logintime"];
+        ?>
+      </p>
+      <p align="center"><a href="updatemember.php?id=<?php echo $row_RecMember["m_id"];?>">修改資料</a> | <a href="?logout=true">登出系統</a>
+    </p>
+</div>
+
 <div class="adminsidebar">
-    <input type="checkbox" name="" id="showsidebar">
+    <input type="checkbox" name="" id="showsidebar" checked>
     <div class="side-menu">
         <div class="sidebar-heading">
             <img src="images/logo.png" id="adminlogo">
         </div>
-            <ul class="list-group list-group-flush ">
-                <!--py-2於RWD有BUG -->
-                <!--限時優惠 -->
+           <ul class="list-group list-group-flush ">
                 <li>
-                  <a class="list-group-item py-2 list-group-item-action">會員系統管理</a>
+                  <a class="list-group-item py-2 list-group-item-action">會員中心</a>
                     <ol>
                         <i>
-                          <a href="#" class="list-group-item py-2 list-group-item-action">系統管理員設定</a>
+                          <a href="layouts/member/updatemember.php?id=<?php echo $row_RecMember["m_id"];?>" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
                         </i>
                         <i>
-                          <a href="#" class="list-group-item py-2 list-group-item-action">會員設定</a>
+                          <a href="layouts/messageboard.php" class="list-group-item py-2 list-group-item-action">留言板</a>
                         </i>
                     </ol>
                 </li>
                <li>
-                  <a class="list-group-item py-2 list-group-item-action">會員系統管理</a>
+                  <a class="list-group-item py-2 list-group-item-action">暫無功能</a>
                     <ol>
                         <i>
-                          <a href="#" class="list-group-item py-2 list-group-item-action">系統管理員設定</a>
+                          <a href="#" class="list-group-item py-2 list-group-item-action">暫無功能</a>
                         </i>
                         <i>
-                          <a href="#" class="list-group-item py-2 list-group-item-action">會員設定</a>
+                          <a href="#" class="list-group-item py-2 list-group-item-action">暫無功能</a>
                         </i>
                     </ol>
                 </li>
@@ -79,18 +94,18 @@ $row_RecMember=$RecMember->fetch_assoc();
     </div>
 </div>
 
-
-
-  <div class="membercontent">
-<table width="780" border="0" align="center" cellpadding="4" cellspacing="0">
-  <tr>
-    <td class="tdbline"><img src="images/mlogo.png" alt="會員系統" width="164" height="67"></td>
-  </tr>
+<div class="membercontent">
+<table width="530" border="0" align="center" cellpadding="4" cellspacing="0" id="memberdata">
+      <tr>
+        <td class="tdbline">
+          <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" alt="會員系統" width="164" height="67">
+          <img src="images/mlogo.gif" id="mlogo" alt="會員系統" width="164" height="67">
+        </td>
+      </tr>
   <tr>
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
       <tr valign="top">
-        <td class="tdrline"><p class="title">歡迎光臨網站會員系統</p>
-          <p>感謝各位來到會員系統， 所有的會員功能都必須經由登入後才能使用，請您在右方視窗中執行登入動作。</p>
+        <td class="tdrline">          
           <p class="heading"> 本會員系統擁有以下的功能：</p>
           <ol>
             <li>免費加入會員 。</li>
@@ -108,17 +123,7 @@ $row_RecMember=$RecMember->fetch_assoc();
             <li> 管理員擁有一切管理權力。</li>
           </ol></td>
         <td width="200">
-        <div class="boxtl"></div><div class="boxtr"></div>
-<div class="regbox">
-          <p class="heading"><strong>會員系統</strong></p>
-          
-            <p><strong><?php echo "<font id='usernamestyle'>".$row_RecMember["m_name"]."</font>";?></strong> 您好。</p>
-            <p>您總共登入了 <?php echo $row_RecMember["m_login"];?> 次。<br>
-            本次登入的時間為：<br>
-            <?php echo $row_RecMember["m_logintime"];?></p>
-            <p align="center"><a href="member_update.php">修改資料</a> | <a href="?logout=true">登出系統</a></p>
-</div>
-        <div class="boxbl"></div><div class="boxbr"></div></td>
+
       </tr>
     </table></td>
   </tr>

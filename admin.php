@@ -7,7 +7,7 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 }
 //檢查權限是否足夠
 if($_SESSION["memberLevel"]=="member"){
-	header("Location: member_center.php");
+	header("Location: member.php");
 }
 //執行登出動作
 if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
@@ -69,6 +69,9 @@ $stmt->close();
               <a class="list-group-item py-2 list-group-item-action">後台管理系統</a>
                 <ol>
                     <i>
+                      <a href="layouts/admin/adminmessage.php" class="list-group-item py-2 list-group-item-action">留言板</a>
+                    </i>
+                    <i>
                       <a href="#" class="list-group-item py-2 list-group-item-action">訂單管理</a>
                     </i>
                     <i>
@@ -83,13 +86,13 @@ $stmt->close();
               <a class="list-group-item py-2 list-group-item-action">會員系統管理</a>
                 <ol>
                     <i>
-                      <a href="layouts/admin/queryadmin.php" class="list-group-item py-2 list-group-item-action">查詢管理員資料</a>
+                      <a href="layouts/admin/updateadmin.php?id=<?php echo $mid;?>" class="list-group-item py-2 list-group-item-action">修改資料</a>
                     </i>
                     <i>
-                      <a href="layouts/admin/querymember.php" class="list-group-item py-2 list-group-item-action">查詢會員資料</a>
-                    </i>                                         
+                      <a href="layouts/admin/queryadmin.php" class="list-group-item py-2 list-group-item-action">查詢、修改管理員資料</a>
+                    </i>
                     <i>
-                      <a href="layouts/admin/updateadmin.php?id=<?php echo $mid;?>" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
+                      <a href="layouts/admin/querymember.php" class="list-group-item py-2 list-group-item-action">查詢、修改會員資料</a>
                     </i>
                     <i>
                       <a href="#" class="list-group-item py-2 list-group-item-action">訂單查詢</a>

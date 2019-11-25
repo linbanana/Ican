@@ -23,7 +23,7 @@ body{
     }
 
     .header-menu.scrolldown{
-        background-color: rgba(255, 255, 255);
+        background-color: rgba(255, 255, 255,0.9);
         z-index: 10;
         transition: 1.5s;
     }
@@ -482,12 +482,20 @@ footer .logo-font h4{
 }
 /* join.php */
 
-/* admin.php */
+/* admin.php and member.php*/
 .admincontent{
     position: relative;
 }
 
 .admincontent img#mlogo{
+   float: right;
+}
+
+.membercontent{
+    position: relative;
+}
+
+.membercontent img#mlogo{
    float: right;
 }
 
@@ -564,9 +572,17 @@ footer .logo-font h4{
     /* 第一層初始化 */
     ul li a.list-group-item.py-2.list-group-item{
         background-color: #0000ff;
-        color: #ff2f00;
+        color: #ccc;
         border: 2px solid #ff4570;
         font-weight: bold;
+    }
+
+    ul li a.list-group-item.py-2.list-group-item:hover{
+        background-color: #0000ff;
+        color: #fff;
+        border: 2px solid #ff4570;
+        font-weight: bold;
+        text-decoration:underline;
     }
 
     /* 第二層初始化 */
@@ -759,6 +775,10 @@ footer .logo-font h4{
         right: 3rem;
     }
 
+    .membercontent{
+        right: 3rem;
+    }
+
     #queryadmin{
         width: 100% !important;
     }
@@ -782,6 +802,11 @@ footer .logo-font h4{
     .admincontent{
         right: 3rem;
     }
+
+    .membercontent{
+        right: 3rem;
+    }
+
     /* admin.php */
 }
 
@@ -882,6 +907,10 @@ footer .logo-font h4{
     }
 
     .admincontent{
+        right: 3rem;
+    }
+
+    .membercontent{
         right: 3rem;
     }
 /* admin.php */
@@ -1034,11 +1063,19 @@ footer .logo-font h4{
         right: 0rem;
     }
 
+    .membercontent{
+        right: 0rem;
+    }
+
 /* admin.php */
 
 /* updateadmin.php*/
 
     .admincontent table#jointable{
+        margin-top: 15rem;
+    }
+
+    .membercontent table#jointable{
         margin-top: 15rem;
     }
 /* updateadmin.php*/

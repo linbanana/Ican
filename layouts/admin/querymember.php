@@ -96,7 +96,7 @@ $total_pages = ceil($total_records/$pageRow_records);
             <tr valign="top">
               <td class="tdrline">
                 <table width="120%" border="0" cellpadding="2" cellspacing="1" id="queryadmin">
-                  <tr>                    
+                  <tr style="border: 2px solid;">                    
                     <td width="15%" align="center" bgcolor="#CCC">管理員編號</td>
                     <td width="15%" align="center" bgcolor="#CCC">姓名</td>
                     <td width="15%" align="center" bgcolor="#CCC">帳號</td>
@@ -112,7 +112,7 @@ $total_pages = ceil($total_records/$pageRow_records);
             <?php 
                 while($row_RecMember=$RecMember->fetch_assoc()){ 
             ?>
-                  <tr>                    
+                  <tr style="border: 2px solid;">                    
                     <td width="15%" align="center" bgcolor="#FFF">
                       <?php 
                           echo $row_RecMember["m_id"];
@@ -149,7 +149,9 @@ $total_pages = ceil($total_records/$pageRow_records);
                       <?php 
                         if($row_RecMember["m_id"] != $mid){
                       ?>
-                      <a href="?action=delete&id=<?php echo $row_RecMember["m_id"];?>" onClick="return deletesure();"><font color="#ff0000">刪除</font></a>
+                      <a href="?action=delete&id=<?php echo $row_RecMember["m_id"];?>" onClick="return deletesure();">
+                        <font color="#ff0000">刪除</font>
+                      </a>
                     </td>
                       <?php
                         }
