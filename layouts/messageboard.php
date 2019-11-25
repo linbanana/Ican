@@ -20,12 +20,12 @@ $guesttime=date("Y:m:d H:i:s",time());
 //如果guestname資料存在,再輸入資料,避免先輸入空白資料
 if(isset($guestname)){
     //將資料輸入到MySQL資料表中
-    $sql_query="insert into message value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
+    $sql_query="INSERT INTO `message`(`guestID`, `guestname`, `guestgender`, `guestphone`, `guestemail`, `guestcontent`, `guesttime`) value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
    $db_link->query($sql_query);
 }
 if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     unset($_SESSION["membername"]);
-    header("Location: member.php");
+    header("Location: ../login.php");
   }
 
 ?>
@@ -84,7 +84,7 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
               <tr>         
                 <td><img name="board_r1_c1" src="images/post_r1_c1.jpg" width="465" height="36" border="0" alt=""></td>
                 <!--要改的看留言按鈕-->
-                <td><a href="adminpage.php"><input type="button" value="要改的看留言" id="adminpagebutton"></a></td>               
+                <td><a href="admin/adminpage.php"><input type="button" value="要改的看留言" id="adminpagebutton"></a></td>               
                 <td width="15"><img name="board_r1_c8" src="images/post_r1_c8.jpg" width="15" height="36" border="0" alt=""></td>
               </tr>
             </table>

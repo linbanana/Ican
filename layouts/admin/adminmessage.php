@@ -29,7 +29,7 @@ $result=$db_link->query($sql_query);//從guest資料庫中選擇所有的資料�
 </head>
 <body>
 
-    <a href="messageboard.php"><input type="button" value="回留言頁" id="backtoboard"></a><br>
+    <a href="../messageboard.php"><input type="button" value="回留言頁" id="backtoboard"></a><br>
 
    <?php    //列出所有資料
    echo    "總共幾筆資料".$result->num_rows."筆<br>";  //使用num_rows顯示筆數
