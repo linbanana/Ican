@@ -82,10 +82,9 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
         <td> 
             <table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
               <tr>         
-                <td><img name="board_r1_c1" src="images/post_r1_c1.jpg" width="465" height="36" border="0" alt=""></td>
+                <td><img name="board_r1_c1" src="../images/messageboard/messagelogo.gif" width="465" height="36" border="0" alt=""></td>
                 <!--要改的看留言按鈕-->
                 <td><a href="admin/adminmessage.php"><input type="button" value="要改的看留言" id="adminpagebutton"></a></td>               
-                <td width="15"><img name="board_r1_c8" src="images/post_r1_c8.jpg" width="15" height="36" border="0" alt=""></td>
               </tr>
             </table>
         </td>
