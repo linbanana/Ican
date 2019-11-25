@@ -54,7 +54,7 @@ $row_RecMember=$RecMember->fetch_assoc();
           echo $row_RecMember["m_logintime"];
         ?>
       </p>
-      <p align="center"><a href="updatemember.php?id=<?php echo $row_RecMember["m_id"];?>">修改資料</a> | <a href="?logout=true">登出系統</a>
+      <p align="center"><a href="layouts/member/updatemember.php?id=<?php echo $row_RecMember["m_id"];?>">修改資料</a> | <a href="?logout=true">登出系統</a>
     </p>
 </div>
 

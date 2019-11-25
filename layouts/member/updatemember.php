@@ -53,6 +53,18 @@ if(isset($_POST["action"])&&($_POST["action"]=="update")){
             header("Location: updatemember.php?id=$mid&errMsg=3");
           }else{            
             $mpass = password_hash($_POST["m_newpasswd"], PASSWORD_DEFAULT);
+            $stmt->bind_param("sssssssi",$mpass,
+            GetSQLValueString($_POST["m_name"], 'string'),
+            GetSQLValueString($_POST["m_sex"], 'string'),   
+            GetSQLValueString($_POST["m_birthday"], 'string'),
+            GetSQLValueString($_POST["m_email"], 'email'),
+            GetSQLValueString($_POST["m_phone"], 'string'),
+            GetSQLValueString($_POST["m_address"], 'string'),   
+            GetSQLValueString($_POST["m_id"], 'int'));
+            $stmt->execute();
+            $stmt->close();
+            //重新導向  
+            header("Location: updatemember.php?id=$mid&loginStats=1"); 
           }  
       }else{
          header("Location: updatemember.php?id=$mid&errMsg=2");
@@ -60,24 +72,7 @@ if(isset($_POST["action"])&&($_POST["action"]=="update")){
   }else{
     header("Location: updatemember.php?id=$mid&errMsg=1");    
   } 
-  $stmt->bind_param("sssssssi",$mpass,
-  GetSQLValueString($_POST["m_name"], 'string'),
-  GetSQLValueString($_POST["m_sex"], 'string'),   
-  GetSQLValueString($_POST["m_birthday"], 'string'),
-  GetSQLValueString($_POST["m_email"], 'email'),
-  GetSQLValueString($_POST["m_phone"], 'string'),
-  GetSQLValueString($_POST["m_address"], 'string'),   
-  GetSQLValueString($_POST["m_id"], 'int'));
-  $stmt->execute();
-  $stmt->close();
-  //重新導向  
-  header("Location: updatemember.php?id=$mid&loginStats=1"); 
 }
-
-//繫結登入會員資料
-$query_RecMember = "SELECT * FROM memberdata WHERE m_username='{$_SESSION["loginMember"]}'";
-$RecMember = $db_link->query($query_RecMember); 
-$row_RecMember = $RecMember->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">

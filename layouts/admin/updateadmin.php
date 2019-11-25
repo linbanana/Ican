@@ -62,25 +62,25 @@ if(isset($_POST["action"])&&($_POST["action"]=="update")){
             header("Location: updateadmin.php?id=$mid&errMsg=3");
           }else{            
             $mpass = password_hash($_POST["m_newpasswd"], PASSWORD_DEFAULT);
+            $stmt->bind_param("sssssssi",$mpass,
+            GetSQLValueString($_POST["m_name"], 'string'),
+            GetSQLValueString($_POST["m_sex"], 'string'),   
+            GetSQLValueString($_POST["m_birthday"], 'string'),
+            GetSQLValueString($_POST["m_email"], 'email'),
+            GetSQLValueString($_POST["m_phone"], 'string'),
+            GetSQLValueString($_POST["m_address"], 'string'),   
+            GetSQLValueString($_POST["m_id"], 'int'));
+            $stmt->execute();
+            $stmt->close();
+            //重新導向  
+            header("Location: updateadmin.php?id=$mid&loginStats=1"); 
           }  
       }else{
          header("Location: updateadmin.php?id=$mid&errMsg=2");
       }
   }else{
     header("Location: updateadmin.php?id=$mid&errMsg=1");    
-  } 
-  $stmt->bind_param("sssssssi",$mpass,
-  GetSQLValueString($_POST["m_name"], 'string'),
-  GetSQLValueString($_POST["m_sex"], 'string'),   
-  GetSQLValueString($_POST["m_birthday"], 'string'),
-  GetSQLValueString($_POST["m_email"], 'email'),
-  GetSQLValueString($_POST["m_phone"], 'string'),
-  GetSQLValueString($_POST["m_address"], 'string'),   
-  GetSQLValueString($_POST["m_id"], 'int'));
-  $stmt->execute();
-  $stmt->close();
-  //重新導向  
-  header("Location: updateadmin.php?id=$mid&loginStats=1"); 
+  }   
 }
 ?>
 <!DOCTYPE html>
