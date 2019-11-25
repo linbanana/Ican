@@ -52,7 +52,7 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
 #boardcontent{  /*留言內容的div*/
    margin-top:100px; 
    margin-bottom:50px;
-   background-image: url(https://picsum.photos/900/500/});
+   background-image: url(https://picsum.photos/900/500/);
 }
 #guestcontent{  /*留言內容的框框*/
   /*調整大小*/ 
@@ -83,7 +83,7 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
         <td> 
             <table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
               <tr>         
-                <td><img name="board_r1_c1" src="../images/messageboard/messagelogo.gif" width="465" height="36" border="0" alt=""></td>
+                <td><img name="board_r1_c1" src="../images/messageboard/messagelogo.gif" width="493" height="50" border="0" alt=""></td>
                 <!--要改的看留言按鈕-->
                 <td><a href="admin/adminmessage.php"><img src="../images/messageboard/querymessage.png" alt="" name="adminpagebutton" width="200px" height:50px></a></td>               
               </tr>
