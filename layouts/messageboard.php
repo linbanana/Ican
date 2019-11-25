@@ -47,7 +47,7 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     padding-top:50px;
 }   
 #tdcontent{   /*留言內容的td*/
- background-color:yellow;
+    background-image: url(https://picsum.photos/900/500/);
 }
 #boardcontent{  /*留言內容的div*/
    margin-top:100px; 
@@ -64,9 +64,7 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     height:50px;
     border:0px;
 }
-#boardfooter{     /*留言板底部*/
-    background-color: red;
-}
+
 
 </style>
 
@@ -82,9 +80,9 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
         <td> 
             <table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
               <tr>         
-                <td><img name="board_r1_c1" src="../images/messageboard/messagelogo.gif" width="465" height="36" border="0" alt=""></td>
+                <td><img name="board_r1_c1" src="../images/messageboard/messagelogo.gif" width="493" height="50" border="0" alt=""></td>
                 <!--要改的看留言按鈕-->
-                <td><a href="admin/adminmessage.php"><input type="button" value="要改的看留言" id="adminpagebutton"></a></td>               
+                <td><a href="admin/adminmessage.php"><img src="../images/messageboard/querymessage.png" alt="" name="adminpagebutton" width="200px" height:50px></a></td>               
               </tr>
             </table>
         </td>
@@ -131,12 +129,7 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
         </td>
     </tr>
 <!--放footer圖,圖直接丟下面-->
-    <tr>
-        <td id="boardfooter">
-        <img src="" alt="">
-        </td>
-    </tr>
-
+ 
 
 
 </table>
