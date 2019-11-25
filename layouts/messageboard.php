@@ -4,7 +4,7 @@ session_start();
 //判斷是否有登入
 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
    echo "<script>alert('尚未登入')</script>";
-   header("Location: login.php");
+   header("Location: ../login.php");
   
 }
 
