@@ -22,7 +22,7 @@
                 <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true">
             </div>
             <div class="menu"> 
-                <a href="\ican/index.php">首頁</a>
+                <a href="\index.php">首頁</a>
                 <a href="#">最新消息</a>
                 <a href="room.php">客房介紹</a>
                 <a href="about.php">關於我們</a>
