@@ -89,7 +89,6 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
   //計算總頁數=(總筆數/每頁筆數)後無條件進位。
   $total_pages = ceil($total_records/$pageRow_records);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
@@ -141,7 +140,7 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
                     <td width="15%" align="center" bgcolor="#CCC">帳號</td>
                     <td width="15%" align="center" bgcolor="#CCC">加入時間</td>
                     <td width="15%" align="center" bgcolor="#CCC">上次登入</td>
-                    <!-- 登入次數排序 尚未完成 -->
+                    <!-- 登入次數排序-->
                     <td width="15%" align="center" bgcolor="#CCC">                      
                     <form name="form"  onclick="javascript:location.href='?order=<?php 
                         echo $ordernum;
