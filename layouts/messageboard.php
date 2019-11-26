@@ -10,7 +10,7 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 
 require_once("../connMysql.php");  //呼叫connectMysql.php文件
 date_default_timezone_set("Asia/Taipei"); //設定台灣時區
-$selectmember="SELECT `m_username`,`m_sex`,`m_email`,`m_phone`,`m_level` FROM `memberdata` WHERE `m_username`= '{$_SESSION["loginMember"]}'";
+$selectmember="SELECT `m_name`,`m_sex`,`m_email`,`m_phone`,`m_level` FROM `memberdata` WHERE `m_username`= '{$_SESSION["loginMember"]}'";
 $pick=$db_link->query($selectmember);
 $messagemember=$pick->fetch_assoc();
 //echo "會員名稱:".$messagemember['m_username']."<br>";
@@ -20,7 +20,7 @@ $messagemember=$pick->fetch_assoc();
 //echo "會員等級:".$messagemember['m_level']."<br>";
 
 //接收數值
-$guestname=$messagemember['m_username'];    
+$guestname=$messagemember['m_name'];    
 $guestgender=$messagemember['m_sex'];
 $guestphone=$messagemember['m_phone'];
 $guestemail=$messagemember['m_email'];
