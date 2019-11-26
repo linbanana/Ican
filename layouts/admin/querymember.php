@@ -57,39 +57,6 @@ $total_records = $all_RecMember->num_rows;
 //計算總頁數=(總筆數/每頁筆數)後無條件進位。
 $total_pages = ceil($total_records/$pageRow_records);
 
-//編號排序
-$ordernum="DESC";
-if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
-  $ordernum="ASC";
-}elseif (isset($_GET["order"]) && ($_GET["order"]=="ASC")) {
-  $ordernum="DESC";
-}
-if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
-  //登入次數由高到低
-  $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'admin' ORDER BY `memberdata`.`m_id` DESC";
-  //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
-  $query_limit_RecMember = $query_RecMember." LIMIT {$startRow_records}, {$pageRow_records}";
-  //以加上限制顯示筆數的SQL敘述句查詢資料到 $resultMember 中
-  $RecMember = $db_link->query($query_limit_RecMember);
-  //以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_resultMember 中
-  $all_RecMember = $db_link->query($query_RecMember);
-  //計算總筆數
-  $total_records = $all_RecMember->num_rows;
-  //計算總頁數=(總筆數/每頁筆數)後無條件進位。
-  $total_pages = ceil($total_records/$pageRow_records);
-}elseif(isset($_GET["order"]) && ($_GET["order"]=="ASC")){
-  //登入次數由低到高
-  $query_RecMember2 = "SELECT * FROM memberdata WHERE m_level<>'admin' ORDER BY `memberdata`.`m_id` ASC";
-  $query_limit_RecMember = $query_RecMember2." LIMIT {$startRow_records}, {$pageRow_records}";
-  $RecMember = $db_link->query($query_limit_RecMember);
-  //以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_resultMember 中
-  $all_RecMember = $db_link->query($query_RecMember2);
-  //計算總筆數
-  $total_records = $all_RecMember->num_rows;
-  //計算總頁數=(總筆數/每頁筆數)後無條件進位。
-  $total_pages = ceil($total_records/$pageRow_records);
-}
-
 //登入次數排序
 $ordernum="DESC";
 if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
@@ -163,33 +130,15 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
               <td class="tdrline">
                 <table width="120%" border="0" cellpadding="2" cellspacing="1" id="queryadmin">
                   <tr style="border: 2px solid;">
-                    <td width="15%" align="center" bgcolor="#CCC">
-                      <form name="form"  onclick="javascript:location.href='?order=<?php 
-                        echo $ordernum;
-                      ?>'" 
-                      method="GET">
-                      <input class="btn btn-primary btn-xs" type="button" name="order" id="order" value="<?php echo "會員編號"; ?>">
-                      <?php 
-                        if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
-                          echo "<i class='fa fa-sort-desc' aria-hidden='true'></i>";
-                        }elseif(isset($_GET["order"]) && ($_GET["order"]=="ASC")){
-                          echo "<i class='fa fa-sort-asc' aria-hidden='true'></i>";
-                        }else{
-                          echo "<i class='fa fa-sort' aria-hidden='true'></i>";                          
-                        }
-                      ?>
-                    </form>
-                    </td>
+                    <td width="15%" align="center" bgcolor="#CCC">會員編號</td>
                     <td width="15%" align="center" bgcolor="#CCC">姓名</td>
                     <td width="15%" align="center" bgcolor="#CCC">帳號</td>
                     <td width="15%" align="center" bgcolor="#CCC">加入時間</td>
                     <td width="15%" align="center" bgcolor="#CCC">上次登入</td>
                     <!-- 登入次數排序-->
                     <td width="15%" align="center" bgcolor="#CCC">
-                      <form name="form"  onclick="javascript:location.href='?order=<?php 
-                        echo $ordernum;
-                      ?>'" 
-                      method="GET">
+                      <form name="form"  onclick="javascript:location.href='?order=<?php echo $ordernum; ?>'" 
+                        method="GET">
                       <input class="btn btn-primary btn-xs" type="button" name="order" id="order" value="<?php echo "登入次數"; ?>">
                       <?php 
                         if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
@@ -200,7 +149,7 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
                           echo "<i class='fa fa-sort' aria-hidden='true'></i>";                          
                         }
                       ?>
-                    </form>
+                      </form>
                     </td>
                     <td width="30%" align="center" bgcolor="#CCC">操作</td>
                   </tr>
