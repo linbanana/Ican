@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-11-28 08:55:25
+-- 產生時間： 2019-11-28 09:00:12
 -- 伺服器版本： 10.4.8-MariaDB
 -- PHP 版本： 7.3.10
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- 資料庫： `ican`
 --
+CREATE DATABASE IF NOT EXISTS `ican` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `ican`;
 
 -- --------------------------------------------------------
 
@@ -297,10 +299,20 @@ CREATE TABLE `traveldata` (
   `m_id` int(10) NOT NULL,
   `o_num` int(10) NOT NULL,
   `t_id` int(20) NOT NULL,
-  `t_name` int(20) NOT NULL,
+  `t_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `t_ferry` enum('公營','民營') COLLATE utf8_unicode_ci NOT NULL,
-  `t_disc` int(100) NOT NULL
+  `t_disc` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 傾印資料表的資料 `traveldata`
+--
+
+INSERT INTO `traveldata` (`m_id`, `o_num`, `t_id`, `t_name`, `t_ferry`, `t_disc`) VALUES
+(0, 0, 0, '1', '公營', '0'),
+(0, 0, 0, '0', '公營', '0'),
+(0, 0, 0, '安安', '公營', ''),
+(0, 0, 0, '安安', '公營', '');
 
 --
 -- 已傾印資料表的索引
