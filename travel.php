@@ -14,7 +14,9 @@ function GetSQLValueString($theValue, $theType) {
 if(isset($_POST["action"])&&($_POST["action"]=="travel")){
 		$query_insert = "INSERT INTO traveldata (t_name) VALUES (?)";
 		$stmt = $db_link->prepare($query_insert);
-		$stmt->bind_param("s",GetSQLValueString($_POST["t_name"], 'string'));
+    //$stmt->bind_param("s",GetSQLValueString($_POST["t_name"], 'string'));
+    $tmp = GetSQLValueString($_POST["t_name"], 'string');
+    $stmt->bind_param("s",$tmp);
 		$stmt->execute();
 		$stmt->close();
 		$db_link->close();
@@ -39,7 +41,14 @@ if(isset($_POST["action"])&&($_POST["action"]=="travel")){
 <form action="" method="POST" name="formJoin" id="formJoin" onSubmit="return checkForm();">
    	
     <p><strong>潛水</strong>：
-      <input name="t_name" type="text" class="normalinput" id="t_name">
+     <!-- <input name="t_name" type="text" class="normalinput" id="t_name">-->
+     <select name="t_name">
+        <option value="小琉球一">小琉球一</option>
+        <option value="小琉球二">小琉球二</option>
+        <option value="小琉球三">小琉球三</option>
+        <option value="小琉球四">小琉球四</option>
+        <option value="小琉球五">小琉球五</option>
+     </select> 
       <font color="#FF0000">*</font><br>
     </p>	
 
