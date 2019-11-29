@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
+        unset($_SESSION["loginMember"]);
+        unset($_SESSION["memberLevel"]);
+        header("Location: index.php");
+    }
+?>
 <!-- header -->
 <header>
     <!--背景輪播Carousel-->

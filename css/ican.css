@@ -694,7 +694,7 @@ footer .logo-font h4{
     transition: all .6s ease-out;
 }
 .room_info .room-type:hover img{
-    transform:scale(1.2,1.2);
+    transform:scale(1.1,1.1);
 }
 .room_info .room-type .txt{
     position: absolute;
