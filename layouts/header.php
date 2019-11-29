@@ -1,5 +1,4 @@
 <?php
-    session_start();
     if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
         unset($_SESSION["loginMember"]);
         unset($_SESSION["memberLevel"]);
@@ -30,16 +29,16 @@
                 <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true">
             </div>
             <div class="menu"> 
-                <a href="\index.php">首頁</a>
+                <a href=".\index.php">首頁</a>
                 <a href="#">最新消息</a>
-                <a href="\room.php">客房介紹</a>
-                <a href="\about.php">關於我們</a>
+                <a href=".\room.php">客房介紹</a>
+                <a href=".\about.php">關於我們</a>
                 <a href="layouts/order/selet.php">線上訂房</a>
                 <?php 
                 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
                 ?>
-                    <a href="\login.php">會員登入</a>
-                    <a href="\join.php">會員註冊</a>
+                    <a href=".\login.php">會員登入</a>
+                    <a href=".\join.php">會員註冊</a>
                 <?php
                 }else{
                 ?>
@@ -47,11 +46,11 @@
                 <?php 
                     if($_SESSION["memberLevel"]=="member"){
                 ?>
-                    <a href="\member.php">管理中心</a> 
+                    <a href=".\member.php">管理中心</a> 
                 <?php                   
                     }else{
                 ?>
-                    <a href="\admin.php">管理中心</a>  
+                    <a href=".\admin.php">管理中心</a>  
                 <?php      
                     }
                 ?>                    
@@ -96,11 +95,11 @@
             <?php 
                 if($_SESSION["memberLevel"]=="member"){
             ?>
-                <a href="\member.php">管理中心</a> 
+                <a href=".\member.php">管理中心</a> 
             <?php                   
                 }else{
             ?>
-                <a href="\admin.php">管理中心</a>  
+                <a href=".\admin.php">管理中心</a>  
             <?php      
                 }
             ?>                    

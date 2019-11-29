@@ -1,6 +1,6 @@
 <?php 
 require_once("connMysql.php");
-
+session_start();
 //檢查是否經過登入
 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 	header("Location: index.php");
