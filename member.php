@@ -62,7 +62,9 @@ $row_RecMember=$RecMember->fetch_assoc();
     <input type="checkbox" name="" id="showsidebar" checked>
     <div class="side-menu">
         <div class="sidebar-heading">
-            <img src="images/logo.png" id="adminlogo">
+            <img src=".\images/logo.png" id="adminlogo">
+            <h3 id="ican-logo">I Can</h3>
+            <h4 id="hotel-logo">大飯店</h4>
         </div>
            <ul class="list-group list-group-flush ">
                 <li>

@@ -10,7 +10,7 @@
 <input type="checkbox" name="" id="showsidebar">
 <div class="side-menu">
     <div class="sidebar-heading">
-        <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" id="adminlogo">
+        <img src=".\images/logo.png" id="adminlogo">
     </div>
         <ul class="list-group list-group-flush ">
             <li>

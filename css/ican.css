@@ -18,18 +18,14 @@ body{
         left: 0;
         right: 0;
         transition: 1s;
-        z-index: 1;
+        z-index: 10;
         background-color: rgba(0, 0, 0,0.6);
+        text-shadow: 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000;
     }
 
-    .header-menu.scrolldown{
-        background-color: rgba(255, 255, 255,0.9);
-        z-index: 10;
-        transition: 1.5s;
-    }
     .header-menu.scrolldown .menu a{
-        color: #000;
-        transition: 1.5s;
+        color: #fff;
+        transition: 1.5s;        
     }
 
     .header-menu .container{
@@ -41,9 +37,9 @@ body{
     }
     
     .header-menu .logo{
-        width: 100px;
-        
+        width: 100px;        
     }
+
     .header-menu .logo img{
         width: 100%;
     }
@@ -60,7 +56,7 @@ body{
         transition: 1s;
     }
     .header-menu .menu a:hover{
-        color: #17a2b8;
+        color: #ffc107;
         text-decoration:underline;
     }
     /* LOGO跟選單 */
@@ -98,7 +94,7 @@ body{
         width: 80px;
         position: absolute;
         top: 30px;
-        left:30px;
+        left:145px;
     }
     #sidebar .logo img{
         width: 100%;
@@ -109,6 +105,7 @@ body{
         position: absolute;
         top: 30px;
         right:25px;
+        text-shadow: none;
     }
     
     #sidebar .side-nav a{
@@ -124,6 +121,10 @@ body{
     }
     #sidebar,.toggle-btn{
         display: none;
+    }
+
+    #sidebar,.toggle-btn:active{
+        border: none;
     }
     /* Sidebar */
 
@@ -146,7 +147,7 @@ body{
     color: #5aecf7;
     display: inline-block;
     font-family: 'Lobster', cursive;
-    text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
+    text-shadow:0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
 }
 #hotel-logo{
     font-size: 35px;
@@ -283,8 +284,8 @@ footer {
 }
 footer .logo{
     text-align: left;
-    padding-bottom: 50px;
-    margin: 50px 30px 30px 30px;
+    margin: 50px 30px 0px 30px;
+    padding: 0px;
 }
 footer .logo-img{
     width: 12rem;
@@ -312,8 +313,9 @@ footer .logo-font h4{
     font-weight: 700;
 }
 .contact-info{
-    margin: 50px 30px 30px 30px;
+    margin: 50px 0px 0px 0px;
     text-align: left;
+    padding: 0px;
 }
 .contact-info i{
     display: inline-block;
@@ -322,12 +324,10 @@ footer .logo-font h4{
 }
 .contact-info p{
     display: inline-block;
-    font-size: 20px;
+    font-size: 19px;
 }
 .social-link{
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin: 50px 30px 30px 30px;
+    margin: 50px 0px 0px 0px;
 }
 .social-link a{
     color: #fff;
@@ -338,15 +338,25 @@ footer .logo-font h4{
     text-decoration: none;
     
 }
-.social-link a:hover{
-    color: rgb(255, 187, 0);
-}
+
 .back-to-top{
     position: fixed;
     bottom: 10px;
     right: 80px;
     z-index: 5;
     border-radius: 50%;
+}
+
+#facebook:hover{
+    color: #007bff;
+}
+
+#twitter:hover{
+    color: rgba(29,161,242,1.00);
+}
+
+#instagram:hover{
+    color: #000;
 }
 
 /* footer */
@@ -515,7 +525,7 @@ footer .logo-font h4{
 
 .side-menu{
     width: 300px;
-    padding: 50px 0;
+    padding: 30px 0 30px 0;
     box-sizing: border-box;
     background-image: linear-gradient(0deg,#3381b0,#fff);
     display: flex;
@@ -560,8 +570,8 @@ footer .logo-font h4{
 }
 
 #adminlogo{
-    width: 100%;
-    height: 100%;
+    width: 25%;
+    height: 25%;
     position: relative;
     top:-25px;  
     text-align: center;
@@ -831,9 +841,6 @@ footer .logo-font h4{
     }
     #sidebar,.toggle-btn{
         display: inherit;
-    }   
-    .header-menu.scrolldown .toggle-btn{
-        color:#000;
     }    
 /* header */ 
 
@@ -983,15 +990,14 @@ footer .logo-font h4{
 /* Content */ 
 
 /* footer */
-    footer {
-        padding: 50px 0;
-    }
     footer .logo{
         text-align: left;
         font-size: 16px;
+        margin: 0px 30px 0px 30px;
     }
 
-    footer .logo-img{
+    footer img{
+        text-align: center;
         width: 100px;
     }
 
@@ -1004,7 +1010,7 @@ footer .logo-font h4{
     }
 
     .contact-info{
-        margin: 50px 30px 30px 30px;
+        margin: 0px 30px 0px 30px;
     }
 
     .contact-info i{
@@ -1020,12 +1026,12 @@ footer .logo-font h4{
 
     .social-link{
         text-align: center;
+        margin: 0px 30px 0px 30px;
     }
 
     .social-link a{
         color: #fff;
         font-size: 20px;
-        padding: 5px 10px;
         margin: 10px;        
         text-decoration: none;
         

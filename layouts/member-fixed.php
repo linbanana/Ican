@@ -19,7 +19,7 @@
     <input type="checkbox" name="" id="showsidebar" checked>
     <div class="side-menu">
         <div class="sidebar-heading">
-            <img src="../../images/logo.png" id="adminlogo">
+            <img src=".\images/logo.png" id="adminlogo">
         </div>
             <ul class="list-group list-group-flush ">
                 <li>

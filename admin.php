@@ -62,7 +62,9 @@ $stmt->close();
     <input type="checkbox" name="" id="showsidebar" checked>
     <div class="side-menu" style="position: relative;">
     <div class="sidebar-heading">
-        <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" id="adminlogo">
+        <img src=".\images/logo.png" id="adminlogo">
+        <h3 id="ican-logo">I Can</h3>
+        <h4 id="hotel-logo">大飯店</h4>
     </div>
         <ul class="list-group list-group-flush ">
             <li>
