@@ -49,22 +49,15 @@ $stmt->close();
     include("layouts/header.php");
     ?>
 
-
-      <div class="Logininformation">
-          <p class="heading"><strong>會員系統</strong></p>
-            <p><strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong>您好。<br>
-            本次登入的時間為：<br><?php echo $mlogintime;?>
-          </p>
-            <p align="center"><a href="layouts/admin/updateadmin.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
-          </p>
-      </div>
-
     <input type="checkbox" name="" id="showsidebar" checked>
     <div class="side-menu" style="position: relative;">
     <div class="sidebar-heading">
-        <img src=".\images/logo.png" id="adminlogo">
-        <h3 id="ican-logo">I Can</h3>
-        <h4 id="hotel-logo">大飯店</h4>
+        <p><img src=".\images/logo.png" id="adminlogo">
+        會員名稱：<strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong><br>
+            本次登入的時間為：<?php echo $mlogintime;?>
+          </p>
+            <p align="center"><a href="layouts/admin/updateadmin.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
+          </p>
     </div>
         <ul class="list-group list-group-flush ">
             <li>
