@@ -10,7 +10,13 @@ function GetSQLValueString($theValue, $theType) {
       break;         
   }
   return $theValue;
-}		
+}
+$sql = "SELECT * FROM `traveldata`";
+$result = mysqli_query($db_link, $sql);
+$sql1 = "SELECT * FROM `traveldata` WHERE `t_class`=\"水上活動\"";
+$result1 = mysqli_query($db_link, $sql1);
+$sql2 = "SELECT * FROM `traveldata` WHERE `t_class`=\"冬季旅遊\"";
+$result2 = mysqli_query($db_link, $sql2);
 if(isset($_POST["action"])&&($_POST["action"]=="travel")){
 		$query_insert = "INSERT INTO traveldata (t_name) VALUES (?)";
 		$stmt = $db_link->prepare($query_insert);
@@ -40,17 +46,40 @@ if(isset($_POST["action"])&&($_POST["action"]=="travel")){
 <body>
 <form action="" method="POST" name="formJoin" id="formJoin" onSubmit="return checkForm();">
    	
-    <p><strong>潛水</strong>：
+    <p><strong>水上活動</strong>：
      <!-- <input name="t_name" type="text" class="normalinput" id="t_name">-->
+     
      <select name="t_name">
-        <option value="小琉球一">小琉球一</option>
-        <option value="小琉球二">小琉球二</option>
-        <option value="小琉球三">小琉球三</option>
-        <option value="小琉球四">小琉球四</option>
-        <option value="小琉球五">小琉球五</option>
+     <?php
+     for($i=1;$i<=mysqli_num_rows($result1);$i++){
+      $row_result1 = mysqli_fetch_assoc($result1);
+     
+     ?>
+   <option value="<?php echo $row_result1['t_name'];?>"><?php echo $row_result1['t_name'];?></option>
+     <?php } ?>
+
      </select> 
+     
       <font color="#FF0000">*</font><br>
-    </p>	
+    </p>
+
+
+    <p><strong>冬季旅遊</strong>：
+     <!-- <input name="t_name" type="text" class="normalinput" id="t_name">-->
+     
+     <select name="t_name">
+     <?php
+     for($i=1;$i<=mysqli_num_rows($result2);$i++){
+      $row_result2 = mysqli_fetch_assoc($result2);
+     
+     ?>
+   <option value="<?php echo $row_result2['t_name'];?>"><?php echo $row_result2['t_name'];?></option>
+     <?php } ?>
+
+     </select> 
+     
+      <font color="#FF0000">*</font><br>
+    </p>		
 
     <input name="action" type="hidden" id="action" value="travel">
     <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="前往結帳">
