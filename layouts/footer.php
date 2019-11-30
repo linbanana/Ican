@@ -4,8 +4,7 @@
     <div class="row justify-content-start">
         <div class="logo  col-sm">
             <div class="logo-img">
-                <img src=".\images/logo-
-white.png">
+                <img src="https://raw.githubusercontent.com/linbanana/ican/master/images/logo-white.png">
         <?php
             date_default_timezone_set("Asia/Taipei");
             echo '<div id="time" style="font-size: 16px; width: 250px;"></div>
