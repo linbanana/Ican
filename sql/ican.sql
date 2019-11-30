@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-11-30 08:44:34
+-- 產生時間： 
 -- 伺服器版本： 10.4.8-MariaDB
--- PHP 版本： 7.3.10
+-- PHP 版本： 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- 資料庫： `ican`
 --
-CREATE DATABASE IF NOT EXISTS `ican` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `ican`;
 
 -- --------------------------------------------------------
 
@@ -51,7 +49,7 @@ CREATE TABLE `memberdata` (
 --
 
 INSERT INTO `memberdata` (`m_id`, `m_name`, `m_username`, `m_passwd`, `m_sex`, `m_birthday`, `m_email`, `m_phone`, `m_address`, `m_level`, `m_login`, `m_logintime`, `m_jointime`) VALUES
-(1, '系統管理員', 'admin', '$2y$10$5ejczVchwglsQLZtIQmHW.teH8Tvv8aluu.aPeFuYt7CIhHxY4.W6', '男', '2019-11-14', 'admin@gmail.com', '0955445632', '', 'admin', 76, '2019-11-30 15:08:05', '0000-00-00 00:00:00'),
+(1, '系統管理員', 'admin', '$2y$10$5ejczVchwglsQLZtIQmHW.teH8Tvv8aluu.aPeFuYt7CIhHxY4.W6', '男', '2019-11-14', 'admin@gmail.com', '0955445632', '', 'admin', 77, '2019-11-30 16:43:00', '0000-00-00 00:00:00'),
 (2, '張惠玲', 'elven', '$2y$10$0BVHeh6R97hTcK4guYStm.d49gdFxLF/4CJgvLo0yIYZaoyMbr4ae', '女', '1987-04-05', 'elven@superstar.com', '0966765556', '台北市濟洲北路12號2樓', 'member', 12, '0000-00-00 00:00:00', '2019-11-02 12:03:12'),
 (3, '彭建志', 'jinglun', '$2y$10$WqB2bnMSO/wgBiHSOBV2iuLbrUCsp8VmNJdK2AyIW6IANUL9jeFjC', '男', '1987-07-01', 'jinglun@superstar.com', '0918181111', '台北市敦化南路93號5樓', 'member', 0, NULL, '2019-11-02 12:03:12'),
 (4, '謝耿鴻', 'sugie', '$2y$10$6uWtdYATI3b/wMRk.AaqIei852PLf.WjeKm8X.Asl0VTmpxCkqbW6', '男', '1987-08-11', 'edreamer@gmail.com', '0914530768', '台北市中央路201號7樓', 'member', 2, '0000-00-00 00:00:00', '2019-11-02 12:03:12'),
@@ -306,6 +304,16 @@ CREATE TABLE `traveldata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
+-- 傾印資料表的資料 `traveldata`
+--
+
+INSERT INTO `traveldata` (`m_id`, `o_num`, `t_id`, `t_class`, `t_name`, `t_ferry`, `t_disc`) VALUES
+(0, 0, 1, '水上活動', '海底觀光潛水船', '', ''),
+(0, 0, 2, '水上活動', '威尼斯海灘', '', ''),
+(0, 0, 3, '冬季旅遊', '東港迎王祭', '', ''),
+(0, 0, 4, '冬季旅遊', '三隆宮迎王盛事', '', '');
+
+--
 -- 已傾印資料表的索引
 --
 
@@ -408,7 +416,7 @@ ALTER TABLE `s_orderdetail`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `traveldata`
 --
 ALTER TABLE `traveldata`
-  MODIFY `t_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `t_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
