@@ -39,7 +39,7 @@
             <a href="#">最新消息</a>
             <a href=".\room.php">客房介紹</a>
             <a href=".\about.php">
-                <i class="fa fa-info-circle" aria-hidden="true">&nbsp;關於我們</i>
+                <i class="fa fa-users" aria-hidden="true">&nbsp;關於我們</i>
             </a>
             <a href=".\layouts/order/selet.php">
                 <i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;線上訂房</i>
@@ -94,7 +94,7 @@
             <a href="#">最新消息</a>
             <a href=".\room.php">客房介紹</a>
             <a href=".\about.php">
-                <i class="fa fa-info-circle" aria-hidden="true">&nbsp;關於我們</i>
+                <i class="fa fa-users" aria-hidden="true">&nbsp;關於我們</i>
             </a>
             <a href=".\layouts/order/selet.php">
                 <i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;線上訂房</i>
