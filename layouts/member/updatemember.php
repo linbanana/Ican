@@ -122,7 +122,6 @@ if(isset($_POST["action"])&&($_POST["action"]=="update")){
       <tr valign="top">
         <td class="tdrline"><form action="" method="POST" name="formupdate" id="formupdate" onSubmit="return checkupdate();">
           <div class="dataDiv">
-            <hr size="1" />
             <p class="heading">帳號資料</p>
             <p>
               <font color="#FF0000">*</font> 表示為必填的欄位

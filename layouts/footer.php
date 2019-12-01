@@ -37,7 +37,8 @@
             </div>
             <div class="item">
                 <i class="fa fa-map-marker" aria-hidden="true"> 地址：</i>
-                <p>929屏東縣琉球鄉復興路15號</p>
+                <p>929屏東縣琉球鄉復興路84號</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!4v1575217147413!6m8!1m7!1sxhGz2yiwCRsjKe_94v1URg!2m2!1d22.34486996193625!2d120.3707131741897!3f132.97!4f3.239999999999995!5f0.7820865974627469" width="350" height="100" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
             <div class="item">
                 <i class="fa fa-phone" aria-hidden="true"> 電話：</i>
@@ -50,9 +51,15 @@
             <hr size="1">
         </div>
         <div class="social-link  col-sm">
-            <a href="#"><i class="fa fa-facebook" id="facebook" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-twitter" id="twitter" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-instagram" id="instagram" aria-hidden="true"></i></a>
+            <a href="#">
+                <i class="fa fa-facebook-official" id="facebook" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-twitter" id="twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-instagram" id="instagram" aria-hidden="true"></i>
+            </a>
             <div class="item">
                 <p>Copyright © 2019 - <?php echo date("Y")?> by ican開發團隊</p>
             </div>

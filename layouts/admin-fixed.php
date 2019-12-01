@@ -1,8 +1,8 @@
 <input type="checkbox" name="" id="showsidebar" checked>
-<div class="side-menu" style="position: relative;">
+<div class="side-menu">
 <div class="sidebar-heading">
     <p><img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" id="adminlogo">
-    會員名稱：<strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong><br>
+    <i class="fa fa-user-md" aria-hidden="true"></i>會員名稱：<strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong><br>
         本次登入的時間為：<?php echo $mlogintime;?>
       </p>
         <p align="center"><a href="layouts/admin/updateadmin.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>

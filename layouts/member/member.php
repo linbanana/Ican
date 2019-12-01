@@ -5,7 +5,12 @@ session_start();
 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
   header("Location: login.php");
 }
-
+//執行登出動作
+if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
+  unset($_SESSION["loginMember"]);
+  unset($_SESSION["memberLevel"]);
+  header("Location:index.php");
+}
 //繫結登入會員資料
 $query_RecMember = "SELECT * FROM memberdata WHERE m_username = '{$_SESSION["loginMember"]}'";
 $RecMember = $db_link->query($query_RecMember); 

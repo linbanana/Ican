@@ -59,6 +59,11 @@ body{
         color: #ffc107;
         text-decoration:underline;
     }
+
+    .header-menu .menu a i:hover{
+        color: #ffc107;
+        text-decoration:underline;        
+    }
     /* LOGO跟選單 */
 
     /* 側邊選單Sidebar */
@@ -493,7 +498,7 @@ footer .logo-font h4{
 
 /* admin.php and member.php*/
 .admincontent{
-    position: relative;
+   margin-left: 5rem;
 }
 
 .admincontent img#mlogo{
@@ -501,7 +506,7 @@ footer .logo-font h4{
 }
 
 .membercontent{
-    position: relative;
+    margin-left: 5rem;
 }
 
 .membercontent img#mlogo{
@@ -514,7 +519,7 @@ footer .logo-font h4{
     background-image: linear-gradient(0deg,#3381b0,#fff);
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: relative;
     transform: translateX(-100%);
     transition: .3s;
     z-index: 1;
@@ -1048,11 +1053,11 @@ footer .logo-font h4{
     }
 
     .admincontent{
-        right: 0rem;
+        margin-left: 0rem;
     }
 
     .membercontent{
-        right: 0rem;
+        margin-left: 0rem;
     }
 
 /* admin.php */

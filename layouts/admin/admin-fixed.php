@@ -1,24 +1,17 @@
-<div class="Logininformation">
-    <p class="heading"><strong>會員系統</strong></p>
-      <p><strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong>您好。<br>
-      本次登入的時間為：<br><?php echo $mlogintime;?>
-    </p>
-      <p align="center"><a href="updateadmin.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
-    </p>
-</div>
-
-<input type="checkbox" name="" id="showsidebar">
+<input type="checkbox" name="" id="showsidebar" checked>
 <div class="side-menu">
-    <div class="sidebar-heading">
-        <img src=".\images/logo.png" id="adminlogo">
-    </div>
+<div class="sidebar-heading">
+    <p><img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" id="adminlogo">
+    <i class="fa fa-user-md" aria-hidden="true"></i>管理者：<strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong><br>
+        本次登入的時間為：<?php echo $mlogintime;?>
+      </p>
+        <p align="center"><a href="layouts/admin/updateadmin.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
+      </p>
+</div>
         <ul class="list-group list-group-flush ">
             <li>
               <a class="list-group-item py-2 list-group-item-action">後台管理系統</a>
                 <ol>
-                    <i>
-                      <a href="adminmessage.php" class="list-group-item py-2 list-group-item-action">留言板</a>
-                    </i>
                     <i>
                       <a href="#" class="list-group-item py-2 list-group-item-action">訂單管理</a>
                     </i>

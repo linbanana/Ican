@@ -5,10 +5,10 @@ session_start();
 if(isset($_SESSION["loginMember"]) && ($_SESSION["loginMember"]!="")){
     //若帳號等級為 member 則導向會員中心
     if($_SESSION["memberLevel"]=="member"){
-        header("Location: member.php");
+        header("Location: .\layouts/member/member.php");
     //否則則導向管理中心
     }else{
-        header("Location: admin.php");   
+        header("Location: .\layouts/admin/admin.php");   
     }
 }
 //執行會員登入
@@ -45,10 +45,10 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
   }
         //若帳號等級為 member 則導向會員中心
   if($_SESSION["memberLevel"]=="member"){
-   header("Location: member.php");
+   header("Location: .\layouts/member/member.php");
         //否則則導向管理中心
  }else{
-   header("Location:admin.php");    
+   header("Location:.\layouts/admin/admin.php");    
  }
 }else{
   header("Location: login.php?errMsg=1");
@@ -101,7 +101,7 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
         <hr size="1" />
         <h4>還沒有會員帳號?</p>
         <h4>註冊帳號免費又容易</p>
-        <p align="right"><a href="join.php">馬上申請會員</a></p>
+        <p align="right"><a href="join.php"><i class="fa fa-user-plus" aria-hidden="true"></i>註冊</a></p>
         </div>
     </div>
     
