@@ -17,7 +17,7 @@
                 function getTime(){
                     var t=new Date(ts);
                     with(t){
-                        var _time="台灣時間："+getFullYear()+"-" + (getMonth()+1)+"-"+getDate()+"<br>" + dayNames[t.getDay()] +  "&emsp;&emsp;" + (getHours()<10 ? "0" :"") + getHours() + ":" + (getMinutes()<10 ? "0" :"") + getMinutes() + ":" + (getSeconds()<10 ? "0" :"") + getSeconds();
+                        var _time="台灣時間：" + getFullYear() + "-" + (getMonth()+1<10 ? "0" :"") + (getMonth()+1) + "-" + (getDate()<10 ? "0" :"") + getDate() + "<br>" + dayNames[t.getDay()] + "&emsp;&emsp;" + (getHours()<10 ? "0" :"") + getHours() + ":" + (getMinutes()<10 ? "0" :"") + getMinutes() + ":" + (getSeconds()<10 ? "0" :"") + getSeconds();
                     }
                     get_obj("time").innerHTML=_time;
                     setTimeout("getTime()",1000);
