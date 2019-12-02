@@ -1,4 +1,4 @@
-/*join.php*/
+/* join.php */
  function checkForm(){
     if(document.formJoin.m_username.value==""){     
         alert("請填寫帳號!");
@@ -119,9 +119,9 @@ function checkphone(myphone) {
     alert("手機號碼格式不正確");
     return false;
 }
-/*join.php*/
+/* join.php */
 
-/*header*/
+/* header.php */
 (function(){
     /*漢堡選單開跟關Sidebar/On/Off*/
     var bodyEl = $('body');
@@ -149,16 +149,48 @@ function checkphone(myphone) {
         }
     }).scroll();            
 })();
-/*header*/
+/* header.php */
 
-/* Follow *//*
-function querymember() {
-  var x = document.getElementById("memberdata");  
-  if (x.style.display === "none") {
-    x.style.display = "block";
+/* room.php */
+$(document).ready(function (){
+    $(".room_menu > button").click(function(){
+        $(".room_menu > button").removeClass("room-active");
+        $(this).addClass("room-active");
+    })  
+});
 
-  } else {
-    x.style.display = "none";
-  }
-}*/
-/* Follow */
+filterSelection("all")
+function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("room-type");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+        Remove_Class(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) Add_Class(x[i], "show");
+    }
+}
+
+function Add_Class(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+    }
+}
+
+function Remove_Class(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    /*for (i = 0; i < arr1.length; i++) {
+        document.write(arr1[1]);
+    }*/
+    for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+        }
+    }
+    element.className = arr1.join(" ");
+}
+/* room.php */

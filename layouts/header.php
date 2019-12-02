@@ -36,8 +36,12 @@
             <a href=".\index.php">
                 <i class="fa fa-home" aria-hidden="true">&nbsp;首頁</i>
             </a>
-            <a href="#">最新消息</a>
-            <a href=".\room.php">客房介紹</a>
+            <a href="#">
+                <i class="fa fa-newspaper-o" aria-hidden="true">&nbsp;最新消息</i>
+            </a>
+            <a href=".\room.php">
+                <i class="fa fa-bed" aria-hidden="true">&nbsp;客房介紹</i>
+            </a>
             <a href=".\about.php">
                 <i class="fa fa-users" aria-hidden="true">&nbsp;關於我們</i>
             </a>
@@ -91,8 +95,12 @@
             <a href=".\index.php">
                 <i class="fa fa-home" aria-hidden="true">&nbsp;首頁</i>
             </a>
-            <a href="#">最新消息</a>
-            <a href=".\room.php">客房介紹</a>
+            <a href="#">
+                <i class="fa fa-newspaper-o" aria-hidden="true">&nbsp;最新消息</i>
+            </a>
+            <a href=".\room.php">
+                <i class="fa fa-bed" aria-hidden="true">&nbsp;客房介紹</i>
+            </a>
             <a href=".\about.php">
                 <i class="fa fa-users" aria-hidden="true">&nbsp;關於我們</i>
             </a>

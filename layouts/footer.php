@@ -26,15 +26,11 @@
                 getTime();
         </script>';
         ?>               
-            </div>              
+            </div>
+            <hr size="1">              
         </div>
         
         <div class="contact-info  col-sm">
-            <hr size="1">
-            <div class="logo-font">
-                <h3 id="ican-logo">I Can</h3>
-                <h4 id="hotel-logo">大飯店</h4>
-            </div>
             <div class="item">
                 <i class="fa fa-map-marker" aria-hidden="true"> 地址：</i>
                 <p>929屏東縣琉球鄉復興路84號</p>
