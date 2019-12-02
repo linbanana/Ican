@@ -137,8 +137,6 @@
        /* display: inline-block;*/
     }
     .aboutcontent .container .photo img{
-        width:  50%;
-        height:  50%;
         float: left;
         margin: 15px;
     }

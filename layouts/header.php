@@ -30,7 +30,7 @@
     <div class="header-menu">
         <div class="container">
             <div class="logo">
-                <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true">
+                <img src="https://raw.githubusercontent.com/linbanana/ican/master/images/logo-white.png">
             </div>
             <div class="menu"> 
             <a href=".\index.php">
@@ -85,7 +85,7 @@
     <!--側邊選單Sidebar--> 
     <div id="sidebar">
         <div class="logo">
-            <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true">
+            <img src="https://raw.githubusercontent.com/linbanana/ican/master/images/logo-white.png">
         </div>
         <div class="closebtn">
             <i class="fa fa-times" aria-hidden="true"></i>

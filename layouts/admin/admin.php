@@ -9,12 +9,7 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 if($_SESSION["memberLevel"]=="member"){
 	header("Location: member.php");
 }
-//執行登出動作
-if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
-	unset($_SESSION["loginMember"]);
-	unset($_SESSION["memberLevel"]);
-	header("Location: index.php");
-}
+
 //選取管理員資料
 $query_RecAdmin = "SELECT m_id, m_name, m_logintime FROM memberdata WHERE m_username=?";
 $stmt=$db_link->prepare($query_RecAdmin);
