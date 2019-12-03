@@ -95,7 +95,7 @@ if(isset($_POST["action"])&&($_POST["action"]=="update")){
     ?>
 
     <?php
-    include("../member-fixed.php");
+    include("member-fixed.php");
     ?>
 
     <?php 
@@ -109,8 +109,8 @@ if(isset($_POST["action"])&&($_POST["action"]=="update")){
         }
     ?>
 
-<div class="admincontent"> 
-<table id="jointable" width="50%" border="0" align="center" cellpadding="4" cellspacing="0">
+<div class="membercontent"> 
+<table id="updatetable" width="50%" border="0" align="center" cellpadding="4" cellspacing="0">
   <tr>
     <td class="tdbline">
       <img src="../../images/cute.png" id="cute"  title="忍法~影分身之術" width="164" height="67">

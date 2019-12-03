@@ -84,9 +84,6 @@
     
     <!--側邊選單Sidebar--> 
     <div id="sidebar">
-        <div class="logo">
-            <img src="https://raw.githubusercontent.com/linbanana/ican/master/images/logo-white.png">
-        </div>
         <div class="closebtn">
             <i class="fa fa-times" aria-hidden="true"></i>
         </div>

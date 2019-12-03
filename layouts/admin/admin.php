@@ -32,10 +32,10 @@ $stmt->close();
     <!-- 環境建置 -->
     <script language="javascript">
     function deletesure(){
-    if (confirm('\n您確定要刪除這個會員嗎?\n刪除後無法恢復!\n')) return true;
-    return false;
-}
-</script>
+        if (confirm('\n您確定要刪除這個會員嗎?\n刪除後無法恢復!\n')) return true;
+        return false;
+    }
+    </script>
     <title>ican</title>
 </head>
 <body>

@@ -1,12 +1,15 @@
 <input type="checkbox" name="" id="showsidebar" checked>
 <div class="side-menu">
 <div class="sidebar-heading">
-    <p><img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" id="adminlogo">
-    <i class="fa fa-user-md" aria-hidden="true"></i>管理者：<strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong><br>
+    <p>
+      <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" id="adminlogo">
+      <i class="fa fa-user-md" aria-hidden="true">&nbsp;管理者：</i>
+      <strong><?php echo "<font id='usernamestyle'>".$mname."</font>";?></strong><br>
         本次登入的時間為：<?php echo $mlogintime;?>
-      </p>
-        <p align="center"><a href="layouts/admin/updateadmin.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
-      </p>
+    </p>
+    <p align="center">
+      <a href="layouts/admin/updateadmin.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
+    </p>
 </div>
         <ul class="list-group list-group-flush ">
             <li>

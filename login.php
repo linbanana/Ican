@@ -97,11 +97,17 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
                 <input class="btn loginbtn" type="submit" name="button" id="button" value="登入">
             </p>
         </form>
-        <p align="center"><a href="admin_passmail.php">忘記密碼，補寄密碼信。</a></p>
+        <p align="center">
+            <a href="admin_passmail.php">忘記密碼，補寄密碼信。</a>
+        </p>
         <hr size="1" />
         <h4>還沒有會員帳號?</p>
         <h4>註冊帳號免費又容易</p>
-        <p align="right"><a href="join.php"><i class="fa fa-user-plus" aria-hidden="true"></i>註冊</a></p>
+        <p align="right">
+            <a href="join.php">
+                <i class="fa fa-user-plus" aria-hidden="true">&nbsp;註冊</i>
+            </a>
+        </p>
         </div>
     </div>
     

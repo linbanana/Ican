@@ -1,3 +1,4 @@
+<div class="clearfix"></div>
 <!-- footer -->    
 <footer>
     <div class="container">
@@ -7,7 +8,7 @@
                 <img src="https://raw.githubusercontent.com/linbanana/ican/master/images/logo-white.png">
         <?php
             date_default_timezone_set("Asia/Taipei");
-            echo '<div id="time" style="font-size: 1rem;"></div>
+            echo '<div id="time"></div>
         <script type="text/javascript">
             var dayNames = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
                 function get_obj(time){
@@ -32,17 +33,21 @@
         
         <div class="contact-info  col-sm">
             <div class="item">
-                <i class="fa fa-map-marker" aria-hidden="true"> 地址：</i>
+                <i class="fa fa-map-marker" aria-hidden="true">&nbsp;</i>
                 <p>929屏東縣琉球鄉復興路84號</p>
                 <iframe src="https://www.google.com/maps/embed?pb=!4v1575217147413!6m8!1m7!1sxhGz2yiwCRsjKe_94v1URg!2m2!1d22.34486996193625!2d120.3707131741897!3f132.97!4f3.239999999999995!5f0.7820865974627469" width="auto" height="100" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
             <div class="item">
-                <i class="fa fa-envelope" aria-hidden="true"> E-mail：</i>
-                <p>qaz1234567@gmail.com</p>
+                <i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+                <p>
+                    <a href="mailto:qaz1234567@gmail.com">qaz1234567@gmail.com</a>
+                </p>
             </div>
             <div class="item">
-                <i class="fa fa-phone" aria-hidden="true"> 電話：</i>
-                <p>(08)1234567</p>
+                <i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+                <p>
+                <a href="tel:(08)1234567">(08)1234567</a>
+                </p>
             </div>
             <hr size="1">
         </div>

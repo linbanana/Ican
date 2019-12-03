@@ -7,6 +7,9 @@ body{
     background-color: #FFEBC2;
     transition: transform .5 ease;
 }
+.clearfix{
+  clear:both;
+}
 
 /* index.php */
 /* header */   
@@ -95,15 +98,7 @@ body{
         border: 2px solid #fff;
         border-radius: 10px;
     }    
-    #sidebar .logo{
-        width: 80px;
-        position: absolute;
-        top: 30px;
-        left:145px;
-    }
-    #sidebar .logo img{
-        width: 100%;
-    }
+
     #sidebar .closebtn{
         font-size: 30px;
         color: #fff;
@@ -120,10 +115,12 @@ body{
         color:#fff;
         font-size: 20px;
     }
+
     #sidebar .side-nav{
         margin-top: 150px;
         text-align: center;
     }
+
     #sidebar,.toggle-btn{
         display: none;
     }
@@ -301,6 +298,7 @@ footer .logo-font{
 }
 footer .logo #time{
     text-align: center;
+    font-size: 1.5rem;
 }
 footer .container{
     padding: 0px;
@@ -336,9 +334,9 @@ footer .contact-info .item{
 
 .back-to-top{
     position: fixed;
-    bottom: 10px;
-    right: 80px;
-    z-index: 5;
+    bottom: 8px;
+    right: 70px;
+    z-index: 50;
     border-radius: 50%;
 }
 
@@ -447,10 +445,15 @@ footer .contact-info .item{
     padding:unset;
 }
 
+.joincontent table{
+    width: 95%;
+}
+
 .joincontent #jointable{
     text-align: left;
     border: solid 3px #fff;
     outline: solid 2px #ffa3f3;  
+    background-color: rgba(250, 235, 215, 0.8);
 }
 
 .tbody{
@@ -513,7 +516,9 @@ footer .contact-info .item{
     transform: translateX(-100%);
     transition: .3s;
     z-index: 1;
+    float: left;
 }
+
 .side-menu label{
     position: absolute;
     width: 40px;
@@ -553,8 +558,6 @@ footer .contact-info .item{
     height: 25%;
     text-align: center;
 }
-
-
 
     /* 第一層初始化 */
     ul li a.list-group-item.py-2.list-group-item{
@@ -620,7 +623,7 @@ footer .contact-info .item{
 
 /* room.php */
 .room_info{
-    margin:100px 0;
+    margin:50px 0;
 }
 .room_info h1{
     font-size: 40px;
@@ -725,6 +728,45 @@ footer .contact-info .item{
 }
 /* room.php */
 
+/* about.php */
+
+.aboutcontent{
+    text-align: center;
+}
+
+.aboutcontent .container{
+    padding: 40px;
+    border-bottom: 1px solid rgb(226, 182, 94);
+}
+
+
+.aboutcontent .container .title{
+    padding: 40px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.aboutcontent .container .photo{
+    width: 100%;
+    height: 100%;
+}
+
+.aboutcontent .container .photo img{
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin: 15px;
+}
+
+.aboutcontent .container p{
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 300;
+    color: #000;
+    text-align: left;
+    vertical-align: top;
+}
+/* about.php */
 
 @media screen and (max-width: 1200px) {
     body{
@@ -732,7 +774,7 @@ footer .contact-info .item{
     }
     /* header */
     .header-menu .menu a{
-        font-size: 20px;
+        font-size: 23px;
         padding: 10px;
     }
 
@@ -772,6 +814,14 @@ footer .contact-info .item{
     #queryadmin{
         width: 100% !important;
     }
+        /* updateadmin */
+        .admincontent table#updatetable{
+            text-align: left;
+            border: solid 3px #fff;
+            outline: solid 2px #ffa3f3;  
+            background-color: rgba(250, 235, 215, 0.8);
+        }
+        /* updateadmin */
     /* admin.php */
 
     /* room.php */
@@ -797,6 +847,22 @@ footer .contact-info .item{
         display: none;
     }
     /* room.php */
+
+    /* about.php */
+    .aboutcontent .container .photo img{
+        width: 100%;
+        height: 50%;
+        margin: 0px;
+    }
+
+    .aboutcontent .container .title{
+        font-size: 50px;
+    }
+
+    .aboutcontent .container p {
+        font-size: 30px;
+    }    
+    /* about.php */
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -809,7 +875,6 @@ footer .contact-info .item{
         font-size: 16px;
         padding: 10px;
     }
-
     /* header */
 
     /* admin.php */
@@ -842,6 +907,22 @@ footer .contact-info .item{
         border-bottom: none;
     }
     /* room.php */
+
+    /* about.php */
+    .aboutcontent .container .photo img{
+        width: 100%;
+        height: 50%;
+        margin: 0px;
+    }
+
+    .aboutcontent .container .title{
+        font-size: 50px;
+    }
+
+    .aboutcontent .container p {
+        font-size: 25px;
+    }    
+    /* about.php */
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -849,29 +930,39 @@ footer .contact-info .item{
     body{
         overflow-x: hidden;
     }
-/* header*/ 
+    /* header*/ 
     .header-menu .menu{
         display: none;
     }
+
     .header-menu .container{
         padding: 50px;
     }
-    
+
     .header-menu .logo{
         width: 70px;
         position: fixed;
         top: 20px;
         left: 30px;
     }
+
     .header-menu .logo img{
         width: 100%;
     }
+
     #sidebar,.toggle-btn{
         display: inherit;
-    }    
-/* header */ 
+    }
 
-/* content */
+    #sidebar .side-nav a{
+        font-size: 30px;
+    }
+    #sidebar .side-nav{
+        margin-top: 150px;
+    }
+    /* header */ 
+
+    /* content */
     #ican-logo{
         font-size: 25px;
         color: #5aecf7;
@@ -918,10 +1009,11 @@ footer .contact-info .item{
         right: 30px;
         bottom: 10px;
     }
-/* Content */
-/* footer */
+    /* Content */
+    /* footer */
     footer .logo #time{
         margin-top: 20px;
+        font-size: 1.2rem;
     }
 
     footer .logo-img img{
@@ -944,11 +1036,11 @@ footer .contact-info .item{
     .social-link a{
         font-size: 30px;   
     }
-/* footer */
-/* admin.php */
+    /* footer */
+    /* admin.php */
     #memberdata{
         margin-top: 206px;
-        width: 100%;
+        width: 95%;
     }
 
     #queryadmin{
@@ -962,9 +1054,9 @@ footer .contact-info .item{
     .membercontent{
         right: 3rem;
     }
-/* admin.php */
+    /* admin.php */
 
-/* room.php */
+    /* room.php */
     .room_info .container{
         width: 80%;
     }
@@ -988,7 +1080,7 @@ footer .contact-info .item{
         font-size: 25px;
         font-weight: 500;
     }
-/* room.php */
+    /* room.php */
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -996,11 +1088,21 @@ footer .contact-info .item{
     body{
         overflow-x: hidden;
     }
+    .back-to-top{
+        bottom: 70px;
+        right: 10px;
+    }
+    /* header */
     .header-menu .logo{
         width: 60px;
     }
 
-/* Content */   
+    #sidebar .side-nav{
+        margin-top: 70px;
+    }
+    /* header */
+
+    /* Content */   
     .welcome .container{
         padding: 10px;
     }
@@ -1017,7 +1119,7 @@ footer .contact-info .item{
         padding: 10px;
         font-size: 12px;
     }
-    
+
     .introducing .container{
         padding: 50px 0;
     }
@@ -1057,12 +1159,12 @@ footer .contact-info .item{
         right: 20px;
         bottom: 10px;
     }    
-/* Content */ 
+    /* Content */ 
 
-/* footer */
+    /* footer */
     footer .logo{
         font-size: 16px;
-        margin: 0px 0px 0px 50px;
+        margin: 0px 0px 0px 0.7rem;
     }
 
     footer img{
@@ -1080,6 +1182,14 @@ footer .contact-info .item{
     }
     footer .contact-info .item{
         text-align: center;
+    }
+
+    footer .contact-info .item p a{
+        color: #fff;        
+    }
+
+    footer .contact-info .item p a:hover{
+        text-decoration: underline;
     }
 
     .logo-img {
@@ -1116,12 +1226,9 @@ footer .contact-info .item{
     .social-link a:hover{
         color: rgb(255, 187, 0);
     }
-/* footer */
+    /* footer */
 
-/* join.php */
-    .joincontent table{
-           width: 375px;
-        }
+    /* join.php */
     .tdbline #cute{
       position: relative;
       top:-25px;
@@ -1130,11 +1237,11 @@ footer .contact-info .item{
       transition-property: margin-right;
       transition-duration: 3s;
     }
-/* join.php */
+    /* join.php */
 
-/* admin.php */
+    /* admin.php */
     #memberdata{
-        width: 100%;
+        width: 95%;
     }
 
     #queryadmin{
@@ -1149,16 +1256,30 @@ footer .contact-info .item{
         margin-left: 0rem;
     }
 
-/* admin.php */
+    /* admin.php */
 
-/* updateadmin.php*/
+    /* updateadmin.php*/
 
-    .admincontent table#jointable{
+    .admincontent table#updatetable{
         margin-top: 15rem;
     }
 
-    .membercontent table#jointable{
+    .membercontent table#updatetable{
         margin-top: 15rem;
     }
-/* updateadmin.php*/
+    /* updateadmin.php*/
+
+    /* about.php */
+    .aboutcontent .container .photo img{
+        width: 100%;
+        margin: 0px;
+    }
+
+    .aboutcontent .container .title{
+        font-size: 25px;
+    }
+    .aboutcontent .container p {
+        font-size: 18px;
+    }    
+    /* about.php */
 }
