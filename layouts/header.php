@@ -33,28 +33,28 @@
                 <img src="https://raw.githubusercontent.com/linbanana/ican/master/images/logo-white.png">
             </div>
             <div class="menu"> 
-            <a href=".\index.php">
+            <a href="/index.php">
                 <i class="fa fa-home" aria-hidden="true">&nbsp;首頁</i>
             </a>
             <a href="#">
                 <i class="fa fa-newspaper-o" aria-hidden="true">&nbsp;最新消息</i>
             </a>
-            <a href=".\room.php">
+            <a href="/room.php">
                 <i class="fa fa-bed" aria-hidden="true">&nbsp;客房介紹</i>
             </a>
-            <a href=".\about.php">
+            <a href="/about.php">
                 <i class="fa fa-users" aria-hidden="true">&nbsp;關於我們</i>
             </a>
-            <a href=".\layouts/order/selet.php">
+            <a href="/layouts/order/selet.php">
                 <i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;線上訂房</i>
             </a>
             <?php 
             if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
             ?>
-                <a href=".\login.php">
+                <a href="/login.php">
                     <i class="fa fa-sign-in" aria-hidden="true">&nbsp;登入</i>
                 </a>
-                <a href=".\join.php">
+                <a href="/join.php">
                     <i class="fa fa-user-plus" aria-hidden="true">&nbsp;註冊</i>
                 </a>
             <?php
@@ -66,11 +66,11 @@
             <?php 
                 if($_SESSION["memberLevel"]=="member"){
             ?>
-                <a href=".\member.php">管理中心</a> 
+                <a href="/layouts/member/member.php">管理中心</a> 
             <?php                   
                 }else{
             ?>
-                <a href=".\admin.php">管理中心</a>  
+                <a href="/layouts/admin/admin.php">管理中心</a>  
             <?php      
                 }
             ?>                    
@@ -89,28 +89,28 @@
         </div>
         
         <div class="side-nav">
-            <a href=".\index.php">
+            <a href="/index.php">
                 <i class="fa fa-home" aria-hidden="true">&nbsp;首頁</i>
             </a>
             <a href="#">
                 <i class="fa fa-newspaper-o" aria-hidden="true">&nbsp;最新消息</i>
             </a>
-            <a href=".\room.php">
+            <a href="/room.php">
                 <i class="fa fa-bed" aria-hidden="true">&nbsp;客房介紹</i>
             </a>
-            <a href=".\about.php">
+            <a href="/about.php">
                 <i class="fa fa-users" aria-hidden="true">&nbsp;關於我們</i>
             </a>
-            <a href=".\layouts/order/selet.php">
+            <a href="/layouts/order/selet.php">
                 <i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;線上訂房</i>
             </a>
             <?php 
             if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
             ?>
-                <a href=".\login.php">
+                <a href="/login.php">
                     <i class="fa fa-sign-in" aria-hidden="true">&nbsp;登入</i>
                 </a>
-                <a href=".\join.php">
+                <a href="/join.php">
                     <i class="fa fa-user-plus" aria-hidden="true">&nbsp;註冊</i>
                 </a>
             <?php
@@ -122,11 +122,11 @@
             <?php 
                 if($_SESSION["memberLevel"]=="member"){
             ?>
-                <a href=".\member.php">管理中心</a> 
+                <a href="/layouts/member/member.php">管理中心</a> 
             <?php                   
                 }else{
             ?>
-                <a href=".\admin.php">管理中心</a>  
+                <a href="/layouts/admin/admin.php">管理中心</a>  
             <?php      
                 }
             ?>                    

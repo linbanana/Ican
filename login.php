@@ -5,10 +5,10 @@ session_start();
 if(isset($_SESSION["loginMember"]) && ($_SESSION["loginMember"]!="")){
     //若帳號等級為 member 則導向會員中心
     if($_SESSION["memberLevel"]=="member"){
-        header("Location: .\layouts/member/member.php");
+        header("Location: /layouts/member/member.php");
     //否則則導向管理中心
     }else{
-        header("Location: .\layouts/admin/admin.php");   
+        header("Location: /layouts/admin/admin.php");   
     }
 }
 //執行會員登入
@@ -45,10 +45,10 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
   }
         //若帳號等級為 member 則導向會員中心
   if($_SESSION["memberLevel"]=="member"){
-   header("Location: .\layouts/member/member.php");
+   header("Location: /layouts/member/member.php");
         //否則則導向管理中心
  }else{
-   header("Location:.\layouts/admin/admin.php");    
+   header("Location:/layouts/admin/admin.php");    
  }
 }else{
   header("Location: login.php?errMsg=1");
