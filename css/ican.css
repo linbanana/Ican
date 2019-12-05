@@ -307,7 +307,7 @@ footer .contact-info .item{
     text-align: left;
 }
 .contact-info{
-    margin: 41px 0px 0px 0px;
+    margin: 35px 0px 0px 0px;
     text-align: center;
     padding: 0px;
 }
@@ -619,6 +619,25 @@ footer .contact-info .item{
     #queryadmin p{
         margin-bottom: 0;
     }
+    
+    /* updateadmin updatemember */
+    .admincontent #updatetable{
+        text-align: left;
+        border: solid 3px #fff;
+        outline: solid 2px #ffa3f3;  
+        background-color: rgba(250, 235, 215, 0.8);
+    }
+    .membercontent #updatetable{
+        text-align: left;
+        border: solid 3px #fff;
+        outline: solid 2px #ffa3f3;  
+        background-color: rgba(250, 235, 215, 0.8);
+    }
+    /* updateadmin updatemember */
+button#order {
+    padding: 0px;
+    border: 0px;
+}
 /* admin.php */
 
 /* room.php */
@@ -774,7 +793,7 @@ footer .contact-info .item{
     }
     /* header */
     .header-menu .menu a{
-        font-size: 23px;
+        font-size: 22px;
         padding: 10px;
     }
 
@@ -802,6 +821,13 @@ footer .contact-info .item{
         bottom: 20px;
     }
     /* header */
+
+    /* footer */
+    footer .logo #time{
+        font-size: 1rem;
+    }
+    /* footer */
+
     /* admin.php */
     .admincontent{
         right: 3rem;
@@ -814,14 +840,6 @@ footer .contact-info .item{
     #queryadmin{
         width: 100% !important;
     }
-        /* updateadmin */
-        .admincontent table#updatetable{
-            text-align: left;
-            border: solid 3px #fff;
-            outline: solid 2px #ffa3f3;  
-            background-color: rgba(250, 235, 215, 0.8);
-        }
-        /* updateadmin */
     /* admin.php */
 
     /* room.php */
@@ -872,7 +890,7 @@ footer .contact-info .item{
     }
     /* header */
     .header-menu .menu a{
-        font-size: 16px;
+        font-size: 15px;
         padding: 10px;
     }
     /* header */
@@ -892,9 +910,16 @@ footer .contact-info .item{
     /* admin.php */
 
     /* footer.php */
+    .contact-info{
+        margin: 23px 0px 0px 0px;
+    }
     .contact-info p{
         display: inline-block;
         font-size: 16px;
+    }
+    footer .logo #time{
+        text-align: center;
+        font-size: 1rem;
     }
     /* footer.php */
 

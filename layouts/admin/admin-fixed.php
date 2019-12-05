@@ -8,7 +8,7 @@
         本次登入的時間為：<?php echo $mlogintime;?>
     </p>
     <p align="center">
-      <a href="layouts/admin/updateadmin.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
+      <a href="updateadmin.php?id=<?php echo $mid;?>">修改資料</a> | <a href="?logout=true">登出系統</a>
     </p>
 </div>
         <ul class="list-group list-group-flush ">

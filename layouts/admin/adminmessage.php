@@ -1,10 +1,29 @@
 <?php
 require("../../connMysql.php");  //呼叫connectMysql.php文件
+session_start();
+//檢查是否經過登入
+if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
+    header("Location: index.php");
+}
+
 $sql_query="select * from message";  //將SQL指令設定在$sql_query
 //$result=mysqli_query($con,$sql_query);//從guest資料庫中選擇所有的資料表
 $result=$db_link->query($sql_query);//從guest資料庫中選擇所有的資料表
-
  
+
+//檢查權限是否足夠
+if($_SESSION["memberLevel"]=="member"){
+    header("Location: member.php");
+}
+
+//選取管理員資料
+$query_RecAdmin = "SELECT m_id, m_name, m_logintime FROM memberdata WHERE m_username=?";
+$stmt=$db_link->prepare($query_RecAdmin);
+$stmt->bind_param("s", $_SESSION["loginMember"]);
+$stmt->execute();
+$stmt->bind_result($mid, $mname, $mlogintime);
+$stmt->fetch();
+$stmt->close(); 
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
@@ -28,10 +47,21 @@ $result=$db_link->query($sql_query);//從guest資料庫中選擇所有的資料�
 </head>
 <body>
 
-    <a href="../messageboard.php"><input type="button" value="回留言頁" id="backtoboard"></a><br>
+    <?php
+    include("../../layouts/header.php");
+    ?>
+
+    <?php
+    include("admin-fixed.php");
+    ?>
+
+    <div class="messagecontent">  
+        <a href="../messageboard.php">
+            <input type="button" value="回留言頁" id="backtoboard">
+        </a><br>
 
    <?php    //列出所有資料
-   echo    "總共幾筆資料".$result->num_rows."筆<br>";  //使用num_rows顯示筆數
+   echo    "總共幾筆資料".$result->num_rows."筆<hr><br>";  //使用num_rows顯示筆數
    for($i=0;$i<$result->num_rows;$i++){
     $rs=$result->fetch_assoc();
    
@@ -48,7 +78,7 @@ $result=$db_link->query($sql_query);//從guest資料庫中選擇所有的資料�
         echo "留言內容:".$rs['guestcontent']."<br>";
   
         echo "留言時間:".$rs['guesttime']."<br>";
-        echo "<hr />";
+        echo "<hr>";
    }
 
    
@@ -65,5 +95,3 @@ $result=$db_link->query($sql_query);//從guest資料庫中選擇所有的資料�
     <!-- 環境建置 -->
 </body>
 </html>
-<table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
-              <tr>  

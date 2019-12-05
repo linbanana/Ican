@@ -104,7 +104,7 @@ if(isset($_POST["action"])&&($_POST["action"]=="update")){
     ?>
 
     <?php
-    include("../admin-fixed.php");
+    include("admin-fixed.php");
     ?>
 
     <?php 

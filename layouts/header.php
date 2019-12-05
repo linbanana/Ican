@@ -66,7 +66,7 @@
             <?php 
                 if($_SESSION["memberLevel"]=="member"){
             ?>
-                <a href="/layouts/member/member.php">管理中心</a> 
+                <a href="/layouts/member/member.php">會員中心</a> 
             <?php                   
                 }else{
             ?>

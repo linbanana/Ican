@@ -120,10 +120,10 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
   ?>
 
   <div class="admincontent">      
-      <table width="530" border="0" align="center" cellpadding="4" cellspacing="0" id="memberdata">
+      <table width="60%" border="0" align="center" cellpadding="4" cellspacing="0" id="memberdata">
         <tr>
           <td class="tdbline">
-            <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" alt="會員系統" width="164" height="67">            
+            <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" width="20%">
             <div style="float='right'">
               <font color="#ff0000">　警告！任意刪除資料須負民事侵權損害賠償及刑事妨害電腦使用罪責任。</font>
             </div>
@@ -142,21 +142,22 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
                     <td width="15%" align="center" bgcolor="#CCC">上次登入</td>
                     <!-- 登入次數排序-->
                     <td width="15%" align="center" bgcolor="#CCC">                      
-                    <form name="form"  onclick="javascript:location.href='?order=<?php 
-                        echo $ordernum;
-                      ?>'" 
-                      method="GET">
-                      <input class="btn btn-primary btn-xs" type="button" name="order" id="order" value="<?php echo "登入次數"; ?>">
-                      <?php 
-                        if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
-                          echo "<i class='fa fa-sort-desc' aria-hidden='true'></i>";
-                        }elseif(isset($_GET["order"]) && ($_GET["order"]=="ASC")){
-                          echo "<i class='fa fa-sort-asc' aria-hidden='true'></i>";
-                        }else{
-                          echo "<i class='fa fa-sort' aria-hidden='true'></i>";                          
-                        }
-                      ?>
-                    </form>
+                      <form name="form"  onclick="javascript:location.href='?order=<?php 
+                          echo $ordernum;
+                        ?>'" 
+                        method="GET">
+                        <button class="btn btn-primary btn-xs" type="button" name="order" id="order" padding="0">登入次數 
+                          <?php 
+                          if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
+                            echo "<i class='fa fa-sort-desc' aria-hidden='true'></i>";
+                          }elseif(isset($_GET["order"]) && ($_GET["order"]=="ASC")){
+                            echo "<i class='fa fa-sort-asc' aria-hidden='true'></i>";
+                          }else{
+                            echo "<i class='fa fa-sort' aria-hidden='true'></i>";
+                          }
+                        ?>                     
+                        </button>
+                      </form>
                     </td>
                     <td width="30%" align="center" bgcolor="#CCC">操作</td>
                   </tr>
