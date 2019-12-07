@@ -1,160 +1,187 @@
-*{
+* {
     padding: 0;
     font-family: 'Noto Sans TC', sans-serif;
     list-style: none;
 }
-body{
+
+body {
     background-color: #FFEBC2;
     transition: transform .5 ease;
 }
-.clearfix{
-  clear:both;
+
+.clearfix {
+    clear: both;
 }
+
 
 /* index.php */
-/* header */
 
-    /* LOGO跟選單 */
-    .header-menu{
-        position: fixed;
-        top:0;
-        left: 0;
-        right: 0;
-        transition: 1s;
-        z-index: 10;
-        background-color: rgba(0, 0, 0,0.6);
-        text-shadow: 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000;
-    }
-
-    .header-menu.scrolldown .menu a{
-        color: #fff;
-        transition: 1.5s;
-    }
-
-    .header-menu .container{
-        display: flex;
-        justify-content:space-evenly;
-        padding: 0px;
-        align-items: center;
-
-    }
-
-    .header-menu .logo{
-        width: 100px;
-    }
-
-    .header-menu .logo img{
-        width: 100%;
-    }
-    .header-menu .menu {
-      display: flex;
-      margin: auto;
-    }
-    .header-menu .menu a{
-        color: #fff;
-        text-decoration: none;
-        font-size: 23px;
-        padding: 20px;
-        font-weight: 500;
-        transition: 1s;
-    }
-    .header-menu .menu a:hover{
-        color: #ffc107;
-        text-decoration:underline;
-    }
-
-    .header-menu .menu a i:hover{
-        color: #ffc107;
-        text-decoration:underline;
-    }
-    /* LOGO跟選單 */
-
-    /* 側邊選單Sidebar */
-    #sidebar{
-        position: fixed;
-        top:0;
-        right:0;
-        width: 100%;
-        height: 100%;
-        background-color: #000;
-        padding:20px 10px;
-        transform: translateX(100%);
-        transition: transform .5s ease;
-        z-index: 11;
-    }
-    .active-nav #sidebar{
-        transform: translateX(0);
-    }
-    .toggle-btn{
-        font-size: 30px;
-        color:#fff;
-        padding: 0 10px;
-        position: fixed;
-        top: 30px;
-        right: 10px;
-        z-index: 1;
-    }
-    .toggle-btn:hover{
-        border: 2px solid #fff;
-        border-radius: 10px;
-    }
-
-    #sidebar .closebtn{
-        font-size: 30px;
-        color: #fff;
-        position: absolute;
-        top: 30px;
-        right:25px;
-        text-shadow: none;
-    }
-
-    #sidebar .side-nav a{
-        display: block;
-        text-decoration: none;
-        padding: 15px;
-        color:#fff;
-        font-size: 20px;
-    }
-
-    #sidebar .side-nav{
-        margin-top: 150px;
-        text-align: center;
-    }
-
-    #sidebar,.toggle-btn{
-        display: none;
-    }
-
-    #sidebar,.toggle-btn:active{
-        border: none;
-    }
-    /* Sidebar */
 
 /* header */
 
-/* Content */
-.welcome{
+
+/* LOGO跟選單 */
+
+.header-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: 1s;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-shadow: 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000;
+}
+
+.header-menu.scrolldown .menu a {
+    color: #fff;
+    transition: 1.5s;
+}
+
+.header-menu .container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0px;
+    align-items: center;
+}
+
+.header-menu .logo {
+    width: 100px;
+}
+
+.header-menu .logo img {
+    width: 100%;
+}
+
+.header-menu .menu {
+    display: flex;
+    margin: auto;
+}
+
+.header-menu .menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 23px;
+    padding: 20px;
+    font-weight: 500;
+    transition: 1s;
+}
+
+.header-menu .menu a:hover {
+    color: #ffc107;
+    text-decoration: underline;
+}
+
+.header-menu .menu a i:hover {
+    color: #ffc107;
+    text-decoration: underline;
+}
+
+
+/* LOGO跟選單 */
+
+
+/* 側邊選單Sidebar */
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    padding: 20px 10px;
+    transform: translateX(100%);
+    transition: transform .5s ease;
+    z-index: 11;
+}
+
+.active-nav #sidebar {
+    transform: translateX(0);
+}
+
+.toggle-btn {
+    font-size: 30px;
+    color: #fff;
+    padding: 0 10px;
+    position: fixed;
+    top: 30px;
+    right: 10px;
+    z-index: 1;
+}
+
+.toggle-btn:hover {
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
+
+#sidebar .closebtn {
+    font-size: 30px;
+    color: #fff;
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    text-shadow: none;
+}
+
+#sidebar .side-nav a {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    color: #fff;
+    font-size: 20px;
+}
+
+#sidebar .side-nav {
+    margin-top: 150px;
     text-align: center;
 }
-.welcome .container{
+
+#sidebar,
+.toggle-btn {
+    display: none;
+}
+
+#sidebar,
+.toggle-btn:active {
+    border: none;
+}
+
+
+/* Sidebar */
+
+
+/* header */
+
+
+/* Content */
+
+.welcome {
+    text-align: center;
+}
+
+.welcome .container {
     padding: 40px;
     border-bottom: 1px solid rgb(226, 182, 94);
 }
-#ican-logo{
+
+#ican-logo {
     font-size: 40px;
     color: #5aecf7;
     display: inline-block;
     font-family: 'Lobster', cursive;
-    text-shadow:0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
+    text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
 }
-#hotel-logo{
+
+#hotel-logo {
     font-size: 35px;
     color: #fff;
     display: inline-block;
     font-weight: 700;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
-.welcome p{
+
+.welcome p {
     padding: 10px;
     font-size: 24px;
     font-weight: 300;
@@ -162,13 +189,14 @@ body{
     display: inline-block;
 }
 
-.recommend .container{
+.recommend .container {
     display: flex;
     margin: 50px auto;
     padding: 75px 0 100px;
     border-bottom: 1px solid rgb(226, 182, 94);
 }
-.recommend .container .item{
+
+.recommend .container .item {
     width: 370px;
     margin: 0 15px;
     text-align: center;
@@ -177,10 +205,12 @@ body{
     border-radius: 20px;
     box-shadow: 10px 20px 50px #fcd896;
 }
-.recommend .item .txt{
+
+.recommend .item .txt {
     padding: 20px;
 }
-.recommend .item .icon{
+
+.recommend .item .icon {
     width: 150px;
     height: 150px;
     background-color: #fff;
@@ -188,11 +218,12 @@ body{
     font-size: 65px;
     line-height: 150px;
     border-radius: 50%;
-    color:#f7bf58;
+    color: #f7bf58;
     position: relative;
 }
-.recommend .item .icon:before{
-    content:'';
+
+.recommend .item .icon:before {
+    content: '';
     position: absolute;
     width: 100%;
     height: 100%;
@@ -205,30 +236,34 @@ body{
     border-radius: 50%;
     transform: rotate(-45deg);
 }
-.recommend .item h3{
-    color:#f7bf58;
+
+.recommend .item h3 {
+    color: #f7bf58;
 }
 
-
-.introducing .container{
+.introducing .container {
     padding: 100px 50px;
     margin: auto;
 }
-.introducing .item{
+
+.introducing .item {
     margin-bottom: 80px;
     display: flex;
     align-items: center;
     font-family: 'Noto Sans TC', sans-serif;
 }
-.introducing .item .pic{
-    width:55%;
+
+.introducing .item .pic {
+    width: 55%;
     flex-shrink: 0;
 }
-.introducing .item .pic img{
-    width:100%;
+
+.introducing .item .pic img {
+    width: 100%;
     vertical-align: middle;
 }
-.introducing .item .txt{
+
+.introducing .item .txt {
     width: 55%;
     padding: 50px 30px 80px;
     flex-shrink: 0;
@@ -236,44 +271,56 @@ body{
     position: relative;
     z-index: 1;
 }
-.introducing .item > :first-child{
+
+.introducing .item> :first-child {
     margin-right: -10%;
 }
-.introducing .item:nth-child(1) .txt{
+
+.introducing .item:nth-child(1) .txt {
     background-color: rgba(240, 174, 193, .8);
 }
-.introducing .item:nth-child(2) .txt{
+
+.introducing .item:nth-child(2) .txt {
     background-color: rgb(42, 253, 208, .8);
 }
-.introducing .item:nth-child(3) .txt{
+
+.introducing .item:nth-child(3) .txt {
     background-color: rgb(254, 201, 121, .8);
 }
-.introducing .item .txt h2{
+
+.introducing .item .txt h2 {
     font-weight: 900;
 }
-.introducing .item .txt p{
+
+.introducing .item .txt p {
     font-weight: 300;
     font-size: 22px;
     margin-bottom: 30px;
 }
-.introducing .item .txt a{
+
+.introducing .item .txt a {
     border: 1px solid #e08a09;
     font-size: 20px;
     font-weight: 500;
-    color:#e08a09;
+    color: #e08a09;
     padding: 10px 20px;
     text-decoration: none;
     position: absolute;
     right: 30px;
     bottom: 30px;
 }
-.introducing .item .txt a:hover{
+
+.introducing .item .txt a:hover {
     border: 1px solid #f7ab3a;
     color: #f7ab3a;
 }
+
+
 /* Content */
 
+
 /* footer */
+
 footer {
     overflow-x: hidden;
     color: #fff;
@@ -282,57 +329,65 @@ footer {
     border-top: .05rem solid #e5e5e5;
 }
 
-footer .logo{
+footer .logo {
     text-align: center;
     margin: 50px 0px 0px 0px;
     padding: 0px;
 }
 
-footer .logo-img img{
+footer .logo-img img {
     width: 10rem;
     vertical-align: middle;
 }
-footer .logo-font{
+
+footer .logo-font {
     display: inline-block;
     padding: 0 20px;
 }
-footer .logo #time{
+
+footer .logo #time {
     text-align: center;
     font-size: 1.5rem;
 }
-footer .container{
+
+footer .container {
     padding: 0px;
 }
-footer .contact-info .item{
+
+footer .contact-info .item {
     text-align: left;
 }
-.contact-info{
+
+.contact-info {
     margin: 35px 0px 0px 0px;
     text-align: center;
     padding: 0px;
 }
-.contact-info i{
+
+.contact-info i {
     display: inline-block;
     color: #fff;
     font-size: 20px;
 }
-.contact-info p{
+
+.contact-info p {
     display: inline-block;
     font-size: 19px;
 }
-.social-link{
+
+.social-link {
     margin: 120px 0px 0px 0px;
     padding: 0px;
 }
-.social-link a{
+
+.social-link a {
     color: #fff;
     font-size: 30px;
     padding: 5px 10px;
     text-decoration: none;
-
 }
 
-.back-to-top{
+.back-to-top {
     position: fixed;
     bottom: 8px;
     right: 70px;
@@ -340,82 +395,90 @@ footer .contact-info .item{
     border-radius: 50%;
 }
 
-#facebook:hover{
+#facebook:hover {
     color: #007bff;
 }
 
-#twitter:hover{
-    color: rgba(29,161,242,1.00);
+#twitter:hover {
+    color: rgba(29, 161, 242, 1.00);
 }
 
-#instagram:hover{
+#instagram:hover {
     color: #000;
 }
 
+
 /* footer */
+
+
 /* index.php */
 
 
 /* login.php */
-.loginpage{
-	height: 100vh;
-	background-image: url(https://unsplash.it/1000/1000);
-	background-repeat: no-repeat;
-	background-size: cover;
-	display:flex;
-	vertical-align: middle;/* 置中對齊 */
-	justify-content:center;/* 置中對齊 */
+
+.loginpage {
+    height: 100vh;
+    background-image: url(https://unsplash.it/1000/1000);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    vertical-align: middle;
+    /* 置中對齊 */
+    justify-content: center;
+    /* 置中對齊 */
 }
 
-.loginpage::before{
-	min-height: 30px;
+.loginpage::before {
+    min-height: 30px;
 }
 
 .regbox {
-	border: 3px solid #ff4570;
-	border-radius: 10%;
-	color: #ff8fcb;
-	text-shadow: -1px 0 #ff0000, 0 1px #ff0000, 1px 0 #ff0000, 0 -1px #ff0000;
-	font-weight: bold;
-	padding: 100px;
-	width: 100%;
+    border: 3px solid #ff4570;
+    border-radius: 10%;
+    color: #ff8fcb;
+    text-shadow: -1px 0 #ff0000, 0 1px #ff0000, 1px 0 #ff0000, 0 -1px #ff0000;
+    font-weight: bold;
+    padding: 100px;
+    width: 100%;
     max-width: 330px;
     padding: 15px;
     margin: auto;
     background-color: #FFEBC2;
 }
 
-.regbox h4{
-	color: #ff0000;
+.regbox h4 {
+    color: #ff0000;
     text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
     font-size: 18px;
 }
 
-.regbox p a{
-	color: #8fe9ff;
+.regbox p a {
+    color: #8fe9ff;
     text-shadow: -1px 0 #0020a1, 0 1px #0020a1, 1px 0 #0020a1, 0 -1px #0020a1;
 }
 
-.regbox p{
-	color: #002eed;
+.regbox p {
+    color: #002eed;
     text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
-.regbox a:hover{
-	color: #007bff;
+.regbox a:hover {
+    color: #007bff;
 }
 
-#logo{
+#logo {
     width: 100px;
-    vertical-align: middle;/* 置中對齊 */
-    justify-content:center;/* 置中對齊 */
+    vertical-align: middle;
+    /* 置中對齊 */
+    justify-content: center;
+    /* 置中對齊 */
 }
 
 .loginbtn {
     border-color: #fff;
     color: #fff;
     background-color: #07b8db;
-    margin-top:5px;
+    margin-top: 5px;
 }
 
 .loginbtn:hover {
@@ -424,39 +487,43 @@ footer .contact-info .item{
     color: #fffc45;
 }
 
-.regbox .errDiv{
+.regbox .errDiv {
     color: #ff0000;
-    text-shadow:none;
+    text-shadow: none;
 }
 
-.logintextbox{
-	border: 2px solid #ccc;
-	outline:none;
+.logintextbox {
+    border: 2px solid #ccc;
+    outline: none;
 }
 
-.logintextbox:focus{
-	border: 2px solid #ff5e00;
+.logintextbox:focus {
+    border: 2px solid #ff5e00;
 }
+
+
 /* login.php */
 
+
 /* join.php */
-.joincontent{
+
+.joincontent {
     text-align: center;
-    padding:unset;
+    padding: unset;
 }
 
-.joincontent table{
+.joincontent table {
     width: 95%;
 }
 
-.joincontent #jointable{
+.joincontent #jointable {
     text-align: left;
     border: solid 3px #fff;
     outline: solid 2px #ffa3f3;
     background-color: rgba(250, 235, 215, 0.8);
 }
 
-.tbody{
+.tbody {
     border: 2px solid #fff;
 }
 
@@ -466,50 +533,54 @@ footer .contact-info .item{
     border-bottom-color: #999999;
 }
 
-.joincontent #mlogo{
+.joincontent #mlogo {
     float: right;
 }
 
-.tdbline #cute{
-  position: relative;
-  top:-35px;
-  left:-30px;
-  transition-property: margin-left;
-  transition-property: margin-right;
-  transition-duration: 3s;
+.tdbline #cute {
+    position: relative;
+    top: -35px;
+    left: -30px;
+    transition-property: margin-left;
+    transition-property: margin-right;
+    transition-duration: 3s;
 }
 
-.tdbline #cute:hover{
+.tdbline #cute:hover {
     margin-left: calc(100% - 78%);
     margin-right: calc(100% - 90%);
-    -moz-transform:scaleX(-1);
-    -webkit-transform:scaleX(-1);
-    -o-transform:scaleX(-1);
-    transform:scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
+
+
 /* join.php */
 
+
 /* admin.php and member.php*/
-.admincontent{
-   margin-left: 5rem;
-}
 
-.admincontent img#mlogo{
-   float: right;
-}
-
-.membercontent{
+.admincontent {
     margin-left: 5rem;
 }
 
-.membercontent img#mlogo{
-   float: right;
+.admincontent img#mlogo {
+    float: right;
 }
 
-.side-menu{
+.membercontent {
+    margin-left: 5rem;
+}
+
+.membercontent img#mlogo {
+    float: right;
+}
+
+.side-menu {
     width: 300px;
     box-sizing: border-box;
-    background-image: linear-gradient(0deg,#3381b0,#fff);
+    background-image: linear-gradient(0deg, #3381b0, #fff);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -519,15 +590,15 @@ footer .contact-info .item{
     float: left;
 }
 
-.side-menu label{
+.side-menu label {
     position: absolute;
     width: 40px;
     height: 80px;
     background-color: #000;
     color: #fff;
     right: -40px;
-    top:0;
-    bottom:0;
+    top: 0;
+    bottom: 0;
     margin: auto 0;
     line-height: 80px;
     text-align: center;
@@ -535,17 +606,17 @@ footer .contact-info .item{
     border-radius: 0 100% 100% 0;
 }
 
-#showsidebar{
+#showsidebar {
     position: absolute;
     opacity: 0;
     z-index: -1;
 }
 
-#showsidebar:checked + .side-menu{
+#showsidebar:checked+.side-menu {
     transform: translateX(0);
 }
 
-#showsidebar:checked + .side-menu label .fa-angle-right{
+#showsidebar:checked+.side-menu label .fa-angle-right {
     transform: scaleX(-1);
 }
 
@@ -553,115 +624,137 @@ footer .contact-info .item{
     color: #ffd800;
 }
 
-#adminlogo{
+#adminlogo {
     width: 25%;
     height: 25%;
     text-align: center;
 }
 
-    /* 第一層初始化 */
-    ul li a.list-group-item.py-2.list-group-item{
-        background-color: #0000ff;
-        color: #ccc;
-        border: 2px solid #ff4570;
-        font-weight: bold;
-    }
 
-    ul li a.list-group-item.py-2.list-group-item:hover{
-        background-color: #0000ff;
-        color: #fff;
-        border: 2px solid #ff4570;
-        font-weight: bold;
-        text-decoration:underline;
-    }
+/* 第一層初始化 */
 
-    /* 第二層初始化 */
-    ol i a.list-group-item.py-2.list-group-item{
-        background-color: #00b7ff;
-        color:#0000ff;
-        border: 2px solid #fff;
-        font-style: normal;
-    }
+ul li a.list-group-item.py-2.list-group-item {
+    background-color: #0000ff;
+    color: #ccc;
+    border: 2px solid #ff4570;
+    font-weight: bold;
+}
 
-    ol i a.list-group-item.py-2.list-group-item:hover{
-        background-color: #00b7ff;
-        color:#ffd000;
-        border: 2px solid #ffd000;
-        text-decoration:underline;
-    }
+ul li a.list-group-item.py-2.list-group-item:hover {
+    background-color: #0000ff;
+    color: #fff;
+    border: 2px solid #ff4570;
+    font-weight: bold;
+    text-decoration: underline;
+}
 
-    ul li a.list-group:hover > ol i a.list-group{
-        background-color: #ff0000;
-        color: #ff8800;
-        border: 2px solid #ff4570;
-        font-weight: bold;
-    }
 
-    /* 滑鼠滑入展開次選單+顏色區分 */
-    ul.list-group li:hover > ol{
-        display: block;
-        background-color: #ffd800;
-        border-top: 2px solid #fff;
-        text-align: right;
-        font-weight: bold;
-    }
+/* 第二層初始化 */
 
-    /* 隱藏次選單 */
-    ul.list-group ol {
-        display: none;
-    }
+ol i a.list-group-item.py-2.list-group-item {
+    background-color: #00b7ff;
+    color: #0000ff;
+    border: 2px solid #fff;
+    font-style: normal;
+}
 
-    font#usernamestyle{
-        color: #ef4370;
-        text-shadow: -1px 0 #ffc107, 0 1px #ffc107, 1px 0 #ffc107, 0 -1px #ffc107;
-    }
+ol i a.list-group-item.py-2.list-group-item:hover {
+    background-color: #00b7ff;
+    color: #ffd000;
+    border: 2px solid #ffd000;
+    text-decoration: underline;
+}
 
-    #queryadmin p{
-        margin-bottom: 0;
-    }
+ul li a.list-group:hover>ol i a.list-group {
+    background-color: #ff0000;
+    color: #ff8800;
+    border: 2px solid #ff4570;
+    font-weight: bold;
+}
 
-    /* updateadmin updatemember */
-    .admincontent #updatetable{
-        text-align: left;
-        border: solid 3px #fff;
-        outline: solid 2px #ffa3f3;
-        background-color: rgba(250, 235, 215, 0.8);
-    }
-    .membercontent #updatetable{
-        text-align: left;
-        border: solid 3px #fff;
-        outline: solid 2px #ffa3f3;
-        background-color: rgba(250, 235, 215, 0.8);
-    }
-    /* updateadmin updatemember */
+
+/* 滑鼠滑入展開次選單+顏色區分 */
+
+ul.list-group li:hover>ol {
+    display: block;
+    background-color: #ffd800;
+    border-top: 2px solid #fff;
+    text-align: right;
+    font-weight: bold;
+}
+
+
+/* 隱藏次選單 */
+
+ul.list-group ol {
+    display: none;
+}
+
+font#usernamestyle {
+    color: #ef4370;
+    text-shadow: -1px 0 #ffc107, 0 1px #ffc107, 1px 0 #ffc107, 0 -1px #ffc107;
+}
+
+#queryadmin p {
+    margin-bottom: 0;
+}
+
+
+/* updateadmin updatemember */
+
+.admincontent #updatetable {
+    text-align: left;
+    border: solid 3px #fff;
+    outline: solid 2px #ffa3f3;
+    background-color: rgba(250, 235, 215, 0.8);
+}
+
+.membercontent #updatetable {
+    text-align: left;
+    border: solid 3px #fff;
+    outline: solid 2px #ffa3f3;
+    background-color: rgba(250, 235, 215, 0.8);
+}
+
+
+/* updateadmin updatemember */
+
 button#order {
     padding: 0px;
     border: 0px;
 }
+
+
 /* admin.php */
 
+
 /* room.php */
-.room_info{
-    margin:50px 0;
+
+.room_info {
+    margin: 50px 0;
 }
-.room_info h1{
+
+.room_info h1 {
     font-size: 40px;
     text-align: center;
-    color:#000;
+    color: #000;
 }
-.room_info .container{
+
+.room_info .container {
     max-width: 1200px;
     width: 90%;
     margin: auto;
 }
-.room_menu{
+
+.room_menu {
     text-align: center;
     padding: 30px 0;
     border-bottom: 1px solid rgb(226, 182, 94);
 }
-.room_menu button{
-    display:inline-block;
-    width:150px;
+
+.room_menu button {
+    display: inline-block;
+    width: 150px;
     padding: 10px 0;
     font-size: 18px;
     margin: 10px 30px;
@@ -671,61 +764,71 @@ button#order {
     color: #0160F2;
     border: none;
 }
-.room_menu button:hover{
-    background-color: #0160F2;
-    color: #fff;
-}
-.room_menu .room-active{
+
+.room_menu button:hover {
     background-color: #0160F2;
     color: #fff;
 }
 
-.room_info .info{
+.room_menu .room-active {
+    background-color: #0160F2;
+    color: #fff;
+}
+
+.room_info .info {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 50px auto 0;
 }
-.room_info .room-type{
+
+.room_info .room-type {
     width: 300px;
     margin: 20px;
     position: relative;
-    overflow:hidden;
+    overflow: hidden;
     display: none;
 }
-.room_info .room-type.show{
+
+.room_info .room-type.show {
     display: inline-block;
 }
-.room_info .room-type img{
+
+.room_info .room-type img {
     width: 100%;
     z-index: 0;
-    transform:scale(1,1);
+    transform: scale(1, 1);
     transition: all .6s ease-out;
 }
-.room_info .room-type:hover img{
-    transform:scale(1.1,1.1);
+
+.room_info .room-type:hover img {
+    transform: scale(1.1, 1.1);
 }
-.room_info .room-type .txt{
+
+.room_info .room-type .txt {
     position: absolute;
     top: 0;
     bottom: 0;
-    left : 0;
+    left: 0;
     right: 0;
     padding: 50px 30px;
     background-color: rgba(0, 0, 0, .6);
     text-align: center;
     opacity: 0;
 }
-.room_info .room-type:hover .txt{
+
+.room_info .room-type:hover .txt {
     opacity: 1;
 }
-.room_info .room-type .txt h3{
+
+.room_info .room-type .txt h3 {
     text-align: center;
     font-size: 24px;
     font-weight: 700;
     color: #fff;
 }
-.room-type h3:after{
+
+.room-type h3:after {
     content: '';
     display: block;
     width: 0%;
@@ -734,50 +837,53 @@ button#order {
     background-color: #ff0;
     transition: width .3s .3s;
 }
-.room-type:hover h3::after{
+
+.room-type:hover h3::after {
     width: 100%;
 }
-.room_info .room-type .txt p{
+
+.room_info .room-type .txt p {
     text-align: center;
     font-size: 18px;
     color: #fff;
     text-decoration: underline;
     padding: 10px;
-
 }
+
+
 /* room.php */
+
 
 /* about.php */
 
-.aboutcontent{
+.aboutcontent {
     text-align: center;
 }
 
-.aboutcontent .container{
+.aboutcontent .container {
     padding: 40px;
     border-bottom: 1px solid rgb(226, 182, 94);
 }
 
-
-.aboutcontent .container .title{
+.aboutcontent .container .title {
     padding: 40px;
     font-size: 40px;
     text-align: center;
 }
 
-.aboutcontent .container .photo{
+.aboutcontent .container .photo {
     width: 100%;
     height: 100%;
 }
 
-.aboutcontent .container .photo img{
+.aboutcontent .container .photo img {
     width: 300px;
     height: 300px;
     float: left;
     margin: 15px;
 }
 
-.aboutcontent .container p{
+.aboutcontent .container p {
     padding: 10px;
     font-size: 18px;
     font-weight: 300;
@@ -785,34 +891,35 @@ button#order {
     text-align: left;
     vertical-align: top;
 }
+
+
 /* about.php */
 
 @media screen and (max-width: 1200px) {
-    body{
+    body {
         overflow-x: hidden;
     }
     /* header */
-    .header-menu .menu a{
+    .header-menu .menu a {
         font-size: 22px;
         padding: 10px;
     }
-
-    .recommend .item h3{
+    .recommend .item h3 {
         font-size: 22px;
     }
-    .introducing .item .txt{
+    .introducing .item .txt {
         padding: 30px 30px 50px;
     }
-    .introducing .item .txt h2{
+    .introducing .item .txt h2 {
         font-weight: 700;
         font-size: 20px;
     }
-    .introducing .item .txt p{
+    .introducing .item .txt p {
         font-weight: 300;
         font-size: 18px;
         margin-bottom: 30px;
     }
-    .introducing .item .txt a{
+    .introducing .item .txt a {
         font-size: 16px;
         font-weight: 300;
         padding: 10px 20px;
@@ -821,210 +928,193 @@ button#order {
         bottom: 20px;
     }
     /* header */
-
     /* footer */
-    footer .logo #time{
+    footer .logo #time {
         font-size: 1rem;
     }
     /* footer */
-
     /* admin.php */
-    .admincontent{
+    .admincontent {
         right: 3rem;
     }
-
-    .membercontent{
+    .membercontent {
         right: 3rem;
     }
-
-    #queryadmin{
+    #queryadmin {
         width: 100% !important;
     }
     /* admin.php */
-
     /* room.php */
-    .room_info .room-type{
+    .room_info .room-type {
         width: 220px;
     }
-    .room_info .room-type .txt{
+    .room_info .room-type .txt {
         position: relative;
         padding: 10px 20px;
         background-color: transparent;
         align-items: center;
         opacity: 1;
     }
-    .room_info .room-type .txt h3{
+    .room_info .room-type .txt h3 {
         font-size: 18px;
         font-weight: 500;
         color: #000;
     }
-    .room-type h3:after{
+    .room-type h3:after {
         display: none;
     }
-    .room_info .room-type .txt p{
+    .room_info .room-type .txt p {
         display: none;
     }
     /* room.php */
-
     /* about.php */
-    .aboutcontent .container .photo img{
+    .aboutcontent .container .photo img {
         width: 100%;
         height: 50%;
         margin: 0px;
     }
-
-    .aboutcontent .container .title{
+    .aboutcontent .container .title {
         font-size: 50px;
     }
-
     .aboutcontent .container p {
         font-size: 30px;
     }
     /* about.php */
 }
 
+
 /* Large devices (desktops, 992px and up) */
+
 @media screen and (max-width: 992px) {
-    body{
+    body {
         overflow-x: hidden;
     }
     /* header */
-    .header-menu .menu a{
+    .header-menu .menu a {
         font-size: 15px;
         padding: 10px;
     }
     /* header */
-
     /* admin.php */
-    #queryadmin{
+    #queryadmin {
         width: 100% !important;
     }
-
-    .admincontent{
+    .admincontent {
         right: 3rem;
     }
-
-    .membercontent{
+    .membercontent {
         right: 3rem;
     }
     /* admin.php */
-
     /* footer.php */
-    .contact-info{
+    .contact-info {
         margin: 23px 0px 0px 0px;
     }
-    .contact-info p{
+    .contact-info p {
         display: inline-block;
         font-size: 16px;
     }
-    footer .logo #time{
+    footer .logo #time {
         text-align: center;
         font-size: 1rem;
     }
     /* footer.php */
-
     /* room.php */
-    .room_info .info{
+    .room_info .info {
         margin-top: 10px;
     }
-    .room_menu{
+    .room_menu {
         border-top: 1px solid rgb(226, 182, 94);
         border-bottom: none;
     }
     /* room.php */
-
     /* about.php */
-    .aboutcontent .container .photo img{
+    .aboutcontent .container .photo img {
         width: 100%;
         height: 50%;
         margin: 0px;
     }
-
-    .aboutcontent .container .title{
+    .aboutcontent .container .title {
         font-size: 50px;
     }
-
     .aboutcontent .container p {
         font-size: 25px;
     }
     /* about.php */
 }
 
+
 /* Medium devices (tablets, 768px and up) */
+
 @media screen and (max-width: 768px) {
-    body{
+    body {
         overflow-x: hidden;
     }
     /* header*/
-    .header-menu .menu{
+    .header-menu .menu {
         display: none;
     }
-
-    .header-menu .container{
+    .header-menu .container {
         padding: 50px;
     }
-
-    .header-menu .logo{
+    .header-menu .logo {
         width: 70px;
         position: fixed;
         top: 20px;
         left: 30px;
     }
-
-    .header-menu .logo img{
+    .header-menu .logo img {
         width: 100%;
     }
-
-    #sidebar,.toggle-btn{
+    #sidebar,
+    .toggle-btn {
         display: inherit;
     }
-
-    #sidebar .side-nav a{
+    #sidebar .side-nav a {
         font-size: 30px;
     }
-    #sidebar .side-nav{
+    #sidebar .side-nav {
         margin-top: 150px;
     }
     /* header */
-
     /* content */
-    #ican-logo{
+    #ican-logo {
         font-size: 25px;
         color: #5aecf7;
         display: inline-block;
         font-family: 'Lobster', cursive;
         text-shadow: 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183, 0px 0px 10px #053183;
     }
-    #hotel-logo{
+    #hotel-logo {
         font-size: 25px;
         color: #fff;
         display: inline-block;
         font-weight: 700;
         text-shadow: -1px 0 #ff0000, 0 1px #ff0000, 1px 0 #ff0000, 0 -1px #ff0000;
     }
-    .welcome p{
+    .welcome p {
         padding: 10px;
         font-size: 16px;
         font-weight: 300;
         color: #000;
         display: inline-block;
     }
-    .content .recommend{
+    .content .recommend {
         display: none;
     }
-    .introducing .item .txt{
+    .introducing .item .txt {
         padding: 30px 30px;
     }
-    .introducing .item .txt h2{
+    .introducing .item .txt h2 {
         font-weight: 700;
         font-size: 18px;
     }
-    .introducing .item .txt p{
+    .introducing .item .txt p {
         font-weight: 300;
         font-size: 16px;
         margin-bottom: 0;
     }
-    .introducing .item .txt a{
+    .introducing .item .txt a {
         font-size: 14px;
         font-weight: 300;
         padding: 0;
@@ -1036,145 +1126,126 @@ button#order {
     }
     /* Content */
     /* footer */
-    footer .logo #time{
+    footer .logo #time {
         margin-top: 20px;
         font-size: 1.2rem;
     }
-
-    footer .logo-img img{
+    footer .logo-img img {
         width: 8rem;
         vertical-align: middle;
     }
-
     .social-link {
         margin: 100px 0px 0px 0px;
     }
-
-    .contact-info i{
+    .contact-info i {
         font-size: 20px;
     }
-
-    .contact-info p{
+    .contact-info p {
         font-size: 20px;
     }
-
-    .social-link a{
+    .social-link a {
         font-size: 30px;
     }
     /* footer */
     /* admin.php */
-    #memberdata{
+    #memberdata {
         margin-top: 206px;
         width: 95%;
     }
-
-    #queryadmin{
+    #queryadmin {
         width: 100% !important;
     }
-
-    .admincontent{
+    .admincontent {
         right: 3rem;
     }
-
-    .membercontent{
+    .membercontent {
         right: 3rem;
     }
     /* admin.php */
-
     /* room.php */
-    .room_info .container{
+    .room_info .container {
         width: 80%;
     }
-    .room_info h1{
+    .room_info h1 {
         font-size: 30px;
     }
-    .room_menu{
+    .room_menu {
         padding: 10px 0;
         margin: 10px 0;
     }
-    .room_menu button{
-        display:block;
-        width:100%;
+    .room_menu button {
+        display: block;
+        width: 100%;
         margin: 10px 0;
     }
-    .room_info .room-type{
-        width:100%;
+    .room_info .room-type {
+        width: 100%;
         margin: 20px 0;
     }
-    .room_info .room-type .txt h3{
+    .room_info .room-type .txt h3 {
         font-size: 25px;
         font-weight: 500;
     }
     /* room.php */
 }
 
+
 /* Small devices (landscape phones, 576px and up) */
+
 @media screen and (max-width: 576px) {
-    body{
+    body {
         overflow-x: hidden;
     }
-    .back-to-top{
+    .back-to-top {
         bottom: 70px;
         right: 10px;
     }
     /* header */
-    .header-menu .logo{
+    .header-menu .logo {
         width: 60px;
     }
-
-    #sidebar .side-nav{
+    #sidebar .side-nav {
         margin-top: 70px;
     }
     /* header */
-
     /* Content */
-    .welcome .container{
+    .welcome .container {
         padding: 10px;
     }
-
-    #ican-logo{
+    #ican-logo {
         font-size: 30px;
     }
-
-    #hotel-logo{
+    #hotel-logo {
         font-size: 30px;
     }
-
-    .welcome p{
+    .welcome p {
         padding: 10px;
         font-size: 12px;
     }
-
-    .introducing .container{
+    .introducing .container {
         padding: 50px 0;
     }
-
-    .introducing .item{
+    .introducing .item {
         margin-bottom: 50px;
         padding: 30px;
         display: block;
     }
-
-    .introducing .item .pic{
+    .introducing .item .pic {
         width: 100%;
     }
-
-    .introducing .item .txt{
+    .introducing .item .txt {
         width: 100%;
     }
-
-    .introducing .item .txt h2{
+    .introducing .item .txt h2 {
         font-weight: 500;
         font-size: 16px;
     }
-
-    .introducing .item .txt p{
+    .introducing .item .txt p {
         font-weight: 300;
         font-size: 12px;
         margin-bottom: 0;
     }
-
-    .introducing .item .txt a{
+    .introducing .item .txt a {
         font-size: 12px;
         font-weight: 300;
         padding: 0;
@@ -1185,122 +1256,98 @@ button#order {
         bottom: 10px;
     }
     /* Content */
-
     /* footer */
-    footer .logo{
+    footer .logo {
         font-size: 16px;
         margin: 0px 0px 0px 0.7rem;
     }
-
-    footer img{
+    footer img {
         text-align: center;
         width: 100px;
     }
-
     footer .logo #time {
         margin-top: 60px;
     }
-
-    footer .logo-img img{
+    footer .logo-img img {
         width: 8rem;
         vertical-align: middle;
     }
-    footer .contact-info .item{
+    footer .contact-info .item {
         text-align: center;
     }
-
-    footer .contact-info .item p a{
+    footer .contact-info .item p a {
         color: #fff;
     }
-
-    footer .contact-info .item p a:hover{
+    footer .contact-info .item p a:hover {
         text-decoration: underline;
     }
-
     .logo-img {
         display: -webkit-box;
     }
-
-    .contact-info{
+    .contact-info {
         margin: 0px;
     }
-
-    .contact-info i{
+    .contact-info i {
         display: inline-block;
         color: #fff;
         font-size: 18px;
     }
-
-    .contact-info p{
+    .contact-info p {
         display: inline-block;
         font-size: 18px;
     }
-
-    .social-link{
+    .social-link {
         text-align: center;
         margin: 0px;
     }
-
-    .social-link a{
+    .social-link a {
         color: #fff;
         font-size: 30px;
         margin: 10px;
         text-decoration: none;
     }
-
-    .social-link a:hover{
+    .social-link a:hover {
         color: rgb(255, 187, 0);
     }
     /* footer */
-
     /* join.php */
-    .tdbline #cute{
-      position: relative;
-      top:-25px;
-      left:-10px;
-      transition-property: margin-left;
-      transition-property: margin-right;
-      transition-duration: 3s;
+    .tdbline #cute {
+        position: relative;
+        top: -25px;
+        left: -10px;
+        transition-property: margin-left;
+        transition-property: margin-right;
+        transition-duration: 3s;
     }
     /* join.php */
-
     /* admin.php */
-    #memberdata{
+    #memberdata {
         width: 95%;
     }
-
-    #queryadmin{
+    #queryadmin {
         width: 100% !important;
     }
-
-    .admincontent{
+    .admincontent {
         margin-left: 0rem;
     }
-
-    .membercontent{
+    .membercontent {
         margin-left: 0rem;
     }
-
     /* admin.php */
-
     /* updateadmin.php*/
-
-    .admincontent table#updatetable{
+    .admincontent table#updatetable {
         margin-top: 15rem;
     }
-
-    .membercontent table#updatetable{
+    .membercontent table#updatetable {
         margin-top: 15rem;
     }
     /* updateadmin.php*/
-
     /* about.php */
-    .aboutcontent .container .photo img{
+    .aboutcontent .container .photo img {
         width: 100%;
         margin: 0px;
     }
-
-    .aboutcontent .container .title{
+    .aboutcontent .container .title {
         font-size: 25px;
     }
     .aboutcontent .container p {

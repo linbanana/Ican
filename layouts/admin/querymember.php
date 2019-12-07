@@ -124,7 +124,7 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
         <tr>
           <td class="tdbline">
             <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" width="20%">  
-            <div style="float='right'">
+            <div style="float:'right'">
               <font color="#ff0000">　警告！任意刪除資料須負民事侵權損害賠償及刑事妨害電腦使用罪責任。</font>
             </div>
           </td>

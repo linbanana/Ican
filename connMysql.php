@@ -13,4 +13,3 @@
 		//設定字元集與編碼
 		$db_link->query("SET NAMES 'utf8'");
 	}
-?>

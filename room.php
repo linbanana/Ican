@@ -1,8 +1,9 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 環境建置 -->
@@ -14,9 +15,10 @@
     <!-- 環境建置 -->
     <title>客房介紹</title>
 </head>
+
 <body>
     <?php
-        include("layouts/header.php");
+    include("layouts/header.php");
     ?>
 
     <div class="room_info">
@@ -138,14 +140,11 @@
                     </a>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 
     <?php
-        include("layouts/footer.php");
+    include("layouts/footer.php");
     ?>
 
     <script type="text/javascript">
@@ -162,4 +161,5 @@
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
 </body>
+
 </html>

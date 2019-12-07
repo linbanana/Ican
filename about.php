@@ -1,8 +1,9 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 環境建置 -->
@@ -17,23 +18,24 @@
 <body>
 
     <?php
-        include("layouts/header.php");
+    include("layouts/header.php");
     ?>
-    
-    <div class="aboutcontent" >
-	   <div class="container">
-        <div class="photo">
-		    <img src="https://www.ciaotw.com/wp-content/uploads/2018/10/%E9%A3%AF%E5%BA%97%E5%A4%96%E8%A7%80JPG-498x600.jpg"></div>
-        <div class="title"><strong>關於我們</strong></div>
-			
-			<p>ican大飯店是地下2層，地上8層，並擁有198間時尚客房、15間專業的會議室、300人的國際會議廳、800人的會展大廳、暨3家頂級美饌中西式餐廳的精緻飯店。會館位於高雄新市政中心，坐擁最美麗的蓮池潭湖景，鄰近1,000公尺內計有高鐵左營站、高雄捷運站、左營火車站、國道出口、巨蛋球場、漢神百貨、新光三越。</p>
-            
-		    <p>ican的概念，是我們希望能夠以這個logo，提醒我們秉持不放棄的精神，並相信我們能夠做得到，不斷地前進，創造更好的作品!</p><br />
-       </div>
-	   
+
+    <div class="aboutcontent">
+        <div class="container">
+            <div class="photo">
+                <img src="https://www.ciaotw.com/wp-content/uploads/2018/10/%E9%A3%AF%E5%BA%97%E5%A4%96%E8%A7%80JPG-498x600.jpg"></div>
+            <div class="title">
+                <strong>關於我們</strong>
+            </div>
+
+            <p>ican大飯店是地下2層，地上8層，並擁有198間時尚客房、15間專業的會議室、300人的國際會議廳、800人的會展大廳、暨3家頂級美饌中西式餐廳的精緻飯店。會館位於高雄新市政中心，坐擁最美麗的蓮池潭湖景，鄰近1,000公尺內計有高鐵左營站、高雄捷運站、左營火車站、國道出口、巨蛋球場、漢神百貨、新光三越。</p>
+            <p>ican的概念，是我們希望能夠以這個logo，提醒我們秉持不放棄的精神，並相信我們能夠做得到，不斷地前進，創造更好的作品!</p><br />
+        </div>
     </div>
+
     <?php
-        include("layouts/footer.php");
+    include("layouts/footer.php");
     ?>
 
     <!-- 環境建置 -->
@@ -46,4 +48,5 @@
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
 </body>
+
 </html>
