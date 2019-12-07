@@ -101,13 +101,13 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
     <link href="\css/bootstrap.min.css" rel="stylesheet" />
     <link href="\css/ican.css" rel="stylesheet" />
     <!-- 環境建置 -->
+    <title>ican</title>
     <script language="javascript">
     function deletesure(){
-    if (confirm('\n您確定要刪除這個管理員嗎?\n刪除後無法恢復!\n')) return true;
-    return false;
-}
-</script>
-    <title>ican</title>
+      if (confirm('\n您確定要刪除這個管理員嗎?\n刪除後無法恢復!\n')) return true;
+      return false;
+    }
+    </script>    
 </head>
 <body>
 

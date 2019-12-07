@@ -19,7 +19,7 @@
     <?php
         include("layouts/header.php");
     ?>
- 
+
 
     <div class="content">
         <!--Content部分(未改)-->
@@ -96,11 +96,11 @@
             </div>
         </div>
     </div>
-    
+
     <?php
         include("layouts/footer.php");
     ?>
-        
+
     <!-- 環境建置 -->
     <script src="scripts/jquery-3.4.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

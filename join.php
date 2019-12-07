@@ -9,7 +9,7 @@ function GetSQLValueString($theValue, $theType) {
     break;
     case "email":
     $theValue = ($theValue != "") ? filter_var($theValue, FILTER_VALIDATE_EMAIL) : "";
-    break;          
+    break;
   }
   return $theValue;
 }
@@ -23,17 +23,17 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
   $RecFindUser=$db_link->query($query_RecFindUser);
   $RecFindemail=$db_link->query($query_RecFindemail);
   $RecFindphone=$db_link->query($query_RecFindphone);
-  if ($RecFindUser->num_rows>0){    
+  if ($RecFindUser->num_rows>0){
     header("Location: join.php?errusernameMsg=1&username={$_POST["m_username"]}");
   }elseif ($RecFindemail->num_rows>0) {
     header("Location: join.php?erremailMsg=1&email={$_POST["m_email"]}");
   }elseif ($RecFindphone->num_rows>0) {
     header("Location: join.php?errphoneMsg=1&phone={$_POST["m_phone"]}");
   }else{
-  //若沒有執行新增的動作	
+  //若沒有執行新增的動作
     $query_insert = "INSERT INTO memberdata (m_name, m_username, m_passwd, m_sex, m_birthday, m_email, m_phone, m_address, m_jointime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())";
     $stmt = $db_link->prepare($query_insert);
-    $stmt->bind_param("ssssssss", 
+    $stmt->bind_param("ssssssss",
      GetSQLValueString($_POST["m_name"], 'string'),
      GetSQLValueString($_POST["m_username"], 'string'),
      password_hash($_POST["m_passwd"], PASSWORD_DEFAULT),
@@ -67,19 +67,19 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
 
   <?php
   include("layouts/header.php");
-  ?> 
+  ?>
 
   <div class="joincontent">
     <h3 id="ican-logo">I Can</h3>
     <h4 id="hotel-logo">大飯店</h4>
-    <?php 
+    <?php
     if(isset($_GET["loginStats"]) && ($_GET["loginStats"]=="1")){
       ?>
       <script language="javascript">
         alert('會員新增成功\n請用申請的帳號密碼登入。');
-        window.location.href='login.php';		  
+        window.location.href='login.php';
       </script>
-      <?php 
+      <?php
     }
     ?>
     <table id="jointable" width="65%" border="0" align="center" cellpadding="4" cellspacing="0">
@@ -93,7 +93,7 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
         <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
           <tr valign="top">
             <td class="tdrline"><form action="" method="POST" name="formJoin" id="formJoin" onSubmit="return checkForm();">
-              <p class="title">加入會員</p>		 
+              <p class="title">加入會員</p>
               <div class="dataDiv">
                 <hr size="1" />
                 <p class="heading">帳號資料</p>
@@ -102,16 +102,16 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
                 </p>
                 <p><strong>帳號</strong>：
                   <input name="m_username" type="text" class="normalinput" id="m_username">
-                  <font color="#FF0000">*              
-                    <?php 
+                  <font color="#FF0000">*
+                    <?php
                     if(isset($_GET["errusernameMsg"]) && ($_GET["errusernameMsg"]=="1")){
                       ?>
                       帳號
-                      <?php 
-                      echo "<font color='#0000ff'>".$_GET["username"]."</font>";              
+                      <?php
+                      echo "<font color='#0000ff'>".$_GET["username"]."</font>";
                       ?>
                       已經有人使用！
-                      <?php 
+                      <?php
                     }
                     ?>
                   </font>
@@ -146,17 +146,17 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
                   </span>
                 </p>
                 <p><strong>電子郵件</strong>：
-                  <input name="m_email" type="text" class="normalinput" id="m_email">            
+                  <input name="m_email" type="text" class="normalinput" id="m_email">
                   <font color="#FF0000">*
-                    <?php 
+                    <?php
                     if(isset($_GET["erremailMsg"]) && ($_GET["erremailMsg"]=="1")){
                       ?>
-                      信箱 
-                      <?php 
+                      信箱
+                      <?php
                       echo "<font color='#0000ff'>".$_GET["email"]."</font>";
-                      ?> 
+                      ?>
                       已經有人使用！
-                      <?php 
+                      <?php
                     }
                     ?>
                   </font><span class="smalltext">請確定此電子郵件為可使用狀態，以方便未來系統使用，如補寄會員密碼信。</span>
@@ -164,22 +164,22 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
                 <p><strong>電　　話</strong>：
                   <input name="m_phone" type="text" class="normalinput" id="m_phone">
                   <font color="#FF0000">*
-                    <?php 
+                    <?php
                     if(isset($_GET["errphoneMsg"]) && ($_GET["errphoneMsg"]=="1")){
                       ?>
-                      該電話 
-                      <?php 
+                      該電話
+                      <?php
                       echo "<font color='#0000ff'>".$_GET["phone"]."</font>";
-                      ?> 
+                      ?>
                       已經有人使用！
-                      <?php 
+                      <?php
                     }
                     ?>
                   </font><br>
                 </p>
                 <p><strong>住　　址</strong>：
                   <input name="m_address" type="text" class="normalinput" id="m_address" size="40">
-                </p>            
+                </p>
               </div>
               <hr size="1" />
               <p align="center">
@@ -188,7 +188,7 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
                 <input class="btn btn-info btn-sm" type="reset" name="Submit3" value="重設資料">
                 <input class="btn btn-primary btn-sm" type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
               </p>
-            </form></td>          
+            </form></td>
           </tr>
         </table>
       </tr>
@@ -198,7 +198,7 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
   <?php
   include("layouts/footer.php");
   ?>
-  
+
   <!-- 環境建置 -->
   <script src="scripts/jquery-3.4.1.slim.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

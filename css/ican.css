@@ -12,7 +12,7 @@ body{
 }
 
 /* index.php */
-/* header */   
+/* header */
 
     /* LOGO跟選單 */
     .header-menu{
@@ -28,7 +28,7 @@ body{
 
     .header-menu.scrolldown .menu a{
         color: #fff;
-        transition: 1.5s;        
+        transition: 1.5s;
     }
 
     .header-menu .container{
@@ -36,11 +36,11 @@ body{
         justify-content:space-evenly;
         padding: 0px;
         align-items: center;
-        
+
     }
-    
+
     .header-menu .logo{
-        width: 100px;        
+        width: 100px;
     }
 
     .header-menu .logo img{
@@ -65,7 +65,7 @@ body{
 
     .header-menu .menu a i:hover{
         color: #ffc107;
-        text-decoration:underline;        
+        text-decoration:underline;
     }
     /* LOGO跟選單 */
 
@@ -87,7 +87,7 @@ body{
     }
     .toggle-btn{
         font-size: 30px;
-        color:#fff;   
+        color:#fff;
         padding: 0 10px;
         position: fixed;
         top: 30px;
@@ -97,7 +97,7 @@ body{
     .toggle-btn:hover{
         border: 2px solid #fff;
         border-radius: 10px;
-    }    
+    }
 
     #sidebar .closebtn{
         font-size: 30px;
@@ -107,7 +107,7 @@ body{
         right:25px;
         text-shadow: none;
     }
-    
+
     #sidebar .side-nav a{
         display: block;
         text-decoration: none;
@@ -132,7 +132,7 @@ body{
 
 /* header */
 
-/* Content */    
+/* Content */
 .welcome{
     text-align: center;
 }
@@ -167,7 +167,7 @@ body{
     margin: 50px auto;
     padding: 75px 0 100px;
     border-bottom: 1px solid rgb(226, 182, 94);
-} 
+}
 .recommend .container .item{
     width: 370px;
     margin: 0 15px;
@@ -271,7 +271,7 @@ body{
     border: 1px solid #f7ab3a;
     color: #f7ab3a;
 }
-/* Content */ 
+/* Content */
 
 /* footer */
 footer {
@@ -327,9 +327,9 @@ footer .contact-info .item{
 .social-link a{
     color: #fff;
     font-size: 30px;
-    padding: 5px 10px;    
+    padding: 5px 10px;
     text-decoration: none;
-    
+
 }
 
 .back-to-top{
@@ -358,7 +358,7 @@ footer .contact-info .item{
 
 /* login.php */
 .loginpage{
-	height: 100vh;	
+	height: 100vh;
 	background-image: url(https://unsplash.it/1000/1000);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -376,12 +376,12 @@ footer .contact-info .item{
 	border-radius: 10%;
 	color: #ff8fcb;
 	text-shadow: -1px 0 #ff0000, 0 1px #ff0000, 1px 0 #ff0000, 0 -1px #ff0000;
-	font-weight: bold; 	
-	padding: 100px;	
+	font-weight: bold;
+	padding: 100px;
 	width: 100%;
     max-width: 330px;
     padding: 15px;
-    margin: auto;	
+    margin: auto;
     background-color: #FFEBC2;
 }
 
@@ -413,7 +413,7 @@ footer .contact-info .item{
 
 .loginbtn {
     border-color: #fff;
-    color: #fff;    
+    color: #fff;
     background-color: #07b8db;
     margin-top:5px;
 }
@@ -421,7 +421,7 @@ footer .contact-info .item{
 .loginbtn:hover {
     border-color: #fff;
     background-color: #0598b5;
-    color: #fffc45;    
+    color: #fffc45;
 }
 
 .regbox .errDiv{
@@ -435,7 +435,7 @@ footer .contact-info .item{
 }
 
 .logintextbox:focus{
-	border: 2px solid #ff5e00;	
+	border: 2px solid #ff5e00;
 }
 /* login.php */
 
@@ -452,7 +452,7 @@ footer .contact-info .item{
 .joincontent #jointable{
     text-align: left;
     border: solid 3px #fff;
-    outline: solid 2px #ffa3f3;  
+    outline: solid 2px #ffa3f3;
     background-color: rgba(250, 235, 215, 0.8);
 }
 
@@ -607,7 +607,7 @@ footer .contact-info .item{
     }
 
     /* 隱藏次選單 */
-    ul.list-group ol { 
+    ul.list-group ol {
         display: none;
     }
 
@@ -619,18 +619,18 @@ footer .contact-info .item{
     #queryadmin p{
         margin-bottom: 0;
     }
-    
+
     /* updateadmin updatemember */
     .admincontent #updatetable{
         text-align: left;
         border: solid 3px #fff;
-        outline: solid 2px #ffa3f3;  
+        outline: solid 2px #ffa3f3;
         background-color: rgba(250, 235, 215, 0.8);
     }
     .membercontent #updatetable{
         text-align: left;
         border: solid 3px #fff;
-        outline: solid 2px #ffa3f3;  
+        outline: solid 2px #ffa3f3;
         background-color: rgba(250, 235, 215, 0.8);
     }
     /* updateadmin updatemember */
@@ -743,7 +743,7 @@ button#order {
     color: #fff;
     text-decoration: underline;
     padding: 10px;
-    
+
 }
 /* room.php */
 
@@ -879,7 +879,7 @@ button#order {
 
     .aboutcontent .container p {
         font-size: 30px;
-    }    
+    }
     /* about.php */
 }
 
@@ -946,7 +946,7 @@ button#order {
 
     .aboutcontent .container p {
         font-size: 25px;
-    }    
+    }
     /* about.php */
 }
 
@@ -955,7 +955,7 @@ button#order {
     body{
         overflow-x: hidden;
     }
-    /* header*/ 
+    /* header*/
     .header-menu .menu{
         display: none;
     }
@@ -985,7 +985,7 @@ button#order {
     #sidebar .side-nav{
         margin-top: 150px;
     }
-    /* header */ 
+    /* header */
 
     /* content */
     #ican-logo{
@@ -1059,7 +1059,7 @@ button#order {
     }
 
     .social-link a{
-        font-size: 30px;   
+        font-size: 30px;
     }
     /* footer */
     /* admin.php */
@@ -1127,7 +1127,7 @@ button#order {
     }
     /* header */
 
-    /* Content */   
+    /* Content */
     .welcome .container{
         padding: 10px;
     }
@@ -1183,8 +1183,8 @@ button#order {
         position: absolute;
         right: 20px;
         bottom: 10px;
-    }    
-    /* Content */ 
+    }
+    /* Content */
 
     /* footer */
     footer .logo{
@@ -1210,7 +1210,7 @@ button#order {
     }
 
     footer .contact-info .item p a{
-        color: #fff;        
+        color: #fff;
     }
 
     footer .contact-info .item p a:hover{
@@ -1244,8 +1244,8 @@ button#order {
     .social-link a{
         color: #fff;
         font-size: 30px;
-        margin: 10px;        
-        text-decoration: none;        
+        margin: 10px;
+        text-decoration: none;
     }
 
     .social-link a:hover{
@@ -1305,6 +1305,6 @@ button#order {
     }
     .aboutcontent .container p {
         font-size: 18px;
-    }    
+    }
     /* about.php */
 }

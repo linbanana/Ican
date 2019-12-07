@@ -8,7 +8,7 @@ if(isset($_SESSION["loginMember"]) && ($_SESSION["loginMember"]!="")){
         header("Location: /layouts/member/member.php");
     //否則則導向管理中心
     }else{
-        header("Location: /layouts/admin/admin.php");   
+        header("Location: /layouts/admin/admin.php");
     }
 }
 //執行會員登入
@@ -19,7 +19,7 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
     $stmt->bind_param("s", $_POST["username"]);
     $stmt->execute();
     //取出帳號密碼的值綁定結果
-    $stmt->bind_result($username, $passwd, $level); 
+    $stmt->bind_result($username, $passwd, $level);
     $stmt->fetch();
     $stmt->close();
     //比對密碼，若登入成功則呈現登入狀態
@@ -28,7 +28,7 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
         $query_RecLoginUpdate = "UPDATE memberdata SET m_login=m_login+1, m_logintime=NOW() WHERE m_username=?";
         $stmt=$db_link->prepare($query_RecLoginUpdate);
         $stmt->bind_param("s", $username);
-        $stmt->execute();    
+        $stmt->execute();
         $stmt->close();
         //設定登入者的名稱及等級
    $_SESSION["loginMember"]=$username;
@@ -48,7 +48,7 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
    header("Location: /layouts/member/member.php");
         //否則則導向管理中心
  }else{
-   header("Location:/layouts/admin/admin.php");    
+   header("Location:/layouts/admin/admin.php");
  }
 }else{
   header("Location: login.php?errMsg=1");
@@ -86,11 +86,11 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
             <p style="margin-bottom: 0px;">
                 <input name="rememberme" type="checkbox" id="rememberme" value="true" <?php if(isset($_COOKIE["remUser"]) && ($_COOKIE["remUser"]!="")) echo "checked";?>>
             記住我的帳號密碼。</p>
-            <?php 
+            <?php
                 if(isset($_GET["errMsg"]) && ($_GET["errMsg"]=="1")){
             ?>
                 <div class="errDiv"> 登入帳號或密碼錯誤！</div>
-            <?php 
+            <?php
                 }
             ?>
             <p align="center">
@@ -110,7 +110,7 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
         </p>
         </div>
     </div>
-    
+
     <!-- 環境建置 -->
     <script src="scripts/jquery-3.4.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

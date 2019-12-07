@@ -1,11 +1,11 @@
-<?php 
+<?php
 error_reporting(0);
 session_start();
 //判斷是否有登入
 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
    echo "<script>alert('尚未登入')</script>";
    header("Location: ../login.php");
-  
+
 }
 
 require_once("../connMysql.php");  //呼叫connectMysql.php文件
@@ -20,7 +20,7 @@ $messagemember=$pick->fetch_assoc();
 //echo "會員等級:".$messagemember['m_level']."<br>";
 
 //接收數值
-$guestname=$messagemember['m_name'];    
+$guestname=$messagemember['m_name'];
 $guestgender=$messagemember['m_sex'];
 $guestphone=$messagemember['m_phone'];
 $guestemail=$messagemember['m_email'];
@@ -50,11 +50,11 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     <link href="\css/bootstrap.min.css" rel="stylesheet" />
     <link href="\css/ican.css" rel="stylesheet" />
     <!-- 環境建置 -->
-<title>留言板</title> 
+<title>留言板</title>
 <style>
 .divboard{
     padding-top:50px;
-}   
+}
 
 #boardform{   /*form表單*/
     background-image: url(https://picsum.photos/900/500/);
@@ -63,18 +63,18 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     margin:0px auto;
 }
 #guestcontent{  /*留言內容的框框*/
-  /*調整大小*/ 
+  /*調整大小*/
  width: 200px;
  height:120px;
 }
-#adminpagebutton{  /*看留言按鈕*/ 
+#adminpagebutton{  /*看留言按鈕*/
     background-color: orange;
     width:200px;
     height:50px;
     border:0px;
 }
 #boardcontent{  /*留言內容的div*/
-   margin-top:100px; 
+   margin-top:100px;
    margin-bottom:50px;
    margin:0px;
    height:400px;
@@ -109,7 +109,7 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
     </div>
 
     <div id="boardcontent">
-        <form id="boardform" name="form1" method="POST" action="">     
+        <form id="boardform" name="form1" method="POST" action="">
             <table align="center" width="700px">
                 <tr>
                     <td width="275px" height="200" align="right">留言內容</td>
@@ -121,9 +121,9 @@ if(isset($_POST["logout"]) && ($_POST["logout"]=="true")){
                     <td height="70px"  align="center"><a href="../member.php"><input id="logout" name="logout" type="button" value="回會員中心" ></a></td>
                 </tr>
             </table>
-        </form>   
+        </form>
     </div>
-</div>   
+</div>
 
 
 <?php $db_link->close();?>

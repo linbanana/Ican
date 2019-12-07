@@ -26,13 +26,13 @@
         </div>
     </div>
     <!--Logo跟選單-->
-    
+
     <div class="header-menu">
         <div class="container">
             <div class="logo">
                 <img src="https://raw.githubusercontent.com/linbanana/ican/master/images/logo-white.png">
             </div>
-            <div class="menu"> 
+            <div class="menu">
             <a href="/index.php">
                 <i class="fa fa-home" aria-hidden="true">&nbsp;首頁</i>
             </a>
@@ -48,7 +48,7 @@
             <a href="/layouts/order/selet.php">
                 <i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;線上訂房</i>
             </a>
-            <?php 
+            <?php
             if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
             ?>
                 <a href="/login.php">
@@ -63,17 +63,17 @@
                 <a href="?logout=true">
                     <i class="fa fa-sign-out" aria-hidden="true">&nbsp;登出</i>
                 </a>
-            <?php 
+            <?php
                 if($_SESSION["memberLevel"]=="member"){
             ?>
-                <a href="/layouts/member/member.php">會員中心</a> 
-            <?php                   
+                <a href="/layouts/member/member.php">會員中心</a>
+            <?php
                 }else{
             ?>
-                <a href="/layouts/admin/admin.php">管理中心</a>  
-            <?php      
+                <a href="/layouts/admin/admin.php">管理中心</a>
+            <?php
                 }
-            ?>                    
+            ?>
             <?php
             }
             ?>
@@ -81,13 +81,13 @@
         </div>
         <div class="toggle-btn"><i class="fa fa-bars"></i></div>
     </div>
-    
-    <!--側邊選單Sidebar--> 
+
+    <!--側邊選單Sidebar-->
     <div id="sidebar">
         <div class="closebtn">
             <i class="fa fa-times" aria-hidden="true"></i>
         </div>
-        
+
         <div class="side-nav">
             <a href="/index.php">
                 <i class="fa fa-home" aria-hidden="true">&nbsp;首頁</i>
@@ -104,7 +104,7 @@
             <a href="/layouts/order/selet.php">
                 <i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;線上訂房</i>
             </a>
-            <?php 
+            <?php
             if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
             ?>
                 <a href="/login.php">
@@ -119,20 +119,20 @@
                 <a href="?logout=true">
                     <i class="fa fa-sign-out" aria-hidden="true">&nbsp;登出</i>
                 </a>
-            <?php 
+            <?php
                 if($_SESSION["memberLevel"]=="member"){
             ?>
-                <a href="/layouts/member/member.php">管理中心</a> 
-            <?php                   
+                <a href="/layouts/member/member.php">管理中心</a>
+            <?php
                 }else{
             ?>
-                <a href="/layouts/admin/admin.php">管理中心</a>  
-            <?php      
+                <a href="/layouts/admin/admin.php">管理中心</a>
+            <?php
                 }
-            ?>                    
+            ?>
             <?php
             }
-            ?>  
+            ?>
         </div>
     </div>
 </header>

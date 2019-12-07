@@ -1,5 +1,5 @@
 <div class="clearfix"></div>
-<!-- footer -->    
+<!-- footer -->
 <footer>
     <div class="container">
     <div class="row justify-content-start">
@@ -26,11 +26,11 @@
                 }
                 getTime();
         </script>';
-        ?>               
+        ?>
             </div>
-            <hr size="1">              
+            <hr size="1">
         </div>
-        
+
         <div class="contact-info  col-sm">
             <div class="item">
                 <i class="fa fa-map-marker" aria-hidden="true">&nbsp;</i>
@@ -68,9 +68,9 @@
         </div>
     </div>
     </div>
-    
+
     <a id="back-to-top" href="" class="btn btn-primary btn-lg back-to-top fa fa-angle-up" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
         <span class="glyphicon glyphicon-chevron-up"></span>
-    </a>    
+    </a>
 </footer>
-<!-- footer -->   
+<!-- footer -->
