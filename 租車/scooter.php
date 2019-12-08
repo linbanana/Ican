@@ -24,11 +24,13 @@
 
 <?php 
 	header("Content-Type: text/html; charset=utf-8");
-	include("connect.php");
+	include("connMysql.php");
+	/*
 	$seldb = @mysqli_select_db($mysqli, "ican2");
 	if (!$seldb) die("資料庫選擇失敗！");
+	*/
 	$sql_query = "SELECT * FROM scooterdata";
-	$result = mysqli_query($mysqli, $sql_query);	
+	$result = mysqli_query($db_link, $sql_query);	
 	
 	/*
 	 for($i=0;$i<mysqli_num_rows($result);$i++){
