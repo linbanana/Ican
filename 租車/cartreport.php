@@ -1,5 +1,5 @@
 <?php 
-//require_once("connect.php");
+require_once("connMysql.php");
 //if(isset($_POST["customername"]) && ($_POST["customername"]!="")){
 	//購物車開始
 	require_once("mycart.php");
@@ -12,11 +12,13 @@
 	$sql_query = "INSERT INTO orders (total ,deliverfee ,grandtotal ,customername ,customeremail ,customeraddress ,customerphone ,paytype) 
 				   VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	*/
+	/*
 	$serve = 'localhost';
     $username = 'admin';
 	$pwd = 'admin';
 	$db_name="ican";
 	$db_link = new mysqli($serve,$username,$pwd,$db_name);
+	*/
 	
 	$sql_query = "INSERT INTO s_orderdata (total) 
 				   VALUES (?)";
@@ -81,5 +83,5 @@ msg;
 ?>
 <script language="javascript">
 alert("感謝您的購買，我們將儘快進行處理。");
-window.location.href="scootertest2.php";
+window.location.href="scooter.php";
 </script>

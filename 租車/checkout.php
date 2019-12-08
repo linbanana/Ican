@@ -1,5 +1,5 @@
 <?php
-require_once("connect.php");
+require_once("connMysql.php");
 //購物車開始
 include("mycart.php");
 session_start();

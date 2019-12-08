@@ -1,5 +1,6 @@
 <?php
-require_once("connect.php");
+//require_once("connect.php");
+require_once("connMysql.php");
 //購物車開始
 
 require_once("mycart.php");
@@ -15,11 +16,11 @@ if(isset($_POST["cartaction"]) && ($_POST["cartaction"]=="add")){
 //購物車結束
 //繫結產品資料
 $query_RecProduct = "SELECT * FROM scooterdata WHERE s_id=?";
-$db_link = @mysqli_select_db($mysqli, "ican");
+//$db_link = @mysqli_select_db($mysqli, "ican");
 //$seldb = @mysqli_select_db($mysqli, "ican2");
 //  if (!$seldb) die("資料庫選擇失敗！");
 //$stmt = $seldb->prepare($query_RecProduct);
-$stmt = $mysqli->prepare($query_RecProduct);
+$stmt = $db_link->prepare($query_RecProduct);
 $stmt->bind_param("i", $_GET["id"]);
 $stmt->execute();
 $RecProduct = $stmt->get_result();

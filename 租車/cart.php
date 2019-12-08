@@ -1,5 +1,5 @@
 <?php
-require_once("connect.php");
+require_once("connMysql.php");
 //購物車開始
 require_once("mycart.php");
 session_start();
@@ -113,7 +113,7 @@ $row_RecTotal = $RecTotal->fetch_assoc();
               <input class="btn btn-dark" type="button" name="emptybtn" id="button5" value="清空購物車" onClick="window.location.href='?cartaction=empty'">
               <input class="btn btn-dark" type="button" name="button" id="button6" value="前往結帳" onClick="window.location.href='checkout.php';">
               <input class="btn btn-dark" type="button" name="backbtn" id="button4" value="回上一頁" onClick="window.history.back();">
-              <input class="btn btn-dark" type="button" name="button" id="button7" value="回租車頁面" onClick="window.location.href='scootertest2.php';">
+              <input class="btn btn-dark" type="button" name="button" id="button7" value="回租車頁面" onClick="window.location.href='scooter.php';">
               </p>
           </form>
           </div>          
