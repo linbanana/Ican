@@ -1,4 +1,4 @@
-<style type="text/css">
+﻿<style type="text/css">
 .albumDiv {
 	float: left;
 	height: 200px;
@@ -23,6 +23,14 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
 
 <?php 
+error_reporting(0);
+session_start();
+//判斷是否有登入
+if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
+   echo "<script>alert('尚未登入')</script>";
+   header("Location: ../login.php");
+  
+}
 	header("Content-Type: text/html; charset=utf-8");
 	include("connMysql.php");
 	/*
@@ -72,23 +80,34 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
 
                 
                 <div >
-                <img src="https://picsum.photos/<?php echo ($i+1)*100 ?>/<?php echo ($i+1)*100 ?>/?random=0" class="d-block w-100 rounded-pill"  width="135" height="135"  border="0">
-                </div>
-                
+                <!--
+					<img src="https://picsum.photos/<?php //echo ($i+1)*100 ?>/<?php //echo ($i+1)*100 ?>/?random=0" class="d-block w-100 rounded-pill"  width="135" height="135"  border="0">
+                -->
+				
+				</div>
+                <img src="img/<?php echo $rs['s_id'];?>.jpg" alt="<?php echo $rs["s_model"];?>" 
+				width="135" height="135" border="0" />
+               
                 <?php }?>
                 </a></div>
-              <div class="albuminfo alert alert-primary"><a href="product.php?id=<?php echo $rs['s_id']; //抓ID 到product.php?>"><?php echo $rs['s_model'];?></a><br />
+              <div class="albuminfo alert alert-primary"><a href="product.php?id=<?php echo $rs['s_id']; //抓ID 到product.php?>">
+			  <?php echo $rs['s_model'];?></a><br />
                 <span class="smalltext">特價 </span><span class="redword"><?php echo $rs['s_price'];?></span>
 				<span class="smalltext"> 元</span> 
                 
                 <div><?php 
 			    if($rs['s_num']>0){
-					echo "<div class='badge badge-primary text-wrap'>";
+					//echo "<div class='badge badge-primary text-wrap'>";
+										echo "<buttom class='badge badge-primary text-wrap'>";
+										
 					echo '可租借';
-					echo "</div>";
+					echo "</buttom>";
+                                        
 				
 				}  
-				else echo '已全數租出';?>
+				else echo '已全數租出';
+                                
+                      ?>
 			</div></div>
 
             </div>

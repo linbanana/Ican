@@ -43,7 +43,7 @@ $row_RecTotal = $RecTotal->fetch_assoc();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
 
-<title>網路購物系統</title>
+<title>租車系統</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -64,7 +64,7 @@ $row_RecTotal = $RecTotal->fetch_assoc();
         
         <td><div class="subjectDiv " > <span class="heading">
                <img src="images/16-cube-green.png" width="16" height="16" align="absmiddle"></span> 
-               <p class="p-3 mb-2 bg-primary text-white">產品詳細資料</p>
+               <p class="p-3 mb-2 bg-primary text-white">租車車款詳細資料</p>
             </div>
           <div class="actionDiv "><a class="btn btn-info float-right badge badge-primary text-wrap" href="cart.php">我的租車</a></div>
           <div class="albumDiv">
@@ -75,7 +75,11 @@ $row_RecTotal = $RecTotal->fetch_assoc();
               <img src="images/nopic.png" alt="暫無圖片" width="120" height="120" border="0" />
               <?php }else{?>
                 <div >
+                <!-- ... 這裡是註解文字 ..
                 <img src="https://picsum.photos/640/480/?random=0" class="d-block w-100 rounded-pill "  width="640" height="480"  border="0">
+               . -->
+               <img src="img/<?php echo $row_RecProduct["s_id"];?>.jpg" 
+                     alt="<?php echo $row_RecProduct["s_id"];?>" width="640" height="480" border="0" />
                 </div>
               <?php }?>
             </div>
