@@ -22,6 +22,7 @@ $row_RecTotal = $RecTotal->fetch_assoc();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>網路購物系統</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
 <script language="javascript">
 function checkForm(){	
 	if(document.cartform.customername.value==""){
@@ -70,11 +71,11 @@ function checkmail(myEmail) {
         <tr valign="top">
           
           <td>
-          <div class="subjectDiv"><span class="heading"><img src="images/16-cube-green.png" width="16" height="16" align="absmiddle"></span> 購物結帳</div>
+          <div class="subjectDiv"><span class="heading"><img src="images/16-cube-green.png" width="16" height="16" align="absmiddle"></span> </div>
             <div class="normalDiv">
               <?php if($cart->itemcount > 0) {?>
-              <p class="heading"><img src="images/16-cube-orange.png" width="16" height="16" align="absmiddle"> 購物內容</p>
-              <table width="90%" border="0" align="center" cellpadding="2" cellspacing="1">
+              <p class="heading alert alert-primary"><img src="images/16-cube-orange.png" width="16" height="16" align="absmiddle"> 租車內容</p>
+              <table class="table table-sm" width="90%" border="0" align="center" cellpadding="2" cellspacing="1">
                 <tr>
                   <th bgcolor="#ECE1E1"><p>編號</p></th>
                   <th bgcolor="#ECE1E1"><p>產品名稱</p></th>
@@ -96,7 +97,7 @@ function checkmail(myEmail) {
                 </tr>
                 <?php }?>
                 <tr>
-                  <td align="center" valign="baseline" bgcolor="#F6F6F6"><p>運費</p></td>
+                  <td align="center" valign="baseline" bgcolor="#F6F6F6"><p>雜費</p></td>
                   <td valign="baseline" bgcolor="#F6F6F6"><p>&nbsp;</p></td>
                   <td align="center" valign="baseline" bgcolor="#F6F6F6"><p>&nbsp;</p></td>
                   <td align="center" valign="baseline" bgcolor="#F6F6F6"><p>&nbsp;</p></td>
@@ -116,8 +117,8 @@ function checkmail(myEmail) {
                 <hr width="100%" size="1" />
                 <p align="center">
                   <input name="cartaction" type="hidden" id="cartaction" value="update">
-                  <input type="submit" name="updatebtn" id="button3" value="送出訂購單">
-                  <input type="button" name="backbtn" id="button4" value="回上一頁" onClick="window.history.back();">
+                  <input class="btn btn-dark" type="submit" name="updatebtn" id="button3" value="送出訂購單">
+                  <input class="btn btn-dark" type="button" name="backbtn" id="button4" value="回上一頁" onClick="window.history.back();">
                 </p>
               </form>
             </div>
