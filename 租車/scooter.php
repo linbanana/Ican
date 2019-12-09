@@ -62,7 +62,7 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 
 
 
-
+<div class="actionDiv "><a class="btn btn-info  badge badge-primary text-wrap" href="cart.php">我的租車</a></div>
 <?php 
 
 for($i=0;$i<mysqli_num_rows($result);$i++){
@@ -98,7 +98,7 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
                 <div><?php 
 			    if($rs['s_num']>0){
 					//echo "<div class='badge badge-primary text-wrap'>";
-										echo "<buttom class='badge badge-primary text-wrap'>";
+										echo "<buttom class='badge badge-light text-wrap'>";
 										
 					echo '可租借';
 					echo "</buttom>";
