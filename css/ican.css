@@ -111,8 +111,11 @@ body {
 }
 
 .toggle-btn:hover {
-    border: 2px solid #fff;
-    border-radius: 10px;
+    color: yellow;
+}
+
+.toggle-btn:active {
+    color: yellow;
 }
 
 #sidebar .closebtn {
@@ -122,6 +125,14 @@ body {
     top: 30px;
     right: 25px;
     text-shadow: none;
+}
+
+#sidebar .closebtn:active {
+    color: yellow;
+}
+
+#sidebar .closebtn:hover {
+    color: yellow;
 }
 
 #sidebar .side-nav a {
@@ -716,7 +727,6 @@ font#usernamestyle {
     background-color: rgba(250, 235, 215, 0.8);
 }
 
-
 /* updateadmin updatemember */
 
 button#order {
@@ -724,8 +734,73 @@ button#order {
     border: 0px;
 }
 
+/* messageboard.php */
+.divboard {
+    padding-top: 50px;
+}
 
-/* admin.php */
+#boardform {
+    /*form表單*/
+    background-image: url(https://picsum.photos/900/500/);
+    width: 693px;
+    height: 300px;
+    margin: 0px auto;
+}
+
+#guestcontent {
+    /*留言內容的框框*/
+    /*調整大小*/
+    width: 80%;
+    height: 80%;
+    border: 2px solid #ccc;            
+}
+
+#guestcontent:focus{
+    border: 2px solid #00ff00;
+}
+
+#adminpagebutton {
+    /*看留言按鈕*/
+    background-color: orange;
+    width: 200px;
+    height: 50px;
+    border: 0px;
+}
+
+#boardcontent {
+    /*留言內容的div*/
+    margin-top: 100px;
+    margin-bottom: 50px;
+    margin: 0px;
+    height: 400px;
+}
+
+#boardhead {
+    width: 693px;
+    height: 50px;
+    margin: 0px auto;
+}
+
+#boardheadL {
+    float: left;
+}
+
+#boardheadR {
+    float: right;
+}
+
+#backtoboard {
+    border: 0px;
+    width: 200px;
+    height: 50px;
+    background-color: orange;
+}
+
+.messagecontent {
+    float: left;
+}
+/* messageboard.php */
+/* admin.php and member.php*/
 
 
 /* room.php */

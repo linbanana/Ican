@@ -26,7 +26,7 @@ $guestemail = $messagemember['m_email'];
 $guestcontent = $_POST['guestcontent'];
 $guesttime = date("Y:m:d H:i:s", time());
 //如果guestname資料存在,再輸入資料,避免先輸入空白資料
-if (isset($guestname) && $guestcontent != "") {
+if (isset($guestname) && $guestcontent != "" && strlen($guestcontent) <= 50 ) {
     //將資料輸入到MySQL資料表中
     $sql_query = "INSERT INTO `message`(`guestID`, `guestname`, `guestgender`, `guestphone`, `guestemail`, `guestcontent`, `guesttime`) value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
     $db_link->query($sql_query);
@@ -50,89 +50,41 @@ if (isset($_POST["logout"]) && ($_POST["logout"] == "true")) {
     <link href="\css/ican.css" rel="stylesheet" />
     <!-- 環境建置 -->
     <title>留言板</title>
-    <style>
-        .divboard {
-            padding-top: 50px;
-        }
-
-        #boardform {
-            /*form表單*/
-            background-image: url(https://picsum.photos/900/500/);
-            width: 693px;
-            height: 300px;
-            margin: 0px auto;
-        }
-
-        #guestcontent {
-            /*留言內容的框框*/
-            /*調整大小*/
-            width: 200px;
-            height: 120px;
-        }
-
-        #adminpagebutton {
-            /*看留言按鈕*/
-            background-color: orange;
-            width: 200px;
-            height: 50px;
-            border: 0px;
-        }
-
-        #boardcontent {
-            /*留言內容的div*/
-            margin-top: 100px;
-            margin-bottom: 50px;
-            margin: 0px;
-            height: 400px;
-        }
-
-        #boardhead {
-            width: 693px;
-            height: 50px;
-            margin: 0px auto;
-        }
-
-        #boardheadL {
-            float: left;
-        }
-
-        #boardheadR {
-            float: right;
-        }
-    </style>
-
 </head>
-
 <body>
 
+    <?php
+    include("../layouts/header.php");
+    ?>
+
     <!--留言板-->
-    <div class="divboard">
+    <div class="divboard" align="center">
         <!--用div排版-->
         <div id="boardhead">
             <div id="boardheadL">
                 <img name="board_r1_c1" src="../images/messageboard/messagelogo.gif" width="493" height="50" border="0" alt="">
             </div>
             <div id="boardheadR">
-                <a href="admin/adminmessage.php"><img src="../images/messageboard/querymessage.png" alt="" name="adminpagebutton"></a>
+                <a href="<?php if($_SESSION["memberLevel"]=="admin"){?>admin/adminmessage.php<?php }else{?>member/membermessage.php<?php } ?>"><img src="../images/messageboard/querymessage.png" alt="" name="adminpagebutton"></a>
             </div>
         </div>
-
         <div id="boardcontent">
             <form id="boardform" name="form1" method="POST" action="">
                 <table align="center" width="700px">
                     <tr>
-                        <td width="275px" height="200" align="right">留言內容</td>
-                        <td height="200px"><textarea name="guestcontent" id="guestcontent" cols="30" rows="10"></textarea></td>
+                        <td align="center"><textarea name="guestcontent" id="guestcontent" cols="30" rows="10" placeholder="請輸入留言內容" style="resize : none;"></textarea></td>
                     </tr>
-
                     <tr>
-                        <td height="70px" align="right"><input id="submit" name="submit" type="submit" value="送出資料"></td>
-                        <td height="70px" align="center"><a href="../member.php"><input id="logout" name="logout" type="button" value="回會員中心"></a></td>
+                        <td align="center"><input id="submit" name="submit" type="submit" value="送出資料" class="btn btn-warning" align="center"></td>
                     </tr>
                 </table>
             </form>
         </div>
     </div>
+
+    <?php
+    include("../layouts/footer.php");
+    ?>
 
 
     <?php $db_link->close(); ?>
@@ -146,5 +98,4 @@ if (isset($_POST["logout"]) && ($_POST["logout"] == "true")) {
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
 </body>
-
 </html>

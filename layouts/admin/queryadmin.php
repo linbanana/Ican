@@ -7,7 +7,7 @@ if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
 }
 //檢查權限是否足夠
 if ($_SESSION["memberLevel"] == "member") {
-  header("Location: \member.php");
+  header("Location: member.php");
 }
 //執行登出動作
 if (isset($_GET["logout"]) && ($_GET["logout"] == "true")) {
@@ -23,7 +23,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
   $stmt->execute();
   $stmt->close();
   //重新導向回到主畫面
-  header("Location: \admin.php");
+  header("Location: ../admin/admin.php");
 }
 //選取管理員資料
 $query_RecAdmin = "SELECT m_id, m_name, m_logintime FROM memberdata WHERE m_username=?";
