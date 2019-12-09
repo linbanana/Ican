@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once("connMysql.php");
 //購物車開始
 require_once("mycart.php");
@@ -119,7 +119,7 @@ $row_RecTotal = $RecTotal->fetch_assoc();
           </div>          
             <?php }else{ ?>
             <div class="infoDiv">目前購物車是空的。</div>
-            <input type="button" name="button" id="button7" value="回租車頁面" onClick="window.location.href='scootertest2.php';">
+            <input class="btn btn-dark" type="button" name="button" id="button7" value="回租車頁面" onClick="window.location.href='scooter.php';">
           <?php } ?></td>
         </tr>
     </table></td>
