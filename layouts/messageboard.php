@@ -26,7 +26,7 @@ $guestemail = $messagemember['m_email'];
 $guestcontent = $_POST['guestcontent'];
 $guesttime = date("Y:m:d H:i:s", time());
 //如果guestname資料存在,再輸入資料,避免先輸入空白資料
-if (isset($guestname) && $guestcontent != "" && strlen($guestcontent) <= 50 ) {
+if (isset($guestname) && $guestcontent != "") {
     //將資料輸入到MySQL資料表中
     $sql_query = "INSERT INTO `message`(`guestID`, `guestname`, `guestgender`, `guestphone`, `guestemail`, `guestcontent`, `guesttime`) value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
     $db_link->query($sql_query);
