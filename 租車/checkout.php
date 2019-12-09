@@ -1,5 +1,6 @@
-<?php
-require_once("connMysql.php");
+﻿<?php
+//require_once("connMysql.php");
+include("../connMysql.php");
 //購物車開始
 include("mycart.php");
 session_start();

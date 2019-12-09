@@ -32,7 +32,7 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
   
 }
 	header("Content-Type: text/html; charset=utf-8");
-	include("connMysql.php");
+	include("../connMysql.php");
 	/*
 	$seldb = @mysqli_select_db($mysqli, "ican2");
 	if (!$seldb) die("資料庫選擇失敗！");
