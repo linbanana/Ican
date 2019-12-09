@@ -19,7 +19,7 @@ require_once("connMysql.php");
 	$db_name="ican";
 	$db_link = new mysqli($serve,$username,$pwd,$db_name);
 	*/
-	
+	/*
 	$sql_query = "INSERT INTO s_orderdata (total) 
 				   VALUES (?)";
 	$stmt = $db_link->prepare($sql_query);
@@ -28,6 +28,16 @@ require_once("connMysql.php");
 	//$stmt->bind_param("iiisssss", $cart->total, $cart->deliverfee, $cart->grandtotal, $_POST["customername"], $_POST["customeremail"], $_POST["customeraddress"], $_POST["customerphone"], $_POST["paytype"]);
 	
 	$stmt->bind_param("s",$cart->total);
+	*/
+	$selectmember="SELECT `m_id` FROM `memberdata` WHERE `m_username`= '{$_SESSION["loginMember"]}'";
+	$pick=$db_link->query($selectmember);
+	$messagemember=$pick->fetch_assoc();
+
+	$sql_query = "INSERT INTO s_orderdata (m_id,total) 
+				   VALUES (?,?)";
+	$stmt = $db_link->prepare($sql_query);
+	$stmt->bind_param("is",$messagemember['m_id'],$cart->total);
+
 	$stmt->execute();
 	//取得新增的訂單編號
 	$o_pid = $stmt->insert_id;
