@@ -62,15 +62,15 @@ if (isset($_POST["logout"]) && ($_POST["logout"] == "true")) {
         <!--用div排版-->
         <div id="boardhead">
             <div id="boardheadL">
-                <img name="board_r1_c1" src="../images/messageboard/messagelogo.gif" width="493" height="50" border="0" alt="">
+                <img name="board_r1_c1" src="../images/messageboard/messagelogo.gif" height="50" border="0" alt="">
             </div>
             <div id="boardheadR">
-                <a href="<?php if($_SESSION["memberLevel"]=="admin"){?>admin/adminmessage.php<?php }else{?>member/membermessage.php<?php } ?>"><img src="../images/messageboard/querymessage.png" alt="" name="adminpagebutton"></a>
+                <a href="<?php if($_SESSION["memberLevel"]=="admin"){?>admin/adminmessage.php<?php }else{?>member/membermessage.php<?php } ?>"><img src="../images/messageboard/querymessage.png" alt="" name="adminpagebutton" height="50"></a>
             </div>
         </div>
         <div id="boardcontent">
             <form id="boardform" name="form1" method="POST" action="">
-                <table align="center" width="700px">
+                <table align="center" width="100%">
                     <tr>
                         <td align="center"><textarea name="guestcontent" id="guestcontent" cols="30" rows="10" placeholder="請輸入留言內容" style="resize : none;"></textarea></td>
                     </tr>

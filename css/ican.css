@@ -1429,4 +1429,19 @@ button#order {
         font-size: 18px;
     }
     /* about.php */
+    /* messageboard.php */
+    #boardhead {
+        width: 100%;
+    }
+    #boardheadL img{
+        width: 275px;
+    }
+    #boardheadR img{
+        width: 100px;
+    }
+
+    #boardform {
+        width: 100%;
+    }
+    /* messageboard.php */
 }
