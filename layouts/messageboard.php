@@ -12,11 +12,6 @@ date_default_timezone_set("Asia/Taipei"); //設定台灣時區
 $selectmember = "SELECT `m_name`,`m_sex`,`m_email`,`m_phone`,`m_level` FROM `memberdata` WHERE `m_username`= '{$_SESSION["loginMember"]}'";
 $pick = $db_link->query($selectmember);
 $messagemember = $pick->fetch_assoc();
-//echo "會員名稱:".$messagemember['m_username']."<br>";
-//echo "性別:".$messagemember['m_sex']."<br>";
-//echo "信箱:".$messagemember['m_email']."<br>";
-//echo "手機:".$messagemember['m_phone']."<br>";
-//echo "會員等級:".$messagemember['m_level']."<br>";
 
 //接收數值
 $guestname = $messagemember['m_name'];
