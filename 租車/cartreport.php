@@ -1,5 +1,6 @@
-<?php 
-require_once("connMysql.php");
+﻿<?php 
+//require_once("connMysql.php");
+include("../connMysql.php");
 //if(isset($_POST["customername"]) && ($_POST["customername"]!="")){
 	//購物車開始
 	require_once("mycart.php");
