@@ -73,17 +73,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
         }
     </script>
     <style>
-        #backtoboard {
-            border: 0px;
-            width: 200px;
-            height: 50px;
-            background-color: orange;
-        }
 
-        .messagecontent {
-            float: left;
-            width: 95%;
-        }
     </style>
 </head>
 
@@ -98,13 +88,16 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
     ?>
 
     <div class="messagecontent">
-        <table width="60%" border="0" align="center" cellpadding="4" cellspacing="0" id="memberdata">
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
             <tr>
                 <td class="tdbline">
-                    <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" width="20%">
-                    <a href="../messageboard.php">
-                        <input type="button" value="回留言頁" id="backtoboard">
-                    </a><br>
+                    <div style="position:relative;">
+                        <img src="../../images/messageboard/messagelogo.gif" width="100%" height="50" border="0">
+                        <a href="../messageboard.php">
+                            <button class="btn btn-primary" width="20%" style="position:absolute; right: 10px; top: 5px;">我要留言</button>
+                        </a>
+                    </div>
+                    <br>
                     <div style="float='right'">
                         <font color="#ff0000">　警告！任意刪除資料須負民事侵權損害賠償及刑事妨害電腦使用罪責任。</font>
                     </div>
@@ -115,7 +108,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
                     <table width="100%" border="0" cellspacing="0" cellpadding="10">
                         <tr valign="top">
                             <td class="tdrline">
-                                <table width="120%" border="0" cellpadding="2" cellspacing="1" id="queryadmin">
+                                <table width="100%" border="0" cellpadding="2" cellspacing="1">
                                     <tr style="border: 2px solid;">
                                         <td width="5%" align="center" bgcolor="#CCC">編號</td>
                                         <td width="15%" align="center" bgcolor="#CCC">姓名</td>
@@ -123,7 +116,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
                                         <td width="15%" align="center" bgcolor="#CCC">電話號碼</td>
                                         <td width="15%" align="center" bgcolor="#CCC">信箱</td>
                                         <td width="15%" align="center" bgcolor="#CCC">留言時間</td>
-                                        <td width="35%" align="center" bgcolor="#CCC">留言內容</td>
+                                        <td width="20%" align="center" bgcolor="#CCC">留言內容</td>
                                         <td width="10%" align="center" bgcolor="#CCC">操作</td>
                                     </tr>
                                     <?php
@@ -160,10 +153,8 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
                                                     echo $row_RecMember["guesttime"];
                                                     ?>
                                             </td>
-                                            <td width="35%" align="center" bgcolor="#FFF">
-                                                <?php
-                                                    echo $row_RecMember["guestcontent"];
-                                                    ?>
+                                            <td width="20%" align="center" bgcolor="#FFF">
+                                                <textarea readonly="readonly" style="resize : none;"><?php echo $row_RecMember["guestcontent"]; ?></textarea>
                                             </td>
                                             <td width="10%" align="center" bgcolor="#FFF">
                                                 <a href="?action=delete&id=<?php echo $row_RecMember["guestID"]; ?>" onClick="return deletesure();">
@@ -176,7 +167,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
                                     ?>
                                 </table>
                                 <hr size="1" />
-                                <table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
+                                <table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
                                     <tr>
                                         <td valign="middle">
                                             <p>資料筆數：<?php echo $total_records; ?></p>
@@ -215,14 +206,13 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
     ?>
 
     <!-- 環境建置 -->
-    <script src="scripts/jquery-3.4.1.slim.min.js"></script>
+    <script src="\scripts/jquery-3.4.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="scripts/umd/popper.min.js"></script>
-    <script src="scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="scripts/ican.js"></script>
+    <script src="\scripts/umd/popper.min.js"></script>
+    <script src="\scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="\scripts/ican.js"></script>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
 </body>
-
 </html>

@@ -24,6 +24,9 @@
         <i>
           <a href="#" class="list-group-item py-2 list-group-item-action">網站圖片更新</a>
         </i>
+        <i>
+          <a href="adminmessage.php" class="list-group-item py-2 list-group-item-action">留言板</a>
+        </i>
       </ol>
     </li>
     <li>

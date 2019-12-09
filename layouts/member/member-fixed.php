@@ -19,7 +19,7 @@
           <a href="updatemember.php?id=<?php echo $row_RecMember["m_id"]; ?>" class="list-group-item py-2 list-group-item-action">修改會員資料</a>
         </i>
         <i>
-          <a href="../messageboard.php" class="list-group-item py-2 list-group-item-action">留言板</a>
+          <a href="membermessage.php" class="list-group-item py-2 list-group-item-action">留言板</a>
         </i>
       </ol>
     </li>
