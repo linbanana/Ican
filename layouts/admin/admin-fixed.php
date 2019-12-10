@@ -22,7 +22,7 @@
           <a href="#" class="list-group-item py-2 list-group-item-action">商品管理</a>
         </i>
         <i>
-          <a href="news.php" class="list-group-item py-2 list-group-item-action">最新消息</a>
+          <a href="updatenews.php" class="list-group-item py-2 list-group-item-action">最新消息發佈</a>
         </i>
         <i>
           <a href="adminmessage.php" class="list-group-item py-2 list-group-item-action">留言板</a>

@@ -800,6 +800,22 @@ button#order {
     float: left;
 }
 /* messageboard.php */
+
+/* updatenews.php */
+.newscontent{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    margin: 0px;
+}
+
+.newsform{
+    background-image: url(https://picsum.photos/900/500/);
+    width: 693px;
+    height: 300px;
+    margin: 0px auto;
+    border: 2px solid #ccc;
+}
+/* updatenews.php */
 /* admin.php and member.php*/
 
 
@@ -1439,9 +1455,29 @@ button#order {
     #boardheadR img{
         width: 100px;
     }
-
     #boardform {
         width: 100%;
     }
+    #boardcontent {
+        height: 100%;
+    }
+    .divboard {
+        padding-top: 0px;
+    }
+    textarea#guestcontent {
+        width: 100%;
+    }
     /* messageboard.php */
+    /* updatenews */
+    .newsform {
+        width: 100%;
+    }
+    textarea#newstitle {
+        width: 100%;
+    }
+
+    textarea#newscontent {
+        width: 100%;
+    }
+    /* updatenews */
 }

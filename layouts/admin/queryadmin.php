@@ -44,18 +44,7 @@ if (isset($_GET['page'])) {
 }
 //本頁開始記錄筆數 = (頁數-1)*每頁記錄筆數
 $startRow_records = ($num_pages - 1) * $pageRow_records;
-//未加限制顯示筆數的SQL敘述句
-$query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'member' ORDER BY `memberdata`.`m_id` ASC";
-//加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
-$query_limit_RecMember = $query_RecMember . " LIMIT {$startRow_records}, {$pageRow_records}";
-//以加上限制顯示筆數的SQL敘述句查詢資料到 $resultMember 中
-$RecMember = $db_link->query($query_limit_RecMember);
-//以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_resultMember 中
-$all_RecMember = $db_link->query($query_RecMember);
-//計算總筆數
-$total_records = $all_RecMember->num_rows;
-//計算總頁數=(總筆數/每頁筆數)後無條件進位。
-$total_pages = ceil($total_records / $pageRow_records);
+
 
 //登入次數排序
 $ordernum = "DESC";
@@ -64,9 +53,9 @@ if (isset($_GET["order"]) && ($_GET["order"] == "DESC")) {
 } elseif (isset($_GET["order"]) && ($_GET["order"] == "ASC")) {
   $ordernum = "DESC";
 }
-if (isset($_GET["order"]) && ($_GET["order"] == "DESC")) {
+if (isset($_GET["order"])) {
   //登入次數由高到低
-  $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'member' ORDER BY `memberdata`.`m_login` DESC";
+  $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'member' ORDER BY `memberdata`.`m_login` $_GET["order"])";
   //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
   $query_limit_RecMember = $query_RecMember . " LIMIT {$startRow_records}, {$pageRow_records}";
   //以加上限制顯示筆數的SQL敘述句查詢資料到 $resultMember 中
@@ -77,13 +66,15 @@ if (isset($_GET["order"]) && ($_GET["order"] == "DESC")) {
   $total_records = $all_RecMember->num_rows;
   //計算總頁數=(總筆數/每頁筆數)後無條件進位。
   $total_pages = ceil($total_records / $pageRow_records);
-} elseif (isset($_GET["order"]) && ($_GET["order"] == "ASC")) {
-  //登入次數由低到高
-  $query_RecMember2 = "SELECT * FROM memberdata WHERE m_level<>'member' ORDER BY `memberdata`.`m_login` ASC";
-  $query_limit_RecMember = $query_RecMember2 . " LIMIT {$startRow_records}, {$pageRow_records}";
+} elseif (isset($_GET["order"]) && ($_GET["order"] == "")) {
+  //未加限制顯示筆數的SQL敘述句
+  $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'member' ORDER BY `memberdata`.`m_id` ASC";
+  //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
+  $query_limit_RecMember = $query_RecMember . " LIMIT {$startRow_records}, {$pageRow_records}";
+  //以加上限制顯示筆數的SQL敘述句查詢資料到 $resultMember 中
   $RecMember = $db_link->query($query_limit_RecMember);
   //以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_resultMember 中
-  $all_RecMember = $db_link->query($query_RecMember2);
+  $all_RecMember = $db_link->query($query_RecMember);
   //計算總筆數
   $total_records = $all_RecMember->num_rows;
   //計算總頁數=(總筆數/每頁筆數)後無條件進位。

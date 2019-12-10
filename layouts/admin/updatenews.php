@@ -11,11 +11,11 @@ $messagemember = $pick->fetch_assoc();
 //接收數值
 $newstitle = $_POST['newstitle'];
 $newscontent = $_POST['newscontent'];
-$guesttime = date("Y:m:d H:i:s", time());
+$newstime = date("Y:m:d H:i:s", time());
 //如果guestname資料存在,再輸入資料,避免先輸入空白資料
-if (isset($guestname) && $newscontent != "") {
+if (isset($newstitle) && $newscontent != "") {
     //將資料輸入到MySQL資料表中
-    $sql_query = "INSERT INTO `newsdata`(`newsid`,`newstitle`,`newscontent`) value('','$newstitle','$newscontent')";
+    $sql_query = "INSERT INTO `newsdata`(`newsid`,`newstitle`,`newscontent`,newstime) value('','$newstitle','$newscontent','$newstime')";
     $db_link->query($sql_query);
 }
 if (isset($_POST["logout"]) && ($_POST["logout"] == "true")) {
@@ -44,8 +44,8 @@ if (isset($_POST["logout"]) && ($_POST["logout"] == "true")) {
     include("../../layouts/header.php");
     ?>
 
-     <div id="boardcontent">
-        <form id="boardform" name="form1" method="POST" action="">
+     <div class="newscontent">
+        <form class="newsform" name="form1" method="POST" action="">
             <table align="center" width="100%">
                 <tr>
                     <td align="center">
