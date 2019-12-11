@@ -66,11 +66,15 @@ if (isset($_GET["logout"]) && ($_GET["logout"] == "true")) {
                     <?php
                         if ($_SESSION["memberLevel"] == "member") {
                             ?>
-                        <a href="/layouts/member/member.php">會員中心</a>
+                        <a href="/layouts/member/member.php">
+                            <i class="fa fa-wrench" aria-hidden="true">&nbsp;會員中心</i>
+                        </a>
                     <?php
                         } else {
                             ?>
-                        <a href="/layouts/admin/admin.php">管理中心</a>
+                        <a href="/layouts/admin/admin.php">
+                            <i class="fa fa-wrench" aria-hidden="true">&nbsp;管理中心</i>
+                        </a>
                     <?php
                         }
                         ?>

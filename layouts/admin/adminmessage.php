@@ -72,9 +72,6 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
             return false;
         }
     </script>
-    <style>
-
-    </style>
 </head>
 
 <body>

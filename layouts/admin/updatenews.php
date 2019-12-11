@@ -46,6 +46,9 @@ if (isset($_POST["logout"]) && ($_POST["logout"] == "true")) {
 
      <div class="newscontent">
         <form class="newsform" name="form1" method="POST" action="">
+            <div align="center">
+                <strong><font size="30">發佈公告</font></strong>
+            </div>
             <table align="center" width="100%">
                 <tr>
                     <td align="center">

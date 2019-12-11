@@ -157,6 +157,9 @@ body {
 .toggle-btn:active {
     border: none;
 }
+#sidebar{
+    z-index: 100001;
+}
 
 
 /* Sidebar */
@@ -811,9 +814,16 @@ button#order {
 .newsform{
     background-image: url(https://picsum.photos/900/500/);
     width: 693px;
-    height: 300px;
     margin: 0px auto;
-    border: 2px solid #ccc;
+    border: 2px solid #f80;
+}
+
+#newstitle:focus{
+    border: 2px solid #007bff;
+}
+
+#newscontent:focus{
+    border: 2px solid #007bff;
 }
 /* updatenews.php */
 /* admin.php and member.php*/
@@ -982,9 +992,14 @@ button#order {
     text-align: left;
     vertical-align: top;
 }
-
-
 /* about.php */
+
+/* news.php */
+.newspost.col.col-6{
+    background-color: beige;
+    border: 2px solid #f80;
+}
+/* news.php */
 
 @media screen and (max-width: 1200px) {
     body {
@@ -992,7 +1007,7 @@ button#order {
     }
     /* header */
     .header-menu .menu a {
-        font-size: 22px;
+        font-size: 21px;
         padding: 10px;
     }
     .recommend .item h3 {
@@ -1070,6 +1085,9 @@ button#order {
     .aboutcontent .container p {
         font-size: 30px;
     }
+    .aboutcontent .address iframe{
+        width: 100%;
+    }
     /* about.php */
 }
 
@@ -1130,6 +1148,9 @@ button#order {
     }
     .aboutcontent .container p {
         font-size: 25px;
+    }
+    .aboutcontent .address iframe{
+        width: 100%;
     }
     /* about.php */
 }
@@ -1240,8 +1261,8 @@ button#order {
     /* footer */
     /* admin.php */
     #memberdata {
-        margin-top: 206px;
-        width: 95%;
+        float: left;
+        width: 100%;
     }
     #queryadmin {
         width: 100% !important;
@@ -1278,6 +1299,11 @@ button#order {
         font-weight: 500;
     }
     /* room.php */
+    /* about.php */
+    .aboutcontent .address iframe{
+        width: 100%;
+    }
+    /* about.php */
 }
 
 
@@ -1413,7 +1439,8 @@ button#order {
     /* join.php */
     /* admin.php */
     #memberdata {
-        width: 95%;
+        float: left;
+        width: 100%;
     }
     #queryadmin {
         width: 100% !important;
@@ -1423,6 +1450,9 @@ button#order {
     }
     .membercontent {
         margin-left: 0rem;
+    }
+    .side-menu {
+        width: 280px;
     }
     /* admin.php */
     /* updateadmin.php*/
@@ -1443,6 +1473,10 @@ button#order {
     }
     .aboutcontent .container p {
         font-size: 18px;
+    }
+
+    .aboutcontent .address iframe{
+        width: 100%;
     }
     /* about.php */
     /* messageboard.php */
@@ -1468,7 +1502,7 @@ button#order {
         width: 100%;
     }
     /* messageboard.php */
-    /* updatenews */
+    /* updatenews.php */
     .newsform {
         width: 100%;
     }
@@ -1479,5 +1513,22 @@ button#order {
     textarea#newscontent {
         width: 100%;
     }
-    /* updatenews */
+    /* updatenews.php */
+    /* news.php */
+    .newspost.col.col-6{
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .newspost.col.col-3{
+        width: 0%;
+        flex: 0 0 0%;
+        padding: 0;
+    }
+    .newspost text{
+        font-size: 40vw;
+    }
+    h5.card-title.text-white.bg-dark {
+        font-size: 15px;
+    }
+    /* news.php */
 }

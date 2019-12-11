@@ -61,15 +61,6 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
     <link href="\css/ican.css" rel="stylesheet" />
     <!-- 環境建置 -->
     <title>ican</title>
-    <script language="javascript">
-        function deletesure() {
-            if (confirm('\n您確定要刪除這個管理員嗎?\n刪除後無法恢復!\n')) return true;
-            return false;
-        }
-    </script>
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -78,7 +69,10 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
     include("layouts/header.php");
     ?>
 
-    <div class="newscontent">
+    <div class="newscontent col-12">
+        <div class="row">
+        <div class="newspost col col-3"></div>
+        <div class="newspost col col-6">
         <table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
             <?php if ($_SESSION["memberLevel"] == "admin") {?>
             <tr>
@@ -96,9 +90,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
                 </td>
             </tr>
         <?php }?>
-        <tr>
         </table>
-        <hr size="1" />
         <table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
         <?php
             while ($row_RecMember = $RecMember->fetch_assoc()) {
@@ -107,14 +99,14 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
             <div class="card bg-dark text-white">
                 <svg class="bd-placeholder-img bd-placeholder-img-lg card-img" width="100%" height="270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Card image">
                     <rect width="100%" height="100%" fill="#868e96"></rect>
-                    <text x="30%" y="50%" fill="#6c757d" dy=".3em" font-size="20vw" opacity:0.1;>公告</text>
+                    <text x="10%" y="65%" fill="#6c757d" dy=".3em" font-size="20vw" opacity:0.1;>ican</text>
                 </svg>
                 <div class="card-img-overlay">
                     <h5 class="card-title text-white bg-dark">
                         <?php
                         echo "標題：".$row_RecMember["newstitle"];
                         ?>
-                        <p class="card-text text-white bg-dark" style="float: right;">   
+                        <p class="card-text text-white bg-dark" style="float: right;">
                             <?php
                             echo $row_RecMember["newstime"];
                             ?>
@@ -127,15 +119,10 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
                     </p>
                 </div>
                 <?php if ($_SESSION["memberLevel"] == "admin") {?>
-                    <button style="z-index: 1;">
-                        <a href="?action=delete&id=<?php echo $row_RecMember["newsid"]; ?>" onClick="return deletesure();">
-                            <font color="#ff0000">刪除
-                                <?php
-                                echo "編號：".$row_RecMember["newsid"];
-                                ?>                            
-                            </font>
-                        </a>
-                    </button>                    
+                    <input class="btn btn-danger" type="button"
+                    value="刪除<?php echo "編號：".$row_RecMember["newsid"]; ?>"
+                    onclick="if (confirm('\n您確定要刪除這個管理員嗎?\n刪除後無法恢復!\n')) window.location.href='?action=delete&id=<?php echo $row_RecMember["newsid"]; ?>';"
+                    style="z-index: 1;"/>
                 <?php }?>
             </div></tr>
         <?php
@@ -148,7 +135,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
             <td align="right">
                 <p>
                     <?php
-                        if ($num_pages > 1) { // 若不是第一頁則顯示 
+                        if ($num_pages > 1) { // 若不是第一頁則顯示
                     ?>
                     <a href="?page=1">第一頁</a> | <a href="?page=<?php echo $num_pages - 1; ?>">上一頁</a> |
                     <?php
@@ -165,6 +152,9 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
             </td>
         </tr>
         </table>
+        </div>
+        </div>
+        <div class="newspost col col-3"></div>
 </div>
 
 <?php
