@@ -49,7 +49,7 @@ if ($stmt = $link->query($sql))
   while ($result = mysqli_fetch_object($stmt)) {
      echo 
      '<td>'.$result->o_num.'</td>
-      <td>'.$result->o_name.'</td>
+      <td>'.$result->r_id.'</td>
       <td>'.$result->o_phone.'</td>
       <td>'.$result->o_citime.'</td>
       <td>'.$result->o_day.'</td>
