@@ -78,6 +78,7 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 
 
 <div class="actionDiv "><a class="btn btn-info  badge badge-primary text-wrap" href="cart.php">我的租車</a></div>
+<div class="actionDiv "><a class="btn btn-info  badge badge-primary text-wrap" href="s_orderInqure.php">已完成訂單</a></div>
 <?php 
 
 for($i=0;$i<mysqli_num_rows($result);$i++){
