@@ -131,6 +131,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
 
     <body>
         <div id="travel">
+          <iframe src="https://www.google.com/maps/d/embed?mid=1_KWBPZEEdoCUSQL6YW1z-C52aEY1L-Ac&ll=22.339774072757933%2C120.3841206721853&z=14" width="640" height="480"></iframe>
 
             <form action="" method="POST" name="formJoin" id="formJoin" onSubmit="return checkForm();">
                 <div style="text-align: center;">行程</div><br>
