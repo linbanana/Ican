@@ -45,6 +45,35 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
     <link href="\css/ican.css" rel="stylesheet" />
     <!-- 環境建置 -->
     <title>ican</title>
+    <script type="text/javascript">
+$(function() {
+    $("#t_class").change(function() {
+        $.ajax({
+            type: "POST", //傳送方式
+            url: "", //傳送目的地
+            dataType: "text", //資料格式
+            data: { //傳送資料
+                select: $("#t_class").val() //表單欄位 ID nickname          
+            },
+            success: function(data) {
+                $("#t_name").html(data);
+            },
+            error: function(jqXHR) {
+                alert("傳輸錯誤");
+            }
+        });
+    });
+});
+</script>
+
+<!-- 環境建置 -->
+<script src="\scripts/jquery-3.4.1.slim.min.js"></script>
+<script src="\scripts/umd/popper.min.js"></script>
+<script src="\scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="\scripts/ican.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
+<!-- 環境建置 -->
 </head>
 
 <body>
@@ -52,7 +81,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
     <?php
     include("layouts/header.php");
     ?>
-        <form class="newsform" name="form1" method="GET" action="">
+        <form class="newsform" name="form1" method="POST" action="">
             <select name="t_class" id="t_class">
                 <?php 
                     while ($row_travelclass = $travelclass->fetch_assoc()) {
@@ -60,64 +89,46 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
                     }                          
                 ?>
             </select>
+        </form>
+        <form class="newsform2" name="form2" method="GET" action="">
             <select name="t_name" id="t_name">
-                <?php 
-                        if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
 
-                        if (isset($_POST["select"])) {
-                            include('connMysql.php');
-                    
-                            $select = $_POST["select"];
-                            $searchroom="SELECT `t_name` FROM `traveldata` WHERE `t_class`='$select'";
-                            
-                            $roommodellist = $db_link->query($searchroom); 
-                    
-                            while ($row_travelname = $travelname->fetch_assoc()) {
-                                echo "<option>".$row_travelname["t_name"]."</option>";
-                            }      
-                        }                          
-                    } 
-                ?>
-                    <script>
-                        $("#t_class").change(function() {
-                            $.ajax({
-                                type: "POST", //傳送方式
-                                url: "travel.php", //傳送目的地
-                                dataType: "text", //資料格式
-                                data: { //傳送資料
-                                    select: $("#t_class").val() //表單欄位 ID nickname          
-                                },
-                                success: function(data) {
-                                    $("#t_name").html(data);
-                                },
-                                error: function(jqXHR) {
-                                    alert("傳輸錯誤");
-                                }
-                            })
-                        })
-                    </script>
             </select>
+        </form>
             <p align="center">
                 <input name="action" type="hidden" id="action" value="join">
                 <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="送出申請">
                 <input class="btn btn-info btn-sm" type="reset" name="Submit3" value="重設資料">
                 <input class="btn btn-primary btn-sm" type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
             </p>
-        </form>
+        
 
 
     <?php
     include("layouts/footer.php");
     ?>
 
-<!-- 環境建置 -->
-<script src="\scripts/jquery-3.4.1.slim.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="\scripts/umd/popper.min.js"></script>
-<script src="\scripts/bootstrap.min.js"></script>
-<script type="text/javascript" src="\scripts/ican.js"></script>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
-<!-- 環境建置 -->
+<?php 
+        if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
+
+        if (isset($_POST["select"])) {
+            
+    
+            $select = $_POST["select"];
+            $searchroom="SELECT `t_name` FROM `traveldata` WHERE `t_class`='$select'";
+            
+            $roommodellist = $db_link->query($searchroom); 
+    
+            for($i=0 ;$i < ($roommodellist->num_rows);$i++)
+            {
+                $rsm = $roommodellist->fetch_assoc();
+                $res .="<option value=".$rsm['t_name'].">".$rsm['t_name']."</option>";
+            }
+            echo $res;   
+        }                          
+    } 
+?>
+
+
 </body>
 </html>

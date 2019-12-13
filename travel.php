@@ -160,11 +160,12 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
             
             </form>
             <?php
+            /*
             $searchimg = ("SELECT `t_img` FROM `traveldata` WHERE `t_name` ='{$_GET['t_name']}'");
             $img = $db_link->query($searchimg);
             $resultimg = $img->fetch_assoc();
             echo "<div>" . "<img src=" . $resultimg['t_img'] . " >" . "</div>";
-            ?>
+           */ ?>
 
 
 
