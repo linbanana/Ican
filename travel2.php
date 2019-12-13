@@ -62,31 +62,29 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="\css/bootstrap.min.css" rel="stylesheet" />
     <link href="\css/ican.css" rel="stylesheet" />
-    <script src="\scripts/jquery-3.4.1.slim.min.js"></script>
+    <script src="\scripts/jquery-3.4.1.min.js"></script>
     <!-- 環境建置 -->
     <title>ican</title>
     <script type="text/javascript">
-$(function() {
-    $("#t_class").change(function() {
-        $.ajax({
-            type: "POST", //傳送方式
-            url: "", //傳送目的地
-            dataType: "text", //資料格式
-            data: { //傳送資料
-                select: $("#t_class").val() //表單欄位 ID nickname
-            },
-            success: function(data) {
-                $("#t_name").html(data);
-            },
-            error: function(jqXHR) {
-                alert("傳輸錯誤");
-            }
+    $(function() {
+        $("#t_class").change(function() {
+            $.ajax({
+                type: "POST", //傳送方式
+                url: "", //傳送目的地
+                dataType: "text", //資料格式
+                data: { //傳送資料
+                    select: $("#t_class").val() //表單欄位 ID nickname
+                },
+                success: function(data) {
+                    $("#t_name").html(data);
+                },
+                error: function(jqXHR) {
+                    alert("傳輸錯誤");
+                }
+            });
         });
     });
-});
-</script>
-
-
+    </script>
 </head>
 
 <body>
@@ -121,8 +119,6 @@ $(function() {
     <?php
     include("layouts/footer.php");
     ?>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- 環境建置 -->
     <script src="\scripts/umd/popper.min.js"></script>

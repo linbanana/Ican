@@ -34,7 +34,6 @@ if (isset($_POST["logout"]) && ($_POST["logout"] == "true")) {
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 環境建置 -->
@@ -43,8 +42,9 @@ if (isset($_POST["logout"]) && ($_POST["logout"] == "true")) {
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="\css/bootstrap.min.css" rel="stylesheet" />
     <link href="\css/ican.css" rel="stylesheet" />
+    <script src="\scripts/jquery-3.4.1.min.js"></script>
     <!-- 環境建置 -->
-    <title>留言板</title>
+    <title>ican</title>
 </head>
 <body>
 
@@ -81,11 +81,7 @@ if (isset($_POST["logout"]) && ($_POST["logout"] == "true")) {
     include("../layouts/footer.php");
     ?>
 
-
-    <?php $db_link->close(); ?>
     <!-- 環境建置 -->
-    <script src="\scripts/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="\scripts/umd/popper.min.js"></script>
     <script src="\scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="\scripts/ican.js"></script>
@@ -94,3 +90,4 @@ if (isset($_POST["logout"]) && ($_POST["logout"] == "true")) {
     <!-- 環境建置 -->
 </body>
 </html>
+<?php $db_link->close(); ?>
