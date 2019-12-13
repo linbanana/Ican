@@ -70,7 +70,9 @@ if (isset($_POST["logout"]) && ($_POST["logout"] == "true")) {
                         <td align="center"><textarea name="guestcontent" id="guestcontent" cols="30" rows="10" placeholder="請輸入留言內容" style="resize : none;"></textarea></td>
                     </tr>
                     <tr>
-                        <td align="center"><input id="submit" name="submit" type="submit" value="送出資料" class="btn btn-warning" align="center"></td>
+                        <td align="center">
+                            <input id="submit" name="submit" type="submit" value="送出資料" class="btn btn-warning" align="center">
+                        </td>
                     </tr>
                 </table>
             </form>

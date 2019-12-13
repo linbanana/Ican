@@ -1,6 +1,19 @@
 <?php
 require("connMysql.php");  //呼叫connectMysql.php文件
 session_start();
+function GetSQLValueString($theValue, $theType)
+{
+  switch ($theType) {
+    case "string":
+      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_MAGIC_QUOTES) : "";
+      break;
+    case "int":
+      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_NUMBER_INT) : "";
+      break;
+  }
+  return $theValue;
+}
+
 //檢查是否經過登入
 /*if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
     header("Location: index.php");
@@ -15,20 +28,24 @@ $stmt->bind_result($mid, $mname, $mlogintime, $m_email);
 $stmt->fetch();
 $stmt->close();
 
+//接收數值
+$memberid = $member['m_name'];
+
 $searchtravel = "SELECT DISTINCT `t_class` FROM `traveldata`";  //將SQL指令設定在$sql_query
 $travelclass = $db_link->query($searchtravel);
-$searchtravel2="SELECT `t_name` FROM `traveldata` WHERE `t_class`= \"水上活動\"";
-$travelname = $db_link->query($searchtravel2);
 
-//刪除留言
-if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
-    $query_delMember = "DELETE FROM newsdata WHERE newsid=?";
-    $stmt = $db_link->prepare($query_delMember);
-    $stmt->bind_param("i", $_GET["id"]);
+if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
+    $query_insert = "INSERT INTO `t_orderdata`(`travel_1`, `travel_2`) VALUES (?,?)";
+    $stmt = $db_link->prepare($query_insert);
+    $stmt->bind_param(
+      "ss",
+      GetSQLValueString($_POST["t_class"], 'string'),
+      GetSQLValueString($_POST["t_name"], 'string')
+    );
     $stmt->execute();
     $stmt->close();
-    //重新導向回到主畫面
-    header("Location: news.php");
+    $db_link->close();
+    header("Location: travel2.php");
 }
 
 
@@ -37,11 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     if (isset($_POST["select"])) {
         $select = $_POST["select"];
         $searchroom="SELECT `t_name` FROM `traveldata` WHERE `t_class`='$select'";
-
         $roommodellist = $db_link->query($searchroom);
-
-        for($i=0 ;$i < ($roommodellist->num_rows);$i++)
-        {
+        for($i=0 ;$i < ($roommodellist->num_rows);$i++){
             $rsm = $roommodellist->fetch_assoc();
             $res .="<option value=".$rsm['t_name'].">".$rsm['t_name']."</option>";
         }
@@ -108,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
 
             </select>
             <p align="center">
-                <input name="action" type="hidden" id="action" value="join">
+                <input name="action" type="hidden" id="action" value="travel">
                 <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="送出申請">
                 <input class="btn btn-info btn-sm" type="reset" name="Submit3" value="重設資料">
                 <input class="btn btn-primary btn-sm" type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
