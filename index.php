@@ -1,13 +1,9 @@
 <?php
-    session_start();
-    if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
-        unset($_SESSION["loginMember"]);
-        unset($_SESSION["memberLevel"]);
-        header("Location: index.php");
-    }
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 環境建置 -->
@@ -22,9 +18,8 @@
 <body>
 
     <?php
-        include("layouts/header.php");
+    include("layouts/header.php");
     ?>
- 
 
     <div class="content">
         <!--Content部分(未改)-->
@@ -32,7 +27,7 @@
             <div class="container">
                 <h3 id="ican-logo">I Can</h3>
                 <h4 id="hotel-logo">大飯店</h4>
-                <p>I Can大飯店今年在高雄全新開幕，給顧客不一樣的全新體驗，歡迎各位能蒞臨，您的到來使我們蓬蓽生輝，我們持續的新增不同的設施，並且招募與我們有共同理念的新成員，希望能帶給顧客更好的享受。I Can理念為努力、真誠、親切、熱忱，對待每一位顧客都以最高待遇服務，秉持著「真誠I Can心，服務最用心」的經營理念，提供顧客最高品質的産品，最親切細緻的服務，讓顧客有物超所值、賓至如歸的感受。</p>
+                <p align="left">I Can大飯店今年在小琉球全新開幕，給顧客不一樣的全新體驗，歡迎各位能蒞臨，您的到來使我們蓬蓽生輝，我們持續的新增不同的設施，並且招募與我們有共同理念的新成員，希望能帶給顧客更好的享受。I Can理念為努力、真誠、親切、熱忱，對待每一位顧客都以最高待遇服務，秉持著「真誠I Can心，服務最用心」的經營理念，提供顧客最高品質的産品，最親切細緻的服務，讓顧客有物超所值、賓至如歸的感受。</p>
             </div>
         </div>
         <div class="recommend">
@@ -101,11 +96,11 @@
             </div>
         </div>
     </div>
-    
+
     <?php
-        include("layouts/footer.php");
+    include("layouts/footer.php");
     ?>
-        
+
     <!-- 環境建置 -->
     <script src="scripts/jquery-3.4.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -116,4 +111,5 @@
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
 </body>
+
 </html>

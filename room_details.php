@@ -1,102 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ican大飯店</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 環境建置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/ican.css" rel="stylesheet" />
+    <!-- 環境建置 -->
     <style>
         @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900|Lobster&display=swap');
-        *{
-			padding: 0;
-			margin: 0;
+
+        * {
+            padding: 0;
+            margin: 0;
             list-style: none;
             font-family: 'Noto Sans TC', sans-serif;
-		}
-        .room_detail_content{
+        }
+
+        .room_detail_content {
             background-color: burlywood;
             padding: 50px 0;
-            
+
         }
-        .room_carousel{
-            padding:20px;
+
+        .room_carousel {
+            padding: 20px;
             background-color: #fff;
             width: 900px;
             margin: 50px auto;
         }
-        .title{
+
+        .title {
             text-align: center;
         }
-        .title h3{
+
+        .title h3 {
             font-size: 50px;
             font-weight: 500;
             padding: 0;
             font-family: 'Noto Sans TC', sans-serif;
         }
-        .title p{
+
+        .title p {
             font-size: 30px;
             font-weight: 300;
             font-family: 'Lobster', cursive;
         }
-        .room_deta{
+
+        .room_deta {
             display: flex;
             width: 900px;
             margin: auto;
         }
-        .price_deta{
+
+        .price_deta {
             padding: 20px 0;
             width: 50%;
         }
-        .room_faci{
+
+        .room_faci {
             padding: 20px 0;
             width: 50%;
         }
-        .room_deta h3{
+
+        .room_deta h3 {
             display: inline-block;
-            color:rgb(247, 1, 1);
+            color: rgb(247, 1, 1);
             font-family: 'Noto Sans TC', sans-serif;
             padding: 10px 0;
         }
-        .room_deta h6{
+
+        .room_deta h6 {
             display: inline-block;
             font-family: 'Lobster', cursive;
             padding: 0 10px;
         }
-        .room_deta p{
+
+        .room_deta p {
             font-size: 22px;
         }
-        ul{
+
+        ul {
             margin-bottom: 0;
         }
+
         .icons li {
             margin: 5px 5px;
             display: inline-block;
             flex-wrap: wrap;
             vertical-align: top;
             width: 80px;
-            background: rgba(255,255,255,.6);
+            background: rgba(255, 255, 255, .6);
             border-radius: 7px;
             padding: 5px 0 8px;
             text-align: center;
         }
+
         .icons li img {
             padding: 0 7px;
             margin: 0 auto;
             vertical-align: middle;
             width: 100%;
         }
+
         .icons li span {
             display: block;
             font-size: 14px;
             line-height: 20px;
         }
-        .reservation{
+
+        .reservation {
             text-align: center;
             margin: 100px;
         }
-        .reservation a{
+
+        .reservation a {
             font-size: 25px;
             font-family: 'Noto Sans TC', sans-serif;
             font-weight: 500;
@@ -106,91 +127,115 @@
             border: 2px solid red;
             padding: 15px 20px;
         }
-        .reservation a:hover{
+
+        .reservation a:hover {
             background-color: red;
             color: #fff;
             border: 2px solid transparent;
         }
+
         @media screen and (max-width: 1200px) {
-            .title h3{
+            .title h3 {
                 font-size: 40px;
             }
-            .title p{
+
+            .title p {
                 font-size: 30px;
             }
-            .room_carousel{
+
+            .room_carousel {
                 width: 660px;
-                padding:10px; 
+                padding: 10px;
             }
-            .room_deta{
+
+            .room_deta {
                 display: block;
                 width: 660px;
             }
-            .price_deta{
+
+            .price_deta {
                 width: 100%;
             }
-            .room_faci{
+
+            .room_faci {
                 width: 100%;
             }
         }
+
         @media screen and (max-width: 960px) {
-            .title h3{
+            .title h3 {
                 font-size: 35px;
             }
-            .title p{
+
+            .title p {
                 font-size: 25px;
             }
-            .room_carousel{
+
+            .room_carousel {
                 width: 550px;
-                padding:10px; 
+                padding: 10px;
             }
-            .room_deta{
+
+            .room_deta {
                 display: block;
                 width: 550px;
             }
-            .price_deta{
+
+            .price_deta {
                 padding: 10px 0;
             }
-            .room_faci{
+
+            .room_faci {
                 padding: 10px 0;
             }
         }
+
         @media screen and (max-width: 650px) {
-            .title h3{
+            .title h3 {
                 font-size: 24px;
             }
-            .title p{
+
+            .title p {
                 font-size: 18px;
             }
-            .carousel-control-next{
+
+            .carousel-control-next {
                 width: 45%;
                 justify-content: flex-end;
                 padding: 20px;
             }
-            .carousel-control-prev{
+
+            .carousel-control-prev {
                 width: 45%;
                 justify-content: flex-start;
                 padding: 20px;
             }
-            .room_carousel{
+
+            .room_carousel {
                 width: 90%;
             }
-            .room_deta{
+
+            .room_deta {
                 width: 90%;
             }
-            .room_deta h3{
+
+            .room_deta h3 {
                 font-size: 20px;
             }
-            .room_deta h6{
+
+            .room_deta h6 {
                 font-size: 10px;
             }
-            .room_deta p{
+
+            .room_deta p {
                 font-size: 18px;
             }
-            .reservation{
+
+            .reservation {
                 margin: 50px;
             }
-            .reservation a{
+
+            .reservation a {
                 font-size: 20px;
                 padding: 10px 15px;
             }
@@ -200,7 +245,7 @@
 
 <body>
     <?php
-        include("layouts/header.php");
+    include("layouts/header.php");
     ?>
     <div class="room_detail_content">
         <div class="title">
@@ -245,15 +290,17 @@
         </div>
         <div class="room_deta">
             <div class="price_deta">
-                <h3>房價資訊</h3><h6>Room Price</h6>
-                <p>平日：$1600   假日：$2200   定價：$4500 </p>
+                <h3>房價資訊</h3>
+                <h6>Room Price</h6>
+                <p>平日：$1600 假日：$2200 定價：$4500 </p>
                 <p>標準入住人數:2位</p>
                 <p>平日:週日 ~ 週四</p>
                 <p>假日:週六、連續假日</p>
                 <p>定價:春節期間</p>
             </div>
             <div class="room_faci">
-                <h3>房內設施</h3><h6>Room Facilities</h6>
+                <h3>房內設施</h3>
+                <h6>Room Facilities</h6>
                 <div class="icons">
                     <ul>
                         <li>
@@ -288,7 +335,7 @@
                             <img src="images/room_details/r08.png" class="img-responsive">
                             <span>沐浴用品</span>
                         </li>
-                        
+
                         <li>
                             <img src="images/room_details/s04.png" class="img-responsive">
                             <span>Wifi網路</span>
@@ -303,17 +350,17 @@
                         </li>
                     </ul>
                 </div>
-                
-            </div> 
-            
+
+            </div>
+
         </div>
         <div class="reservation">
             <a href="#">立即訂房</a>
         </div>
     </div>
-    
+
     <?php
-        include("layouts/footer.php");
+    include("layouts/footer.php");
     ?>
 
     <!-- 環境建置 -->
@@ -326,4 +373,5 @@
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
 </body>
+
 </html>

@@ -13,7 +13,7 @@ if($_SESSION["memberLevel"]=="member"){
 if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
   unset($_SESSION["loginMember"]);
   unset($_SESSION["memberLevel"]);
-  header("Location: ../../index.php");
+  header("Location: \index.php");
 }
 //刪除會員
 if(isset($_GET["action"])&&($_GET["action"]=="delete")){
@@ -23,7 +23,7 @@ if(isset($_GET["action"])&&($_GET["action"]=="delete")){
   $stmt->execute();
   $stmt->close();
   //重新導向回到主畫面
-  header("Location: admin.php");
+  header("Location: \admin.php");
 }
 //選取管理員資料
 $query_RecAdmin = "SELECT m_id, m_name, m_logintime FROM memberdata WHERE m_username=?";
@@ -44,18 +44,43 @@ if (isset($_GET['page'])) {
 }
 //本頁開始記錄筆數 = (頁數-1)*每頁記錄筆數
 $startRow_records = ($num_pages -1) * $pageRow_records;
-//未加限制顯示筆數的SQL敘述句
-$query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'admin' ORDER BY `memberdata`.`m_id` ASC";
-//加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
-$query_limit_RecMember = $query_RecMember." LIMIT {$startRow_records}, {$pageRow_records}";
-//以加上限制顯示筆數的SQL敘述句查詢資料到 $resultMember 中
-$RecMember = $db_link->query($query_limit_RecMember);
-//以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_resultMember 中
-$all_RecMember = $db_link->query($query_RecMember);
-//計算總筆數
-$total_records = $all_RecMember->num_rows;
-//計算總頁數=(總筆數/每頁筆數)後無條件進位。
-$total_pages = ceil($total_records/$pageRow_records);
+
+
+//登入次數排序
+$ordernum="DESC";
+if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
+  $ordernum="ASC";
+}elseif (isset($_GET["order"]) && ($_GET["order"]=="ASC")) {
+  $ordernum="DESC";
+}
+if(isset($_GET["order"])){
+  //登入次數由高到低
+  $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'admin' ORDER BY `memberdata`.`m_login` $_GET["order"]";
+  //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
+  $query_limit_RecMember = $query_RecMember." LIMIT {$startRow_records}, {$pageRow_records}";
+  //以加上限制顯示筆數的SQL敘述句查詢資料到 $resultMember 中 
+  $RecMember = $db_link->query($query_limit_RecMember);
+  //以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_resultMember 中
+  $all_RecMember = $db_link->query($query_RecMember);
+  //計算總筆數
+  $total_records = $all_RecMember->num_rows;
+  //計算總頁數=(總筆數/每頁筆數)後無條件進位。
+  $total_pages = ceil($total_records/$pageRow_records);
+}elseif(isset($_GET["order"]) && $_GET["order"] == ""){
+  //未加限制顯示筆數的SQL敘述句
+  $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'admin' ORDER BY `memberdata`.`m_id` ASC";
+  //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
+  $query_limit_RecMember = $query_RecMember." LIMIT {$startRow_records}, {$pageRow_records}";
+  //以加上限制顯示筆數的SQL敘述句查詢資料到 $resultMember 中
+  $RecMember = $db_link->query($query_limit_RecMember);
+  //以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_resultMember 中
+  $all_RecMember = $db_link->query($query_RecMember);
+  //計算總筆數
+  $total_records = $all_RecMember->num_rows;
+  //計算總頁數=(總筆數/每頁筆數)後無條件進位。
+  $total_pages = ceil($total_records/$pageRow_records);
+}
+}
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
@@ -63,10 +88,10 @@ $total_pages = ceil($total_records/$pageRow_records);
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 環境建置 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="../../font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="\font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-    <link href="../../css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../../css/ican.css" rel="stylesheet" />
+    <link href="\css/bootstrap.min.css" rel="stylesheet" />
+    <link href="\css/ican.css" rel="stylesheet" />
     <!-- 環境建置 -->
     <script language="javascript">
     function deletesure(){
@@ -83,29 +108,48 @@ $total_pages = ceil($total_records/$pageRow_records);
   ?>
 
   <?php
-  include("../../layouts/admin-fixed.php");
+  include("admin-fixed.php");
   ?>
 
   <div class="admincontent">      
       <table width="530" border="0" align="center" cellpadding="4" cellspacing="0" id="memberdata">
         <tr>
-          <td class="tdbline"><img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" alt="會員系統" width="164" height="67"></td>
+          <td class="tdbline">
+            <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" width="20%">  
+            <div style="float:'right'">
+              <font color="#ff0000">　警告！任意刪除資料須負民事侵權損害賠償及刑事妨害電腦使用罪責任。</font>
+            </div>
+          </td>
         </tr>
         <tr>
           <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
             <tr valign="top">
               <td class="tdrline">
                 <table width="120%" border="0" cellpadding="2" cellspacing="1" id="queryadmin">
-                  <tr style="border: 2px solid;">                    
-                    <td width="15%" align="center" bgcolor="#CCC">管理員編號</td>
+                  <tr style="border: 2px solid;">
+                    <td width="15%" align="center" bgcolor="#CCC">會員編號</td>
                     <td width="15%" align="center" bgcolor="#CCC">姓名</td>
                     <td width="15%" align="center" bgcolor="#CCC">帳號</td>
                     <td width="15%" align="center" bgcolor="#CCC">加入時間</td>
                     <td width="15%" align="center" bgcolor="#CCC">上次登入</td>
-                    <!-- 登入次數排序 尚未完成 -->
+                    <!-- 登入次數排序-->
                     <td width="15%" align="center" bgcolor="#CCC">
-                      登入次數
-                    <a href="queryadmin.php?order=<?php echo $order; ?>"></a>
+                      <form name="form"  onclick="javascript:location.href='?order=<?php 
+                          echo $ordernum;
+                        ?>'" 
+                        method="GET">
+                        <button class="btn btn-primary btn-xs" type="button" name="order" id="order" padding="0">登入次數 
+                          <?php 
+                          if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
+                            echo "<i class='fa fa-sort-desc' aria-hidden='true'></i>";
+                          }elseif(isset($_GET["order"]) && ($_GET["order"]=="ASC")){
+                            echo "<i class='fa fa-sort-asc' aria-hidden='true'></i>";
+                          }else{
+                            echo "<i class='fa fa-sort' aria-hidden='true'></i>";
+                          }
+                        ?>                     
+                        </button>
+                      </form>
                     </td>
                     <td width="30%" align="center" bgcolor="#CCC">操作</td>
                   </tr>
@@ -193,11 +237,11 @@ $total_pages = ceil($total_records/$pageRow_records);
     ?>
 
     <!-- 環境建置 -->
-    <script src="../../scripts/jquery-3.4.1.slim.min.js"></script>
+    <script src="\scripts/jquery-3.4.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../../scripts/umd/popper.min.js"></script>
-    <script src="../../scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../scripts/ican.js"></script>
+    <script src="\scripts/umd/popper.min.js"></script>
+    <script src="\scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="\scripts/ican.js"></script>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
     <!-- 環境建置 -->
