@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once("../../connMysql.php");
 session_start();
 //檢查是否經過登入
@@ -55,10 +55,10 @@ if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
 }
 if(isset($_GET["order"])){
   //登入次數由高到低
-  $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'admin' ORDER BY `memberdata`.`m_login` $_GET["order"]";
+  $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'admin' ORDER BY `memberdata`.`m_login` {$_GET["order"]}";
   //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
   $query_limit_RecMember = $query_RecMember." LIMIT {$startRow_records}, {$pageRow_records}";
-  //以加上限制顯示筆數的SQL敘述句查詢資料到 $resultMember 中 
+  //以加上限制顯示筆數的SQL敘述句查詢資料到 $resultMember 中
   $RecMember = $db_link->query($query_limit_RecMember);
   //以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_resultMember 中
   $all_RecMember = $db_link->query($query_RecMember);
@@ -66,7 +66,7 @@ if(isset($_GET["order"])){
   $total_records = $all_RecMember->num_rows;
   //計算總頁數=(總筆數/每頁筆數)後無條件進位。
   $total_pages = ceil($total_records/$pageRow_records);
-}elseif(isset($_GET["order"]) && $_GET["order"] == ""){
+}elseif(!isset($_GET["order"]) && $_GET["order"] == ""){
   //未加限制顯示筆數的SQL敘述句
   $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'admin' ORDER BY `memberdata`.`m_id` ASC";
   //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
@@ -79,7 +79,6 @@ if(isset($_GET["order"])){
   $total_records = $all_RecMember->num_rows;
   //計算總頁數=(總筆數/每頁筆數)後無條件進位。
   $total_pages = ceil($total_records/$pageRow_records);
-}
 }
 ?>
 <!DOCTYPE html>
@@ -111,11 +110,11 @@ if(isset($_GET["order"])){
   include("admin-fixed.php");
   ?>
 
-  <div class="admincontent">      
+  <div class="admincontent">
       <table width="530" border="0" align="center" cellpadding="4" cellspacing="0" id="memberdata">
         <tr>
           <td class="tdbline">
-            <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" width="20%">  
+            <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" width="20%">
             <div style="float:'right'">
               <font color="#ff0000">　警告！任意刪除資料須負民事侵權損害賠償及刑事妨害電腦使用罪責任。</font>
             </div>
@@ -134,12 +133,12 @@ if(isset($_GET["order"])){
                     <td width="15%" align="center" bgcolor="#CCC">上次登入</td>
                     <!-- 登入次數排序-->
                     <td width="15%" align="center" bgcolor="#CCC">
-                      <form name="form"  onclick="javascript:location.href='?order=<?php 
+                      <form name="form"  onclick="javascript:location.href='?order=<?php
                           echo $ordernum;
-                        ?>'" 
+                        ?>'"
                         method="GET">
-                        <button class="btn btn-primary btn-xs" type="button" name="order" id="order" padding="0">登入次數 
-                          <?php 
+                        <button class="btn btn-primary btn-xs" type="button" name="order" id="order" padding="0">登入次數
+                          <?php
                           if(isset($_GET["order"]) && ($_GET["order"]=="DESC")){
                             echo "<i class='fa fa-sort-desc' aria-hidden='true'></i>";
                           }elseif(isset($_GET["order"]) && ($_GET["order"]=="ASC")){
@@ -147,50 +146,50 @@ if(isset($_GET["order"])){
                           }else{
                             echo "<i class='fa fa-sort' aria-hidden='true'></i>";
                           }
-                        ?>                     
+                        ?>
                         </button>
                       </form>
                     </td>
                     <td width="30%" align="center" bgcolor="#CCC">操作</td>
                   </tr>
-            <?php 
-                while($row_RecMember=$RecMember->fetch_assoc()){ 
+            <?php
+                while($row_RecMember=$RecMember->fetch_assoc()){
             ?>
-                  <tr style="border: 2px solid;">                    
+                  <tr style="border: 2px solid;">
                     <td width="15%" align="center" bgcolor="#FFF">
-                      <?php 
+                      <?php
                           echo $row_RecMember["m_id"];
-                      ?>                        
+                      ?>
                     </td>
                     <td width="15%" align="center" bgcolor="#FFF">
-                      <?php 
+                      <?php
                           echo $row_RecMember["m_name"];
-                      ?>                        
+                      ?>
                     </td>
                     <td width="15%" align="center" bgcolor="#FFF">
-                      <?php 
+                      <?php
                           echo $row_RecMember["m_username"];
-                      ?>                        
+                      ?>
                     </td>
                     <td width="15%" align="center" bgcolor="#FFF">
-                      <?php 
+                      <?php
                           echo $row_RecMember["m_jointime"];
-                      ?>                        
+                      ?>
                     </td>
                     <td width="15%" align="center" bgcolor="#FFF">
-                      <?php 
+                      <?php
                           echo $row_RecMember["m_logintime"];
-                      ?>                        
+                      ?>
                     </td>
                     <td width="15%" align="center" bgcolor="#FFF">
-                      <?php 
+                      <?php
                           echo $row_RecMember["m_login"];
-                      ?>                        
+                      ?>
                     </td>
                     <td width="30%" align="center" bgcolor="#FFF">
                       <a href="updateadmin.php?id=<?php echo $row_RecMember["m_id"];?>">修改</a><br>
                       <!-- 判斷要刪除的目標是否為自己 -->
-                      <?php 
+                      <?php
                         if($row_RecMember["m_id"] != $mid){
                       ?>
                       <a href="?action=delete&id=<?php echo $row_RecMember["m_id"];?>" onClick="return deletesure();">
@@ -201,36 +200,36 @@ if(isset($_GET["order"])){
                         }
                       ?>
                   </tr>
-            <?php 
+            <?php
               }
             ?>
-                </table>          
+                </table>
                 <hr size="1" />
                 <table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
                   <tr>
                     <td valign="middle"><p>資料筆數：<?php echo $total_records;?></p></td>
                     <td align="right"><p>
-                        <?php 
+                        <?php
                           if ($num_pages > 1) { // 若不是第一頁則顯示 ?>
                         <a href="?page=1">第一頁</a> | <a href="?page=<?php echo $num_pages-1;?>">上一頁</a> |
-                        <?php 
+                        <?php
                           }
                         ?>
-                        <?php 
-                          if ($num_pages < $total_pages) { // 若不是最後一頁則顯示 
+                        <?php
+                          if ($num_pages < $total_pages) { // 若不是最後一頁則顯示
                         ?>
                         <a href="?page=<?php echo $num_pages+1;?>">下一頁</a> | <a href="?page=<?php echo $total_pages;?>">最末頁</a>
-                        <?php 
+                        <?php
                           }
                         ?>
                     </p></td>
                   </tr>
                 </table>
-                </td>            
+                </td>
             </tr>
           </table></td>
         </tr>
-      </table>  
+      </table>
   </div>
     <?php
     include("../../layouts/footer.php");

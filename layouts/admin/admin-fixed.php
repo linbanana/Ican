@@ -1,5 +1,8 @@
 <input type="checkbox" name="" id="showsidebar" checked>
-<div class="side-menu">
+<div class="side-menu" onclick="sidemenu(this,'sidemenu')">
+  <script type="text/javascript">
+
+</script>
   <div class="sidebar-heading">
     <p>
       <img src="https://github.com/linbanana/ican/blob/master/images/logo.png?raw=true" id="adminlogo">

@@ -3,7 +3,7 @@ require("connMysql.php");  //呼叫connectMysql.php文件
 session_start();
 //檢查是否經過登入
 if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
-    header("Location: index.php");
+  header("Location: login.php");
 }
 
 //選取管理員資料
@@ -74,7 +74,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
         <div class="newspost col col-3"></div>
         <div class="newspost col col-6">
         <table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
-            <?php if ($_SESSION["memberLevel"] == "admin") {?>
+            <?php if ($_SESSION["memberLevel"] == "admin" && !isset($_SESSION["memberLevel"])) {?>
             <tr>
                 <td class="tdbline">
                     <div style="position:relative;">
@@ -89,7 +89,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
                     </div>
                 </td>
             </tr>
-        <?php }?>
+        <?php }elseif($_SESSION["memberLevel"] == "member" || !isset($_SESSION["memberLevel"])){}?>
         </table>
         <table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
         <?php
