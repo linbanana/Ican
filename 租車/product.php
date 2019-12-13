@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //require_once("connect.php");
 include("../connMysql.php");
 //購物車開始
@@ -42,12 +42,27 @@ $row_RecTotal = $RecTotal->fetch_assoc();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-
+  <!-- 環境建置 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/ican.css" rel="stylesheet" />
+    <!-- 環境建置 -->
 <title>租車系統</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+<style type="text/css">
+
+.smalltext {
+	font-size: 11px;
+	color: #999999;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	vertical-align: baseline;
+}
+</style>
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -83,8 +98,11 @@ $row_RecTotal = $RecTotal->fetch_assoc();
                 </div>
               <?php }?>
             </div>
-            <div class="albuminfo alert alert-primary"><span class="smalltext">特價 </span><span class="redword"><?php echo $row_RecProduct["s_price"];?></span><span class="smalltext"> 元</span>            </div>
-          </div>
+            <div class="albuminfo alert alert-primary">
+            
+               <span class="smalltext">特價 </span><span class="redword"><?php echo $row_RecProduct["s_price"];?></span>
+               <span class="smalltext"> 元</span>            </div>
+            </div>
           <div class="titleDiv alert alert-primary">
             <?php echo $row_RecProduct["s_model"];?></div>
           <div class="dataDiv alert alert-primary">
@@ -103,9 +121,7 @@ $row_RecTotal = $RecTotal->fetch_assoc();
         </tr>
     </table></td>
   </tr>
-  <tr>
-    <td height="30" align="center" background="images/album_r2_c1.jpg" class="trademark">© 2016 eHappy Studio All Rights Reserved.</td>
-  </tr>
+
 </table>
 </body>
 </html>

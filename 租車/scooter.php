@@ -1,4 +1,19 @@
-﻿<style type="text/css">
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 環境建置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/ican.css" rel="stylesheet" />
+    <!-- 環境建置 -->
+    <title>ican</title>
+</head>
+<body>
+<style type="text/css">
 .albumDiv {
 	float: left;
 	height: 200px;
@@ -63,6 +78,7 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 
 
 <div class="actionDiv "><a class="btn btn-info  badge badge-primary text-wrap" href="cart.php">我的租車</a></div>
+<div class="actionDiv "><a class="btn btn-info  badge badge-primary text-wrap" href="s_orderInqure.php">已完成訂單</a></div>
 <?php 
 
 for($i=0;$i<mysqli_num_rows($result);$i++){
@@ -85,36 +101,53 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
                 -->
 				
 				</div>
+				
                 <img src="img/<?php echo $rs['s_id'];?>.jpg" alt="<?php echo $rs["s_model"];?>" 
 				width="135" height="135" border="0" />
                
                 <?php }?>
-                </a></div>
-              <div class="albuminfo alert alert-primary"><a href="product.php?id=<?php echo $rs['s_id']; //抓ID 到product.php?>">
-			  <?php echo $rs['s_model'];?></a><br />
+                </a>
+</div>
+				
+              <div class="albuminfo border border-primary rounded-pill"><a href="product.php?id=<?php echo $rs['s_id']; //抓ID 到product.php?>"></a>
+			   <div><?php echo $rs['s_model'];?></div>
                 <span class="smalltext">特價 </span><span class="redword"><?php echo $rs['s_price'];?></span>
 				<span class="smalltext"> 元</span> 
                 
                 <div><?php 
 			    if($rs['s_num']>0){
+                    /*
 					//echo "<div class='badge badge-primary text-wrap'>";
-										echo "<buttom class='badge badge-light text-wrap'>";
-										
-					echo '可租借';
+				    echo "<buttom class='badge badge-light text-wrap'>";
+			        echo '可租借';
 					echo "</buttom>";
+					*/
+					echo "<buttom class='badge badge-warning text-wrap'>";
+					$s_id=$rs['s_id'];
+					echo "<a href='product.php?id=$s_id'>";
+			        echo '可租借';
+					echo "</buttom>";
+					
+
                                         
 				
 				}  
 				else echo '已全數租出';
                                 
                       ?>
-			</div></div>
+			     </div>
+			  </div>
+			  
 
-            </div>
+             </div>
 			
 		
             </div>
             
 
-
+			
 <?php    }?>
+
+</body>
+
+</html>

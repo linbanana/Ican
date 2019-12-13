@@ -1,5 +1,4 @@
-﻿<?php 
-//require_once("connMysql.php");
+<?php 
 include("../connMysql.php");
 //if(isset($_POST["customername"]) && ($_POST["customername"]!="")){
 	//購物車開始
@@ -32,7 +31,7 @@ include("../connMysql.php");
 	*/
 	$selectmember="SELECT `m_id` FROM `memberdata` WHERE `m_username`= '{$_SESSION["loginMember"]}'";
 	$pick=$db_link->query($selectmember);
-	$messagemember=$pick->fetch_assoc();
+	$messagemember=$pick->fetch_assoc();    //抓資料庫的會員ID
 
 	$sql_query = "INSERT INTO s_orderdata (m_id,total) 
 				   VALUES (?,?)";
@@ -93,6 +92,6 @@ msg;
 //}	
 ?>
 <script language="javascript">
-alert("感謝您的購買，我們將儘快進行處理。");
+alert("租借中，系統已寫入。");
 window.location.href="scooter.php";
 </script>

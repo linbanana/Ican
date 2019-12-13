@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 
+-- 產生時間： 2019-12-13 07:29:09
 -- 伺服器版本： 10.4.8-MariaDB
--- PHP 版本： 7.3.11
+-- PHP 版本： 7.2.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,7 +49,7 @@ CREATE TABLE `memberdata` (
 --
 
 INSERT INTO `memberdata` (`m_id`, `m_name`, `m_username`, `m_passwd`, `m_sex`, `m_birthday`, `m_email`, `m_phone`, `m_address`, `m_level`, `m_login`, `m_logintime`, `m_jointime`) VALUES
-(1, '系統管理員', 'admin', '$2y$10$5ejczVchwglsQLZtIQmHW.teH8Tvv8aluu.aPeFuYt7CIhHxY4.W6', '男', '2019-11-14', 'admin@gmail.com', '0955445632', '', 'admin', 77, '2019-11-30 16:43:00', '0000-00-00 00:00:00'),
+(1, '系統管理員', 'admin', '$2y$10$5ejczVchwglsQLZtIQmHW.teH8Tvv8aluu.aPeFuYt7CIhHxY4.W6', '男', '2019-11-14', 'admin@gmail.com', '0955445632', '', 'admin', 89, '2019-12-13 08:12:38', '0000-00-00 00:00:00'),
 (2, '張惠玲', 'elven', '$2y$10$0BVHeh6R97hTcK4guYStm.d49gdFxLF/4CJgvLo0yIYZaoyMbr4ae', '女', '1987-04-05', 'elven@superstar.com', '0966765556', '台北市濟洲北路12號2樓', 'member', 12, '0000-00-00 00:00:00', '2019-11-02 12:03:12'),
 (3, '彭建志', 'jinglun', '$2y$10$WqB2bnMSO/wgBiHSOBV2iuLbrUCsp8VmNJdK2AyIW6IANUL9jeFjC', '男', '1987-07-01', 'jinglun@superstar.com', '0918181111', '台北市敦化南路93號5樓', 'member', 0, NULL, '2019-11-02 12:03:12'),
 (4, '謝耿鴻', 'sugie', '$2y$10$6uWtdYATI3b/wMRk.AaqIei852PLf.WjeKm8X.Asl0VTmpxCkqbW6', '男', '1987-08-11', 'edreamer@gmail.com', '0914530768', '台北市中央路201號7樓', 'member', 2, '0000-00-00 00:00:00', '2019-11-02 12:03:12'),
@@ -67,7 +67,7 @@ INSERT INTO `memberdata` (`m_id`, `m_name`, `m_username`, `m_passwd`, `m_sex`, `
 (38, 'test5556572', 'test5556572', '$2y$10$b.Cm4Mgn2URLj.m9imjalus8D42mGv2ZMmTyku68Vj.pTSxq77YWi', '女', '2019-11-11', 'test5556572@gmail.com', '0944856253', '', 'member', 0, NULL, '2019-11-09 17:51:07'),
 (39, '안녕하세요', 'qwer1234', '$2y$10$CkYjED43/iS8I9w2CpDv8er3c.W1kg4SWxILxn0HwYEN/feEwySBC', '女', '2019-11-09', 'asdf@gm.co', '0912345678', 'Dhdhdjdjdj', 'member', 1, '2019-11-09 18:09:24', '2019-11-09 18:08:49'),
 (40, '小新', 'zxc001', '$2y$10$FQrPTP8sFtlGxmCTSsUD9eW4pIl6Bz5SGrEHLaW6oqBEtTlkmbZuG', '女', '2019-11-07', '123@123.com', '0933123456', '', 'member', 0, NULL, '2019-11-09 19:06:48'),
-(41, 'test123', 'test123', '$2y$10$drleZYpEtRYrDs1IlPK9ROlSUe.hnPh7Xt4OtSHS6S/7L4g2KDP1q', '女', '2014-02-05', 'test123@gmail.com', '0955441256', '', 'member', 37, '2019-11-30 14:50:02', '2019-11-12 23:09:13'),
+(41, 'test123', 'test123', '$2y$10$drleZYpEtRYrDs1IlPK9ROlSUe.hnPh7Xt4OtSHS6S/7L4g2KDP1q', '女', '2014-02-05', 'test123@gmail.com', '0955441256', '', 'member', 44, '2019-12-13 08:46:49', '2019-11-12 23:09:13'),
 (42, 'xss123', 'xss123', '$2y$10$4oRkw/m5bKOgsoKBMGnKMuSSvyrGMOdy.aQPx9q4erMHHRUdgB2Ie', '女', '2019-11-06', '123@gmail.com', '0955446523', '<script type=\\\"text/javascript\\\" src=\\\"https://www.google.com/js/test.js\\\" ></script>', 'member', 0, NULL, '2019-11-13 13:14:56'),
 (45, '系統管理員2', 'admin2', '$2y$10$u7RL7Ib8zSpaZd3qS4Lyh.MEow6qssVhoO5tFk5rUh952PXiKcEzm', '女', '2019-11-04', 'admin2@gmail.com', '0955445632', '', 'admin', 2, '2019-11-23 13:37:28', '2019-11-16 18:03:09'),
 (46, 'Aaa', 'qwerasdf', '$2y$10$CazBtjCeSkKkeeY4d0LPx.B.KILvRoGgvYJYEuMNY7Sf/PO4fclqK', '女', '2019-11-20', 'A@a.com', '0913333333', '', 'member', 1, '2019-11-23 17:23:37', '2019-11-23 17:23:21'),
@@ -100,7 +100,6 @@ INSERT INTO `message` (`guestID`, `guestname`, `guestgender`, `guestphone`, `gue
 (41, '許', '女', 655465, '65554', '1211', '2019-11-11 10:19:26'),
 (42, '許', '男', 91245, 'ad65@gmail.com', '你好', '2019-11-12 09:41:12'),
 (43, '許直', '男', 252, '15215', '2626', '2019-11-12 13:57:44'),
-(44, '許正代', '男', 0, '', '', '2019-11-12 14:12:04'),
 (45, '許直式', '女', 91245, 'ad65@gmail.com', '6554', '2019-11-12 14:20:59'),
 (46, '許直', '男', 91245, 'ad65@gmail.com', '你好', '2019-11-12 14:24:59'),
 (47, '你好', '女', 2147483647, 'ad56565@gmail.com', '你好', '2019-11-12 15:18:29'),
@@ -110,11 +109,91 @@ INSERT INTO `message` (`guestID`, `guestname`, `guestgender`, `guestphone`, `gue
 (52, '12', '男', 91245, 'ad65@gmail.com', '14515', '2019-11-25 08:46:05'),
 (53, '許', '男', 91245151, '65554@gmail.com', '測試11/25', '2019-11-25 08:46:32'),
 (54, '陳菊', '女', 91245, 'ad65@gmail.com', '', '2019-11-25 09:47:29'),
-(55, '12', '', 0, '', '', '2019-11-25 17:55:57'),
 (56, 'ab0722', '男', 937666565, 'ab0722@gmail.com', '測試', '2019-11-26 08:13:28'),
 (57, '李澎澎', '男', 937666565, 'ab0722@gmail.com', '測試', '2019-11-26 08:17:35'),
 (58, '系統管理員', '男', 955445632, 'admin@gmail.com', '1233', '2019-11-26 10:46:20'),
-(59, 'asd123', '女', 955441253, 'asd123@gmail.com', '13', '2019-11-26 10:50:30');
+(59, 'asd123', '女', 955441253, 'asd123@gmail.com', '13', '2019-11-26 10:50:30'),
+(62, '系統管理員', '男', 955445632, 'admin@gmail.com', 'gggggggggggggggggggggggggggggggggggggggggggggggggg', '2019-12-09 08:48:15'),
+(63, '系統管理員', '男', 955445632, 'admin@gmail.com', 'gggggggggggggggggggggggggggggggggggggggggggggggggg', '2019-12-09 08:50:50'),
+(67, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:20:01'),
+(68, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:20:50'),
+(69, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:20:54'),
+(70, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:21:08'),
+(71, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:21:44'),
+(72, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:22:52'),
+(73, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:23:05'),
+(74, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:23:13'),
+(75, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:23:43'),
+(76, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:24:02'),
+(77, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:24:10'),
+(78, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:24:34'),
+(79, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:24:48'),
+(80, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:24:58'),
+(81, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:25:05'),
+(82, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:25:26'),
+(83, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:25:34'),
+(84, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:26:08'),
+(85, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:28:37'),
+(86, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:29:11'),
+(87, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:31:13'),
+(88, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:31:30'),
+(89, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:37:16'),
+(90, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:37:24'),
+(91, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:37:41'),
+(92, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:37:50'),
+(93, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:38:05'),
+(94, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:38:29'),
+(95, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:38:40'),
+(96, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:38:59'),
+(97, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:39:06'),
+(98, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:39:16'),
+(99, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:41:29'),
+(100, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:42:21'),
+(101, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:43:00'),
+(102, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:43:20'),
+(103, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:45:32'),
+(104, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:45:39'),
+(105, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:49:03'),
+(106, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:49:25'),
+(107, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asgfdasgsgsopgjopasdg', '2019-12-09 10:49:59'),
+(108, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 10:51:57'),
+(109, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 10:55:55'),
+(110, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 10:57:09'),
+(111, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 10:57:27'),
+(112, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 10:57:50'),
+(113, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 10:58:46'),
+(114, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 10:59:59'),
+(115, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:00:29'),
+(116, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:01:07'),
+(117, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:01:23'),
+(118, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:01:31'),
+(119, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:02:03'),
+(120, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:02:47'),
+(121, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:03:39'),
+(122, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:04:04'),
+(123, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:04:52'),
+(124, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:07:12'),
+(125, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:07:35'),
+(126, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:08:45'),
+(127, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:09:02'),
+(128, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:09:29'),
+(129, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:10:04'),
+(130, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:10:13'),
+(131, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:10:27'),
+(132, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:10:37'),
+(133, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:10:59'),
+(134, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:11:33'),
+(135, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:12:07'),
+(136, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:12:25'),
+(137, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:12:35'),
+(138, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:13:27'),
+(139, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:13:37'),
+(140, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:14:00'),
+(141, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:14:10'),
+(142, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:14:30'),
+(143, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:16:00'),
+(144, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:19:25'),
+(145, '系統管理員', '男', 955445632, 'admin@gmail.com', 'esgesgageg', '2019-12-09 15:15:57');
 
 -- --------------------------------------------------------
 
@@ -141,46 +220,67 @@ INSERT INTO `modeldata` (`r_model`, `r_price`, `r_num`, `r_disc`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `newsdata`
+--
+
+CREATE TABLE `newsdata` (
+  `newsid` int(11) NOT NULL,
+  `newstitle` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `newscontent` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `newstime` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 傾印資料表的資料 `newsdata`
+--
+
+INSERT INTO `newsdata` (`newsid`, `newstitle`, `newscontent`, `newstime`) VALUES
+(1, '8888888', '集線器（Hub）是指將多條乙太網路雙絞線或光纖集合連接在同一段物理介質下的裝置。集線器是運作在OSI模型中的實體層。它可以視作多埠的中繼器，若它偵測到碰撞，它會送出阻塞訊號。\r\n\r\n集線器通常會附上BNC and/or AUI轉接頭來連接傳統10BASE2或10BASE5網路。\r\n\r\n由於集線器會把收到的任何數位訊號，經過再生或放大，再從集線器的所有埠送出，這會造成訊號之間碰撞的機會很大，而且訊號也可能被竊聽，並且這代表所有連到集線器的裝置，都是屬於同一個碰撞網域以及廣播網域，因此大部份集線器已被交換機取代。\r\n\r\n集線器的種類\r\n被動型集線器（Passive Hub），集線器不需連接電源，因此網路訊號隨距離衰減，只適用於短距離的網路連接。\r\n主動型集線器（Active Hub），集線器需連接電源，可加強訊號強度（整波放大）。\r\n除此之外，有的集線器可能具有Up Link的插孔，可串接成樹狀區域網路。', '2019-12-10 13:25:28'),
+(5, '12412', '214124', '2019-12-10 13:36:22'),
+(6, '12412', '214124', '2019-12-10 13:40:06'),
+(7, '12412', '214124', '2019-12-10 13:40:38'),
+(9, '12412', '214124', '2019-12-10 13:40:44'),
+(10, '12412', '214124', '2019-12-10 13:40:44'),
+(11, '12412', '214124', '2019-12-10 13:40:58'),
+(13, '12412', '214124', '2019-12-10 13:41:20'),
+(15, '12412', '214124', '2019-12-10 13:47:11'),
+(16, '12412', '214124', '2019-12-10 13:52:20'),
+(17, '12412', '214124', '2019-12-10 13:52:50'),
+(18, '12412', 'Read the license agreement and hit Agree to continue installation. Wait a few seconds while the file', '2019-12-10 13:53:07');
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `orderdata`
 --
 
 CREATE TABLE `orderdata` (
   `o_num` int(10) NOT NULL,
-  `m_id` int(10) NOT NULL,
-  `r_id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `o_phone` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `o_time` date NOT NULL,
+  `o_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `o_phone` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `o_citime` date NOT NULL,
-  `o_day` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `o_total` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `o_cotime` date NOT NULL
+  `o_day` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `o_total` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `o_cotime` date NOT NULL,
+  `o_ferry` enum('公營','民營') COLLATE utf8_unicode_ci NOT NULL,
+  `r_id` int(10) DEFAULT NULL,
+  `t_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 傾印資料表的資料 `orderdata`
 --
 
-INSERT INTO `orderdata` (`o_num`, `m_id`, `r_id`, `o_phone`, `o_time`, `o_citime`, `o_day`, `o_total`, `o_cotime`) VALUES
-(1, 2147483647, '李連結', '', '0000-00-00', '2019-11-15', '2', '2500', '2019-11-14'),
-(2, 2147483647, '張東閔', '', '0000-00-00', '2013-11-16', '1', '1500', '2019-11-15'),
-(3, 2147483647, '陸愛善', '', '0000-00-00', '2014-11-15', '2', '2520', '2019-11-14'),
-(4, 2147483647, '賴雅婷', '', '0000-00-00', '2009-10-15', '4', '1890', '2019-11-14'),
-(5, 2147483647, '詹意希', '', '0000-00-00', '2019-11-15', '1', '2480', '2019-11-14'),
-(6, 2147483647, '陳家如', '', '0000-00-00', '2018-05-15', '1', '2400', '2019-11-14'),
-(7, 2147483647, '游思穎', '', '0000-00-00', '2009-11-25', '2', '8400', '2019-11-14'),
-(8, 2147483647, '許尹辛', '', '0000-00-00', '2019-06-15', '1', '2500', '2019-11-14'),
-(9, 2147483647, '陳哲維', '', '0000-00-00', '2019-11-15', '2', '2700', '2019-11-14'),
-(10, 2147483647, '陳信宏', '', '0000-00-00', '2009-06-15', '2', '2500', '2019-11-14'),
-(11, 2147483647, '李結', '', '0000-00-00', '2019-11-26', '1', '2500', '2019-11-14'),
-(12, 2147483647, '許萬士', '', '0000-00-00', '2018-11-15', '2', '2500', '2019-11-14'),
-(13, 2147483647, '李連結', '', '0000-00-00', '2019-06-15', '5', '8500', '2019-11-14'),
-(14, 2147483647, '陳華強', '', '0000-00-00', '2011-11-15', '2', '2600', '2019-11-14'),
-(15, 2147483647, '陳郁', '', '0000-00-00', '2016-11-15', '3', '5500', '2019-11-14'),
-(16, 2147483647, '許志火', '', '0000-00-00', '2016-11-15', '2', '2500', '2019-11-14'),
-(17, 0, '就是我', '5405454', '0000-00-00', '2019-10-30', '50', '500000', '2019-11-20'),
-(18, 0, '123', '0955445625', '0000-00-00', '2019-11-12', '123', '456', '2019-11-05'),
-(19, 0, '就是我', '099999', '0000-00-00', '2019-11-13', '500', '500000', '2019-11-20'),
-(20, 0, '156', '789564', '0000-00-00', '2019-11-15', '123', '456', '2019-11-22');
+INSERT INTO `orderdata` (`o_num`, `o_time`, `o_name`, `o_phone`, `o_citime`, `o_day`, `o_total`, `o_cotime`, `o_ferry`, `r_id`, `t_id`) VALUES
+(32, '0000-00-00', '李澎澎', '0925333565', '2019-12-10', '1', '2000', '2019-12-11', '公營', 5, 0),
+(36, '0000-00-00', '李澎澎', '0925333565', '2019-12-11', '1', '10000', '2019-12-12', '公營', 5, 0),
+(39, '0000-00-00', '阿樂', '0931777777', '2019-12-10', '3', '18000', '2019-12-13', '公營', 8, 0),
+(42, '0000-00-00', '阿樂', '0931777777', '2019-12-10', '2', '12000', '2019-12-12', '公營', 7, 0),
+(43, '0000-00-00', '阿樂', '0931777777', '2019-12-10', '2', '14000', '2019-12-12', '公營', 10, 0),
+(44, '0000-00-00', '阿樂', '0931777777', '2019-12-12', '1', '6000', '2019-12-13', '公營', 7, 0),
+(45, '0000-00-00', '李澎澎', '0925333565', '2019-12-10', '2', '3000', '2019-12-12', '公營', 1, 0),
+(46, '0000-00-00', '李澎澎', '0925333565', '2019-12-13', '1', '2400', '2019-12-14', '公營', 4, 0);
 
 -- --------------------------------------------------------
 
@@ -189,8 +289,8 @@ INSERT INTO `orderdata` (`o_num`, `m_id`, `r_id`, `o_phone`, `o_time`, `o_citime
 --
 
 CREATE TABLE `roomdata` (
-  `r_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `m_id` int(10) NOT NULL,
+  `r_id` int(10) NOT NULL,
+  `r_type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `r_model` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `r_price` int(10) NOT NULL,
   `r_disc` varchar(50) COLLATE utf8_unicode_ci NOT NULL
@@ -200,27 +300,16 @@ CREATE TABLE `roomdata` (
 -- 傾印資料表的資料 `roomdata`
 --
 
-INSERT INTO `roomdata` (`r_id`, `m_id`, `r_model`, `r_price`, `r_disc`) VALUES
-('001', 0, '漫威主題套房', 0, ''),
-('002', 0, '迪士尼主題套房', 0, ''),
-('003', 0, '海洋世界主題套房', 0, ''),
-('004', 0, '星空主題套房', 0, ''),
-('005', 0, '埃及主題套房', 0, ''),
-('006', 0, '羅馬主題套房', 0, ''),
-('007', 0, '歐式客房', 0, ''),
-('008', 0, '和式客房', 0, ''),
-('009', 0, '經濟家庭房_1', 0, ''),
-('010', 0, '經濟家庭房_2', 0, ''),
-('011', 0, '經濟家庭房_3', 0, ''),
-('012', 0, '經濟家庭房_4', 0, ''),
-('013', 0, '豪華家庭房_1', 0, ''),
-('014', 0, '豪華家庭房_2', 0, ''),
-('015', 0, '豪華家庭房_3', 0, ''),
-('016', 0, '豪華家庭房_4', 0, ''),
-('017', 0, '商務套房_1', 0, ''),
-('018', 0, '商務套房_2', 0, ''),
-('019', 0, '總統套房_1', 0, ''),
-('020', 0, '總統套房_2', 0, '');
+INSERT INTO `roomdata` (`r_id`, `r_type`, `r_model`, `r_price`, `r_disc`) VALUES
+(1, '單人/雙人客房', '漫威主題套房', 1500, '各式單雙人主題套房可供選擇'),
+(2, '單人/雙人客房', '迪士尼主題套房', 1500, '各式單雙人主題套房可供選擇'),
+(3, '單人/雙人客房', '海洋世界主題套房', 1500, '各式單雙人主題套房可供選擇'),
+(4, '四人家庭客房', '經濟家庭房', 2400, '各式家庭風格及主題套房可供選擇'),
+(5, '四人家庭客房', '豪華家庭房', 2400, '各式家庭風格及主題套房可供選擇'),
+(6, '四人家庭客房', '和式客房', 2400, '各式家庭風格及主題套房可供選擇'),
+(7, '套房', '商務套房', 6000, '有兩種高級式套房分別是總統風格及商務式風格'),
+(10, '套房', '總統套房', 7000, '有兩種高級式套房分別是總統風格及商務式風格'),
+(11, '套房', '商務套房', 6000, '有兩種高級式套房分別是總統風格及商務式風格');
 
 -- --------------------------------------------------------
 
@@ -273,6 +362,15 @@ CREATE TABLE `s_orderdata` (
   `total` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- 傾印資料表的資料 `s_orderdata`
+--
+
+INSERT INTO `s_orderdata` (`s_order_id`, `m_id`, `total`) VALUES
+(1, 41, 3850),
+(2, 41, 240),
+(3, 41, 630);
+
 -- --------------------------------------------------------
 
 --
@@ -287,6 +385,15 @@ CREATE TABLE `s_orderdetail` (
   `s_quantity` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- 傾印資料表的資料 `s_orderdetail`
+--
+
+INSERT INTO `s_orderdetail` (`s_orderdetid`, `s_order_id`, `s_id`, `s_unitprice`, `s_quantity`) VALUES
+(1, 1, 2, 350, 11),
+(2, 2, 3, 240, 1),
+(3, 3, 4, 630, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -294,24 +401,64 @@ CREATE TABLE `s_orderdetail` (
 --
 
 CREATE TABLE `traveldata` (
-  `m_id` int(10) NOT NULL,
-  `o_num` int(10) NOT NULL,
   `t_id` int(20) NOT NULL,
-  `t_class` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `t_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `t_ferry` enum('公營','民營') COLLATE utf8_unicode_ci NOT NULL,
-  `t_disc` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+  `t_class` enum('周邊景點','麻花捲','水上活動','烤肉','廟') COLLATE utf8_unicode_ci NOT NULL,
+  `t_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 傾印資料表的資料 `traveldata`
 --
 
-INSERT INTO `traveldata` (`m_id`, `o_num`, `t_id`, `t_class`, `t_name`, `t_ferry`, `t_disc`) VALUES
-(0, 0, 1, '水上活動', '海底觀光潛水船', '', ''),
-(0, 0, 2, '水上活動', '威尼斯海灘', '', ''),
-(0, 0, 3, '冬季旅遊', '東港迎王祭', '', ''),
-(0, 0, 4, '冬季旅遊', '三隆宮迎王盛事', '', '');
+INSERT INTO `traveldata` (`t_id`, `t_class`, `t_name`) VALUES
+(1, '周邊景點', '蛤板灣'),
+(2, '周邊景點', '美人洞'),
+(3, '周邊景點', '烏鬼洞'),
+(4, '周邊景點', '龍蝦洞'),
+(5, '周邊景點', '中澳沙灘'),
+(6, '周邊景點', '山豬溝'),
+(7, '周邊景點', '厚石魚澳'),
+(8, '周邊景點', '竹林生態濕地公園'),
+(9, '周邊景點', '肚仔坪'),
+(10, '周邊景點', '花瓶石'),
+(11, '麻花捲', '王老師手工麻花捲'),
+(12, '麻花捲', '龍鑽烘炸手工麻花捲'),
+(13, '麻花捲', '寶哥烘炸小琉球麻花捲相思旗艦店'),
+(14, '麻花捲', '合家手工麻花捲'),
+(15, '麻花捲', '蘇媽媽手工麻花捲'),
+(16, '麻花捲', '香香手工麻花捲'),
+(17, '麻花捲', '小琉球黃家麻花捲'),
+(18, '麻花捲', '二伯母手工麻花捲'),
+(19, '麻花捲', '小琉球在地人手工麻花捲'),
+(20, '麻花捲', '三姐手工麻花捲'),
+(21, '水上活動', '小琉球-小綠龜潛水'),
+(22, '水上活動', '蜂潛水海洋俱樂部潛水中心'),
+(23, '水上活動', '潛水阿貴民宿'),
+(24, '水上活動', '永春浮潛'),
+(25, '水上活動', '田老大潛水'),
+(26, '水上活動', '奧之海潛水旅宿'),
+(27, '水上活動', '啾開心浮潛'),
+(28, '水上活動', '小琉球綠蠵龜潛水住宿'),
+(29, '水上活動', '阿Ya潛棧 A Ya Diving Ho'),
+(30, '水上活動', '八福育樂有限公司小琉球觀光海底玻璃船'),
+(31, '烤肉', '品鮮火鍋烤肉吃到飽'),
+(32, '烤肉', '蘇媽媽碳烤BBQ'),
+(33, '烤肉', '夯吧燒烤'),
+(34, '烤肉', '極香碳烤'),
+(35, '烤肉', '小琉球燒肉王'),
+(36, '烤肉', '小琉球五點燒烤'),
+(37, '烤肉', '鑫月碳烤'),
+(38, '烤肉', '謝榴阿嬤燒烤'),
+(39, '烤肉', '上好炭烤'),
+(40, '廟', '關廟幸山堂'),
+(41, '廟', '大眾千歲廟'),
+(42, '廟', '小琉球天仙宮'),
+(43, '廟', '碧雲寺觀音佛祖'),
+(44, '廟', '土地公(天南福安宮)'),
+(45, '廟', '小琉球池隆宮'),
+(46, '廟', '小琉球三隆宮'),
+(47, '廟', '小琉球華山代天宮'),
+(48, '廟', '小琉球水仙宮');
 
 --
 -- 已傾印資料表的索引
@@ -329,6 +476,12 @@ ALTER TABLE `memberdata`
 --
 ALTER TABLE `message`
   ADD PRIMARY KEY (`guestID`);
+
+--
+-- 資料表索引 `newsdata`
+--
+ALTER TABLE `newsdata`
+  ADD PRIMARY KEY (`newsid`);
 
 --
 -- 資料表索引 `orderdata`
@@ -386,13 +539,25 @@ ALTER TABLE `memberdata`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `message`
 --
 ALTER TABLE `message`
-  MODIFY `guestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `guestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `newsdata`
+--
+ALTER TABLE `newsdata`
+  MODIFY `newsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orderdata`
 --
 ALTER TABLE `orderdata`
-  MODIFY `o_num` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `o_num` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `roomdata`
+--
+ALTER TABLE `roomdata`
+  MODIFY `r_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `scooterdata`
@@ -404,19 +569,19 @@ ALTER TABLE `scooterdata`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `s_orderdata`
 --
 ALTER TABLE `s_orderdata`
-  MODIFY `s_order_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `s_order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `s_orderdetail`
 --
 ALTER TABLE `s_orderdetail`
-  MODIFY `s_orderdetid` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `s_orderdetid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `traveldata`
 --
 ALTER TABLE `traveldata`
-  MODIFY `t_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `t_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

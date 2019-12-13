@@ -20,7 +20,7 @@ session_start();
     <?php
     include("layouts/header.php");
     ?>
-
+    
     <div class="content">
         <!--Content部分(未改)-->
         <div class="welcome">
