@@ -85,36 +85,49 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
                 -->
 				
 				</div>
+				
                 <img src="img/<?php echo $rs['s_id'];?>.jpg" alt="<?php echo $rs["s_model"];?>" 
 				width="135" height="135" border="0" />
                
                 <?php }?>
-                </a></div>
-              <div class="albuminfo alert alert-primary"><a href="product.php?id=<?php echo $rs['s_id']; //抓ID 到product.php?>">
-			  <?php echo $rs['s_model'];?></a><br />
+                </a>
+</div>
+				
+              <div class="albuminfo border border-primary rounded-pill"><a href="product.php?id=<?php echo $rs['s_id']; //抓ID 到product.php?>"></a>
+			   <div><?php echo $rs['s_model'];?></div>
                 <span class="smalltext">特價 </span><span class="redword"><?php echo $rs['s_price'];?></span>
 				<span class="smalltext"> 元</span> 
                 
                 <div><?php 
 			    if($rs['s_num']>0){
+                    /*
 					//echo "<div class='badge badge-primary text-wrap'>";
-										echo "<buttom class='badge badge-light text-wrap'>";
-										
-					echo '可租借';
+				    echo "<buttom class='badge badge-light text-wrap'>";
+			        echo '可租借';
 					echo "</buttom>";
+					*/
+					echo "<buttom class='badge badge-warning text-wrap'>";
+					$s_id=$rs['s_id'];
+					echo "<a href='product.php?id=$s_id'>";
+			        echo '可租借';
+					echo "</buttom>";
+					
+
                                         
 				
 				}  
 				else echo '已全數租出';
                                 
                       ?>
-			</div></div>
+			     </div>
+			  </div>
+			  
 
-            </div>
+             </div>
 			
 		
             </div>
             
 
-
+			
 <?php    }?>
