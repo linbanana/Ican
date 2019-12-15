@@ -33,14 +33,16 @@ $memberid = $member['m_name'];
 
 $searchtravel = "SELECT DISTINCT `t_class` FROM `traveldata`";  //將SQL指令設定在$sql_query
 $travelclass = $db_link->query($searchtravel);
+$row_travelclass = $travelclass->fetch_all();
 
 if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
-    $query_insert = "INSERT INTO `t_orderdata`(`travel_1`, `travel_2`) VALUES (?,?)";
+    $query_insert = "INSERT INTO `t_orderdetail`(`t_id1`, `t_id2`, `t_id3`) VALUES (?,?,?)";
     $stmt = $db_link->prepare($query_insert);
     $stmt->bind_param(
-      "ss",
-      GetSQLValueString($_POST["t_class"], 'string'),
-      GetSQLValueString($_POST["t_name"], 'string')
+      "sss",
+      GetSQLValueString($_POST["t_name1"], 'string'),
+      GetSQLValueString($_POST["t_name2"], 'string'),
+      GetSQLValueString($_POST["t_name3"], 'string')
     );
     $stmt->execute();
     $stmt->close();
@@ -81,16 +83,54 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     <title>ican</title>
     <script type="text/javascript">
     $(function() {
-        $("#t_class").change(function() {
+        $(".t_class1").change(function() {
             $.ajax({
                 type: "POST", //傳送方式
-                url: "", //傳送目的地
+                url: "active.php", //傳送目的地
                 dataType: "text", //資料格式
                 data: { //傳送資料
-                    select: $("#t_class").val() //表單欄位 ID nickname
+                    select: $(".t_class1").val() //表單欄位 ID nickname
                 },
                 success: function(data) {
-                    $("#t_name").html(data);
+                    $(".t_name1").html(data);
+                },
+                error: function(jqXHR) {
+                    alert("傳輸錯誤");
+                }
+            });
+        });
+    });
+
+    $(function() {
+        $(".t_class2").change(function() {
+            $.ajax({
+                type: "POST", //傳送方式
+                url: "active.php", //傳送目的地
+                dataType: "text", //資料格式
+                data: { //傳送資料
+                    select: $(".t_class2").val() //表單欄位 ID nickname
+                },
+                success: function(data) {
+                    $(".t_name2").html(data);
+                },
+                error: function(jqXHR) {
+                    alert("傳輸錯誤");
+                }
+            });
+        });
+    });
+
+    $(function() {
+        $(".t_class3").change(function() {
+            $.ajax({
+                type: "POST", //傳送方式
+                url: "active.php", //傳送目的地
+                dataType: "text", //資料格式
+                data: { //傳送資料
+                    select: $(".t_class3").val() //表單欄位 ID nickname
+                },
+                success: function(data) {
+                    $(".t_name3").html(data);
                 },
                 error: function(jqXHR) {
                     alert("傳輸錯誤");
@@ -99,6 +139,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
         });
     });
     </script>
+
+    <style>
+        ul li{
+            float:left;
+        }
+    </style>
 </head>
 
 <body>
@@ -107,20 +153,83 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     include("layouts/header.php");
     ?>
 
-
-
         <form class="newsform" name="form1" method="POST" action="">
-            <iframe src="https://www.google.com/maps/d/embed?mid=1_KWBPZEEdoCUSQL6YW1z-C52aEY1L-Ac&ll=22.34112367512831%2C120.36961528583277&z=14" width="100%" height="480"></iframe>
-            <select name="t_class" id="t_class">
+        <iframe src="https://www.google.com/maps/d/embed?mid=1_KWBPZEEdoCUSQL6YW1z-C52aEY1L-Ac&ll=22.34112367512831%2C120.36961528583277&z=14" width="100%" height="480"></iframe>
+            <input type="radio" name="ferry" value="公營">公營
+            <input type="radio" name="ferry" value="民營">民營</br>
+            請輸入天數:<input type="text" name="daynumber"></br>
+        </form>
+        <form class="newsform" name="form2" method="POST" action="">
+            <ul>
+           <li> 上午:</br>
+            <select name="t_class1" class="t_class1">
                 <?php
-                    while ($row_travelclass = $travelclass->fetch_assoc()) {
-                        echo "<option>".$row_travelclass["t_class"]."</option>";
+                    foreach ($row_travelclass as $value){
+                        echo "<option>".$value[0]."</option>";
                     }
                 ?>
             </select></br>
-            <select name="t_name" id="t_name">
+            <select name="t_name1" class="t_name1">
 
-            </select>
+            </select></br>
+            中午:</br>
+            <select name="t_class2" class="t_class2">
+                <?php
+                    foreach ($row_travelclass as $value){
+                        echo "<option>".$value[0]."</option>";
+                    }
+                ?>
+            </select></br>
+            <select name="t_name2" class="t_name2">
+
+            </select></br>
+            下午:</br>
+            <select name="t_class3" class="t_class3">
+                <?php
+                    foreach ($row_travelclass as $value){
+                        echo "<option>".$value[0]."</option>";
+                    }
+                ?>
+            </select></br>
+            <select name="t_name3" class="t_name3">
+
+            </select></li>
+
+            <li> 上午:</br>
+            <select name="t_class1" class="t_class1">
+                <?php
+                    foreach ($row_travelclass as $value){
+                        echo "<option>".$value[0]."</option>";
+                    }
+                ?>
+            </select></br>
+            <select name="t_name1" class="t_name1">
+
+            </select></br>
+            中午:</br>
+            <select name="t_class2" class="t_class2">
+                <?php
+                    foreach ($row_travelclass as $value){
+                        echo "<option>".$value[0]."</option>";
+                    }
+                ?>
+            </select></br>
+            <select name="t_name2" class="t_name2">
+
+            </select></br>
+            下午:</br>
+            <select name="t_class3" class="t_class3">
+                <?php
+                    foreach ($row_travelclass as $value){
+                        echo "<option>".$value[0]."</option>";
+                    }
+                ?>
+            </select></br>
+            <select name="t_name3" class="t_name3">
+
+            </select></li>
+                </ul>
+            <div class="clearfix"></div>
             <p align="center">
                 <input name="action" type="hidden" id="action" value="travel">
                 <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="送出申請">
