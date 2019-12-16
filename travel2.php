@@ -5,13 +5,13 @@ function GetSQLValueString($theValue, $theType)
 {
   switch ($theType) {
     case "string":
-      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_MAGIC_QUOTES) : "";
-      break;
+    $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_MAGIC_QUOTES) : "";
+    break;
     case "int":
-      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_NUMBER_INT) : "";
-      break;
-  }
-  return $theValue;
+    $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_NUMBER_INT) : "";
+    break;
+}
+return $theValue;
 }
 
 //檢查是否經過登入
@@ -31,6 +31,14 @@ $stmt->close();
 $searchtravel = "SELECT DISTINCT `t_class` FROM `traveldata`";  //將SQL指令設定在$sql_query
 $travelclass = $db_link->query($searchtravel);
 $row_travelclass = $travelclass->fetch_all();
+$searchtravel = "SELECT DISTINCT `t_class` FROM `traveldata` WHERE `t_class` = '烤肉'";
+$travelBBQ = $db_link->query($searchtravel);
+$row_travelBBQ = $travelBBQ->fetch_all();
+
+//查詢最近的訂單時間
+$query_travelday = "SELECT `o_day` FROM `orderdata` WHERE `o_name`='$mname' and `o_time`='2019-12-19'";
+$travelday = $db_link->query($query_travelday);
+$row_travelday = $travelday->fetch_assoc();
 
 if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
     $query_insert = "INSERT INTO `t_orderdata`(`m_id`, `travel_1`, `travel_2`, `travel_3`) VALUES ($mid,?,?,?)";
@@ -40,7 +48,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
       GetSQLValueString($_POST["t_name1"], 'string'),
       GetSQLValueString($_POST["t_name2"], 'string'),
       GetSQLValueString($_POST["t_name3"], 'string')
-    );
+  );
     $stmt->execute();
     $stmt->close();
     $db_link->close();
@@ -62,9 +70,9 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
     <!-- 環境建置 -->
     <title>ican</title>
     <script type="text/javascript">
-    $(function() {
-        $(".t_class1").change(function() {
-            $.ajax({
+        $(function() {
+            $(".t_class1").change(function() {
+                $.ajax({
                 type: "POST", //傳送方式
                 url: "active.php", //傳送目的地
                 dataType: "text", //資料格式
@@ -78,12 +86,12 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                     alert("傳輸錯誤");
                 }
             });
+            });
         });
-    });
 
-    $(function() {
-        $(".t_class2").change(function() {
-            $.ajax({
+        $(function() {
+            $(".t_class2").change(function() {
+                $.ajax({
                 type: "POST", //傳送方式
                 url: "active.php", //傳送目的地
                 dataType: "text", //資料格式
@@ -97,12 +105,12 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                     alert("傳輸錯誤");
                 }
             });
+            });
         });
-    });
 
-    $(function() {
-        $(".t_class3").change(function() {
-            $.ajax({
+        $(function() {
+            $(".t_class3").change(function() {
+                $.ajax({
                 type: "POST", //傳送方式
                 url: "active.php", //傳送目的地
                 dataType: "text", //資料格式
@@ -116,8 +124,8 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                     alert("傳輸錯誤");
                 }
             });
+            });
         });
-    });
     </script>
 </head>
 
@@ -127,67 +135,60 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
     include("layouts/header.php");
     ?>
 
-        <form class="travelform" name="form1" method="POST" action="">
+    <form class="travelform" name="form1" method="POST" action="">
         <iframe src="https://www.google.com/maps/d/embed?mid=1_KWBPZEEdoCUSQL6YW1z-C52aEY1L-Ac&ll=22.34112367512831%2C120.36961528583277&z=14" width="100%" height="480"></iframe>
-            <input type="radio" name="ferry" value="公營">公營
-            <input type="radio" name="ferry" value="民營">民營</br>
-            <p class="dataType" id="dataType" name="dataType" value="2">2</p></br>
-            <script type="text/javascript">
-                $(function(){
-                    $(".dataType").hover(function() {
-                        if($('.dataType').attr('value') >= 0){
-
-                                $("").appendTo(".zxc");
-
+        <input type="radio" name="ferry" value="公營">公營
+        <input type="radio" name="ferry" value="民營">民營</br>
+        <p class="dataType" id="dataType" name="dataType"><?php echo "天數：".$row_travelday['o_day'];?></p></br>
+        <ul class="zxc">
+            <?php
+            $day = $row_travelday['o_day']*3;
+            $num = 1;
+            if($num <= $day){
+                for ($i=1; $i <= $row_travelday['o_day']; $i++) {
+                        echo ("<li>$num");
+                        echo ("<select name='t_class".$num."' class='t_class".$num."'>");
+                        echo ("<option>"."選擇上午行程"."</option>");
+                        foreach ($row_travelclass as $value){
+                            echo ("<option>".$value[0]."</option>");
                         }
-                    });
-
-                });
-            </script>
-            <ul class="zxc">
-                <?php
-                    for ($i=1; $i <= 2; $i++) {
-                        echo ("<li> 上午:</br>");
-                        echo ("<select name='t_class1' class='t_class1'>");
-                        foreach ($row_travelclass as $value){
-                        echo "<option>".$value[0]."</option>";
-                            } 
                         echo ("</select></br>");
-                        echo("<select name='t_name1' class='t_name1'>
-            </select></br>");
-
-                        echo ("<li> 中午:</br>");
-                        echo ("<select name='t_class1' class='t_class1'>");
+                        echo("<select name='t_name".$num."' class='t_name".$num."'>
+                            </select></br>");
+                        echo ("</li><br><li>");
+                        $num++;
+                        echo ("$num<select name='t_class".$num."' class='t_class".$num."'>");
+                        echo ("<option>"."選擇下午行程"."</option>");
                         foreach ($row_travelclass as $value){
-                        echo "<option>".$value[0]."</option>";
-                            } 
+                            echo "<option>".$value[0]."</option>";
+                        }
                         echo ("</select></br>");
-                        echo("<select name='t_name2' class='t_name2'>
-            </select></br>");
-
-                        echo ("<li> 下午:</br>");
-                        echo ("<select name='t_class1' class='t_class1'>");
-                        foreach ($row_travelclass as $value){
-                        echo "<option>".$value[0]."</option>";
-                            } 
+                        echo("<select name='t_name".$num."' class='t_name".$num."'>
+                            </select></br>");
+                        echo ("</li><br><li>");
+                        $num++;
+                        echo ("$num<select name='t_class".$num."' class='t_class".$num."'>");
+                        echo ("<option>"."選擇晚餐"."</option>");
+                        foreach ($row_travelBBQ as $value){
+                            echo "<option>".$value[0]."</option>";
+                        }
                         echo ("</select></br>");
-                        echo("<select name='t_name3' class='t_name3'>
-            </select></br>");
-
-                        echo ("</li>");
-                        echo ("</li>");
-                        echo ("</li>");
-                    }  
-                ?>
-            </ul>
-            <div class="clearfix"></div>
-            <p align="center">
-                <input name="action" type="hidden" id="action" value="travel">
-                <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="送出申請">
-                <input class="btn btn-info btn-sm" type="reset" name="Submit3" value="重設資料">
-                <input class="btn btn-primary btn-sm" type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
-            </p>
-        </form>
+                        echo("<select name='t_name".$num."' class='t_name".$num."'>
+                            </select></br>");
+                        echo ("</li></br>");
+                        $num++;
+                }
+            }
+            ?>
+        </ul>
+        <div class="clearfix"></div>
+        <p align="center">
+            <input name="action" type="hidden" id="action" value="travel">
+            <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="送出申請">
+            <input class="btn btn-info btn-sm" type="reset" name="Submit3" value="重設資料">
+            <input class="btn btn-primary btn-sm" type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
+        </p>
+    </form>
 
 
     <?php
