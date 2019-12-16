@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-12-13 07:29:09
+-- 產生時間： 2019-12-16 11:58:33
 -- 伺服器版本： 10.4.8-MariaDB
--- PHP 版本： 7.2.23
+-- PHP 版本： 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,7 +49,7 @@ CREATE TABLE `memberdata` (
 --
 
 INSERT INTO `memberdata` (`m_id`, `m_name`, `m_username`, `m_passwd`, `m_sex`, `m_birthday`, `m_email`, `m_phone`, `m_address`, `m_level`, `m_login`, `m_logintime`, `m_jointime`) VALUES
-(1, '系統管理員', 'admin', '$2y$10$5ejczVchwglsQLZtIQmHW.teH8Tvv8aluu.aPeFuYt7CIhHxY4.W6', '男', '2019-11-14', 'admin@gmail.com', '0955445632', '', 'admin', 89, '2019-12-13 08:12:38', '0000-00-00 00:00:00'),
+(1, '系統管理員', 'admin', '$2y$10$5ejczVchwglsQLZtIQmHW.teH8Tvv8aluu.aPeFuYt7CIhHxY4.W6', '男', '2019-11-14', 'admin@gmail.com', '0955445632', '', 'admin', 91, '2019-12-16 16:24:08', '0000-00-00 00:00:00'),
 (2, '張惠玲', 'elven', '$2y$10$0BVHeh6R97hTcK4guYStm.d49gdFxLF/4CJgvLo0yIYZaoyMbr4ae', '女', '1987-04-05', 'elven@superstar.com', '0966765556', '台北市濟洲北路12號2樓', 'member', 12, '0000-00-00 00:00:00', '2019-11-02 12:03:12'),
 (3, '彭建志', 'jinglun', '$2y$10$WqB2bnMSO/wgBiHSOBV2iuLbrUCsp8VmNJdK2AyIW6IANUL9jeFjC', '男', '1987-07-01', 'jinglun@superstar.com', '0918181111', '台北市敦化南路93號5樓', 'member', 0, NULL, '2019-11-02 12:03:12'),
 (4, '謝耿鴻', 'sugie', '$2y$10$6uWtdYATI3b/wMRk.AaqIei852PLf.WjeKm8X.Asl0VTmpxCkqbW6', '男', '1987-08-11', 'edreamer@gmail.com', '0914530768', '台北市中央路201號7樓', 'member', 2, '0000-00-00 00:00:00', '2019-11-02 12:03:12'),
@@ -260,7 +260,7 @@ CREATE TABLE `orderdata` (
   `o_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `o_phone` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `o_citime` date NOT NULL,
-  `o_day` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `o_day` int(10) NOT NULL,
   `o_total` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `o_cotime` date NOT NULL,
   `o_ferry` enum('公營','民營') COLLATE utf8_unicode_ci NOT NULL,
@@ -273,14 +273,15 @@ CREATE TABLE `orderdata` (
 --
 
 INSERT INTO `orderdata` (`o_num`, `o_time`, `o_name`, `o_phone`, `o_citime`, `o_day`, `o_total`, `o_cotime`, `o_ferry`, `r_id`, `t_id`) VALUES
-(32, '0000-00-00', '李澎澎', '0925333565', '2019-12-10', '1', '2000', '2019-12-11', '公營', 5, 0),
-(36, '0000-00-00', '李澎澎', '0925333565', '2019-12-11', '1', '10000', '2019-12-12', '公營', 5, 0),
-(39, '0000-00-00', '阿樂', '0931777777', '2019-12-10', '3', '18000', '2019-12-13', '公營', 8, 0),
-(42, '0000-00-00', '阿樂', '0931777777', '2019-12-10', '2', '12000', '2019-12-12', '公營', 7, 0),
-(43, '0000-00-00', '阿樂', '0931777777', '2019-12-10', '2', '14000', '2019-12-12', '公營', 10, 0),
-(44, '0000-00-00', '阿樂', '0931777777', '2019-12-12', '1', '6000', '2019-12-13', '公營', 7, 0),
-(45, '0000-00-00', '李澎澎', '0925333565', '2019-12-10', '2', '3000', '2019-12-12', '公營', 1, 0),
-(46, '0000-00-00', '李澎澎', '0925333565', '2019-12-13', '1', '2400', '2019-12-14', '公營', 4, 0);
+(32, '2019-12-26', '李澎澎', '0925333565', '2019-12-10', 2, '2000', '2019-12-11', '公營', 5, 0),
+(36, '0000-00-00', '李澎澎', '0925333565', '2019-12-11', 1, '10000', '2019-12-12', '公營', 5, 0),
+(39, '0000-00-00', '阿樂', '0931777777', '2019-12-10', 3, '18000', '2019-12-13', '公營', 8, 0),
+(42, '0000-00-00', '阿樂', '0931777777', '2019-12-10', 2, '12000', '2019-12-12', '公營', 7, 0),
+(43, '0000-00-00', '阿樂', '0931777777', '2019-12-10', 2, '14000', '2019-12-12', '公營', 10, 0),
+(44, '0000-00-00', '阿樂', '0931777777', '2019-12-12', 1, '6000', '2019-12-13', '公營', 7, 0),
+(45, '0000-00-00', '李澎澎', '0925333565', '2019-12-10', 2, '3000', '2019-12-12', '公營', 1, 0),
+(46, '0000-00-00', '李澎澎', '0925333565', '2019-12-13', 1, '2400', '2019-12-14', '公營', 4, 0),
+(47, '2019-12-19', '系統管理員', '', '2019-12-19', 3, '', '2019-12-28', '公營', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -310,20 +311,6 @@ INSERT INTO `roomdata` (`r_id`, `r_type`, `r_model`, `r_price`, `r_disc`) VALUES
 (7, '套房', '商務套房', 6000, '有兩種高級式套房分別是總統風格及商務式風格'),
 (10, '套房', '總統套房', 7000, '有兩種高級式套房分別是總統風格及商務式風格'),
 (11, '套房', '商務套房', 6000, '有兩種高級式套房分別是總統風格及商務式風格');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `roomstatus`
---
-
-CREATE TABLE `roomstatus` (
-  `r_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `r_model` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `r_count` int(100) NOT NULL,
-  `r_date` date NOT NULL,
-  `r_day` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -458,7 +445,29 @@ INSERT INTO `traveldata` (`t_id`, `t_class`, `t_name`) VALUES
 (45, '廟', '小琉球池隆宮'),
 (46, '廟', '小琉球三隆宮'),
 (47, '廟', '小琉球華山代天宮'),
-(48, '廟', '小琉球水仙宮');
+(48, '廟', '小琉球水仙宮'),
+(49, '周邊景點', '小琉球海洋館');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `t_orderdata`
+--
+
+CREATE TABLE `t_orderdata` (
+  `m_id` int(10) NOT NULL,
+  `travel_1` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `travel_2` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 傾印資料表的資料 `t_orderdata`
+--
+
+INSERT INTO `t_orderdata` (`m_id`, `travel_1`, `travel_2`) VALUES
+(0, '水上活動', '小琉球-小綠龜潛水'),
+(0, '烤肉', '品鮮火鍋烤肉吃到飽'),
+(0, '廟', '關廟幸山堂');
 
 --
 -- 已傾印資料表的索引
@@ -493,12 +502,6 @@ ALTER TABLE `orderdata`
 -- 資料表索引 `roomdata`
 --
 ALTER TABLE `roomdata`
-  ADD PRIMARY KEY (`r_id`);
-
---
--- 資料表索引 `roomstatus`
---
-ALTER TABLE `roomstatus`
   ADD PRIMARY KEY (`r_id`);
 
 --
@@ -551,7 +554,7 @@ ALTER TABLE `newsdata`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orderdata`
 --
 ALTER TABLE `orderdata`
-  MODIFY `o_num` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `o_num` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `roomdata`
@@ -581,7 +584,7 @@ ALTER TABLE `s_orderdetail`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `traveldata`
 --
 ALTER TABLE `traveldata`
-  MODIFY `t_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `t_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
