@@ -46,23 +46,6 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
     $db_link->close();
     header("Location: travel2.php");
 }
-
-
-if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
-
-    if (isset($_POST["select"])) {
-        $select = $_POST["select"];
-        $searchroom="SELECT `t_name` FROM `traveldata` WHERE `t_class`='$select'";
-        $roommodellist = $db_link->query($searchroom);
-        for($i=0 ;$i < ($roommodellist->num_rows);$i++){
-            $rsm = $roommodellist->fetch_assoc();
-            $res .="<option value=".$rsm['t_name'].">".$rsm['t_name']."</option>";
-        }
-        echo $res;
-    }
-}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
@@ -136,12 +119,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
         });
     });
     </script>
-
-    <style>
-        ul li{
-            float:left;
-        }
-    </style>
 </head>
 
 <body>
@@ -154,76 +131,55 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
         <iframe src="https://www.google.com/maps/d/embed?mid=1_KWBPZEEdoCUSQL6YW1z-C52aEY1L-Ac&ll=22.34112367512831%2C120.36961528583277&z=14" width="100%" height="480"></iframe>
             <input type="radio" name="ferry" value="公營">公營
             <input type="radio" name="ferry" value="民營">民營</br>
-            請輸入天數:<input type="text" name="daynumber"></br>
-            <ul>
-           <li> 上午:</br>
-            <select name="t_class1" class="t_class1">
+            <p class="dataType" id="dataType" name="dataType" value="2">2</p></br>
+            <script type="text/javascript">
+                $(function(){
+                    $(".dataType").hover(function() {
+                        if($('.dataType').attr('value') >= 0){
+
+                                $("").appendTo(".zxc");
+
+                        }
+                    });
+
+                });
+            </script>
+            <ul class="zxc">
                 <?php
-                    foreach ($row_travelclass as $value){
+                    for ($i=1; $i <= 2; $i++) {
+                        echo ("<li> 上午:</br>");
+                        echo ("<select name='t_class1' class='t_class1'>");
+                        foreach ($row_travelclass as $value){
                         echo "<option>".$value[0]."</option>";
-                    }                    
-                ?>
-            </select></br>
-            <select name="t_name1" class="t_name1">
+                            } 
+                        echo ("</select></br>");
+                        echo("<select name='t_name1' class='t_name1'>
+            </select></br>");
 
-            </select></br>
-            中午:</br>
-            <select name="t_class2" class="t_class2">
-                <?php
-                    foreach ($row_travelclass as $value){
+                        echo ("<li> 中午:</br>");
+                        echo ("<select name='t_class1' class='t_class1'>");
+                        foreach ($row_travelclass as $value){
                         echo "<option>".$value[0]."</option>";
-                    }
-                ?>
-            </select></br>
-            <select name="t_name2" class="t_name2">
+                            } 
+                        echo ("</select></br>");
+                        echo("<select name='t_name2' class='t_name2'>
+            </select></br>");
 
-            </select></br>
-            下午:</br>
-            <select name="t_class3" class="t_class3">
-                <?php
-                    foreach ($row_travelclass as $value){
+                        echo ("<li> 下午:</br>");
+                        echo ("<select name='t_class1' class='t_class1'>");
+                        foreach ($row_travelclass as $value){
                         echo "<option>".$value[0]."</option>";
-                    }
+                            } 
+                        echo ("</select></br>");
+                        echo("<select name='t_name3' class='t_name3'>
+            </select></br>");
+
+                        echo ("</li>");
+                        echo ("</li>");
+                        echo ("</li>");
+                    }  
                 ?>
-            </select></br>
-            <select name="t_name3" class="t_name3">
-
-            </select></li>
-
-            <li> 上午:</br>
-            <select name="t_class1" class="t_class1">
-                <?php
-                    foreach ($row_travelclass as $value){
-                        echo "<option>".$value[0]."</option>";
-                    }
-                ?>
-            </select></br>
-            <select name="t_name1" class="t_name1">
-
-            </select></br>
-            中午:</br>
-            <select name="t_class2" class="t_class2">
-                <?php
-                    foreach ($row_travelclass as $value){
-                        echo "<option>".$value[0]."</option>";
-                    }
-                ?>
-            </select></br>
-            <select name="t_name2" class="t_name2">
-
-            </select></br>
-            下午:</br>
-            <select name="t_class3" class="t_class3">
-                <?php
-                    foreach ($row_travelclass as $value){
-                        echo "<option>".$value[0]."</option>";
-                    }
-                ?>
-            </select></br>
-            <select name="t_name3" class="t_name3">
-
-            </select></li>
-                </ul>
+            </ul>
             <div class="clearfix"></div>
             <p align="center">
                 <input name="action" type="hidden" id="action" value="travel">
