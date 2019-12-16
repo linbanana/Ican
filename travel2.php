@@ -69,64 +69,14 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
     <script src="\scripts/jquery-3.4.1.min.js"></script>
     <!-- 環境建置 -->
     <title>ican</title>
-    <script type="text/javascript">
-        $(function() {
-            $(".t_class1").change(function() {
-                $.ajax({
-                type: "POST", //傳送方式
-                url: "active.php", //傳送目的地
-                dataType: "text", //資料格式
-                data: { //傳送資料
-                    select: $(".t_class1").val() //表單欄位 ID nickname
-                },
-                success: function(data) {
-                    $(".t_name1").html(data);
-                },
-                error: function(jqXHR) {
-                    alert("傳輸錯誤");
-                }
-            });
-            });
-        });
 
-        $(function() {
-            $(".t_class2").change(function() {
-                $.ajax({
-                type: "POST", //傳送方式
-                url: "active.php", //傳送目的地
-                dataType: "text", //資料格式
-                data: { //傳送資料
-                    select: $(".t_class2").val() //表單欄位 ID nickname
-                },
-                success: function(data) {
-                    $(".t_name2").html(data);
-                },
-                error: function(jqXHR) {
-                    alert("傳輸錯誤");
-                }
-            });
-            });
-        });
 
-        $(function() {
-            $(".t_class3").change(function() {
-                $.ajax({
-                type: "POST", //傳送方式
-                url: "active.php", //傳送目的地
-                dataType: "text", //資料格式
-                data: { //傳送資料
-                    select: $(".t_class3").val() //表單欄位 ID nickname
-                },
-                success: function(data) {
-                    $(".t_name3").html(data);
-                },
-                error: function(jqXHR) {
-                    alert("傳輸錯誤");
-                }
-            });
-            });
-        });
-    </script>
+    <style type="text/css">
+        ul {
+            float: left;
+            margin:10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -140,13 +90,13 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
         <input type="radio" name="ferry" value="公營">公營
         <input type="radio" name="ferry" value="民營">民營</br>
         <p class="dataType" id="dataType" name="dataType"><?php echo "天數：".$row_travelday['o_day'];?></p></br>
-        <ul class="zxc">
+        
             <?php
             $day = $row_travelday['o_day']*3;
             $num = 1;
             if($num <= $day){
-                for ($i=1; $i <= $row_travelday['o_day']; $i++) {
-                        echo ("<li>$num");
+                for ($i=1; $i <= $row_travelday['o_day']; $i++) {                   
+                        echo ("<ul>$num<li>");
                         echo ("<select name='t_class".$num."' class='t_class".$num."'>");
                         echo ("<option>"."選擇上午行程"."</option>");
                         foreach ($row_travelclass as $value){
@@ -155,9 +105,9 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                         echo ("</select></br>");
                         echo("<select name='t_name".$num."' class='t_name".$num."'>
                             </select></br>");
-                        echo ("</li><br><li>");
                         $num++;
-                        echo ("$num<select name='t_class".$num."' class='t_class".$num."'>");
+                        echo ("</li><br>$num<li>");                        
+                        echo ("<select name='t_class".$num."' class='t_class".$num."'>");
                         echo ("<option>"."選擇下午行程"."</option>");
                         foreach ($row_travelclass as $value){
                             echo "<option>".$value[0]."</option>";
@@ -165,9 +115,9 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                         echo ("</select></br>");
                         echo("<select name='t_name".$num."' class='t_name".$num."'>
                             </select></br>");
-                        echo ("</li><br><li>");
                         $num++;
-                        echo ("$num<select name='t_class".$num."' class='t_class".$num."'>");
+                        echo ("</li><br>$num<li>");
+                        echo ("<select name='t_class".$num."' class='t_class".$num."'>");
                         echo ("<option>"."選擇晚餐"."</option>");
                         foreach ($row_travelBBQ as $value){
                             echo "<option>".$value[0]."</option>";
@@ -175,12 +125,40 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                         echo ("</select></br>");
                         echo("<select name='t_name".$num."' class='t_name".$num."'>
                             </select></br>");
-                        echo ("</li></br>");
+                        echo ("</li></br></ul>");
                         $num++;
                 }
             }
+            $day = $row_travelday['o_day']*3;
+            $ajaxnum = 1;
+            if($ajaxnum <= $day){
+                for ($i=1; $i <= $day; $i++) {                   
+                        echo '
+        <script type="text/javascript">
+            $(function() {
+                $(".t_class'.$ajaxnum.'").change(function() {
+                    $.ajax({
+                        type: "POST", //傳送方式
+                        url: "active.php", //傳送目的地
+                        dataType: "text", //資料格式
+                        data: { //傳送資料
+                            select: $(".t_class'.$ajaxnum.'").val() //表單欄位 ID nickname
+                        },
+                        success: function(data) {
+                            $(".t_name'.$ajaxnum.'").html(data);
+                        },
+                        error: function(jqXHR) {
+                            alert("傳輸錯誤");
+                        }
+                    });
+                });
+            });
+        </script>';
+                        $ajaxnum++;
+                }
+            }
             ?>
-        </ul>
+
         <div class="clearfix"></div>
         <p align="center">
             <input name="action" type="hidden" id="action" value="travel">
