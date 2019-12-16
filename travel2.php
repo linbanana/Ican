@@ -15,9 +15,9 @@ function GetSQLValueString($theValue, $theType)
 }
 
 //檢查是否經過登入
-/*if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
-    header("Location: index.php");
-}*/
+if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
+    header("Location: login.php");
+}
 
 //選取管理員資料
 $query_RecAdmin = "SELECT m_id, m_name, m_logintime,m_email FROM memberdata WHERE m_username=?";
@@ -28,15 +28,12 @@ $stmt->bind_result($mid, $mname, $mlogintime, $m_email);
 $stmt->fetch();
 $stmt->close();
 
-//接收數值
-$memberid = $member['m_name'];
-
 $searchtravel = "SELECT DISTINCT `t_class` FROM `traveldata`";  //將SQL指令設定在$sql_query
 $travelclass = $db_link->query($searchtravel);
 $row_travelclass = $travelclass->fetch_all();
 
 if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
-    $query_insert = "INSERT INTO `t_orderdetail`(`t_id1`, `t_id2`, `t_id3`) VALUES (?,?,?)";
+    $query_insert = "INSERT INTO `t_orderdata`(`m_id`, `travel_1`, `travel_2`, `travel_3`) VALUES ($mid,?,?,?)";
     $stmt = $db_link->prepare($query_insert);
     $stmt->bind_param(
       "sss",
@@ -153,20 +150,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     include("layouts/header.php");
     ?>
 
-        <form class="newsform" name="form1" method="POST" action="">
+        <form class="travelform" name="form1" method="POST" action="">
         <iframe src="https://www.google.com/maps/d/embed?mid=1_KWBPZEEdoCUSQL6YW1z-C52aEY1L-Ac&ll=22.34112367512831%2C120.36961528583277&z=14" width="100%" height="480"></iframe>
             <input type="radio" name="ferry" value="公營">公營
             <input type="radio" name="ferry" value="民營">民營</br>
             請輸入天數:<input type="text" name="daynumber"></br>
-        </form>
-        <form class="newsform" name="form2" method="POST" action="">
             <ul>
            <li> 上午:</br>
             <select name="t_class1" class="t_class1">
                 <?php
                     foreach ($row_travelclass as $value){
                         echo "<option>".$value[0]."</option>";
-                    }
+                    }                    
                 ?>
             </select></br>
             <select name="t_name1" class="t_name1">

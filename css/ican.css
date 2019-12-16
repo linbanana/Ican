@@ -826,6 +826,15 @@ button#order {
     border: 2px solid #007bff;
 }
 /* updatenews.php */
+/* travel.php */
+.travelform{
+    background-image: url(https://picsum.photos/900/500/);
+    width: 693px;
+    margin: 0px auto;
+    border: 2px solid #f80;
+    color: #ff0000;
+}
+/* travel.php */
 /* admin.php and member.php*/
 
 
