@@ -13,6 +13,29 @@ body {
     clear: both;
 }
 
+.zoom {
+    display:inline-block;
+    position: relative;
+}
+
+/* magnifying glass icon */
+.zoom:after {
+    content:'';
+    display:block; 
+    width:33px; 
+    height:33px; 
+    position:absolute; 
+    top:0;
+    right:0;
+    background:url(/images/icon.png);
+}
+
+.zoom img {
+    display: block;
+}
+
+.zoom img::selection { background-color: transparent; }
+
 
 /* index.php */
 
@@ -828,12 +851,24 @@ button#order {
 /* updatenews.php */
 /* travel.php */
 .travelform{
-    background-image: url(/images/travel/map.jpg);
     background-size: 100%;
     width: 693px;
     margin: 0px auto;
     border: 2px solid #f80;
-    color: #ff0000;
+    padding: 0px;
+}
+
+.travelform ul {
+    float: left;
+    border: 1px solid #ffc107;
+    color: #000;
+    background-color: rgba(250, 235, 215, 0.8);
+}
+
+.travelform ul div{
+    color: #000;
+    font-size: 20px;
+    background-color: rgba(250, 235, 215, 0.8);
 }
 /* travel.php */
 /* admin.php and member.php*/

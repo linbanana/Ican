@@ -44,7 +44,7 @@ $travelday = $db_link->query($query_travelday);
 $row_travelday = $travelday->fetch_assoc();
 
 if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
-    $mnum = 1;   
+    $mnum = 1;
     for($i=1;$i<=$row_travelday['o_day'];$i++){
         $afnum = $mnum+1;
         $ntnum = $afnum+1;
@@ -71,14 +71,11 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
     <script src="\scripts/jquery-3.4.1.min.js"></script>
     <!-- 環境建置 -->
     <title>ican</title>
-
-
-    <style type="text/css">
-        ul {
-            float: left;
-            margin:10px;
-        }
-    </style>
+    <script>
+        $(document).ready(function(){
+            $('#travelmap').zoom();
+        });
+    </script>
 </head>
 
 <body>
@@ -87,18 +84,27 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
     include("layouts/header.php");
     ?>
 
-    <form class="travelform" name="form1" method="POST" action="">
+    <form class="travelform col-12" name="form1" method="POST" action="">
+        <span class="zoom" id="travelmap">
+            <img src="/images/travel/map.jpg" width="100%">
+        </span>
         <iframe src="https://www.google.com/maps/d/embed?mid=1_KWBPZEEdoCUSQL6YW1z-C52aEY1L-Ac&ll=22.34112367512831%2C120.36961528583277&z=14" width="100%" height="480"></iframe>
-        <input type="radio" name="ferry" value="公營">公營
-        <input type="radio" name="ferry" value="民營">民營</br>
-        <p class="dataType" id="dataType" name="dataType"><?php echo "天數：".$row_travelday['o_day'];?></p></br>
+        <p>親愛的：<font id="usernamestyle"><?php echo $mname;?></font>&nbsp;您好</p>
+        <p>訂單編號為：<?php echo $row_travelday['o_num'] ?></p>
+        <p>交通船選擇：
+            <input type="radio" name="ferry" value="公營" checked>公營
+            <input type="radio" name="ferry" value="民營">民營</br>
+        </p>
+        <p class="dataType" id="dataType" name="dataType"><?php echo "旅遊天數：".$row_travelday['o_day']."天".($row_travelday['o_day']-"1")."夜";?>
+        </p>
+        <p>開始規劃您的行程吧！</p>
 
             <?php
             $day = $row_travelday['o_day']*3;
             $num = 1;
             if($num <= $day){
                 for ($i=1; $i <= $row_travelday['o_day']; $i++) {
-                        echo ("<ul>$num<li>");
+                        echo ("<ul class='col col-12'><div class='col col-12' align='center'>第 ".$i." 天</div><br>".$num."<li>");
                         echo ("<select name='t_class".$num."' class='t_class".$num."'>");
                         echo ("<option>"."選擇上午行程"."</option>");
                         foreach ($row_travelclass as $value){
@@ -122,7 +128,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
 
                         if($num != $day){
                             echo ("$num<li><select name='t_class".$num."' class='t_class".$num."'>");
-                            
+
                             echo ("<option>"."選擇晚餐"."</option>");
                             foreach ($row_travelBBQ as $value){
                                 echo "<option>".$value[0]."</option>";
@@ -134,7 +140,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                             $num++;
                         }else{
                             echo("<select name='t_name".$num."' class='t_name".$num."' style='display:none'>
-                                <option>無</option></select><br>");
+                                <option>平安回家</option></select><br>");
                             echo ("</li></br></ul>");
                         }
                 }
@@ -184,6 +190,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
     ?>
 
     <!-- 環境建置 -->
+    <script src='\scripts/jquery.zoom.js'></script>
     <script src="\scripts/umd/popper.min.js"></script>
     <script src="\scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="\scripts/ican.js"></script>

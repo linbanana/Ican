@@ -66,31 +66,31 @@ session_start();
             <div class="container">
                 <div class="item">
                     <div class="pic">
-                        <img src="https://picsum.photos/600/400/?random=1">
+                        <img src="/images/Christmas.svg">
                     </div>
                     <div class="txt">
                         <h2>聖誕節優待</h2>
-                        <p>檢察官今日下午會同法醫相驗，檢視大體頭部有明顯外傷，美國籍男子涉嫌過失致死罪嫌，檢察官諭知交保新台幣20萬元，且限制出境出海，並同時命其交付護照及旅行文件以防止逃匿。</p>
+                        <p>為了迎接熱鬧聖誕節、跨年倒數活動，各家飯店也推出搶手的好康專案，想開心出遊就趁早卡位吧！</p>
                         <a href="#">查看詳情</a>
                     </div>
                 </div>
                 <div class="item">
                     <div class="txt">
                         <h2>全新客房</h2>
-                        <p>美國籍男子David昨天拒絕夜間偵訊，今天在律師陪同下進行偵訊，下午移送屏東地檢署，步上偵防車前一度懊悔的說「extremely sorry！」</p>
+                        <p>以「現代台灣」為靈感設計全新客房，牆面一系列台灣風景照定調房內主題，家具擺飾、整體色系皆互相呼應，打造現代摩登風格旅宿。六種色系區分房型，明亮自然光線映入，空間開闊舒適。房內皆配有頂級席夢思床墊與枕頭、TOTO多功能免治馬桶及專屬KOHLER浴缸。</p>
                         <a href="#">查看詳情</a>
                     </div>
                     <div class="pic">
-                        <img src="https://picsum.photos/600/400/?random=2">
+                        <img src="/images/room/luxury-family.jpg">
                     </div>
                 </div>
                 <div class="item">
                     <div class="pic">
-                        <img src="https://picsum.photos/600/400/?random=3">
+                        <img src="/images/travel/map.jpg">
                     </div>
                     <div class="txt">
-                        <h2>完善租車系統</h2>
-                        <p>據了解，David當發現飛機在視線中已無法找尋，不見了就開始尋找，結果飛機竟撞死了人，令他驚慌失措，根本就沒料想到會發生如此憾事。</p>
+                        <h2>行程規劃系統</h2>
+                        <p>自由行隨心所欲，完全可以按照自己的喜好去旅行。</p>
                         <a href="#">查看詳情</a>
                     </div>
                 </div>
