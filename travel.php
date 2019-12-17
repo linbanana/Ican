@@ -132,8 +132,11 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                                 </select></br>");
                             echo ("</li></br></ul>");
                             $num++;
+                        }else{
+                            echo("<select name='t_name".$num."' class='t_name".$num."' style='display:none'>
+                                <option>無</option></select><br>");
+                            echo ("</li></br></ul>");
                         }
-
                 }
             }
             $day = $row_travelday['o_day']*3;
