@@ -39,7 +39,7 @@ $row_travelBBQ = $travelBBQ->fetch_all();
 $ind=$_SESSION["ind"];
 $outda=$_SESSION["outda"];
 $rid=$_SESSION["rid"];
-$query_travelday = "SELECT `o_day` FROM `orderdata` WHERE `o_name`='$mname' and `o_citime` >='$ind' AND `o_cotime` <='$outda' AND r_id='$rid'";
+$query_travelday = "SELECT `o_num`,`o_day` FROM `orderdata` WHERE `m_id`='$mid' and `o_citime` >='$ind' AND `o_cotime` <='$outda' AND r_id='$rid'";
 $travelday = $db_link->query($query_travelday);
 $row_travelday = $travelday->fetch_assoc();
 
@@ -52,7 +52,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
         $afternoon=$_POST["t_name".$afnum];
         $night=$_POST["t_name".$ntnum];
         $mnum=$mnum+3;
-        $query_insert = "INSERT INTO `t_orderdata`( `m_id`, `travel_1`, `travel_2`, `travel_3`) VALUES ('$mid','$morning','$afternoon','$night')";
+        $query_insert = "INSERT INTO `t_orderdata`(`o_num`, `m_id`, `travel_1`, `travel_2`, `travel_3`) VALUES ('{$row_travelday['o_num']}','$mid','$morning','$afternoon','$night')";
         $db_link->query($query_insert);
     }
 }
