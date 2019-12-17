@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-12-16 11:58:33
+-- 產生時間： 2019-12-17 09:50:01
 -- 伺服器版本： 10.4.8-MariaDB
--- PHP 版本： 7.3.10
+-- PHP 版本： 7.2.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -256,7 +256,6 @@ INSERT INTO `newsdata` (`newsid`, `newstitle`, `newscontent`, `newstime`) VALUES
 
 CREATE TABLE `orderdata` (
   `o_num` int(10) NOT NULL,
-  `o_time` date NOT NULL,
   `o_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `o_phone` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `o_citime` date NOT NULL,
@@ -272,16 +271,9 @@ CREATE TABLE `orderdata` (
 -- 傾印資料表的資料 `orderdata`
 --
 
-INSERT INTO `orderdata` (`o_num`, `o_time`, `o_name`, `o_phone`, `o_citime`, `o_day`, `o_total`, `o_cotime`, `o_ferry`, `r_id`, `t_id`) VALUES
-(32, '2019-12-26', '李澎澎', '0925333565', '2019-12-10', 2, '2000', '2019-12-11', '公營', 5, 0),
-(36, '0000-00-00', '李澎澎', '0925333565', '2019-12-11', 1, '10000', '2019-12-12', '公營', 5, 0),
-(39, '0000-00-00', '阿樂', '0931777777', '2019-12-10', 3, '18000', '2019-12-13', '公營', 8, 0),
-(42, '0000-00-00', '阿樂', '0931777777', '2019-12-10', 2, '12000', '2019-12-12', '公營', 7, 0),
-(43, '0000-00-00', '阿樂', '0931777777', '2019-12-10', 2, '14000', '2019-12-12', '公營', 10, 0),
-(44, '0000-00-00', '阿樂', '0931777777', '2019-12-12', 1, '6000', '2019-12-13', '公營', 7, 0),
-(45, '0000-00-00', '李澎澎', '0925333565', '2019-12-10', 2, '3000', '2019-12-12', '公營', 1, 0),
-(46, '0000-00-00', '李澎澎', '0925333565', '2019-12-13', 1, '2400', '2019-12-14', '公營', 4, 0),
-(47, '2019-12-19', '系統管理員', '', '2019-12-19', 3, '', '2019-12-28', '公營', NULL, 0);
+INSERT INTO `orderdata` (`o_num`, `o_name`, `o_phone`, `o_citime`, `o_day`, `o_total`, `o_cotime`, `o_ferry`, `r_id`, `t_id`) VALUES
+(48, '系統管理員', '0955445632', '2019-12-04', 10, '24000', '2019-12-13', '公營', 6, 0),
+(49, '系統管理員', '0955445632', '2019-12-03', 3, '4500', '2019-12-05', '公營', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -455,19 +447,22 @@ INSERT INTO `traveldata` (`t_id`, `t_class`, `t_name`) VALUES
 --
 
 CREATE TABLE `t_orderdata` (
+  `o_num` int(10) NOT NULL,
   `m_id` int(10) NOT NULL,
+  `daynum` int(11) NOT NULL,
   `travel_1` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `travel_2` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `travel_2` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `travel_3` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 傾印資料表的資料 `t_orderdata`
 --
 
-INSERT INTO `t_orderdata` (`m_id`, `travel_1`, `travel_2`) VALUES
-(0, '水上活動', '小琉球-小綠龜潛水'),
-(0, '烤肉', '品鮮火鍋烤肉吃到飽'),
-(0, '廟', '關廟幸山堂');
+INSERT INTO `t_orderdata` (`o_num`, `m_id`, `daynum`, `travel_1`, `travel_2`, `travel_3`) VALUES
+(0, 48, 7, '寶哥烘炸小琉球麻花捲相思旗艦店', '蛤板灣', '極香碳烤'),
+(0, 48, 8, '中澳沙灘', '蛤板灣', '品鮮火鍋烤肉吃到飽'),
+(0, 48, 10, '蛤板灣', '蛤板灣', '品鮮火鍋烤肉吃到飽');
 
 --
 -- 已傾印資料表的索引
@@ -529,6 +524,12 @@ ALTER TABLE `traveldata`
   ADD PRIMARY KEY (`t_id`);
 
 --
+-- 資料表索引 `t_orderdata`
+--
+ALTER TABLE `t_orderdata`
+  ADD PRIMARY KEY (`daynum`);
+
+--
 -- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
 --
 
@@ -554,7 +555,7 @@ ALTER TABLE `newsdata`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orderdata`
 --
 ALTER TABLE `orderdata`
-  MODIFY `o_num` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `o_num` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `roomdata`
@@ -585,6 +586,12 @@ ALTER TABLE `s_orderdetail`
 --
 ALTER TABLE `traveldata`
   MODIFY `t_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `t_orderdata`
+--
+ALTER TABLE `t_orderdata`
+  MODIFY `daynum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
