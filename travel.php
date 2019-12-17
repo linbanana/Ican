@@ -36,23 +36,44 @@ $travelBBQ = $db_link->query($searchtravel);
 $row_travelBBQ = $travelBBQ->fetch_all();
 
 //查詢最近的訂單時間
-$query_travelday = "SELECT `o_day` FROM `orderdata` WHERE `o_name`='$mname' and `o_time`='2019-12-19'";
+$ind=$_SESSION["ind"];
+$outda=$_SESSION["outda"];
+$rid=$_SESSION["rid"];
+$query_travelday = "SELECT `o_day` FROM `orderdata` WHERE `o_name`='$mname' and `o_citime` >='$ind' AND `o_cotime` <='$outda' AND r_id='$rid'";
 $travelday = $db_link->query($query_travelday);
 $row_travelday = $travelday->fetch_assoc();
 
-if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
-    $query_insert = "INSERT INTO `t_orderdata`(`m_id`, `travel_1`, `travel_2`, `travel_3`) VALUES ($mid,?,?,?)";
+
+/*if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
+    for($i=1;$i<=$row_travelday['o_day'];$i++){
+    $query_insert = "INSERT INTO `t_orderdata`( `m_id`, `travel_1`, `travel_2`, `travel_3`) VALUES ($mid,?,?,?)";
     $stmt = $db_link->prepare($query_insert);
     $stmt->bind_param(
       "sss",
-      GetSQLValueString($_POST["t_name1"], 'string'),
-      GetSQLValueString($_POST["t_name2"], 'string'),
-      GetSQLValueString($_POST["t_name3"], 'string')
+      GetSQLValueString($_POST["t_name"."$tnum"], 'string'), 
+      GetSQLValueString($_POST["t_name"."$tnum"], 'string'),  
+      GetSQLValueString($_POST["t_name"."$tnum"], 'string')
   );
     $stmt->execute();
+    }
     $stmt->close();
     $db_link->close();
     header("Location: travel2.php");
+}
+*/
+
+if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
+    $mnum = 1;   
+    for($i=1;$i<=$row_travelday['o_day'];$i++){
+        $afnum = $mnum+1;
+        $ntnum = $afnum+1;
+        $morning=$_POST["t_name".$mnum];
+        $afternoon=$_POST["t_name".$afnum];
+        $night=$_POST["t_name".$ntnum];
+        $mnum=$mnum+3;
+        $query_insert = "INSERT INTO `t_orderdata`( `m_id`, `travel_1`, `travel_2`, `travel_3`) VALUES ('$mid','$morning','$afternoon','$night')";
+        $db_link->query($query_insert);
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -139,7 +160,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                 $(".t_class'.$ajaxnum.'").change(function() {
                     $.ajax({
                         type: "POST", //傳送方式
-                        url: "active.php", //傳送目的地
+                        url: "active1.php", //傳送目的地
                         dataType: "text", //資料格式
                         data: { //傳送資料
                             select: $(".t_class'.$ajaxnum.'").val() //表單欄位 ID nickname
