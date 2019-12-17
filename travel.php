@@ -1,218 +1,184 @@
 <?php
-//error_reporting(0);
-require_once("connMysql.php");
+require("connMysql.php");  //呼叫connectMysql.php文件
+session_start();
 function GetSQLValueString($theValue, $theType)
 {
-    switch ($theType) {
-        case "string":
-            $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_MAGIC_QUOTES) : "";
-            break;
-        case "int":
-            $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_NUMBER_INT) : "";
-            break;
-    }
-    return $theValue;
+  switch ($theType) {
+    case "string":
+    $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_MAGIC_QUOTES) : "";
+    break;
+    case "int":
+    $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_NUMBER_INT) : "";
+    break;
 }
-/*$sql = "SELECT * FROM `traveldata`";
-$result = mysqli_query($db_link, $sql);
-$sql1 = "SELECT * FROM `traveldata` WHERE `t_class`=\"水上活動\"";
-$result1 = mysqli_query($db_link, $sql1);
-$sql2 = "SELECT * FROM `traveldata` WHERE `t_class`=\"潮間帶探索\"";
-$result2 = mysqli_query($db_link, $sql2);
-*/
+return $theValue;
+}
+
+//檢查是否經過登入
+if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
+    header("Location: login.php");
+}
+
+//選取管理員資料
+$query_RecAdmin = "SELECT m_id, m_name, m_logintime,m_email FROM memberdata WHERE m_username=?";
+$stmt = $db_link->prepare($query_RecAdmin);
+$stmt->bind_param("s", $_SESSION["loginMember"]);
+$stmt->execute();
+$stmt->bind_result($mid, $mname, $mlogintime, $m_email);
+$stmt->fetch();
+$stmt->close();
+
+$searchtravel = "SELECT DISTINCT `t_class` FROM `traveldata`";  //將SQL指令設定在$sql_query
+$travelclass = $db_link->query($searchtravel);
+$row_travelclass = $travelclass->fetch_all();
+$searchtravel = "SELECT DISTINCT `t_class` FROM `traveldata` WHERE `t_class` = '烤肉'";
+$travelBBQ = $db_link->query($searchtravel);
+$row_travelBBQ = $travelBBQ->fetch_all();
+
+//查詢最近的訂單時間
+$query_travelday = "SELECT `o_day` FROM `orderdata` WHERE `o_name`='$mname' and `o_time`='2019-12-19'";
+$travelday = $db_link->query($query_travelday);
+$row_travelday = $travelday->fetch_assoc();
+
 if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
-    $query_insert = "INSERT INTO t_orderdata (t_id) VALUES (?)";
+    $query_insert = "INSERT INTO `t_orderdata`(`m_id`, `travel_1`, `travel_2`, `travel_3`) VALUES ($mid,?,?,?)";
     $stmt = $db_link->prepare($query_insert);
-    //$stmt->bind_param("s",GetSQLValueString($_POST["t_name"], 'string'));
-    $tmp = GetSQLValueString($_POST["t_name"], 'string');
-    $stmt->bind_param("s", $tmp);
+    $stmt->bind_param(
+      "sss",
+      GetSQLValueString($_POST["t_name1"], 'string'),
+      GetSQLValueString($_POST["t_name2"], 'string'),
+      GetSQLValueString($_POST["t_name3"], 'string')
+  );
     $stmt->execute();
     $stmt->close();
     $db_link->close();
+    header("Location: travel2.php");
 }
-
 ?>
+<!DOCTYPE html>
+<html lang="zh-tw">
 
-    <!DOCTYPE html>
-    <html lang="zh-tw">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 環境建置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="\font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="\css/bootstrap.min.css" rel="stylesheet" />
+    <link href="\css/ican.css" rel="stylesheet" />
+    <script src="\scripts/jquery-3.4.1.min.js"></script>
+    <!-- 環境建置 -->
+    <title>ican</title>
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <!-- 環境建置 -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <link href="css/bootstrap.min.css" rel="stylesheet" />
-        <link href="css/ican.css" rel="stylesheet" />
-        <!-- 環境建置 -->
-        <!-- 環境建置 -->
-        <script src="scripts/jquery-3.4.1.slim.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="scripts/umd/popper.min.js"></script>
-        <script src="scripts/bootstrap.min.js"></script>
-        <script type="text/javascript" src="scripts/ican.js"></script>
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
-        <!-- 環境建置 -->
+
+    <style type="text/css">
+        ul {
+            float: left;
+            margin:10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <?php
+    include("layouts/header.php");
+    ?>
+
+    <form class="travelform" name="form1" method="POST" action="">
+        <iframe src="https://www.google.com/maps/d/embed?mid=1_KWBPZEEdoCUSQL6YW1z-C52aEY1L-Ac&ll=22.34112367512831%2C120.36961528583277&z=14" width="100%" height="480"></iframe>
+        <input type="radio" name="ferry" value="公營">公營
+        <input type="radio" name="ferry" value="民營">民營</br>
+        <p class="dataType" id="dataType" name="dataType"><?php echo "天數：".$row_travelday['o_day'];?></p></br>
+
+            <?php
+            $day = $row_travelday['o_day']*3;
+            $num = 1;
+            if($num <= $day){
+                for ($i=1; $i <= $row_travelday['o_day']; $i++) {
+                        echo ("<ul>$num<li>");
+                        echo ("<select name='t_class".$num."' class='t_class".$num."'>");
+                        echo ("<option>"."選擇上午行程"."</option>");
+                        foreach ($row_travelclass as $value){
+                            echo ("<option>".$value[0]."</option>");
+                        }
+                        echo ("</select></br>");
+                        echo("<select name='t_name".$num."' class='t_name".$num."'>
+                            </select></br>");
+                        $num++;
+                        echo ("</li><br>$num<li>");
+                        echo ("<select name='t_class".$num."' class='t_class".$num."'>");
+                        echo ("<option>"."選擇下午行程"."</option>");
+                        foreach ($row_travelclass as $value){
+                            echo "<option>".$value[0]."</option>";
+                        }
+                        echo ("</select></br>");
+                        echo("<select name='t_name".$num."' class='t_name".$num."'>
+                            </select></br>");
+                        $num++;
+                        echo ("</li><br>$num<li>");
+                        echo ("<select name='t_class".$num."' class='t_class".$num."'>");
+                        echo ("<option>"."選擇晚餐"."</option>");
+                        foreach ($row_travelBBQ as $value){
+                            echo "<option>".$value[0]."</option>";
+                        }
+                        echo ("</select></br>");
+                        echo("<select name='t_name".$num."' class='t_name".$num."'>
+                            </select></br>");
+                        echo ("</li></br></ul>");
+                        $num++;
+                }
+            }
+            $day = $row_travelday['o_day']*3;
+            $ajaxnum = 1;
+            if($ajaxnum <= $day){
+                for ($i=1; $i <= $day; $i++) {
+                        echo '
         <script type="text/javascript">
             $(function() {
-                /*
-                        //$(".btn1").on("click", function() {
-                          //$(".day2").appendTo(".day1");
-                        //});
-                        // $(".t_class").change(function(){
-                        //  $(".travellist").show();
-                        //  });
-                        
-                          $("#show").attr("src",$("#imgr img").attr("src"));
-                          $(".t_name").val("").change(function(){
-                            var val=$(this);
-                            $("#show").hide(1000,function(){
-                              $(this).attr("src",val.attr("src"));
-                            }).show(1500);
-                          
-                            //if($(this).val()=="小琉球海底觀光潛水船"){
-                              //$("img").eq(0).show();
-                           // }else if($(this).val()=="威尼斯海灘"){
-                              //$("#imgr").children().eq(1).show();
-                            }
-                          );
-
-                          $(function(){
-                        $("#show").attr("src",$("#imgr img:first").attr("src"));
-                      
-                    $(".t_name").hover(function(){
-                       
-                        var img=$(this);
-                        $("#big").hide(1500,function(){
-
-                            $(this).attr("src",img.attr("src"));
-
-                        }).show(2000);
-                    });
-
-                });
-                     */
-                $("#t_class").change(function() {
+                $(".t_class'.$ajaxnum.'").change(function() {
                     $.ajax({
                         type: "POST", //傳送方式
-                        url: "", //傳送目的地
+                        url: "active.php", //傳送目的地
                         dataType: "text", //資料格式
                         data: { //傳送資料
-                            select: $("#t_class").val() //表單欄位 ID nickname          
+                            select: $(".t_class'.$ajaxnum.'").val() //表單欄位 ID nickname
                         },
                         success: function(data) {
-                            $("#t_name").html(data);
+                            $(".t_name'.$ajaxnum.'").html(data);
                         },
                         error: function(jqXHR) {
                             alert("傳輸錯誤");
                         }
-                    })
-                })
+                    });
+                });
             });
-        </script>
-        <title>ican</title>
-        <style>
-            #travel {
-
-                border: 1px solid rgb(226, 182, 94);
+        </script>';
+                        $ajaxnum++;
+                }
             }
+            ?>
 
-            .day1 {}
-
-            .day2 {}
-
-            img {
-                width: 20%;
-                height: ;
-            }
-        </style>
-    </head>
-
-    <body>
-        <div id="travel">
-          <iframe src="https://www.google.com/maps/d/embed?mid=1_KWBPZEEdoCUSQL6YW1z-C52aEY1L-Ac&ll=22.339774072757933%2C120.3841206721853&z=14" width="640" height="480"></iframe>
-
-            <form action="" method="POST" name="formJoin" id="formJoin" onSubmit="return checkForm();">
-                <div style="text-align: center;">行程</div><br>
-                <!--下拉式選單,選房型-->
-                <select name="t_class" id="t_class">
-                    <?php
-                    $selectroomtype = ("SELECT DISTINCT `t_class` FROM `traveldata`");  //抓取r_type欄位
-                    $roomtypelist = $db_link->query($selectroomtype);  //執行sql指令                       
-                    for ($i = 0; $i < $roomtypelist->num_rows; $i++) {
-                        $rst = $roomtypelist->fetch_assoc();
-                        echo "<option value=" . $rst['t_class'] . ">" . $rst['t_class'] . "</option>";
-                    }
-                    ?>
-                </select>
-            
-                </form>
-
-            <br>
-
-            <form name="model" id="model" method="GET" action="">
-                <select name="t_name" id="t_name">
-
-                </select>
-
-                <input type="submit" id="search">
-            
-            </form>
-            <?php
-            /*
-            $searchimg = ("SELECT `t_img` FROM `traveldata` WHERE `t_name` ='{$_GET['t_name']}'");
-            $img = $db_link->query($searchimg);
-            $resultimg = $img->fetch_assoc();
-            echo "<div>" . "<img src=" . $resultimg['t_img'] . " >" . "</div>";
-           */ ?>
-
-
-
-        </div>
-        <input name="action" type="hidden" id="action" value="travel">
-        <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="前往結帳">
-        <input class="btn btn-info btn-sm" type="reset" name="Submit3" value="重設資料">
-        <input class="btn btn-primary btn-sm" type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
+        <div class="clearfix"></div>
+        <p align="center">
+            <input name="action" type="hidden" id="action" value="travel">
+            <input class="btn btn-success btn-sm" type="submit" name="Submit2" value="送出申請">
+            <input class="btn btn-info btn-sm" type="reset" name="Submit3" value="重設資料">
+            <input class="btn btn-primary btn-sm" type="button" name="Submit" value="回上一頁" onClick="window.history.back();">
         </p>
-        
-
-<?php
-//session_start();
-//header('Content-Type: application/json; charset=UTF-8'); //設定資料類型為 json，編碼 utf-8
-if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
-
-    if (isset($_POST["select"])) {
-        include('connMysql.php');
-
-        $select = $_POST["select"];
-        $searchroom="SELECT `t_name` FROM `traveldata` WHERE `t_class`='$select'";
-        
-        $roommodellist = $db_link->query($searchroom); 
-
-        for($i=0 ;$i < ($roommodellist->num_rows);$i++)
-        {
-            $rsm = $roommodellist->fetch_assoc();
-            $res .="<option value=".$rsm['t_name'].">".$rsm['t_name']."</option>";
-        }
-        //$_SESSION["class"]=$select;
-        echo $res;
-         //echo json_encode(array(
-             //'res' => $res
-         //),JSON_UNESCAPED_UNICODE);      
-    }  
- 
-}
-/*
-else {
-    //回傳 errorMsg json 資料
-    echo json_encode(array(
-        'errorMsg' => '請求無效，只允許 POST 方式訪問！'
-    ));
-}*/
-?>
+    </form>
 
 
-    </body>
+    <?php
+    include("layouts/footer.php");
+    ?>
 
-    </html>
+    <!-- 環境建置 -->
+    <script src="\scripts/umd/popper.min.js"></script>
+    <script src="\scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="\scripts/ican.js"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
+    <!-- 環境建置 -->
+</body>
+</html>

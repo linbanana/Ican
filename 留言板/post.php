@@ -27,7 +27,7 @@ unset($_SESSION["tato"]);
 //unset($_SESSION["r_type"]);
 }
 $db_link->close();
-header( "location:travel2.php");  //回index.php
+header( "location:travel.php");  //回index.php
 
 
 
