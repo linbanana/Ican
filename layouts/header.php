@@ -45,7 +45,7 @@ if (isset($_GET["logout"]) && ($_GET["logout"] == "true")) {
                 <a href="/about.php">
                     <i class="fa fa-users" aria-hidden="true">&nbsp;關於我們</i>
                 </a>
-                <a href="/layouts/order/selet.php">
+                <a href="/bookingroom.php">
                     <i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;線上訂房</i>
                 </a>
                 <?php
@@ -105,7 +105,7 @@ if (isset($_GET["logout"]) && ($_GET["logout"] == "true")) {
             <a href="/about.php">
                 <i class="fa fa-users" aria-hidden="true">&nbsp;關於我們</i>
             </a>
-            <a href="/layouts/order/selet.php">
+            <a href="/bookingroom.php">
                 <i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;線上訂房</i>
             </a>
             <?php
