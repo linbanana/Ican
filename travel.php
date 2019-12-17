@@ -137,17 +137,22 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                         echo("<select name='t_name".$num."' class='t_name".$num."'>
                             </select></br>");
                         $num++;
-                        echo ("</li><br>$num<li>");
-                        echo ("<select name='t_class".$num."' class='t_class".$num."'>");
-                        echo ("<option>"."選擇晚餐"."</option>");
-                        foreach ($row_travelBBQ as $value){
-                            echo "<option>".$value[0]."</option>";
+                        echo ("</li><br>");
+
+                        if($num != $day){
+                            echo ("$num<li><select name='t_class".$num."' class='t_class".$num."'>");
+                            
+                            echo ("<option>"."選擇晚餐"."</option>");
+                            foreach ($row_travelBBQ as $value){
+                                echo "<option>".$value[0]."</option>";
+                            }
+                            echo ("</select></br>");
+                            echo("<select name='t_name".$num."' class='t_name".$num."'>
+                                </select></br>");
+                            echo ("</li></br></ul>");
+                            $num++;
                         }
-                        echo ("</select></br>");
-                        echo("<select name='t_name".$num."' class='t_name".$num."'>
-                            </select></br>");
-                        echo ("</li></br></ul>");
-                        $num++;
+
                 }
             }
             $day = $row_travelday['o_day']*3;
