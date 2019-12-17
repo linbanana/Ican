@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-12-17 09:50:01
+-- 產生時間： 2019-12-17 12:45:58
 -- 伺服器版本： 10.4.8-MariaDB
--- PHP 版本： 7.2.23
+-- PHP 版本： 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,7 +49,7 @@ CREATE TABLE `memberdata` (
 --
 
 INSERT INTO `memberdata` (`m_id`, `m_name`, `m_username`, `m_passwd`, `m_sex`, `m_birthday`, `m_email`, `m_phone`, `m_address`, `m_level`, `m_login`, `m_logintime`, `m_jointime`) VALUES
-(1, '系統管理員', 'admin', '$2y$10$5ejczVchwglsQLZtIQmHW.teH8Tvv8aluu.aPeFuYt7CIhHxY4.W6', '男', '2019-11-14', 'admin@gmail.com', '0955445632', '', 'admin', 91, '2019-12-16 16:24:08', '0000-00-00 00:00:00'),
+(1, '系統管理員', 'admin', '$2y$10$5ejczVchwglsQLZtIQmHW.teH8Tvv8aluu.aPeFuYt7CIhHxY4.W6', '男', '2019-11-14', 'admin@gmail.com', '0955445632', '', 'admin', 92, '2019-12-17 19:10:05', '0000-00-00 00:00:00'),
 (2, '張惠玲', 'elven', '$2y$10$0BVHeh6R97hTcK4guYStm.d49gdFxLF/4CJgvLo0yIYZaoyMbr4ae', '女', '1987-04-05', 'elven@superstar.com', '0966765556', '台北市濟洲北路12號2樓', 'member', 12, '0000-00-00 00:00:00', '2019-11-02 12:03:12'),
 (3, '彭建志', 'jinglun', '$2y$10$WqB2bnMSO/wgBiHSOBV2iuLbrUCsp8VmNJdK2AyIW6IANUL9jeFjC', '男', '1987-07-01', 'jinglun@superstar.com', '0918181111', '台北市敦化南路93號5樓', 'member', 0, NULL, '2019-11-02 12:03:12'),
 (4, '謝耿鴻', 'sugie', '$2y$10$6uWtdYATI3b/wMRk.AaqIei852PLf.WjeKm8X.Asl0VTmpxCkqbW6', '男', '1987-08-11', 'edreamer@gmail.com', '0914530768', '台北市中央路201號7樓', 'member', 2, '0000-00-00 00:00:00', '2019-11-02 12:03:12'),
@@ -193,7 +193,9 @@ INSERT INTO `message` (`guestID`, `guestname`, `guestgender`, `guestphone`, `gue
 (142, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:14:30'),
 (143, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:16:00'),
 (144, '系統管理員', '男', 955445632, 'admin@gmail.com', 'asfasfoashfoaihfioawehoifhaweiofhioawehfioawefawef', '2019-12-09 11:19:25'),
-(145, '系統管理員', '男', 955445632, 'admin@gmail.com', 'esgesgageg', '2019-12-09 15:15:57');
+(145, '系統管理員', '男', 955445632, 'admin@gmail.com', 'esgesgageg', '2019-12-09 15:15:57'),
+(146, '系統管理員', '男', 955445632, 'admin@gmail.com', 'ggggggggggg', '2019-12-17 19:25:03'),
+(147, '系統管理員', '男', 955445632, 'admin@gmail.com', 'ggggggggggg', '2019-12-17 19:25:56');
 
 -- --------------------------------------------------------
 
@@ -256,7 +258,7 @@ INSERT INTO `newsdata` (`newsid`, `newstitle`, `newscontent`, `newstime`) VALUES
 
 CREATE TABLE `orderdata` (
   `o_num` int(10) NOT NULL,
-  `o_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `m_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `o_phone` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `o_citime` date NOT NULL,
   `o_day` int(10) NOT NULL,
@@ -271,7 +273,7 @@ CREATE TABLE `orderdata` (
 -- 傾印資料表的資料 `orderdata`
 --
 
-INSERT INTO `orderdata` (`o_num`, `o_name`, `o_phone`, `o_citime`, `o_day`, `o_total`, `o_cotime`, `o_ferry`, `r_id`, `t_id`) VALUES
+INSERT INTO `orderdata` (`o_num`, `m_id`, `o_phone`, `o_citime`, `o_day`, `o_total`, `o_cotime`, `o_ferry`, `r_id`, `t_id`) VALUES
 (48, '系統管理員', '0955445632', '2019-12-04', 10, '24000', '2019-12-13', '公營', 6, 0),
 (49, '系統管理員', '0955445632', '2019-12-03', 3, '4500', '2019-12-05', '公營', 1, 0);
 
@@ -543,7 +545,7 @@ ALTER TABLE `memberdata`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `message`
 --
 ALTER TABLE `message`
-  MODIFY `guestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `guestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `newsdata`
