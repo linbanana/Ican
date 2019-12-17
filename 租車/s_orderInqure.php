@@ -77,7 +77,9 @@ while($row = $result->fetch_assoc()){
   echo $row_RecProduct['s_disc']."<br>";
 */
 ?>
-<div class="alert alert-success" role="alert">你已完成的租車名單</div>
+<div class="alert alert-success" role="alert">你已完成的租車名單
+ <input class="btn btn-info" type="button" name="backbtn" id="button01" value="回租車頁面" onClick="window.history.back();">
+</div>
 <table class="table table-striped">
 <thead class="thead-dark">
     <tr>
