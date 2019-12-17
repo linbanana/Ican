@@ -90,12 +90,12 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
         <input type="radio" name="ferry" value="公營">公營
         <input type="radio" name="ferry" value="民營">民營</br>
         <p class="dataType" id="dataType" name="dataType"><?php echo "天數：".$row_travelday['o_day'];?></p></br>
-        
+
             <?php
             $day = $row_travelday['o_day']*3;
             $num = 1;
             if($num <= $day){
-                for ($i=1; $i <= $row_travelday['o_day']; $i++) {                   
+                for ($i=1; $i <= $row_travelday['o_day']; $i++) {
                         echo ("<ul>$num<li>");
                         echo ("<select name='t_class".$num."' class='t_class".$num."'>");
                         echo ("<option>"."選擇上午行程"."</option>");
@@ -106,7 +106,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                         echo("<select name='t_name".$num."' class='t_name".$num."'>
                             </select></br>");
                         $num++;
-                        echo ("</li><br>$num<li>");                        
+                        echo ("</li><br>$num<li>");
                         echo ("<select name='t_class".$num."' class='t_class".$num."'>");
                         echo ("<option>"."選擇下午行程"."</option>");
                         foreach ($row_travelclass as $value){
@@ -132,7 +132,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
             $day = $row_travelday['o_day']*3;
             $ajaxnum = 1;
             if($ajaxnum <= $day){
-                for ($i=1; $i <= $day; $i++) {                   
+                for ($i=1; $i <= $day; $i++) {
                         echo '
         <script type="text/javascript">
             $(function() {

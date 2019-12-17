@@ -828,7 +828,8 @@ button#order {
 /* updatenews.php */
 /* travel.php */
 .travelform{
-    background-image: url(https://picsum.photos/900/500/);
+    background-image: url(/images/travel/map.jpg);
+    background-size: 100%;
     width: 693px;
     margin: 0px auto;
     border: 2px solid #f80;
