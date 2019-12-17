@@ -5,6 +5,10 @@ include("mycart.php");
 session_start();
 $cart =& $_SESSION['cart']; // 將購物車的值設定為 Session
 if(!is_object($cart)) $cart = new myCart();
+/*
+foreach($cart->get_contents() as $item) {
+  $i++;
+  */
 //購物車結束
 //繫結產品目錄資料
 /*
@@ -81,7 +85,7 @@ function checkmail(myEmail) {
           <td>
           <div class="subjectDiv"><span class="heading"><img src="images/16-cube-green.png" width="16" height="16" align="absmiddle"></span> </div>
             <div class="normalDiv">
-              <?php if($cart->itemcount > 0) {?>
+              
               <p class="heading alert alert-primary"><img src="images/16-cube-orange.png" width="16" height="16" align="absmiddle"> 租車內容</p>
               <table class="table table-sm" width="90%" border="0" align="center" cellpadding="2" cellspacing="1">
                 <tr>
@@ -99,7 +103,21 @@ function checkmail(myEmail) {
                 <tr>
                   <td align="center" bgcolor="#F6F6F6" class="tdbline"><p><?php echo $i;?>.</p></td>
                   <td bgcolor="#F6F6F6" class="tdbline"><p><?php echo $item['info'];?></p></td>
-                  <td align="center" bgcolor="#F6F6F6" class="tdbline"><p><?php echo $item['qty'];?></p></td>
+                  <td align="center" bgcolor="#F6F6F6" class="tdbline">
+                  <p>
+                    <?php if($item['qty']>=10) {
+                      echo "數量過多"; 
+                      echo "
+                      <script> 
+                      alert('訂購數量過多');
+                      location.href='cart.php';
+                                               
+                      </script>";
+                     // header("Location: cart.php");
+                    }
+                    else
+                    echo $item['qty'];?>
+                   </p></td>
                   <td align="center" bgcolor="#F6F6F6" class="tdbline"><p>$ <?php echo number_format($item['price']);?></p></td>
                   <td align="center" bgcolor="#F6F6F6" class="tdbline"><p>$ <?php echo number_format($item['subtotal']);?></p></td>
                 </tr>
@@ -125,14 +143,15 @@ function checkmail(myEmail) {
                 <hr width="100%" size="1" />
                 <p align="center">
                   <input name="cartaction" type="hidden" id="cartaction" value="update">
-                  <input class="btn btn-dark" type="submit" name="updatebtn" id="button3" value="送出訂購單">
+                  
+                  <input class="btn btn-dark" type="submit" name="updatebtn" id="button3" value="送出">
+                                 
+                  
                   <input class="btn btn-dark" type="button" name="backbtn" id="button4" value="回上一頁" onClick="window.history.back();">
                 </p>
               </form>
             </div>
-            <?php }else{ ?>
-            <div class="infoDiv">目前購物車是空的。</div>
-            <?php } ?></td>
+            
         </tr>
       </table></td>
   </tr>
