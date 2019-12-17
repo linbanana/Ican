@@ -43,25 +43,6 @@ $query_travelday = "SELECT `o_day` FROM `orderdata` WHERE `o_name`='$mname' and 
 $travelday = $db_link->query($query_travelday);
 $row_travelday = $travelday->fetch_assoc();
 
-
-/*if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
-    for($i=1;$i<=$row_travelday['o_day'];$i++){
-    $query_insert = "INSERT INTO `t_orderdata`( `m_id`, `travel_1`, `travel_2`, `travel_3`) VALUES ($mid,?,?,?)";
-    $stmt = $db_link->prepare($query_insert);
-    $stmt->bind_param(
-      "sss",
-      GetSQLValueString($_POST["t_name"."$tnum"], 'string'), 
-      GetSQLValueString($_POST["t_name"."$tnum"], 'string'),  
-      GetSQLValueString($_POST["t_name"."$tnum"], 'string')
-  );
-    $stmt->execute();
-    }
-    $stmt->close();
-    $db_link->close();
-    header("Location: travel2.php");
-}
-*/
-
 if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
     $mnum = 1;   
     for($i=1;$i<=$row_travelday['o_day'];$i++){
