@@ -85,6 +85,7 @@ while($row = $result->fetch_assoc()){
       <th scope="col">車子</th>
       <th scope="col">單價</th>
       <th scope="col">數量</th>
+      <th scope="col">總價</th>
     </tr>
   </thead>
   <?php
@@ -102,6 +103,9 @@ while($row = $result->fetch_assoc()){
      </td>
      <td>
       <?php echo  $row['s_quantity']; ?>
+     </td>
+     <td>
+      <?php echo  $row['s_unitprice']*$row['s_quantity']; ?>
      </td>
     </tr>
   <?php  }; ?>
