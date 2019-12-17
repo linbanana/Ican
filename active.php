@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     @$select = $_POST["select"]; //取得 nickname POST 值
     if ($select != null) {
         include('connMysql.php');
-        $searchroom="SELECT `r_model` FROM `roomdata1` WHERE `r_type`='$select'";
+        $searchroom="SELECT `r_model` FROM `roomdata` WHERE `r_type`='$select'";
         $roommodellist = $db_link->query($searchroom);  //用db_link物件執行sql語法
         for($i=0;$i<$roommodellist->num_rows;$i++){
             $rsm=$roommodellist->fetch_assoc();

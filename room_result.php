@@ -8,7 +8,7 @@ $link=$db_link->query($sql);  //執行sql指令
 if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action是delete的話,執行下方sql指令刪除資料
   $deletedata= "DELETE FROM `orderdata` WHERE `o_num`= '$_GET[o_num]' " ;  
   $db_link->query($deletedata);  //用db_link物件執行sql語法
-  header("location:selet.php");  //回到此頁面
+  header("location:room_result.php");  //回到此頁面
 }
 /*刪除資料的部分*/
 ?>
@@ -78,6 +78,6 @@ $r_model=$result['r_model'];
 </table>
 
 <p></p>
-<input type="submit" value="新增" onclick="javascript:location.href='tesin.php'"/>
+<input type="submit" value="新增" onclick="javascript:location.href='bookingroom.php'"/>
 </body>
 </html>

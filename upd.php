@@ -17,9 +17,9 @@ $guestphone=$messagemember['m_phone'];//會員資料轉值
 
 
 /*抓取房型資料的部分*/
-$selectroomtype=("SELECT  DISTINCT `r_type` FROM `roomdata1`");  //抓取r_type欄位
+$selectroomtype=("SELECT  DISTINCT `r_type` FROM `roomdata`");  //抓取r_type欄位
 $roomtypelist=$db_link->query($selectroomtype);  //執行sql指令
-$selectroommodel=("SELECT `r_model` FROM `roomdata1`");  //抓取r_model欄位
+$selectroommodel=("SELECT `r_model` FROM `roomdata`");  //抓取r_model欄位
 $roommodellist=$db_link->query($selectroommodel);  //執行sql指令
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -57,12 +57,9 @@ $roommodellist=$db_link->query($selectroommodel);  //執行sql指令
                         $("#result").html('<font color="#ff0000">發生錯誤：' + jqXHR.status + '</font>');
                     }
 
-   })
-
-
-
+              })
     })
-    });
+  });
     </script>
 <title>訂單修改</title>
 <style type="text/css">
@@ -98,7 +95,7 @@ margin-left: -350px;
                 </select>              
                 <!--下拉式選單,選主題-->
                 <select name="selectmodel" id="selectmodel">
-  <option value="">請選擇</option>
+                      <option value="">請選擇</option>
                 </select>
                 <div style="text-align: center;">入住日期 <input type="date" id="ind" name="ind" value="<?php echo $_GET['daaay'];?>"></div><br>
                 <div style="text-align: center;">退房日期 <input type="date" id="outda" name="outda" value="<?php echo $_GET['o_cotime'];?>"></div><br>
