@@ -52,11 +52,33 @@ $row_RecTotal = $RecTotal->fetch_assoc();
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
  <!-- 環境建置 -->
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="\font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/ican.css" rel="stylesheet" />
+    <link href="\css/bootstrap.min.css" rel="stylesheet" />
+    <link href="\css/ican.css" rel="stylesheet" />
+    <script src="\scripts/jquery-3.4.1.min.js"></script>
     <!-- 環境建置 -->
+    <script language="javascript">
+function check(){	
+	if(document.cartform.qty[].value=""){
+    
+		alert("數量太多!");
+    document.cartform.qty[].focus();
+    
+		return false;
+	}
+	
+	//return confirm('確定送出嗎？');
+}
+function checkmail(myEmail) {
+	var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	if(filter.test(myEmail.value)){
+		return true;
+	}
+	alert("電子郵件格式不正確");
+	return false;
+}
+</script>
 </head>
 
 <body>
@@ -115,7 +137,8 @@ $row_RecTotal = $RecTotal->fetch_assoc();
             <hr width="100%" size="1" />
             <p align="center">
               <input class="btn btn-dark" name="cartaction" type="hidden" id="cartaction" value="update">
-              <input class="btn btn-dark" type="submit" name="updatebtn" id="button3" value="更新購物車">
+              <input class="btn btn-dark" type="submit" name="updatebtn" id="button3" value="更新購物車" onClick="return check();">
+              
               <input class="btn btn-dark" type="button" name="emptybtn" id="button5" value="清空購物車" onClick="window.location.href='?cartaction=empty'">
               <input class="btn btn-dark" type="button" name="button" id="button6" value="前往結帳" onClick="window.location.href='checkout.php';">
               <input class="btn btn-dark" type="button" name="backbtn" id="button4" value="回上一頁" onClick="window.history.back();">

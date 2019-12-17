@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-  <!-- 環境建置 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 環境建置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="\font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/ican.css" rel="stylesheet" />
+    <link href="\css/bootstrap.min.css" rel="stylesheet" />
+    <link href="\css/ican.css" rel="stylesheet" />
+    <script src="\scripts/jquery-3.4.1.min.js"></script>
     <!-- 環境建置 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
 
@@ -77,9 +78,7 @@ while($row = $result->fetch_assoc()){
   echo $row_RecProduct['s_disc']."<br>";
 */
 ?>
-<div class="alert alert-success" role="alert">你已完成的租車名單
- <input class="btn btn-info" type="button" name="backbtn" id="button01" value="回租車頁面" onClick="window.history.back();">
-</div>
+<div class="alert alert-success" role="alert">你已完成的租車名單</div>
 <table class="table table-striped">
 <thead class="thead-dark">
     <tr>

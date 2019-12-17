@@ -44,10 +44,11 @@ $row_RecTotal = $RecTotal->fetch_assoc();
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
   <!-- 環境建置 -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="\font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/ican.css" rel="stylesheet" />
+    <link href="\css/bootstrap.min.css" rel="stylesheet" />
+    <link href="\css/ican.css" rel="stylesheet" />
+    <script src="\scripts/jquery-3.4.1.min.js"></script>
     <!-- 環境建置 -->
 <title>租車系統</title>
 <link href="style.css" rel="stylesheet" type="text/css">
