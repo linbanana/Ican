@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-12-17 12:45:58
+-- 產生時間： 2019-12-18 09:09:23
 -- 伺服器版本： 10.4.8-MariaDB
--- PHP 版本： 7.3.10
+-- PHP 版本： 7.2.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -264,18 +264,17 @@ CREATE TABLE `orderdata` (
   `o_day` int(10) NOT NULL,
   `o_total` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `o_cotime` date NOT NULL,
-  `o_ferry` enum('公營','民營') COLLATE utf8_unicode_ci NOT NULL,
-  `r_id` int(10) DEFAULT NULL,
-  `t_id` int(10) NOT NULL
+  `r_id` int(10) NOT NULL,
+  `o_ferry` enum('公營','民營') COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 傾印資料表的資料 `orderdata`
 --
 
-INSERT INTO `orderdata` (`o_num`, `m_id`, `o_phone`, `o_citime`, `o_day`, `o_total`, `o_cotime`, `o_ferry`, `r_id`, `t_id`) VALUES
-(48, '系統管理員', '0955445632', '2019-12-04', 10, '24000', '2019-12-13', '公營', 6, 0),
-(49, '系統管理員', '0955445632', '2019-12-03', 3, '4500', '2019-12-05', '公營', 1, 0);
+INSERT INTO `orderdata` (`o_num`, `m_id`, `o_phone`, `o_citime`, `o_day`, `o_total`, `o_cotime`, `r_id`, `o_ferry`) VALUES
+(50, '48', '0933666565', '2019-12-18', 2, '4800', '2019-12-19', 5, '公營'),
+(51, '48', '0933666565', '2019-12-19', 3, '4500', '2019-12-21', 2, '公營');
 
 -- --------------------------------------------------------
 
@@ -464,7 +463,14 @@ CREATE TABLE `t_orderdata` (
 INSERT INTO `t_orderdata` (`o_num`, `m_id`, `daynum`, `travel_1`, `travel_2`, `travel_3`) VALUES
 (0, 48, 7, '寶哥烘炸小琉球麻花捲相思旗艦店', '蛤板灣', '極香碳烤'),
 (0, 48, 8, '中澳沙灘', '蛤板灣', '品鮮火鍋烤肉吃到飽'),
-(0, 48, 10, '蛤板灣', '蛤板灣', '品鮮火鍋烤肉吃到飽');
+(0, 48, 10, '蛤板灣', '蛤板灣', '品鮮火鍋烤肉吃到飽'),
+(50, 48, 0, '美人洞', '蛤板灣', '品鮮火鍋烤肉吃到飽'),
+(50, 48, 0, '蛤板灣', '王老師手工麻花捲', '平安回家'),
+(50, 48, 1, '美人洞', '蛤板灣', '品鮮火鍋烤肉吃到飽'),
+(50, 48, 2, '蛤板灣', '王老師手工麻花捲', '平安回家'),
+(51, 48, 1, '美人洞', '王老師手工麻花捲', '品鮮火鍋烤肉吃到飽'),
+(51, 48, 2, '王老師手工麻花捲', '王老師手工麻花捲', '品鮮火鍋烤肉吃到飽'),
+(51, 48, 3, '小琉球-小綠龜潛水', '小琉球-小綠龜潛水', '平安回家');
 
 --
 -- 已傾印資料表的索引
@@ -526,12 +532,6 @@ ALTER TABLE `traveldata`
   ADD PRIMARY KEY (`t_id`);
 
 --
--- 資料表索引 `t_orderdata`
---
-ALTER TABLE `t_orderdata`
-  ADD PRIMARY KEY (`daynum`);
-
---
 -- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
 --
 
@@ -557,7 +557,7 @@ ALTER TABLE `newsdata`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orderdata`
 --
 ALTER TABLE `orderdata`
-  MODIFY `o_num` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `o_num` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `roomdata`
@@ -588,12 +588,6 @@ ALTER TABLE `s_orderdetail`
 --
 ALTER TABLE `traveldata`
   MODIFY `t_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
-
---
--- 使用資料表自動遞增(AUTO_INCREMENT) `t_orderdata`
---
-ALTER TABLE `t_orderdata`
-  MODIFY `daynum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

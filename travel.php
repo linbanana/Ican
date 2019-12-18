@@ -45,6 +45,7 @@ $row_travelday = $travelday->fetch_assoc();
 
 if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
     $mnum = 1;
+    $daynum = 1;
     for($i=1;$i<=$row_travelday['o_day'];$i++){
         $afnum = $mnum+1;
         $ntnum = $afnum+1;
@@ -52,8 +53,9 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
         $afternoon=$_POST["t_name".$afnum];
         $night=$_POST["t_name".$ntnum];
         $mnum=$mnum+3;
-        $query_insert = "INSERT INTO `t_orderdata`(`o_num`, `m_id`, `travel_1`, `travel_2`, `travel_3`) VALUES ('{$row_travelday['o_num']}','$mid','$morning','$afternoon','$night')";
+        $query_insert = "INSERT INTO `t_orderdata`(`o_num`, `m_id`, `daynum` , `travel_1`, `travel_2`, `travel_3`) VALUES ('{$row_travelday['o_num']}','$mid','$daynum','$morning','$afternoon','$night')";
         $db_link->query($query_insert);
+        $daynum++;
     }
 }
 ?>
