@@ -155,10 +155,10 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                 $(".t_class'.$ajaxnum.'").change(function() {
                     $.ajax({
                         type: "POST", //傳送方式
-                        url: "active1.php", //傳送目的地
+                        url: "active.php", //傳送目的地
                         dataType: "text", //資料格式
                         data: { //傳送資料
-                            select: $(".t_class'.$ajaxnum.'").val() //表單欄位 ID nickname
+                            tselect: $(".t_class'.$ajaxnum.'").val() //表單欄位 ID nickname
                         },
                         success: function(data) {
                             $(".t_name'.$ajaxnum.'").html(data);
