@@ -84,7 +84,7 @@ if (isset($_POST["username"]) && isset($_POST["passwd"])) {
                 <?php
                 if (isset($_GET["errMsg"]) && ($_GET["errMsg"] == "1")) {
                 ?>
-                    <input name="username" type="text" class="logintextbox" id="username" value="<?php if (isset($_COOKIE["remUser"]) && ($_COOKIE["remUser"] != "")) echo $_COOKIE["remUser"]; ?>" style="border: 2px solid #ff0000;">
+                    <input name="username" type="text" class="logintextbox" id="username" value="<?php if (isset($_COOKIE["remUser"]) && ($_COOKIE["remUser"] != "")) echo $_COOKIE["remUser"]; ?>" style="border: 2px solid #ff0000;" autofocus>
                 <?php
                 }else{
                 ?>
@@ -94,7 +94,17 @@ if (isset($_POST["username"]) && isset($_POST["passwd"])) {
                 ?>
                 </p>
                 <p>密碼：
+                <?php
+                if (isset($_GET["errMsg"]) && ($_GET["errMsg"] == "1")) {
+                ?>
+                    <input name="passwd" type="password" class="logintextbox" id="passwd" value="<?php if (isset($_COOKIE["remPass"]) && ($_COOKIE["remPass"] != "")) echo $_COOKIE["remPass"]; ?>" style="border: 2px solid #ff0000;">
+                <?php
+                }else{
+                ?>
                     <input name="passwd" type="password" class="logintextbox" id="passwd" value="<?php if (isset($_COOKIE["remPass"]) && ($_COOKIE["remPass"] != "")) echo $_COOKIE["remPass"]; ?>">
+                <?php
+                }
+                ?>
                 </p>
                 <p style="margin-bottom: 0px;">
                     <input name="rememberme" type="checkbox" id="rememberme" value="true" <?php if (isset($_COOKIE["remUser"]) && ($_COOKIE["remUser"] != "")) echo "checked"; ?>>
