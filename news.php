@@ -3,12 +3,13 @@ require("connMysql.php");  //呼叫connectMysql.php文件
 session_start();
 //檢查是否經過登入
 
+
 //選取管理員資料
-$query_RecAdmin = "SELECT m_id, m_name, m_logintime,m_email FROM memberdata WHERE m_username=?";
+$query_RecAdmin = "SELECT m_id, m_name, m_logintime,m_email,m_level FROM memberdata WHERE m_username=?";
 $stmt = $db_link->prepare($query_RecAdmin);
 $stmt->bind_param("s", $_SESSION["loginMember"]);
 $stmt->execute();
-$stmt->bind_result($mid, $mname, $mlogintime, $m_email);
+$stmt->bind_result($mid, $mname, $mlogintime, $m_email ,$m_level);
 $stmt->fetch();
 $stmt->close();
 
@@ -72,7 +73,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
         <div class="newspost col col-3"></div>
         <div class="newspost col col-6">
         <table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
-            <?php if ($_SESSION["memberLevel"] == "admin" && !isset($_SESSION["memberLevel"])) {?>
+            <?php if ( $m_level == "admin" && !isset($m_level) ) {?>
             <tr>
                 <td class="tdbline">
                     <div style="position:relative;">
@@ -87,7 +88,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
                     </div>
                 </td>
             </tr>
-        <?php }elseif($_SESSION["memberLevel"] == "member" || !isset($_SESSION["memberLevel"])){}?>
+        <?php }elseif($m_level == "member" || !isset($m_level )){}?>
         </table>
         <table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
         <?php
@@ -116,7 +117,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
                         ?>
                     </p>
                 </div>
-                <?php if ($_SESSION["memberLevel"] == "admin") {?>
+                <?php if ($m_level == "admin") {?>
                     <input class="btn btn-danger" type="button"
                     value="刪除<?php echo "編號：".$row_RecMember["newsid"]; ?>"
                     onclick="if (confirm('\n您確定要刪除這個管理員嗎?\n刪除後無法恢復!\n')) window.location.href='?action=delete&id=<?php echo $row_RecMember["newsid"]; ?>';"
