@@ -2,8 +2,8 @@
 require_once("../../connMysql.php");
 session_start();
 //檢查是否經過登入
-if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
-  header("Location: login.php");
+if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
+  echo "<script>alert('請先登入');window.location.href = '../../login.php';</script>";
 }
 //執行登出動作
 if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){

@@ -2,6 +2,11 @@
 error_reporting(0);
 session_start();
 
+//檢查是否經過登入
+if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
+  echo "<script>alert('請先登入');window.location.href = '../../login.php';</script>";
+}
+
 require_once("../../connMysql.php");  //呼叫connectMysql.php文件
 date_default_timezone_set("Asia/Taipei"); //設定台灣時區
 $selectmember = "SELECT `m_name`,`m_sex`,`m_email`,`m_phone`,`m_level` FROM `memberdata` WHERE `m_username`= '{$_SESSION["loginMember"]}'";

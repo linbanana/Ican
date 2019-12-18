@@ -3,7 +3,7 @@ require("../../connMysql.php");  //呼叫connectMysql.php文件
 session_start();
 //檢查是否經過登入
 if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
-    header("Location: index.php");
+  echo "<script>alert('請先登入');window.location.href = '../../login.php';</script>";
 }
 
 //檢查權限是否足夠

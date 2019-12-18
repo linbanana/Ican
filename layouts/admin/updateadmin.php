@@ -19,7 +19,7 @@ require_once("../../connMysql.php");
 session_start();
 //檢查是否經過登入
 if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
-  header("Location: login.php");
+  echo "<script>alert('請先登入');window.location.href = '../../login.php';</script>";
 }
 //檢查權限是否足夠
 if ($_SESSION["memberLevel"] == "member") {

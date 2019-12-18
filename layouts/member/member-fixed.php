@@ -24,13 +24,13 @@
       </ol>
     </li>
     <li>
-      <a class="list-group-item py-2 list-group-item-action">暫無功能</a>
+      <a class="list-group-item py-2 list-group-item-action">訂購/查詢</a>
       <ol>
         <i>
-          <a href="#" class="list-group-item py-2 list-group-item-action">暫無功能</a>
+          <a href="#" class="list-group-item py-2 list-group-item-action">查詢訂單</a>
         </i>
         <i>
-          <a href="#" class="list-group-item py-2 list-group-item-action">暫無功能</a>
+          <a href="\租車/scooter.php" class="list-group-item py-2 list-group-item-action">機車租賃</a>
         </i>
       </ol>
     </li>

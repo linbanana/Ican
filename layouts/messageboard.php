@@ -1,10 +1,9 @@
 <?php
 error_reporting(0);
 session_start();
-//判斷是否有登入
+//檢查是否經過登入
 if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
-    echo "<script>alert('尚未登入')</script>";
-    header("Location: ../login.php");
+  echo "<script>alert('請先登入');window.location.href = '../../login.php';</script>";
 }
 
 require_once("../connMysql.php");  //呼叫connectMysql.php文件

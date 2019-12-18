@@ -262,22 +262,50 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="8"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="9"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="10"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="11"></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://picsum.photos/600/400/?random=1" class="d-block w-100">
+                        <img src="images/room/marvel.jpg" class="d-block w-100">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://picsum.photos/600/400/?random=2" class="d-block w-100">
+                        <img src="images/room/disney.jpg" class="d-block w-100">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://picsum.photos/600/400/?random=3" class="d-block w-100">
+                        <img src="images/room/Ocean.jpg" class="d-block w-100">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://picsum.photos/600/400/?random=4" class="d-block w-100">
+                        <img src="images/room/shinestar.jpg" class="d-block w-100">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://picsum.photos/600/400/?random=5" class="d-block w-100">
+                        <img src="images/room/egypt.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/room/rome.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/room/Europe.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/room/jp-style.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/room/parity-family.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/room/luxury-family.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/room/business.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/room/president.jpg" class="d-block w-100">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -357,7 +385,7 @@
 
         </div>
         <div class="reservation">
-            <a href="#">立即訂房</a>
+            <a href="bookingroom.php">立即訂房</a>
         </div>
     </div>
 

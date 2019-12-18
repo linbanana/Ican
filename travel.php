@@ -16,7 +16,7 @@ return $theValue;
 
 //檢查是否經過登入
 if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
-    header("Location: login.php");
+  echo "<script>alert('請先登入');window.location.href = 'login.php';</script>";
 }
 
 //選取管理員資料

@@ -56,6 +56,9 @@
         <i>
           <a href="#" class="list-group-item py-2 list-group-item-action">旅遊行程規劃</a>
         </i>
+        <i>
+          <a href="\租車/scooter.php" class="list-group-item py-2 list-group-item-action">機車租賃</a>
+        </i>
       </ol>
     </li>
   </ul>

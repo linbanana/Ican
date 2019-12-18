@@ -1,6 +1,11 @@
 <?php
 session_start();
 require("connMysql.php");
+//檢查是否經過登入
+if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
+  echo "<script>alert('請先登入');window.location.href = 'login.php';</script>";
+ 
+}
 function showroom($roomimg, $roomname, $price, $people, $info)
 {
   $hprice = $price * 1.4;
@@ -44,28 +49,12 @@ function showroom($roomimg, $roomname, $price, $people, $info)
     text-align: center;
   }
 
-  .dai {
-    width: 100%;
-    height: 300px;
-    background-color: palegoldenrod;
-    margin: 0px auto;
-    margin-top: 150px;
-    margin-bottom: 50px;
-  }
-
-  #roomdiv {
-    margin: 10px auto;
-    width: 1000px;
-    height: 280px;
-  }
-
-  #buttondiv {
-    float: right;
-    width: 170px;
-    height: 60px;
-    position: relative;
-    top: 225px;
-    left: 20px;
+  .bookingroomcontent {
+    width: 912px;
+    height: 250px;
+    background-color: rgba(250, 235, 215, 0.8);
+    border: 2px solid #f80;
+    margin: 0px auto 16px auto;
   }
 </style>
 <script type="text/javascript">
@@ -92,7 +81,7 @@ function showroom($roomimg, $roomname, $price, $people, $info)
   include("layouts/header.php");
   ?>
 
-  <div class="dai">
+  <div class="bookingroomcontent col-12">
     <form name="room" id="room" action="" method="GET" onsubmit="return chk();">
       <div style="text-align: center;">
         <h5>查詢空房</h5>
@@ -115,8 +104,8 @@ function showroom($roomimg, $roomname, $price, $people, $info)
       <div style="text-align: center;">入住日期 <input type="date" id="ind" name="ind"></div><br>
       <div style="text-align: center;">退房日期 <input type="date" id="outda" name="outda"></div><br>
       <div style="text-align: center;">
-        <input type="button" value="上一頁" onclick="history.back()">
-        <input type="submit" value="查詢" onclick="return CheckFunc();">
+        <input class="btn btn-primary" type="button" value="上一頁" onclick="history.back()">
+        <input class="btn btn-success" type="submit" value="查詢" onclick="return CheckFunc();">
       </div>
     </form>
   </div>

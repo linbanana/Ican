@@ -81,7 +81,17 @@ if (isset($_POST["username"]) && isset($_POST["passwd"])) {
             <p>登入會員系統</p>
             <form name="form1" method="post" action="">
                 <p>帳號：
+                <?php
+                if (isset($_GET["errMsg"]) && ($_GET["errMsg"] == "1")) {
+                ?>
+                    <input name="username" type="text" class="logintextbox" id="username" value="<?php if (isset($_COOKIE["remUser"]) && ($_COOKIE["remUser"] != "")) echo $_COOKIE["remUser"]; ?>" style="border: 2px solid #ff0000;">
+                <?php
+                }else{
+                ?>
                     <input name="username" type="text" class="logintextbox" id="username" value="<?php if (isset($_COOKIE["remUser"]) && ($_COOKIE["remUser"] != "")) echo $_COOKIE["remUser"]; ?>">
+                <?php
+                }
+                ?>
                 </p>
                 <p>密碼：
                     <input name="passwd" type="password" class="logintextbox" id="passwd" value="<?php if (isset($_COOKIE["remPass"]) && ($_COOKIE["remPass"] != "")) echo $_COOKIE["remPass"]; ?>">
@@ -91,7 +101,7 @@ if (isset($_POST["username"]) && isset($_POST["passwd"])) {
                     記住我的帳號密碼。</p>
                 <?php
                 if (isset($_GET["errMsg"]) && ($_GET["errMsg"] == "1")) {
-                    ?>
+                ?>
                     <div class="errDiv"> 登入帳號或密碼錯誤！</div>
                 <?php
                 }
@@ -101,7 +111,7 @@ if (isset($_POST["username"]) && isset($_POST["passwd"])) {
                 </p>
             </form>
             <p align="center">
-                <a href="admin_passmail.php">忘記密碼，補寄密碼信。</a>
+                <a href="#" onclick="window.alert('暫無此功能QQ');">忘記密碼，補寄密碼信。</a>
             </p>
             <hr size="1" />
             <h4>還沒有會員帳號?</h4>
