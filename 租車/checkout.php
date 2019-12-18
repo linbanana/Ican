@@ -19,6 +19,8 @@ $query_RecTotal = "SELECT count(productid) as totalNum FROM product";
 $RecTotal = $db_link->query($query_RecTotal);
 $row_RecTotal = $RecTotal->fetch_assoc();
 */
+	
+       
 ?>
 
 <!DOCTYPE html>
@@ -86,10 +88,10 @@ function checkmail(myEmail) {
         <tr valign="top">
           
           <td>
-          <div class="subjectDiv"><span class="heading"><img src="images/16-cube-green.png" width="16" height="16" align="absmiddle"></span> </div>
+          
             <div class="normalDiv">
               
-              <p class="heading alert alert-primary"><img src="images/16-cube-orange.png" width="16" height="16" align="absmiddle"> 租車內容</p>
+              <p class="heading alert alert-primary">租車內容</p>
               <table class="table table-sm" width="90%" border="0" align="center" cellpadding="2" cellspacing="1">
                 <tr>
                   <th bgcolor="#ECE1E1"><p>編號</p></th>
@@ -98,7 +100,18 @@ function checkmail(myEmail) {
                   <th bgcolor="#ECE1E1"><p>單價</p></th>
                   <th bgcolor="#ECE1E1"><p>小計</p></th>
                 </tr>
-                <?php		  
+                <?php	
+            $i=0;
+			$qty=0;
+			foreach($cart->get_contents() as $item) {
+			$i++;
+			
+			$qty +=$item['qty'];
+			
+			}
+				echo $qty;  //測試是否可以抓到總值
+				
+				
 		  	$i=0;
 			foreach($cart->get_contents() as $item) {
 			$i++;
