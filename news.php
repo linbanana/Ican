@@ -73,7 +73,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
         <div class="newspost col col-3"></div>
         <div class="newspost col col-6">
         <table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
-            <?php if ( $m_level == "admin" && !isset($m_level) ) {?>
+            <?php if ( $m_level == "admin" && isset($m_level) ) {?>
             <tr>
                 <td class="tdbline">
                     <div style="position:relative;">
@@ -88,7 +88,7 @@ if (isset($_GET["action"]) && ($_GET["action"] == "delete")) {
                     </div>
                 </td>
             </tr>
-        <?php }elseif($m_level == "member" || !isset($m_level )){}?>
+        <?php }elseif($m_level == "member" || isset($m_level)){}?>
         </table>
         <table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
         <?php
