@@ -44,44 +44,46 @@ $RecTotal = $db_link->query($query_RecTotal);
 $row_RecTotal = $RecTotal->fetch_assoc();
 */
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="zh-tw">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>租車系統</title>
-<link href="style.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
- <!-- 環境建置 -->
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 環境建置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="\font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="\css/bootstrap.min.css" rel="stylesheet" />
     <link href="\css/ican.css" rel="stylesheet" />
     <script src="\scripts/jquery-3.4.1.min.js"></script>
     <!-- 環境建置 -->
-    <script language="javascript">
-function check(){	
-	if(document.cartform.qty[].value=""){
+    <title>ican</title>
+        <script language="javascript">
+function check(){ 
+  if(document.cartform.qty[].value=""){
     
-		alert("數量太多!");
+    alert("數量太多!");
     document.cartform.qty[].focus();
     
-		return false;
-	}
-	
-	//return confirm('確定送出嗎？');
+    return false;
+  }
+  
+  //return confirm('確定送出嗎？');
 }
 function checkmail(myEmail) {
-	var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-	if(filter.test(myEmail.value)){
-		return true;
-	}
-	alert("電子郵件格式不正確");
-	return false;
+  var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  if(filter.test(myEmail.value)){
+    return true;
+  }
+  alert("電子郵件格式不正確");
+  return false;
 }
 </script>
 </head>
-
 <body>
+    <?php
+    include("../layouts/header.php");
+    ?>
 <table  width="780" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
   <tr>
     <td height="80" align="center" background="images/mlogo.png" class="tdbline"></td>
@@ -155,6 +157,18 @@ function checkmail(myEmail) {
   </tr>
   
 </table>
+    <?php
+    include("../layouts/footer.php");
+    ?>
+
+    <!-- 環境建置 -->
+    <script src="\scripts/umd/popper.min.js"></script>
+    <script src="\scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="\scripts/ican.js"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
+    <!-- 環境建置 -->
 </body>
+
 </html>
 <?php //$db_link->close();?>

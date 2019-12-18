@@ -1,44 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="zh-tw">
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!-- 環境建置 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="\font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-    <link href="\css/bootstrap.min.css" rel="stylesheet" />
-    <link href="\css/ican.css" rel="stylesheet" />
-    <script src="\scripts/jquery-3.4.1.min.js"></script>
-    <!-- 環境建置 -->
-    <title>ican</title>
-</head>
-<body>
-<style type="text/css">
-.albumDiv {
-	float: left;
-	height: 200px;
-	width: 200px;
-	text-align: center;
-	margin-right: 22px;
-	margin-bottom: 5px;
-}
-.albumDiv .albuminfo {
-	font-family: "微軟正黑體";
-	font-size: 11pt;
-
-    
-}
-.smalltext {
-	font-size: 11px;
-	color: #999999;
-	font-family: Georgia, "Times New Roman", Times, serif;
-	vertical-align: baseline;
-}
-</style>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-
-<?php 
+﻿<?php 
 error_reporting(0);
 session_start();
 //判斷是否有登入
@@ -75,6 +35,50 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 
 	 
 ?>
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 環境建置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="\font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="\css/bootstrap.min.css" rel="stylesheet" />
+    <link href="\css/ican.css" rel="stylesheet" />
+    <script src="\scripts/jquery-3.4.1.min.js"></script>
+    <!-- 環境建置 -->
+    <title>ican</title>
+</head>
+<body>
+    <?php
+    include("../layouts/header.php");
+    ?>
+<style type="text/css">
+.albumDiv {
+	float: left;
+	height: 200px;
+	width: 200px;
+	text-align: center;
+	margin-right: 22px;
+	margin-bottom: 5px;
+}
+.albumDiv .albuminfo {
+	font-family: "微軟正黑體";
+	font-size: 11pt;
+
+    
+}
+.smalltext {
+	font-size: 11px;
+	color: #999999;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	vertical-align: baseline;
+}
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+
+
 
 
 
@@ -149,6 +153,17 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
 			
 <?php    }?>
 
+    <?php
+    include("../layouts/footer.php");
+    ?>
+
+    <!-- 環境建置 -->
+    <script src="\scripts/umd/popper.min.js"></script>
+    <script src="\scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="\scripts/ican.js"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
+    <!-- 環境建置 -->
 </body>
 
 </html>

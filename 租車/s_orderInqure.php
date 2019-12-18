@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="zh-tw">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 環境建置 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="\font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -10,13 +11,12 @@
     <link href="\css/ican.css" rel="stylesheet" />
     <script src="\scripts/jquery-3.4.1.min.js"></script>
     <!-- 環境建置 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-
-
-<title>已完成租車</title>
-
+    <title>ican</title>
 </head>
 <body>
+    <?php
+    include("../layouts/header.php");
+    ?>
 
 <?php 
   include("../connMysql.php");
@@ -114,5 +114,18 @@ while($row = $result->fetch_assoc()){
 
 </table>
 <input class="btn btn-dark" type="button" name="backbtn" id="button4" value="回租車頁面" onClick="window.history.back();">
+
+    <?php
+    include("../layouts/footer.php");
+    ?>
+
+    <!-- 環境建置 -->
+    <script src="\scripts/umd/popper.min.js"></script>
+    <script src="\scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="\scripts/ican.js"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
+    <!-- 環境建置 -->
 </body>
+
 </html>
