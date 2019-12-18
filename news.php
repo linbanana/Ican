@@ -2,9 +2,6 @@
 require("connMysql.php");  //呼叫connectMysql.php文件
 session_start();
 //檢查是否經過登入
-if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
-  header("Location: login.php");
-}
 
 //選取管理員資料
 $query_RecAdmin = "SELECT m_id, m_name, m_logintime,m_email FROM memberdata WHERE m_username=?";
