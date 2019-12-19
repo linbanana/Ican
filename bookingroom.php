@@ -16,7 +16,7 @@ function showroom($roomimg,$roomname,$price,$people,$info){
             "<p class='card-text'>標準入住人數:$people 人</p>".
             "<p class='card-text'>詳細介紹:$info
               </p>".
-            '<input type="button" value="訂下此房" id="btn"
+            '<input class="btn btn-info" type="button" value="訂下此房" id="btn"
             onclick=location.href="post.php?ind=$ind&tato=$tato&outda=$outda&selectmodel='.$roomname.'">'.
             "</div>
             </div>
@@ -40,31 +40,15 @@ function showroom($roomimg,$roomname,$price,$people,$info){
     <script src="\scripts/jquery-3.4.1.min.js"></script>
     <!-- 環境建置 -->
     <title>ican</title>
-
 <style type="text/css">
-body{
+.bookingroomcontent {
+  width: 912px;
+  height: 250px;
+  background-color: rgba(250, 235, 215, 0.8);
+  border: 2px solid #f80;
+  margin: 0px auto 16px auto;
   text-align: center;
 }
-.dai{
-width: 100%;height: 300px;background-color: palegoldenrod;
-margin:0px auto;
-margin-top:150px;
-margin-bottom:50px;
-}
-#roomdiv{
-  margin:10px auto;
-   width:1000px;
-   height:280px;
-}
-#buttondiv{
-  float:right;
-  width:170px;
-   height:60px;
-   position:relative;
-   top:225px;
-   left:20px;
-}
-
 </style>
 
 <script type="text/javascript">
@@ -110,7 +94,7 @@ margin-bottom:50px;
     include("layouts/header.php");
     ?>
 
-<div class="dai">
+<div class="bookingroomcontent col-12">
          <form name="room" id="room" action="" method="GET" onsubmit="return chk();">
                 <div style="text-align: center;"><h5>查詢空房</h5></div><br>
                 <!--下拉式選單,選房型-->
@@ -133,8 +117,8 @@ margin-bottom:50px;
                 
                 </div><br>
                 <div style="text-align: center;">
-                <input type="button" value="上一頁" onclick="history.back()">
-                <input type="submit" value="查詢" onclick="return CheckFunc();">
+                <input class="btn btn-primary" type="button" value="上一頁" onclick="history.back()">
+                <input class="btn btn-success" type="submit" value="查詢" onclick="return CheckFunc();">
                 </div>
         </form>
         </div>
