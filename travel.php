@@ -154,7 +154,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                         echo '
         <script type="text/javascript">
             $(function() {
-                $(".t_class'.$ajaxnum.'").change(function() {
+                $(".t_class'.$ajaxnum.'").focus(function() {
                     $.ajax({
                         type: "POST", //傳送方式
                         url: "active.php", //傳送目的地
