@@ -15,14 +15,22 @@
 </head>
 <body>
     <?php
+    session_start();
     include("../layouts/header.php");
     ?>
 
 <?php 
-  include("../connMysql.php");
   
-  session_start();
-
+  error_reporting(0);
+  
+  
+  if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
+    echo "<script>alert('尚未登入')</script>";
+    header("Location: ../login.php");
+   
+ }
+ 
+ include("../connMysql.php");
   $selectmember="SELECT `m_id` FROM `memberdata` WHERE `m_username`= '{$_SESSION["loginMember"]}'";
 	$pick=$db_link->query($selectmember);
 	$messagemember=$pick->fetch_assoc();    //抓資料庫的會員ID
