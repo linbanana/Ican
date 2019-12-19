@@ -22,6 +22,9 @@ function showroom($roomimg,$roomname,$price,$people,$info){
             </div>
           </div>
         </div>";}
+        if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
+          echo "<script>alert('請先登入');window.location.href = 'login.php';</script>";
+        }
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">

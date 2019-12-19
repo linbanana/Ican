@@ -1,7 +1,9 @@
 <?php
 session_start();
 require("../../connMysql.php");
-
+if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
+  echo "<script>alert('請先登入');window.location.href = '../../login.php';</script>";
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
