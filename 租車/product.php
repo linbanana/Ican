@@ -55,7 +55,7 @@ $row_RecTotal = $RecTotal->fetch_assoc();
 </head>
 <body>
     <?php
-    include("layouts/header.php");
+    include("../layouts/header.php");
     ?>
 <style type="text/css">
 
