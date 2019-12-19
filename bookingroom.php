@@ -125,7 +125,7 @@ margin-bottom:50px;
                 </select>
                 </div>
                 <!--下拉式選單,選主題-->
-                <div style="text-align: center;">入住日期 <input type="date" id="ind" name="ind" class="ind"></div><br>
+                <div style="text-align: center;">入住日期 <input type="date" id="ind" name="ind" class="ind" value="<?php echo date('Y-m-d')?>"></div><br>
                 <div style="text-align: center;" class="daaaaa">
                 
                 </div><br>

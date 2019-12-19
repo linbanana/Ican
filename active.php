@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
         $ssss=date("Y-m-d", strtotime($date."+7 day"));
         echo "退房日期".'<input type="date" id="outda" name="outda" value="'.$ssss.'" min="'.$date.'" max="'.$ssss.'">';
     }
-
+    
    elseif(isset($_POST["tselect"])) {
         $tselect = $_POST["tselect"];
         $searchtraveldata="SELECT `t_name` FROM `traveldata` WHERE `t_class`='$tselect'";
