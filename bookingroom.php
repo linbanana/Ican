@@ -4,7 +4,7 @@ require("connMysql.php");
 function showroom($roomimg,$roomname,$price,$people,$info){
     $hprice=$price*1.4;
     $fprice=$price*2.5;
-  echo "<div class='card mb-3' id='card'>".
+  echo "<div class='card mb-3' style='margin-left: 20% ;margin-right:20%;'>".
           "<div class='row no-gutters' style='background-color:#FAD689;'>".
             "<div class='col-md-4' >
               <img src='$roomimg' class='card-img'>
@@ -49,23 +49,6 @@ function showroom($roomimg,$roomname,$price,$people,$info){
   margin: 0px auto 16px auto;
   text-align: center;
 }
-#card{
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-@media screen and (max-width: 768px) {
-  #card{
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-}
-@media screen and (max-width: 576px) {
-  #card{
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-}
-
 </style>
 
 <script type="text/javascript">
@@ -85,7 +68,7 @@ function showroom($roomimg,$roomname,$price,$people,$info){
   }
 
   $(function() {
-        $(".ind").focus(function() {
+        $(".ind").change(function() {
             $.ajax({
                 type: "POST", //傳送方式
                 url: "active.php", //傳送目的地
