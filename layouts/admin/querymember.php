@@ -23,7 +23,7 @@ if(isset($_GET["action"])&&($_GET["action"]=="delete")){
   $stmt->execute();
   $stmt->close();
   //重新導向回到主畫面
-  header("Location: \admin.php");
+  //header("Location: admin.php");
 }
 //選取管理員資料
 $query_RecAdmin = "SELECT m_id, m_name, m_logintime FROM memberdata WHERE m_username=?";
@@ -36,7 +36,6 @@ $stmt->close();
 //選取所有一般會員資料
 //預設每頁筆數
 $pageRow_records = 5;
-//預設頁數
 $num_pages = 1;
 //若已經有翻頁，將頁數更新
 if (isset($_GET['page'])) {
@@ -66,7 +65,7 @@ if(isset($_GET["order"])){
   $total_records = $all_RecMember->num_rows;
   //計算總頁數=(總筆數/每頁筆數)後無條件進位。
   $total_pages = ceil($total_records/$pageRow_records);
-}elseif(!isset($_GET["order"]) && $_GET["order"] == ""){
+}else{
   //未加限制顯示筆數的SQL敘述句
   $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'admin' ORDER BY `memberdata`.`m_id` ASC";
   //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數

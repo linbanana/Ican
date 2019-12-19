@@ -57,28 +57,28 @@ if (isset($_GET["logout"]) && ($_GET["logout"] == "true")) {
                     <a href="/join.php">
                         <i class="fa fa-user-plus" aria-hidden="true">&nbsp;註冊</i>
                     </a>
-                <?php
+                    <?php
                 } else {
                     ?>
                     <a href="?logout=true">
                         <i class="fa fa-sign-out" aria-hidden="true">&nbsp;登出</i>
                     </a>
                     <?php
-                        if ($_SESSION["memberLevel"] == "member") {
-                            ?>
+                    if ($_SESSION["memberLevel"] == "member") {
+                        ?>
                         <a href="/layouts/member/member.php">
                             <i class="fa fa-wrench" aria-hidden="true">&nbsp;會員中心</i>
                         </a>
-                    <?php
-                        } else {
-                            ?>
+                        <?php
+                    } else {
+                        ?>
                         <a href="/layouts/admin/admin.php">
                             <i class="fa fa-wrench" aria-hidden="true">&nbsp;管理中心</i>
                         </a>
+                        <?php
+                    }
+                    ?>
                     <?php
-                        }
-                        ?>
-                <?php
                 }
                 ?>
             </div>
@@ -117,24 +117,28 @@ if (isset($_GET["logout"]) && ($_GET["logout"] == "true")) {
                 <a href="/join.php">
                     <i class="fa fa-user-plus" aria-hidden="true">&nbsp;註冊</i>
                 </a>
-            <?php
+                <?php
             } else {
                 ?>
                 <a href="?logout=true">
                     <i class="fa fa-sign-out" aria-hidden="true">&nbsp;登出</i>
                 </a>
                 <?php
-                    if ($_SESSION["memberLevel"] == "member") {
-                        ?>
-                    <a href="/layouts/member/member.php">管理中心</a>
-                <?php
-                    } else {
-                        ?>
-                    <a href="/layouts/admin/admin.php">管理中心</a>
-                <?php
-                    }
+                if ($_SESSION["memberLevel"] == "member") {
                     ?>
-            <?php
+                    <a href="/layouts/member/member.php">
+                        <i class="fa fa-wrench" aria-hidden="true">&nbsp;會員中心</i>
+                    </a>
+                    <?php
+                } else {
+                    ?>
+                    <a href="/layouts/admin/admin.php">
+                        <i class="fa fa-wrench" aria-hidden="true">&nbsp;管理中心</i>
+                    </a>
+                    <?php
+                }
+                ?>
+                <?php
             }
             ?>
         </div>

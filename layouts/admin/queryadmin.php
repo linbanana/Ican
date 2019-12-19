@@ -66,7 +66,7 @@ if (isset($_GET["order"])) {
   $total_records = $all_RecMember->num_rows;
   //計算總頁數=(總筆數/每頁筆數)後無條件進位。
   $total_pages = ceil($total_records / $pageRow_records);
-} elseif (!isset($_GET["order"]) && ($_GET["order"] == "")) {
+} else{
   //未加限制顯示筆數的SQL敘述句
   $query_RecMember = "SELECT * FROM memberdata WHERE m_level<>'member' ORDER BY `memberdata`.`m_id` ASC";
   //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
