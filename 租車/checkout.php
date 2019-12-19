@@ -10,17 +10,7 @@ foreach($cart->get_contents() as $item) {
   $i++;
   */
 //購物車結束
-//繫結產品目錄資料
-/*
-$query_RecCategory = "SELECT category.categoryid, category.categoryname, category.categorysort, count(product.productid) as productNum FROM category LEFT JOIN product ON category.categoryid = product.categoryid GROUP BY category.categoryid, category.categoryname, category.categorysort ORDER BY category.categorysort ASC";
-$RecCategory = $db_link->query($query_RecCategory);
-//計算資料總筆數
-$query_RecTotal = "SELECT count(productid) as totalNum FROM product";
-$RecTotal = $db_link->query($query_RecTotal);
-$row_RecTotal = $RecTotal->fetch_assoc();
-*/
-	
-       
+	       
 ?>
 
 <!DOCTYPE html>
@@ -77,12 +67,10 @@ function checkmail(myEmail) {
 </head>
 <body>
     <?php
-    include("../layouts/header.php");
+    //include("../layouts/header.php");
     ?>
 <table width="780" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
-  <tr>
-    <td height="80" align="center" background="images/mlogo.png" class="tdbline"></td>
-  </tr>
+ 
   <tr>
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
         <tr valign="top">
@@ -100,17 +88,85 @@ function checkmail(myEmail) {
                   <th bgcolor="#ECE1E1"><p>單價</p></th>
                   <th bgcolor="#ECE1E1"><p>小計</p></th>
                 </tr>
-                <?php	
-            $i=0;
-			$qty=0;
-			foreach($cart->get_contents() as $item) {
+<?php	
+$selectmember="SELECT `m_id` FROM `memberdata` WHERE `m_username`= '{$_SESSION["loginMember"]}'";
+$pick=$db_link->query($selectmember);
+$messagemember=$pick->fetch_assoc();    //抓資料庫的會員ID
+      
+   $m_id=$messagemember['m_id'];
+      
+      $query_RecProduct = "SELECT `r_type`
+      FROM `orderdata`,`roomdata`
+      WHERE orderdata.r_id=roomdata.r_id
+        AND m_id=?
+       order by o_num desc" ;
+if ($stmt = $db_link->prepare("SELECT `r_type`
+FROM `orderdata`,`roomdata`
+WHERE orderdata.r_id=roomdata.r_id
+  AND m_id=?
+ order by o_num desc")) {
+  $stmt->bind_param("i", $m_id);
+    $stmt->execute();
+    $stmt->bind_result($r_type);
+    $stmt->fetch();
+    
+    //   echo $r_type."<br>";  //抓值是甚麼房間
+    
+    $stmt->close();
+}
+
+
+$i=0;
+$qty=0;
+foreach($cart->get_contents() as $item) {
 			$i++;
 			
 			$qty +=$item['qty'];
 			
 			}
-				echo $qty;  //測試是否可以抓到總值
-				
+		//		echo $qty;  //測試是否可以抓到總值
+        
+if($r_type=="套房"&&$qty>4) {
+          
+          echo "
+          <script> 
+          alert('您訂購套房 最多只能租4輛');
+          location.href='cart.php';
+                                   
+          </script>";
+      
+}   
+if($r_type=="單人/雙人客房"&&$qty>2) {
+          
+  echo "
+  <script> 
+  alert('您訂購單人/雙人客房 最多只能租2輛');
+  location.href='cart.php';
+                           
+  </script>";
+ // header("Location: cart.php");
+}   
+if($r_type=="四人家庭客房"&&$qty>4) {
+          
+  echo "
+  <script> 
+  alert('您訂購四人家庭客房  最多只能租4輛車');
+  location.href='cart.php';
+                           
+  </script>";
+ // header("Location: cart.php");
+}   
+if($r_type=="") {
+          
+  echo "
+  <script> 
+  alert('你需要訂房才能租車');
+  location.href='cart.php';
+                           
+  </script>";
+ // header("Location: cart.php");
+}   
+  
 				
 		  	$i=0;
 			foreach($cart->get_contents() as $item) {
@@ -174,7 +230,7 @@ function checkmail(myEmail) {
   
 </table>
     <?php
-    include("../layouts/footer.php");
+   // include("../layouts/footer.php");
     ?>
 
     <!-- 環境建置 -->

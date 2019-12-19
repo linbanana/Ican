@@ -68,6 +68,9 @@ function checkmail(myEmail) {
 <body>
     <?php
     include("../layouts/header.php");
+
+    
+
     ?>
 <table  width="780" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
   
