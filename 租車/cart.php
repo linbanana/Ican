@@ -27,22 +27,7 @@ if(isset($_GET["cartaction"]) && ($_GET["cartaction"]=="empty")){
 	header("Location: cart.php");
 }
 //購物車結束
-//繫結產品目錄資料
-/*
-$query_RecCategory = "SELECT category.categoryid, category.categoryname, category.categorysort, count(product.productid) as productNum 
-                      FROM category LEFT JOIN product ON category.categoryid = product.categoryid 
-                      GROUP BY category.categoryid, category.categoryname, category.categorysort 
-                      ORDER BY category.categorysort ASC";
 
-
-
-                      
-$RecCategory = $db_link->query($query_RecCategory);
-//計算資料總筆數
-$query_RecTotal = "SELECT count(productid)as totalNum FROM product";
-$RecTotal = $db_link->query($query_RecTotal);
-$row_RecTotal = $RecTotal->fetch_assoc();
-*/
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
@@ -85,16 +70,14 @@ function checkmail(myEmail) {
     include("../layouts/header.php");
     ?>
 <table  width="780" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
-  <tr>
-    <td height="80" align="center" background="images/mlogo.png" class="tdbline"></td>
-  </tr>
+  
   <tr>
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
       <tr valign="top">
         
         <td>
           <div class="subjectDiv"> 
-            <span class="heading"><img src="images/16-cube-green.png" width="16" height="16" align="absmiddle"></span> 
+            
               <p class="alert alert-primary">租車明細<p>
           </div>
           <div class="normalDiv">
