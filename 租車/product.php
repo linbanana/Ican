@@ -14,47 +14,36 @@ if(isset($_POST["cartaction"]) && ($_POST["cartaction"]=="add")){
 }
 
 //購物車結束
-//繫結產品資料
+
 $query_RecProduct = "SELECT * FROM scooterdata WHERE s_id=?";
-//$db_link = @mysqli_select_db($mysqli, "ican");
-//$seldb = @mysqli_select_db($mysqli, "ican2");
-//  if (!$seldb) die("資料庫選擇失敗！");
-//$stmt = $seldb->prepare($query_RecProduct);
+
 $stmt = $db_link->prepare($query_RecProduct);
 $stmt->bind_param("i", $_GET["id"]);
 $stmt->execute();
 $RecProduct = $stmt->get_result();
 $row_RecProduct = $RecProduct->fetch_assoc();
-//繫結產品目錄資料
-/*
-$query_RecCategory = "SELECT category.categoryid, category.categoryname, category.categorysort, count(product.productid) as productNum 
-                      FROM category LEFT JOIN product ON category.categoryid = product.categoryid 
-                      GROUP BY category.categoryid, category.categoryname, category.categorysort 
-                      ORDER BY category.categorysort ASC";
-$RecCategory = $db_link->query($query_RecCategory);
-//計算資料總筆數
-$query_RecTotal = "SELECT count(productid) as totalNum FROM product";
-$RecTotal = $db_link->query($query_RecTotal);
-$row_RecTotal = $RecTotal->fetch_assoc();
-*/
+
+
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="zh-tw">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-  <!-- 環境建置 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 環境建置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="\font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="\css/bootstrap.min.css" rel="stylesheet" />
     <link href="\css/ican.css" rel="stylesheet" />
     <script src="\scripts/jquery-3.4.1.min.js"></script>
     <!-- 環境建置 -->
-<title>租車系統</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+    <title>ican</title>
 </head>
-
 <body>
+    <?php
+    include("../layouts/header.php");
+    ?>
 <style type="text/css">
 
 .smalltext {
@@ -71,15 +60,12 @@ $row_RecTotal = $RecTotal->fetch_assoc();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
     
 <table  width="780" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
-  <tr>
-    <td height="80" align="center" background="images/mlogo.png" class="tdbline"></td>
-  </tr>
+ 
   <tr>
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
       <tr valign="top">
         
-        <td><div class="subjectDiv " > <span class="heading">
-               <img src="images/16-cube-green.png" width="16" height="16" align="absmiddle"></span> 
+        <td><div class="subjectDiv " > 
                <p class="p-3 mb-2 bg-primary text-white">租車車款詳細資料</p>
             </div>
           <div class="actionDiv "><a class="btn btn-info float-right badge badge-primary text-wrap" href="cart.php">我的租車</a></div>
@@ -91,11 +77,9 @@ $row_RecTotal = $RecTotal->fetch_assoc();
               <img src="images/nopic.png" alt="暫無圖片" width="120" height="120" border="0" />
               <?php }else{?>
                 <div >
-                <!-- ... 這裡是註解文字 ..
-                <img src="https://picsum.photos/640/480/?random=0" class="d-block w-100 rounded-pill "  width="640" height="480"  border="0">
-               . -->
+                
                <img src="img/<?php echo $row_RecProduct["s_id"];?>.jpg" 
-                     alt="<?php echo $row_RecProduct["s_id"];?>" width="640" height="480" border="0" />
+                     alt="<?php echo $row_RecProduct["s_id"];?>" width="100%" height="480" border="0" />
                 </div>
               <?php }?>
             </div>
@@ -120,15 +104,28 @@ $row_RecTotal = $RecTotal->fetch_assoc();
             </form>
           </div></td>
         </tr>
-    </table></td>
+    </table>
+    </td>
   </tr>
 
 </table>
+    <?php
+    include("../layouts/footer.php");
+    ?>
+
+    <!-- 環境建置 -->
+    <script src="\scripts/umd/popper.min.js"></script>
+    <script src="\scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="\scripts/ican.js"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
+    <!-- 環境建置 -->
 </body>
+
 </html>
 <?php
 $stmt->close();
 
 //$db_link->close();
-//$seldb->close();
+
 ?>

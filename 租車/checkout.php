@@ -19,62 +19,66 @@ $query_RecTotal = "SELECT count(productid) as totalNum FROM product";
 $RecTotal = $db_link->query($query_RecTotal);
 $row_RecTotal = $RecTotal->fetch_assoc();
 */
+	
+       
 ?>
 
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>租車系統</title>
-<link href="style.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="zh-tw">
 
- <!-- 環境建置 -->
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 環境建置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="\font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="\css/bootstrap.min.css" rel="stylesheet" />
     <link href="\css/ican.css" rel="stylesheet" />
     <script src="\scripts/jquery-3.4.1.min.js"></script>
     <!-- 環境建置 -->
-<script language="javascript">
-function checkForm(){	
-	if(document.cartform.customername.value==""){
-		alert("請填寫姓名!");
-		document.cartform.customername.focus();
-		return false;
-	}
-	if(document.cartform.customeremail.value==""){
-		alert("請填寫電子郵件!");
-		document.cartform.customeremail.focus();
-		return false;
-	}
-	if(!checkmail(document.cartform.customeremail)){
-		document.cartform.customeremail.focus();
-		return false;
-	}	
-	if(document.cartform.customerphone.value==""){
-		alert("請填寫電話!");
-		document.cartform.customerphone.focus();
-		return false;
-	}
-	if(document.cartform.customeraddress.value==""){
-		alert("請填寫地址!");
-		document.cartform.customeraddress.focus();
-		return false;
-	}
-	return confirm('確定送出嗎？');
+    <title>ican</title>
+    <script language="javascript">
+function checkForm(){ 
+  if(document.cartform.customername.value==""){
+    alert("請填寫姓名!");
+    document.cartform.customername.focus();
+    return false;
+  }
+  if(document.cartform.customeremail.value==""){
+    alert("請填寫電子郵件!");
+    document.cartform.customeremail.focus();
+    return false;
+  }
+  if(!checkmail(document.cartform.customeremail)){
+    document.cartform.customeremail.focus();
+    return false;
+  } 
+  if(document.cartform.customerphone.value==""){
+    alert("請填寫電話!");
+    document.cartform.customerphone.focus();
+    return false;
+  }
+  if(document.cartform.customeraddress.value==""){
+    alert("請填寫地址!");
+    document.cartform.customeraddress.focus();
+    return false;
+  }
+  return confirm('確定送出嗎？');
 }
 function checkmail(myEmail) {
-	var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-	if(filter.test(myEmail.value)){
-		return true;
-	}
-	alert("電子郵件格式不正確");
-	return false;
+  var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  if(filter.test(myEmail.value)){
+    return true;
+  }
+  alert("電子郵件格式不正確");
+  return false;
 }
 </script>
 </head>
 <body>
+    <?php
+    include("../layouts/header.php");
+    ?>
 <table width="780" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
   <tr>
     <td height="80" align="center" background="images/mlogo.png" class="tdbline"></td>
@@ -84,10 +88,10 @@ function checkmail(myEmail) {
         <tr valign="top">
           
           <td>
-          <div class="subjectDiv"><span class="heading"><img src="images/16-cube-green.png" width="16" height="16" align="absmiddle"></span> </div>
+          
             <div class="normalDiv">
               
-              <p class="heading alert alert-primary"><img src="images/16-cube-orange.png" width="16" height="16" align="absmiddle"> 租車內容</p>
+              <p class="heading alert alert-primary">租車內容</p>
               <table class="table table-sm" width="90%" border="0" align="center" cellpadding="2" cellspacing="1">
                 <tr>
                   <th bgcolor="#ECE1E1"><p>編號</p></th>
@@ -96,7 +100,18 @@ function checkmail(myEmail) {
                   <th bgcolor="#ECE1E1"><p>單價</p></th>
                   <th bgcolor="#ECE1E1"><p>小計</p></th>
                 </tr>
-                <?php		  
+                <?php	
+            $i=0;
+			$qty=0;
+			foreach($cart->get_contents() as $item) {
+			$i++;
+			
+			$qty +=$item['qty'];
+			
+			}
+				echo $qty;  //測試是否可以抓到總值
+				
+				
 		  	$i=0;
 			foreach($cart->get_contents() as $item) {
 			$i++;
@@ -158,6 +173,18 @@ function checkmail(myEmail) {
   </tr>
   
 </table>
+    <?php
+    include("../layouts/footer.php");
+    ?>
+
+    <!-- 環境建置 -->
+    <script src="\scripts/umd/popper.min.js"></script>
+    <script src="\scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="\scripts/ican.js"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d49835d5bd6ff90"></script>
+    <!-- 環境建置 -->
 </body>
+
 </html>
 <?php $db_link->close();?>
