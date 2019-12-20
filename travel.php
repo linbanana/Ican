@@ -54,11 +54,15 @@ $rid=$_SESSION["rid"];
 $query_travelday = "SELECT `o_num`,`o_day` FROM `orderdata` WHERE `m_id`='$mid' and `o_citime` >='$ind' AND `o_cotime` <='$outda' AND r_id='$rid'";
 $travelday = $db_link->query($query_travelday);
 $row_travelday = $travelday->fetch_assoc();
-echo $_POST["ferry"];
 
-if (isset($_POST["action"]) && ($_POST["action"] == "travel") ) {
+
+
+if (isset($_POST["action"]) && ($_POST["action"] == "travel") &&isset($_POST["ferry"]) ) {
     $mnum = 1;
     $daynum = 1;
+    $ferry=$_POST["ferry"];
+    $queryferry="UPDATE `orderdata` SET `o_ferry`='$ferry' WHERE `o_num`='{$row_travelday['o_num']}'";
+    $db_link->query($queryferry);       
     for($i=1;$i<=$row_travelday['o_day'];$i++){
         $afnum = $mnum+1;
         $ntnum = $afnum+1;
@@ -114,7 +118,8 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel") ) {
         <p>訂單編號為：<?php echo $row_travelday['o_num'] ?></p>
         <p>交通船選擇：
             <input type="radio" name="ferry" value="公營" checked>公營
-            <input type="radio" name="ferry" value="民營">民營</br>
+            <input type="radio" name="ferry" value="民營">民營
+            <input type="radio" name="ferry" value="無船票">無船票</br>
         </p>
         <p class="dataType" id="dataType" name="dataType"><?php echo "旅遊天數：".$row_travelday['o_day']."天".($row_travelday['o_day']-"1")."夜";?>
         </p>
