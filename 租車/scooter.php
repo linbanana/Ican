@@ -96,7 +96,8 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
                     
 					echo "<buttom class='badge badge-warning text-wrap'>";
 					$s_id=$rs['s_id'];
-					echo "<a href='product.php?id=$s_id'>";
+                    echo "<a href='product.php?id=$s_id'>";
+                    echo "<span class='spinner-grow spinner-grow-sm' role='status' aria-hidden='true'></span>";
 			        echo '可租借';
 					echo "</buttom>";	
 				}  
