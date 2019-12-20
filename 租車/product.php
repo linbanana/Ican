@@ -73,7 +73,7 @@ $row_RecProduct = $RecProduct->fetch_assoc();
           
           <div class="albumDiv">
             <div class="picDiv">
-              <?php //if($row_RecProduct["productimages"]==""){
+              <?php 
                       if($row_RecProduct["s_id"]==""){
                 ?>
               <img src="images/nopic.png" alt="暫無圖片"  border="0" />

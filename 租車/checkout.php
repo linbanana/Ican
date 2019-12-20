@@ -5,10 +5,7 @@ include("mycart.php");
 session_start();
 $cart =& $_SESSION['cart']; // 將購物車的值設定為 Session
 if(!is_object($cart)) $cart = new myCart();
-/*
-foreach($cart->get_contents() as $item) {
-  $i++;
-  */
+
 //購物車結束
 	       
 ?>

@@ -9,31 +9,11 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 }
 	header("Content-Type: text/html; charset=utf-8");
 	include("../connMysql.php");
-	/*
-	$seldb = @mysqli_select_db($mysqli, "ican2");
-	if (!$seldb) die("資料庫選擇失敗！");
-	*/
+	
 	$sql_query = "SELECT * FROM scooterdata";
 	$result = mysqli_query($db_link, $sql_query);	
 	
-	/*
-	 for($i=0;$i<mysqli_num_rows($result);$i++){
-       $rs=mysqli_fetch_assoc($result);
-        echo "車型:".$rs['s_model']."<br>";
-        echo "描述:".$rs['s_disc']."<br>";
-		echo "價格:".$rs['s_price']."元<br>";
-        if($rs['s_num']>0){
-			
-			 echo '可租借'."<br>";
-		}  
-        else {
-			echo '已全數租出'."<br>";
-		}
-        echo "<hr />";
-	 }
-	 */
-
-	 
+		 
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
@@ -107,18 +87,13 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
     </div>
     <div class="col-md-8 ">
       <div class="card-body">
-        <h1 class="card-title"><?php echo $rs['s_model'];?></h1>
+        <h1 class="card-title font-weight-light alert alert-danger"><?php echo $rs['s_model'];?></h1>
         <p class="card-text badge badge-pill badge-secondary">特價<?php echo $rs['s_price'];?>元</p>
-        <h3 class="card-title font-weight-light alert alert-primary"><?php echo $rs['s_disc'];?></h1>
+        <h4 class="card-title font-weight-light alert alert-primary"><?php echo $rs['s_disc'];?></h4>
 
-        <h3 class="card-title"><?php 
+        <h5 class="card-title"><?php 
 			    if($rs['s_num']>0){
-                    /*
-					//echo "<div class='badge badge-primary text-wrap'>";
-				    echo "<buttom class='badge badge-light text-wrap'>";
-			        echo '可租借';
-					echo "</buttom>";
-					*/
+                    
 					echo "<buttom class='badge badge-warning text-wrap'>";
 					$s_id=$rs['s_id'];
 					echo "<a href='product.php?id=$s_id'>";
@@ -127,7 +102,7 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
 				}  
 				else echo '已全數租出';
                                 
-                      ?></h3>
+                      ?></h5>
       </div>
     </div>
   </div>

@@ -37,24 +37,7 @@
         
      $m_id=$messagemember['m_id'];
   
-  //$query_RecProduct = ;
- 
-  /*
-  $stmt = $db_link->prepare("SELECT *
-  FROM `s_orderdata`,`s_orderdetail`,`scooterdata` 
-  WHERE s_orderdata.s_order_id=s_orderdetail.s_order_id
-    AND s_orderdetail.s_id=scooterdata.s_id
-    AND m_id=?
-    order by s_orderdetid desc");
   
-  
-  if($stmt->execute(array($m_id))){
-    while($row=$stmt->fetch()){
-        echo "價格：{$row['s_unitprice']}<br>
-              車：{$row['s_disc']}<br>";
-    }
-}
-*/
 $query_RecProduct ="SELECT *
 FROM `s_orderdata`,`s_orderdetail`,`scooterdata` 
 WHERE s_orderdata.s_order_id=s_orderdetail.s_order_id
@@ -66,25 +49,7 @@ $query= $db_link->prepare($query_RecProduct);
   
   $query->execute();
 $result = $query->get_result();
-/*
-while($row = $result->fetch_assoc()){
-    echo    $row['s_orderdetid'].' - ' .$row['s_unitprice'] . ' - '. $row['s_disc'] .'<br>';
-}
-*/
 
-/*
-  $stmt->bind_param("i", $m_id);
-  
-  $stmt->execute();
-  $RecProduct = $stmt->get_result();
-  $row_RecProduct = $RecProduct->fetch_assoc();
-   
-
-  
-  echo $messagemember['m_id']."<br>";
-  echo $row_RecProduct['s_order_id']."<br>";
-  echo $row_RecProduct['s_disc']."<br>";
-*/
 ?>
 <div class="alert alert-success" role="alert">你已完成的租車名單</div>
 <table class="table table-striped">
