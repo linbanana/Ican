@@ -33,7 +33,7 @@ $roomdata=$db_link->query($sql);
     <?php
     include("layouts/header.php");
 
-    echo "<h3>選取行程</h3>";
+    echo "<h3>選取訂單</h3>";
     for($i=0;$i<$roomdata->num_rows;$i++){
         $result=$roomdata->fetch_assoc();
         
@@ -50,7 +50,7 @@ $roomdata=$db_link->query($sql);
     <td>房號</td>
     <td>房間型態</td>
     <td>房間主題</td>
-    <td colspan="2">功能</td>
+    <td colspan="2">行程規劃</td>
     </tr>';
 
     echo "<tr>";
