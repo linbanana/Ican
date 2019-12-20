@@ -54,8 +54,9 @@ $rid=$_SESSION["rid"];
 $query_travelday = "SELECT `o_num`,`o_day` FROM `orderdata` WHERE `m_id`='$mid' and `o_citime` >='$ind' AND `o_cotime` <='$outda' AND r_id='$rid'";
 $travelday = $db_link->query($query_travelday);
 $row_travelday = $travelday->fetch_assoc();
+echo $_POST["ferry"];
 
-if (isset($_POST["action"]) && ($_POST["action"] == "travel")  ) {
+if (isset($_POST["action"]) && ($_POST["action"] == "travel") ) {
     $mnum = 1;
     $daynum = 1;
     for($i=1;$i<=$row_travelday['o_day'];$i++){
@@ -65,8 +66,14 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")  ) {
         $afternoon=$_POST["t_name".$afnum];
         $night=$_POST["t_name".$ntnum];
         $mnum=$mnum+3;
+        if(($morning!="") && ($afternoon!="") && ($night!="")){
         $query_insert = "INSERT INTO `t_orderdata`(`o_num`, `m_id`, `daynum` , `travel_1`, `travel_2`, `travel_3`) VALUES ('{$row_travelday['o_num']}','$mid','$daynum','$morning','$afternoon','$night')";
         $db_link->query($query_insert);
+        }
+        else{
+            echo "<script>alert('行程不能空白');</script>";
+            break;
+        }
         $daynum++;
     }
 }
@@ -119,13 +126,13 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")  ) {
             if($num <= $day){
                 for ($i=1; $i <= $row_travelday['o_day']; $i++) {
                         echo ("<ul class='col col-12'><div class='col col-12' align='center'>第 ".$i." 天</div><br>".$num."<li>");
-                        echo ("<select name='t_class".$num."' class='t_class".$num."'>");
+                        echo ("<select name='t_class".$num."' class='t_class".$num."' >");
                         echo ("<option>"."選擇上午行程"."</option>");
                         foreach ($row_travelclass as $value){
                             echo ("<option>".$value[0]."</option>");
                         }
                         echo ("</select></br>");
-                        echo("<select name='t_name".$num."' class='t_name".$num."'>
+                        echo("<select name='t_name".$num."' class='t_name".$num." '>
                             </select></br>");
                         $num++;
                         echo ("</li><br>$num<li>");
