@@ -61,8 +61,8 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
 
 <div class="actionDiv" style="text-align:center;">
-	<a style="font-size:large;" class="btn btn-info  badge badge-primary text-wrap" href="cart.php">我的租車</a>
-	<a style="font-size:large;" class="btn btn-info  badge badge-primary text-wrap" href="s_orderInqure.php">已完成的訂單</a>
+	<a style="font-size:large;" class="btn btn-warning  badge badge-warning text-wrap" href="cart.php">我的租車</a>
+	<a style="font-size:large;" class="btn btn-warning  badge badge-warning text-wrap" href="s_orderInqure.php">已完成的訂單</a>
 </div>
 <div class="actionDiv">
 <?php 

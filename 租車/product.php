@@ -101,8 +101,8 @@ $row_RecProduct = $RecProduct->fetch_assoc();
               <input name="price" type="hidden" id="price" value="<?php echo $row_RecProduct["s_price"];?>">
               <input name="qty" type="hidden" id="qty" value="1">
               <input name="cartaction" type="hidden" id="cartaction" value="add">
-              <input  type="submit" name="button3" id="button3" class="btn btn-primary" value="加入購物車">
-              <input type="button" name="button4" id="button4" class="btn btn-primary" value="回上一頁" onClick="window.history.back();">
+              <input  type="submit" name="button3" id="button3" class="btn btn-outline-primary" value="加入購物車">
+              <input type="button" name="button4" id="button4" class="btn btn-outline-primary" value="回上一頁" onClick="window.history.back();">
             </form>
           </div></td>
         </tr>
