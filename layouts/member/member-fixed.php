@@ -27,8 +27,10 @@
       <a class="list-group-item py-2 list-group-item-action">訂購/查詢</a>
       <ol>
         <i>
-          <a href="#" class="list-group-item py-2 list-group-item-action">查詢訂單</a>
+          <a href="../../memberqueryorder.php" class="list-group-item py-2 list-group-item-action">查詢訂單</a>
         </i>
+        <i>
+          <a href="../../picktravel.php" class="list-group-item py-2 list-group-item-action">旅遊行程規劃</a>
         <i>
           <a href="\租車/scooter.php" class="list-group-item py-2 list-group-item-action">機車租賃</a>
         </i>
