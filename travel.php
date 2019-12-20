@@ -35,15 +35,27 @@ $searchtravel = "SELECT DISTINCT `t_class` FROM `traveldata` WHERE `t_class` = '
 $travelBBQ = $db_link->query($searchtravel);
 $row_travelBBQ = $travelBBQ->fetch_all();
 
+
+
 //查詢最近的訂單時間
+if (isset($_GET["selectonum"]) ){
+ $selectquery= "SELECT * FROM `orderdata` WHERE`o_num`='{$_GET["selectonum"]}'";
+ $selectorder=$db_link->query($selectquery);
+ $row_selectorder = $selectorder->fetch_assoc();
+ $ind=$row_selectorder["o_citime"];
+ $outda=$row_selectorder["o_cotime"];
+ $rid=$row_selectorder["r_id"];
+}
+elseif (isset($_SESSION["ind"])){
 $ind=$_SESSION["ind"];
 $outda=$_SESSION["outda"];
 $rid=$_SESSION["rid"];
+}
 $query_travelday = "SELECT `o_num`,`o_day` FROM `orderdata` WHERE `m_id`='$mid' and `o_citime` >='$ind' AND `o_cotime` <='$outda' AND r_id='$rid'";
 $travelday = $db_link->query($query_travelday);
 $row_travelday = $travelday->fetch_assoc();
 
-if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
+if (isset($_POST["action"]) && ($_POST["action"] == "travel")  ) {
     $mnum = 1;
     $daynum = 1;
     for($i=1;$i<=$row_travelday['o_day'];$i++){
@@ -154,7 +166,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel")) {
                         echo '
         <script type="text/javascript">
             $(function() {
-                $(".t_class'.$ajaxnum.'").focus(function() {
+                $(".t_class'.$ajaxnum.'").change(function() {
                     $.ajax({
                         type: "POST", //傳送方式
                         url: "active.php", //傳送目的地
