@@ -42,13 +42,13 @@ $roommodellist = $db_link->query($selectroommodel);  //執行sql指令
         $.ajax({
           type: "POST", //傳送方式
           url: "active.php", //傳送目的地
-          dataType: "json", //資料格式
+          dataType: "text", //資料格式
           data: { //傳送資料
-            select: $("#selecttype").val(), //表單欄位 ID nickname
+            select: $("#selecttype").val() //表單欄位 ID nickname
           },
           success: function(data) {
-            if (data.res) { //如果後端回傳 json 資料有 nickname
-              $("#selectmodel").html(data.res);
+            if (data) { //如果後端回傳 json 資料有 nickname
+              $("#selectmodel").html(data);
             } else { //否則讀取後端回傳 json 資料 errorMsg 顯示錯誤訊息
               $("#result").html('<font color="#ff0000">' + data.errorMsg + '</font>');
             }
@@ -91,11 +91,12 @@ $roommodellist = $db_link->query($selectroommodel);  //執行sql指令
   <div class="dai">
     <div style="text-align: center;">修改訂單</div><br>
     <form name="room" id="room" action="update.php" method="POST">
-      <div style="text-align: center;">訂單編號 <input type="text" id="new" name="new" value="<?php echo $_GET['new']; ?>"></div><br>
-      <div style="text-align: center;">訂購人 <input type="text" id="nme" name="nme" value="<?php echo $_GET['nme']; ?>"></div><br>
-      <div style="text-align: center;">訂購人電話 <input type="text" id="phon" name="phon" value="<?php echo $_GET['phne']; ?>"></div><br>
+      <div style="text-align: center;">訂單編號 <input type="text" id="new" name="new" readonly value="<?php echo $_GET['new']; ?>"></div><br>
+      <div style="text-align: center;">訂購人 <input type="text" id="nme" name="nme" readonly value="<?php echo $_GET['nme']; ?>"></div><br>
+      <div style="text-align: center;">訂購人電話 <input type="text" id="phon" name="phon" readonly value="<?php echo $_GET['phne']; ?>"></div><br>
       <!--下拉式選單,選房型-->
       <select name="selecttype" id="selecttype">
+      <option value="">請選擇房型</option>
         <?php
         for ($i = 0; $i < $roomtypelist->num_rows; $i++) {
           $rst = $roomtypelist->fetch_assoc();

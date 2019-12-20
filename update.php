@@ -13,13 +13,11 @@ $roomsql="SELECT `r_price` FROM `roomdata` WHERE `r_type`='$selecttype' AND `r_m
 $roomprice=$db_link->query($roomsql);
 $rs=$roomprice->fetch_assoc();
 $tato=$rs['r_price']*$alda;//訂單總額
-$sql = "UPDATE `orderdata` 
-        SET `o_name`='$nme',`o_phone`='$phon',`o_citime`='$ind',`o_cotime`='$outda',`o_day`='$alda',`o_total`='$tato',
-        `r_id`=(SELECT `r_id` FROM `roomdata` WHERE `r_type`='$selecttype' AND `r_model`='$selectmodel') 
-        WHERE `o_num`='$new'";
+$sql = "UPDATE `orderdata` SET `r_id`=(SELECT `r_id` FROM `roomdata` WHERE `r_type`='$selecttype' AND `r_model`='$selectmodel'),
+`o_citime`='$ind',`o_cotime`='$outda',`o_day`='$alda',`o_total`='$tato' WHERE `o_num`='$new'";
 
 $db_link->query($sql);
 $db_link->close();
-header( "location:selet.php");  //回index.php
+header( "location:memberqueryorder.php");  //回index.php
 
 ?>
