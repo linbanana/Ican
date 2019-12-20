@@ -67,14 +67,16 @@ $row_RecProduct = $RecProduct->fetch_assoc();
         
         <td><div class="subjectDiv " > 
                <p class="p-3 mb-2 bg-primary text-white">租車車款詳細資料</p>
+               
             </div>
-          <div class="actionDiv "><a class="btn btn-info float-right badge badge-primary text-wrap" href="cart.php">我的租車</a></div>
+            <div class="actionDiv "><a class="btn btn-info float-right badge badge-primary text-wrap" href="cart.php">我的租車</a></div>
+          
           <div class="albumDiv">
             <div class="picDiv">
               <?php //if($row_RecProduct["productimages"]==""){
                       if($row_RecProduct["s_id"]==""){
                 ?>
-              <img src="images/nopic.png" alt="暫無圖片" width="120" height="120" border="0" />
+              <img src="images/nopic.png" alt="暫無圖片"  border="0" />
               <?php }else{?>
                 <div >
                 
@@ -83,14 +85,14 @@ $row_RecProduct = $RecProduct->fetch_assoc();
                 </div>
               <?php }?>
             </div>
-            <div class="albuminfo alert alert-primary">
+            <div class="albuminfo alert alert-danger ">
             
                <span class="smalltext">特價 </span><span class="redword"><?php echo $row_RecProduct["s_price"];?></span>
                <span class="smalltext"> 元</span>            </div>
             </div>
-          <div class="titleDiv alert alert-primary">
+          <div class="titleDiv alert alert-success">
             <?php echo $row_RecProduct["s_model"];?></div>
-          <div class="dataDiv alert alert-primary">
+          <div class="dataDiv alert alert-primary ">
             <p><?php echo nl2br($row_RecProduct["s_disc"]);?></p>
             <hr width="100%" size="1" />
             <form name="form3" method="post" action="">

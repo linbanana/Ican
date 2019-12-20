@@ -93,8 +93,8 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
 ?>
 
 <div class="card mb-3 " style="margin-left: 10%;margin-right:10%;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
+  <div class="row no-gutters ">
+    <div class="col-md-4 ">
       <!--<img src="..." class="card-img" alt="...">-->
       <a href="product.php?id=<?php echo $rs['s_id']; //抓ID 到product.php?>">
                 <?php if($rs['s_price']==""){?>
@@ -105,7 +105,7 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
                 <?php }?>
                 </a>
     </div>
-    <div class="col-md-8 border border-danger">
+    <div class="col-md-8 ">
       <div class="card-body">
         <h1 class="card-title"><?php echo $rs['s_model'];?></h1>
         <p class="card-text badge badge-pill badge-secondary">特價<?php echo $rs['s_price'];?>元</p>
