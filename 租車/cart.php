@@ -72,7 +72,7 @@ function checkmail(myEmail) {
     
 
     ?>
-<table  width="780" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
+<table  width="100%" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
   
   <tr>
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">

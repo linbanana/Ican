@@ -67,9 +67,9 @@ function checkmail(myEmail) {
 </head>
 <body>
     <?php
-    //include("../layouts/header.php");
+    include("../layouts/header.php");
     ?>
-<table width="780" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
+<table width="100%" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
  
   <tr>
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
@@ -230,7 +230,7 @@ if($r_type=="") {
   
 </table>
     <?php
-   // include("../layouts/footer.php");
+    include("../layouts/footer.php");
     ?>
 
     <!-- 環境建置 -->

@@ -59,7 +59,7 @@ $row_RecProduct = $RecProduct->fetch_assoc();
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
     
-<table  width="780" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
+<table  width="100%" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
  
   <tr>
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
@@ -79,7 +79,7 @@ $row_RecProduct = $RecProduct->fetch_assoc();
                 <div >
                 
                <img src="img/<?php echo $row_RecProduct["s_id"];?>.jpg" 
-                     alt="<?php echo $row_RecProduct["s_id"];?>" width="100%" height="480" border="0" />
+                     alt="<?php echo $row_RecProduct["s_id"];?>" width="100%"  border="0" />
                 </div>
               <?php }?>
             </div>
