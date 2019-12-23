@@ -169,6 +169,9 @@ function showroom($roomimg,$roomname,$price,$people,$info){
                     elseif ($rsm['r_model']=="漫威主題套房") {
                       showroom('images/room/marvel.jpg','漫威主題套房','1500','1~2','以紐約風格打造，並利用多種藝術創作展現每一位漫威英雄的特色。');
                       }
+                      elseif ($rsm['r_model']=="") {
+                        echo "此時段無空房喔";
+                      }
                     }
 
                     $time=(( strtotime($_GET['outda']) - strtotime($_GET['ind']) )/ (60*60*24)+1); //計算總天數
