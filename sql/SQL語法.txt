@@ -1,0 +1,61 @@
+關聯資料庫
+SELECT `orderdata`.*,`roomdata1`.`r_type`,`roomdata1`.`r_model` FROM `orderdata`,`roomdata1`  
+WHERE `orderdata`.`r_id` = `roomdata1`.`r_id`
+
+查詢時間內的資料庫
+SELECT * FROM `orderdata` WHERE `o_citime` >= '2019-12-10' AND `o_cotime` <= '2019-12-12'
+
+
+由r_id 關連表單
+SELECT `orderdata`.*,`roomdata1`.`r_type`,`roomdata1`.`r_model` FROM `orderdata` LEFT JOIN `roomdata1` on `orderdata`.`r_id`=`roomdata1`.`r_id`
+
+NOT IN重點
+
+https://blog.xuite.net/susanchung19237/wretch/169570194-sql+query+%E4%B9%8B+not+in+%E8%AA%9E%E6%B3%95%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85
+
+查詢時間內的被訂走的房號
+SELECT `r_id`
+FROM `orderdata`
+WHERE (`o_citime` >= '2019-12-10' AND `o_citime` <= '2019-12-11') or
+(`o_cotime` >= '2019-12-10' AND `o_cotime` <= '2019-12-11')
+
+用被訂走的房號選取資料(用IN)
+SELECT * FROM `roomdata1` 
+WHERE `r_id` 
+IN (SELECT `r_id`
+FROM `orderdata`
+WHERE (`o_citime` >= '2019-12-10' AND `o_citime` <= '2019-12-11') or
+(`o_cotime` >= '2019-12-10' AND `o_cotime` <= '2019-12-11'))
+
+
+選取被訂走的房號以外的資料(用NOT IN)
+NOT IN語法的value若包含null值,會回傳false,導致沒有任何結果傳回
+SELECT * FROM `roomdata1` 
+WHERE `r_id` NOT IN (SELECT `r_id` FROM `orderdata` WHERE `o_citime` >= '2019-12-2' AND `o_cotime` <= '2019-12-7')
+
+
+上面語法再加上房型限制(所選擇的房型)
+SELECT * 
+FROM `roomdata1` 
+WHERE `r_id` NOT IN (SELECT `r_id` FROM `orderdata` WHERE `o_citime` >= '2019-12-2' AND `o_cotime` <= '2019-12-7') 
+AND `r_type`='單人/雙人客房'
+
+
+SELECT A.o_num as 訂單編號, A.m_id as 會員ID, A.o_phone as 會員手機, A.o_citime as 入住時間, A.o_day as 訂房天數, A.o_total as 訂單總額, A.o_cotime as 退房日期, A.o_ferry as 旅遊交通, A.r_id as 房間編號, B.r_type as 房間屬性, B.r_model as 房間型號, C.daynum as 天數編號, C.travel_1 as 上午, C.travel_2 as 下午, C.travel_3 as 晚餐 FROM orderdata A LEFT JOIN roomdata B ON A.r_id = B.r_id LEFT JOIN t_orderdata C ON A.o_num = C.o_num
+
+
+
+總表部分
+只取房型
+
+
+
+SELECT `orderdata`.*, `memberdata`.`m_name`, `roomdata`.`r_type`, `roomdata`.`r_model` FROM `orderdata` LEFT JOIN `memberdata` ON `orderdata`.`m_id` = `memberdata`.`m_id` LEFT JOIN `roomdata` ON `orderdata`.`r_id` = `roomdata`.`r_id` LEFT JOIN `t_orderdata` ON `t_orderdata`.`o_num`=`orderdata`.`o_num` GROUP BY `o_num`
+
+
+
+
+只取行程
+
+SELECT `orderdata`.`o_num`,`t_orderdata`.`daynum`,`t_orderdata`.`travel_1`,`t_orderdata`.`travel_2`,`t_orderdata`.`travel_3` FROM `orderdata` LEFT JOIN `memberdata` ON `orderdata`.`m_id` = `memberdata`.`m_id` LEFT JOIN `roomdata` ON `orderdata`.`r_id` = `roomdata`.`r_id` LEFT JOIN `t_orderdata` ON `t_orderdata`.`o_num`=`orderdata`.`o_num` ORDER BY `orderdata`.`o_num`,`t_orderdata`.`daynum` ASC
+
