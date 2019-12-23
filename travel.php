@@ -69,15 +69,9 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel") &&isset($_POST["fe
         $morning=$_POST["t_name".$mnum];
         $afternoon=$_POST["t_name".$afnum];
         $night=$_POST["t_name".$ntnum];
-        $mnum=$mnum+3;
-        if(($morning!="") && ($afternoon!="") && ($night!="")){
+        $mnum=$mnum+3; 
         $query_insert = "INSERT INTO `t_orderdata`(`o_num`, `m_id`, `daynum` , `travel_1`, `travel_2`, `travel_3`) VALUES ('{$row_travelday['o_num']}','$mid','$daynum','$morning','$afternoon','$night')";
         $db_link->query($query_insert);
-        }
-        else{
-            echo "<script>alert('行程不能空白');</script>";
-            break;
-        }
         $daynum++;
     }
 }
@@ -131,36 +125,36 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel") &&isset($_POST["fe
             if($num <= $day){
                 for ($i=1; $i <= $row_travelday['o_day']; $i++) {
                         echo ("<ul class='col col-12'><div class='col col-12' align='center'>第 ".$i." 天</div><br>".$num."<li>");
-                        echo ("<select name='t_class".$num."' class='t_class".$num."' >");
+                        echo ("<select name='t_class".$num."' class='t_class".$num."' required>");
                         echo ("<option>"."選擇上午行程"."</option>");
                         foreach ($row_travelclass as $value){
                             echo ("<option>".$value[0]."</option>");
                         }
                         echo ("</select></br>");
-                        echo("<select name='t_name".$num."' class='t_name".$num." '>
+                        echo("<select name='t_name".$num."' class='t_name".$num."' required>
                             </select></br>");
                         $num++;
                         echo ("</li><br>$num<li>");
-                        echo ("<select name='t_class".$num."' class='t_class".$num."'>");
+                        echo ("<select name='t_class".$num."' class='t_class".$num."' required>");
                         echo ("<option>"."選擇下午行程"."</option>");
                         foreach ($row_travelclass as $value){
                             echo "<option>".$value[0]."</option>";
                         }
                         echo ("</select></br>");
-                        echo("<select name='t_name".$num."' class='t_name".$num."'>
+                        echo("<select name='t_name".$num."' class='t_name".$num."' required>
                             </select></br>");
                         $num++;
                         echo ("</li><br>");
 
                         if($num != $day){
-                            echo ("$num<li><select name='t_class".$num."' class='t_class".$num."'>");
+                            echo ("$num<li><select name='t_class".$num."' class='t_class".$num."' required>");
 
                             echo ("<option>"."選擇晚餐"."</option>");
                             foreach ($row_travelBBQ as $value){
                                 echo "<option>".$value[0]."</option>";
                             }
                             echo ("</select></br>");
-                            echo("<select name='t_name".$num."' class='t_name".$num."'>
+                            echo("<select name='t_name".$num."' class='t_name".$num."' required>
                                 </select></br>");
                             echo ("</li></br></ul>");
                             $num++;
