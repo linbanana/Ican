@@ -4,7 +4,7 @@ require("connMysql.php");
 function showroom($roomimg,$roomname,$price,$people,$info){
     $hprice=$price*1.4;
     $fprice=$price*2.5;
-  echo "<div class='card mb-3' style='margin-left: 20% ;margin-right:20%;'>".
+  echo "<div class='card mb-3' style='margin-left: 10% ;margin-right:10%;'>".
           "<div class='row no-gutters' style='background-color:#FAD689;'>".
             "<div class='col-md-4' >
               <img src='$roomimg' class='card-img'>
@@ -68,7 +68,7 @@ function showroom($roomimg,$roomname,$price,$people,$info){
   }
 
   $(function() {
-        $(".ind").focus(function() {
+        $(".ind").change(function() {
             $.ajax({
                 type: "POST", //傳送方式
                 url: "active.php", //傳送目的地
@@ -112,7 +112,7 @@ function showroom($roomimg,$roomname,$price,$people,$info){
                 </select>
                 </div>
                 <!--下拉式選單,選主題-->
-                <div style="text-align: center;">入住日期 <input type="date" id="ind" name="ind" class="ind" value="<?php echo date('Y-m-d')?>"></div><br>
+                <div style="text-align: center;">入住日期 <input type="date" id="ind" name="ind" class="ind" value="2019-01-01"></div><br>
                 <div style="text-align: center;" class="daaaaa">
 
                 </div><br>
