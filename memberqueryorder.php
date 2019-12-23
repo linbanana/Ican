@@ -3,16 +3,17 @@ error_reporting(0);  //讓這個頁面不要跳出警告
 require("connMysql.php"); //連結connMysql檔
 session_start();
 
-$sql = "SELECT `orderdata`.*, `memberdata`.`m_name`, `roomdata`.`r_type`, `roomdata`.`r_model` FROM `orderdata` 
-        LEFT JOIN `memberdata` ON `orderdata`.`m_id` = `memberdata`.`m_id` 
+$sql = "SELECT `orderdata`.*, `memberdata`.`m_name`, `roomdata`.`r_type`, `roomdata`.`r_model` FROM `orderdata`
+        LEFT JOIN `memberdata` ON `orderdata`.`m_id` = `memberdata`.`m_id`
         LEFT JOIN `roomdata` ON `orderdata`.`r_id` = `roomdata`.`r_id`
-        WHERE `memberdata`.`m_username`= '{$_SESSION["loginMember"]}'";//在orderdata資料表中選擇所有欄位
+        WHERE `memberdata`.`m_username`= '{$_SESSION["loginMember"]}'
+        ORDER BY `orderdata`.`o_citime` ASC";//在orderdata資料表中選擇所有欄位
 $link=$db_link->query($sql);  //執行sql指令
 /*刪除資料的部分*/
 if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action是delete的話,執行下方sql指令刪除資料
-  $deletedata= "DELETE FROM `orderdata` WHERE `o_num`= '$_GET[o_num]' " ;  
+  $deletedata= "DELETE FROM `orderdata` WHERE `o_num`= '$_GET[o_num]' " ;
   $db_link->query($deletedata);  //用db_link物件執行sql語法
-  header("location:selet.php");  //回到此頁面
+  header("location:memberqueryorder.php");  //回到此頁面
 }
 /*刪除資料的部分*/
 ?>
@@ -35,9 +36,9 @@ if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action
 <body>
 <?php
     include("layouts/header.php");
-   
 
-echo '<table width="900" border="1">
+
+echo '<table width="100%" border="1">
 <tr>
 <td>訂單編號</td>
 <td>姓名</td>
@@ -74,7 +75,7 @@ $r_model=$result['r_model'];
  echo "<td>".$result['r_id']."</td>";
  echo "<td>".$result['r_type']."</td>";
  echo "<td>".$result['r_model']."</td>";
- echo "<td><a href='?action=delete&o_num=$result[o_num]'>刪除</a></td>";   //用get傳值到網址上
+ echo "<td><a href='?action=delete&o_num=$result[o_num]'><font color='#ff0000'>刪除</font></a></td>";   //用get傳值到網址上
  echo "<td>"."<a href='upd.php?new=$o_num&nme=$m_name&phne=$o_phone&daaay=$o_citime&o_cotime=$o_cotime&o_total=$o_total&o_day=$o_day'>".修改."</a>"."</td>";   //用get傳值到網址上
  echo "</tr>";
 }

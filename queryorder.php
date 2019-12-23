@@ -5,7 +5,8 @@ session_start();
 
 $sql = "SELECT `orderdata`.*, `memberdata`.`m_name`, `roomdata`.`r_type`, `roomdata`.`r_model` FROM `orderdata` 
         LEFT JOIN `memberdata` ON `orderdata`.`m_id` = `memberdata`.`m_id` 
-        LEFT JOIN `roomdata` ON `orderdata`.`r_id` = `roomdata`.`r_id`";//在orderdata資料表中選擇所有欄位
+        LEFT JOIN `roomdata` ON `orderdata`.`r_id` = `roomdata`.`r_id`
+        ORDER BY `orderdata`.`o_citime` ASC";//在orderdata資料表中選擇所有欄位
 $link=$db_link->query($sql);  //執行sql指令
 /*刪除資料的部分*/
 if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action是delete的話,執行下方sql指令刪除資料

@@ -66,18 +66,12 @@ $roommodellist = $db_link->query($selectroommodel);  //執行sql指令
       text-align: center;
     }
 
-    .dai {
-      width: 700px;
-      height: 400px;
-      background-color: palegoldenrod;
-      position: absolute;
-      /*絕對位置*/
-      top: 50%;
-      /*從上面開始算，下推 50% (一半) 的位置*/
-      left: 50%;
-      margin-top: -150px;
-      /*高度的一半*/
-      margin-left: -350px;
+    .bookingroomcontent {
+      width: 912px;
+      background-color: rgba(250, 235, 215, 0.8);
+      border: 2px solid #f80;
+      margin: 0px auto 16px auto;
+      text-align: center;
     }
   </style>
 </head>
@@ -88,7 +82,7 @@ $roommodellist = $db_link->query($selectroommodel);  //執行sql指令
     include("layouts/header.php");
     ?>
 
-  <div class="dai">
+  <div class="bookingroomcontent">
     <div style="text-align: center;">修改訂單</div><br>
     <form name="room" id="room" action="update.php" method="POST">
       <div style="text-align: center;">訂單編號 <input type="text" id="new" name="new" readonly value="<?php echo $_GET['new']; ?>"></div><br>
