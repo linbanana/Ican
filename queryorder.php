@@ -37,7 +37,7 @@ if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action
     include("layouts/header.php");
    
 
-echo '<table width="900" border="1">
+echo '<table width="100%" border="1">
 <tr>
 <td>訂單編號</td>
 <td>姓名</td>

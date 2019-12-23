@@ -57,7 +57,7 @@ $row_travelday = $travelday->fetch_assoc();
 
 
 
-if (isset($_POST["action"]) && ($_POST["action"] == "travel") &&isset($_POST["ferry"]) ) {
+if (isset($_POST["action"]) && ($_POST["action"] == "travel") && isset($_POST["ferry"]) ) {
     $mnum = 1;
     $daynum = 1;
     $ferry=$_POST["ferry"];
@@ -111,9 +111,10 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel") &&isset($_POST["fe
         <iframe src="https://www.google.com/maps/d/embed?mid=1_KWBPZEEdoCUSQL6YW1z-C52aEY1L-Ac&ll=22.34112367512831%2C120.36961528583277&z=14" width="100%" height="480"></iframe>
         <p>親愛的：<font id="usernamestyle"><?php echo $mname;?></font>&nbsp;您好</p>
         <p>訂單編號為：<?php echo $row_travelday['o_num'] ?></p>
-        <p>交通船選擇：
-            <input type="radio" name="ferry" value="公營" checked>公營
-            <input type="radio" name="ferry" value="民營">民營
+        <p>交通船選擇：</br>
+            <input type="radio" name="ferry" value="公營" checked>公營&nbsp;$380</br>
+            <input type="radio" name="ferry" value="民營">民營&nbsp;$410</br>
+            <input type="radio" name="ferry" value="自行訂購">自行訂購</br>
         </p>
         <p class="dataType" id="dataType" name="dataType"><?php echo "旅遊天數：".$row_travelday['o_day']."天".($row_travelday['o_day']-"1")."夜";?>
         </p>
