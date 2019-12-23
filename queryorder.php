@@ -81,7 +81,7 @@ $r_model=$result['r_model'];
 ?>
 </table>
 <p></p>
-<input type="submit" style="margin-left: 45%" value="新增" onclick="javascript:location.href='tesin.php'"/>
+<input type="submit" style="margin-left: 45%" value="新增" onclick="javascript:location.href='bookingroom.php'"/>
 </div>  
     <?php
     include("layouts/footer.php");

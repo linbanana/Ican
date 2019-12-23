@@ -22,7 +22,7 @@
           <a href="../../queryorder.php" class="list-group-item py-2 list-group-item-action">訂單管理</a>
         </i>
         <i>
-          <a href="#" class="list-group-item py-2 list-group-item-action">商品管理</a>
+          <a href="../../room.php" class="list-group-item py-2 list-group-item-action">商品管理</a>
         </i>
         <i>
           <a href="updatenews.php" class="list-group-item py-2 list-group-item-action">最新消息發佈</a>
@@ -48,13 +48,13 @@
           <a href="../../queryorder.php" class="list-group-item py-2 list-group-item-action">訂單查詢</a>
         </i>
         <i>
-          <a href="#" class="list-group-item py-2 list-group-item-action">立即訂房</a>
+          <a href="../../bookingroom.php" class="list-group-item py-2 list-group-item-action">立即訂房</a>
         </i>
         <i>
           <a href="querymember.php" class="list-group-item py-2 list-group-item-action">取消訂房</a>
         </i>
         <i>
-          <a href="#" class="list-group-item py-2 list-group-item-action">旅遊行程規劃</a>
+          <a href="../../travel.php" class="list-group-item py-2 list-group-item-action">旅遊行程規劃</a>
         </i>
         <i>
           <a href="\租車/scooter.php" class="list-group-item py-2 list-group-item-action">機車租賃</a>
