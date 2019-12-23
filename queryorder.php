@@ -34,9 +34,9 @@ if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action
 
 <body>
 <?php
-    include("layouts/header.php");
-   
-
+    include("layouts/header.php");?>
+<div style="min-height: 250px;"> 
+<?php
 echo '<table width="100%" border="1">
 <tr>
 <td>訂單編號</td>
@@ -81,8 +81,8 @@ $r_model=$result['r_model'];
 ?>
 </table>
 <p></p>
-<input type="submit" value="新增" onclick="javascript:location.href='tesin.php'"/>
-
+<input type="submit" style="margin-left: 45%" value="新增" onclick="javascript:location.href='tesin.php'"/>
+</div>  
     <?php
     include("layouts/footer.php");
     ?>
