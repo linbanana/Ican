@@ -114,7 +114,7 @@ function showroom($roomimg,$roomname,$price,$people,$info){
                 <!--下拉式選單,選主題-->
                 <div style="text-align: center;">入住日期 <input type="date" id="ind" name="ind" class="ind" value="<?php echo date('Y-m-d')?>"></div><br>
                 <div style="text-align: center;" class="daaaaa">
-                
+
                 </div><br>
                 <div style="text-align: center;">
                 <input class="btn btn-primary" type="button" value="上一頁" onclick="history.back()">
@@ -136,7 +136,6 @@ function showroom($roomimg,$roomname,$price,$people,$info){
                             `r_type`='$s'";
                     $roommodellist = $db_link->query($searchroom);  //用db_link物件執行sql語法
 
-
                   for($i=0;$i<$roommodellist->num_rows;$i++){
                     $rsm=$roommodellist->fetch_assoc();
                    if ($rsm['r_model']=="商務套房"){
@@ -145,7 +144,7 @@ function showroom($roomimg,$roomname,$price,$people,$info){
                        獨立客廳內配有舒適沙發和坐墊
                        寬敞的乾濕分離浴室及歐舒丹沐浴用品
                        至多限加1床');
-                  }
+                    }
                     elseif ($rsm['r_model']=="總統套房") {
                          showroom('images/room/president.jpg','總統套房','7000','4','最奢華的客房，非凡的空間設計搭配高級訂製傢俱，
                          提供房客總統級的下榻禮遇以及頂級舒適的至高享受。 挑高五公尺的寬敞客廳與兩層樓高的全景落地窗，能將城市美景盡收眼底。');
@@ -170,7 +169,6 @@ function showroom($roomimg,$roomname,$price,$people,$info){
                     elseif ($rsm['r_model']=="漫威主題套房") {
                       showroom('images/room/marvel.jpg','漫威主題套房','1500','1~2','以紐約風格打造，並利用多種藝術創作展現每一位漫威英雄的特色。');
                       }
-
                     }
 
                     $time=(( strtotime($_GET['outda']) - strtotime($_GET['ind']) )/ (60*60*24)+1); //計算總天數

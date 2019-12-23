@@ -74,6 +74,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel") &&isset($_POST["fe
         $db_link->query($query_insert);
         $daynum++;
     }
+    header("Location: memberqueryorder.php");
 }
 ?>
 <!DOCTYPE html>
@@ -113,7 +114,6 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel") &&isset($_POST["fe
         <p>交通船選擇：
             <input type="radio" name="ferry" value="公營" checked>公營
             <input type="radio" name="ferry" value="民營">民營
-            <input type="radio" name="ferry" value="無船票">無船票</br>
         </p>
         <p class="dataType" id="dataType" name="dataType"><?php echo "旅遊天數：".$row_travelday['o_day']."天".($row_travelday['o_day']-"1")."夜";?>
         </p>
