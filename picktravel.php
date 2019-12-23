@@ -66,6 +66,8 @@ $roomdata=$db_link->query($sql);
  echo "<td>".$result['r_model']."</td>";
  echo "<td>".'<input type="button" value="新增" id="btn"
  onclick=location.href="travel.php?selectonum='.$result['o_num'].'">'."</td>";
+ echo "<td>".'<input type="button" value="修改" id="btn"
+ onclick=location.href="updtravel.php?selectonum='.$result['o_num'].'">'."</td>";
  echo "</tr>";
     }
     echo '<table width="900" border="1">';
