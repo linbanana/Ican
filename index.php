@@ -78,7 +78,7 @@ session_start();
                     <div class="txt">
                         <h2>全新客房</h2>
                         <p>以「現代台灣」為靈感設計全新客房，牆面一系列台灣風景照定調房內主題，家具擺飾、整體色系皆互相呼應，打造現代摩登風格旅宿。六種色系區分房型，明亮自然光線映入，空間開闊舒適。房內皆配有頂級席夢思床墊與枕頭、TOTO多功能免治馬桶及專屬KOHLER浴缸。</p>
-                        <a href="#">查看詳情</a>
+                        <a href="room.php">查看詳情</a>
                     </div>
                     <div class="pic">
                         <img src="/images/room/luxury-family.jpg">
@@ -91,7 +91,7 @@ session_start();
                     <div class="txt">
                         <h2>行程規劃系統</h2>
                         <p>自由行隨心所欲，完全可以按照自己的喜好去旅行。</p>
-                        <a href="#">查看詳情</a>
+                        <a href="travel.php">查看詳情</a>
                     </div>
                 </div>
             </div>

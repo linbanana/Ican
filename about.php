@@ -25,14 +25,14 @@ session_start();
     <div class="aboutcontent">
         <div class="container">
             <div class="photo">
-                <img src="https://www.ciaotw.com/wp-content/uploads/2018/10/%E9%A3%AF%E5%BA%97%E5%A4%96%E8%A7%80JPG-498x600.jpg">
+                <img src="https://www.ciaotw.com/wp-content/uploads/2018/10/%E9%A3%AF%E5%BA%97%E5%A4%96%E8%A7%80JPG-498x600.jpg" style="height: 450px">
             </div>
             <div class="title">
                 <strong>關於我們</strong>
             </div>
             <div class="address">
                 <h5 align="center">ican大飯店位於929屏東縣琉球鄉復興路84號</h5>
-                <iframe src="https://www.google.com/maps/embed?pb=!4v1575217147413!6m8!1m7!1sxhGz2yiwCRsjKe_94v1URg!2m2!1d22.34486996193625!2d120.3707131741897!3f132.97!4f3.239999999999995!5f0.7820865974627469" width="60%" height="auto" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!4v1575217147413!6m8!1m7!1sxhGz2yiwCRsjKe_94v1URg!2m2!1d22.34486996193625!2d120.3707131741897!3f132.97!4f3.239999999999995!5f0.7820865974627469" width="60%" height="auto" frameborder="0" style="border:0;height: 300px" allowfullscreen=""></iframe>
                 <hr>
             </div>
             <p>ican大飯店是地下2層，地上8層，並擁有198間時尚客房、15間專業的會議室、300人的國際會議廳、800人的會展大廳、暨3家頂級美饌中西式餐廳的精緻飯店。會館位於高雄新市政中心，坐擁最美麗的蓮池潭湖景，鄰近1,000公尺內計有高鐵左營站、高雄捷運站、左營火車站、國道出口、巨蛋球場、漢神百貨、新光三越。</p>
