@@ -21,7 +21,7 @@ class myCart extends wfCart{
 	{ // internal function to update the total in the cart
 	        $this->itemcount = 0;
 		$this->total = 0;
-                if(sizeof($this->items > 0))
+                if(count((array)$this->items) > 0)
 		{
                         foreach($this->items as $item) {
                                 $this->total = $this->total + ($this->itemprices[$item] * $this->itemqtys[$item]);
