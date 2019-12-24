@@ -71,7 +71,7 @@ session_start();
                     <div class="txt">
                         <h2>聖誕節優待</h2>
                         <p>為了迎接熱鬧聖誕節、跨年倒數活動，各家飯店也推出搶手的好康專案，想開心出遊就趁早卡位吧！</p>
-                        <a href="#">查看詳情</a>
+                        <a href="christmas.php">查看詳情</a>
                     </div>
                 </div>
                 <div class="item">
