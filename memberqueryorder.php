@@ -3,12 +3,24 @@ error_reporting(0);  //讓這個頁面不要跳出警告
 require("connMysql.php"); //連結connMysql檔
 session_start();
 
+
+
 $sql = "SELECT `orderdata`.*, `memberdata`.`m_name`, `roomdata`.`r_type`, `roomdata`.`r_model` FROM `orderdata`
         LEFT JOIN `memberdata` ON `orderdata`.`m_id` = `memberdata`.`m_id`
         LEFT JOIN `roomdata` ON `orderdata`.`r_id` = `roomdata`.`r_id`
         WHERE `memberdata`.`m_username`= '{$_SESSION["loginMember"]}'
         ORDER BY `orderdata`.`o_citime` ASC";//在orderdata資料表中選擇所有欄位
 $link=$db_link->query($sql);  //執行sql指令
+
+$travelsql = "SELECT `t_orderdata`.* ,`memberdata`.`m_name`, `orderdata`.`o_citime`,`orderdata`.`o_cotime`,
+                `orderdata`.`o_day`
+              FROM `t_orderdata`,`memberdata`,`orderdata` 
+              WHERE `t_orderdata`.`m_id` = `memberdata`.`m_id` AND
+              `orderdata` .`o_num` = `t_orderdata`.`o_num` AND
+              `memberdata`.`m_username`= '{$_SESSION["loginMember"]}'
+              ORDER BY `orderdata`.`o_citime`,`t_orderdata`.`daynum` ASC";
+$traveldata=$db_link->query($travelsql);
+
 /*刪除資料的部分*/
 if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action是delete的話,執行下方sql指令刪除資料
   $deletedata= "DELETE FROM `orderdata` WHERE `o_num`= '$_GET[o_num]' " ;
@@ -36,55 +48,84 @@ if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action
 <body>
 <?php
     include("layouts/header.php");
+    
+    echo "<div style='margin-left:8%;margin-right:8%;min-height:250px; '>";
+    echo "<div style='margin-left: 45%;'>會員訂單表</div>";
+    echo '<table width="100%" border="1">
+        <tr>
+            <td>訂單編號</td>
+            <td>姓名</td>
+            <td>手機號碼</td>
+            <td>入住的時間</td>
+            <td>入住總天數</td>
+            <td>訂單金額</td>
+            <td>預計退房時間</td>
+            <td>房號</td>
+            <td>房間型態</td>
+            <td>房間主題</td>
+            <td colspan="2">功能</td>
+            </tr>';
+        for($i=0;$i<$link->num_rows;$i++){
+            $result=$link->fetch_assoc();
+            $o_num=$result['o_num'];
+            $m_name=$result['m_name'];
+            $o_phone=$result['o_phone'];
+            $o_citime=$result['o_citime'];
+            $o_day=$result['o_day'];
+            $o_total=$result['o_total'];
+            $o_cotime=$result['o_cotime'];
+            $r_type=$result['r_type'];
+            $r_model=$result['r_model'];
 
-echo "<div style='margin-left:8%;margin-right:8%;min-height:250px; '>";
-echo "<div style='margin-left: 45%;'>會員訂單表</div>";
-echo '<table width="100%" border="1">
-<tr>
-<td>訂單編號</td>
-<td>姓名</td>
-<td>手機號碼</td>
-<td>入住的時間</td>
-<td>入住總天數</td>
-<td>訂單金額</td>
-<td>預計退房時間</td>
-<td>房號</td>
-<td>房間型態</td>
-<td>房間主題</td>
-<td colspan="2">功能</td>
-</tr>';
-for($i=0;$i<$link->num_rows;$i++){
-$result=$link->fetch_assoc();
-$o_num=$result['o_num'];
-$m_name=$result['m_name'];
-$o_phone=$result['o_phone'];
-$o_citime=$result['o_citime'];
-$o_day=$result['o_day'];
-$o_total=$result['o_total'];
-$o_cotime=$result['o_cotime'];
-$r_type=$result['r_type'];
-$r_model=$result['r_model'];
-
- echo "<tr>";
- echo "<td>".$result['o_num']."</td>";
- echo "<td>".$result['m_name']."</td>";
- echo "<td>".$result['o_phone']."</td>";
- echo "<td>".$result['o_citime']."</td>";
- echo "<td>".$result['o_day']."</td>";
- echo "<td>".$result['o_total']."</td>";
- echo "<td>".$result['o_cotime']."</td>";
- echo "<td>".$result['r_id']."</td>";
- echo "<td>".$result['r_type']."</td>";
- echo "<td>".$result['r_model']."</td>";
- echo "<td><a href='?action=delete&o_num=$result[o_num]'><font color='#ff0000'>刪除</font></a></td>";   //用get傳值到網址上
- echo "<td>"."<a href='upd.php?new=$o_num&nme=$m_name&phne=$o_phone&daaay=$o_citime&o_cotime=$o_cotime&o_total=$o_total&o_day=$o_day'>".修改."</a>"."</td>";   //用get傳值到網址上
- echo "</tr>";
+            echo "<tr>";
+            echo "<td>".$result['o_num']."</td>";
+            echo "<td>".$result['m_name']."</td>";
+            echo "<td>".$result['o_phone']."</td>";
+            echo "<td>".$result['o_citime']."</td>";
+            echo "<td>".$result['o_day']."</td>";
+            echo "<td>".$result['o_total']."</td>";
+            echo "<td>".$result['o_cotime']."</td>";
+            echo "<td>".$result['r_id']."</td>";
+            echo "<td>".$result['r_type']."</td>";
+            echo "<td>".$result['r_model']."</td>";
+            echo "<td><a href='?action=delete&o_num=$result[o_num]'><font color='#ff0000'>刪除</font></a></td>";   //用get傳值到網址上
+            echo "<td>"."<a href='upd.php?new=$o_num&nme=$m_name&phne=$o_phone&daaay=$o_citime&o_cotime=$o_cotime&o_total=$o_total&o_day=$o_day'>"."修改"."</a>"."</td>";   //用get傳值到網址上
+            echo "</tr>";
 }
+
+        echo "</table>";
+        echo "<div style='margin-left: 45%;'>會員行程表</div>";
+        echo '<table width="70%" border="1" align="center"><tr>
+        <td>訂單編號</td>
+        <td>姓名</td>
+        <td>入住的時間</td>
+        <td>入住總天數</td>
+        <td>預計退房時間</td>
+        <td>天數</td>
+        <td>上午</td>
+        <td>下午</td>
+        <td>晚餐</td>
+        </tr>';
+            for($j=0;$j<$traveldata->num_rows;$j++){
+                $rs=$traveldata->fetch_assoc();
+                echo "<tr>";
+                echo "<td>".$rs['o_num']."</td>";
+                echo "<td>".$rs['m_name']."</td>";
+                echo "<td>".$rs['o_citime']."</td>";
+                echo "<td>".$rs['o_day']."</td>";
+                echo "<td>".$rs['o_cotime']."</td>";
+                echo "<td>第".$rs['daynum']."天</td>";
+                echo "<td>".$rs['travel_1']."</td>";
+                echo "<td>".$rs['travel_2']."</td>";
+                echo "<td>".$rs['travel_3']."</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
 ?>
-</table>
-<p></p>
-<input type="submit" style="margin-left: 45%;" value="新增" onclick="javascript:location.href='../../bookingroom.php'"/>
-</div>
+        </div>
+        <p></p>
+        <input type="submit" value="新增" onclick="javascript:location.href='../../bookingroom.php'"/>
+
     <?php
     include("layouts/footer.php");
     ?>
