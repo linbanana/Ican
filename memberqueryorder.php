@@ -37,7 +37,8 @@ if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action
 <?php
     include("layouts/header.php");
 
-
+echo "<div style='margin-left:8%;margin-right:8%;min-height:250px; '>";
+echo "<div style='margin-left: 45%;'>會員訂單表</div>";
 echo '<table width="100%" border="1">
 <tr>
 <td>訂單編號</td>
@@ -82,8 +83,8 @@ $r_model=$result['r_model'];
 ?>
 </table>
 <p></p>
-<input type="submit" value="新增" onclick="javascript:location.href='../../bookingroom.php'"/>
-
+<input type="submit" style="margin-left: 45%;" value="新增" onclick="javascript:location.href='../../bookingroom.php'"/>
+</div>
     <?php
     include("layouts/footer.php");
     ?>
