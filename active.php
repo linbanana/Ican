@@ -11,8 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
             $res .="<option value=".$rsm['r_model'].">".$rsm['r_model']."</option>";
         }
 
-        echo $res     
-        ;
+        echo $res;
 
     }
 
