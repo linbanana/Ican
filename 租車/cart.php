@@ -19,7 +19,7 @@ if(isset($_POST["cartaction"]) && ($_POST["cartaction"]=="update")){
 if(isset($_GET["cartaction"]) && ($_GET["cartaction"]=="remove")){
 	$rid = intval($_GET['delid']);
 	$cart->del_item($rid);
-	header("Location: cart.php");	
+	header("Location: cart.php");
 }
 // 清空購物車內容
 if(isset($_GET["cartaction"]) && ($_GET["cartaction"]=="empty")){
@@ -44,15 +44,15 @@ if(isset($_GET["cartaction"]) && ($_GET["cartaction"]=="empty")){
     <!-- 環境建置 -->
     <title>ican</title>
         <script language="javascript">
-function check(){ 
+function check(){
   if(document.cartform.qty[].value=""){
-    
+
     alert("數量太多!");
     document.cartform.qty[].focus();
-    
+
     return false;
   }
-  
+
   //return confirm('確定送出嗎？');
 }
 function checkmail(myEmail) {
@@ -69,18 +69,18 @@ function checkmail(myEmail) {
     <?php
     include("../layouts/header.php");
 
-    
+
 
     ?>
 <table  width="100%" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
-  
+
   <tr>
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
       <tr valign="top">
-        
+
         <td>
-          <div class="subjectDiv"> 
-            
+          <div class="subjectDiv">
+
               <p class="alert alert-primary">租車明細<p>
           </div>
           <div class="normalDiv">
@@ -95,7 +95,7 @@ function checkmail(myEmail) {
                 <th bgcolor="#ECE1E1"><p>單價</p></th>
                 <th bgcolor="#ECE1E1"><p>小計</p></th>
               </tr>
-          <?php	foreach($cart->get_contents() as $item) { ?>              
+          <?php	foreach($cart->get_contents() as $item) { ?>
               <tr>
                 <td align="center" bgcolor="#F6F6F6" class="tdbline"><p><a href="?cartaction=remove&delid=<?php echo $item['id'];?>">移除</a></p></td>
                 <td bgcolor="#F6F6F6" class="tdbline"><p><?php echo $item['info'];?></p></td>
@@ -120,20 +120,20 @@ function checkmail(myEmail) {
                 <td align="center" valign="baseline" bgcolor="#F6F6F6"><p>&nbsp;</p></td>
                 <td align="center" valign="baseline" bgcolor="#F6F6F6"><p>&nbsp;</p></td>
                 <td align="center" valign="baseline" bgcolor="#F6F6F6"><p class="redword">$ <?php echo number_format($cart->grandtotal);?></p></td>
-              </tr>          
+              </tr>
             </table>
             <hr width="100%" size="1" />
             <p align="center">
               <input class="btn btn-dark" name="cartaction" type="hidden" id="cartaction" value="update">
               <input class="btn btn-dark" type="submit" name="updatebtn" id="button3" value="更新購物車" onClick="return check();">
-              
+
               <input class="btn btn-dark" type="button" name="emptybtn" id="button5" value="清空購物車" onClick="window.location.href='?cartaction=empty'">
               <input class="btn btn-dark" type="button" name="button" id="button6" value="前往結帳" onClick="window.location.href='checkout.php';">
               <input class="btn btn-dark" type="button" name="backbtn" id="button4" value="回上一頁" onClick="window.history.back();">
               <input class="btn btn-dark" type="button" name="button" id="button7" value="回租車頁面" onClick="window.location.href='scooter.php';">
               </p>
           </form>
-          </div>          
+          </div>
             <?php }else{ ?>
             <div class="infoDiv">目前購物車是空的。</div>
             <input class="btn btn-dark" type="button" name="button" id="button7" value="回租車頁面" onClick="window.location.href='scooter.php';">
@@ -141,7 +141,7 @@ function checkmail(myEmail) {
         </tr>
     </table></td>
   </tr>
-  
+
 </table>
     <?php
     include("../layouts/footer.php");

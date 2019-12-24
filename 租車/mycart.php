@@ -4,7 +4,7 @@ include("wfCart/wfcart.php");
 class myCart extends wfCart{
 	var $deliverfee = 0;
 	var $grandtotal = 0;
-	
+
 	function empty_cart()
 	{ // empties / resets the cart
 			$this->total = 0;
@@ -29,11 +29,11 @@ class myCart extends wfCart{
 			}
 		}
 		if($this->total >= 50000){
-			$this->deliverfee = 0;			
+			$this->deliverfee = 0;
 		}else{
-			$this->deliverfee = 0;						
+			$this->deliverfee = 0;
 		}
-		$this->grandtotal = $this->total+$this->deliverfee;		
+		$this->grandtotal = $this->total+$this->deliverfee;
 	}
 }
 ?>

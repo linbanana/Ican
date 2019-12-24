@@ -1,19 +1,19 @@
-﻿<?php 
+﻿<?php
 error_reporting(0);
 session_start();
 //判斷是否有登入
 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
    echo "<script>alert('尚未登入')</script>";
    header("Location: ../login.php");
-  
+
 }
 	header("Content-Type: text/html; charset=utf-8");
 	include("../connMysql.php");
-	
+
 	$sql_query = "SELECT * FROM scooterdata";
-	$result = mysqli_query($db_link, $sql_query);	
-	
-		 
+	$result = mysqli_query($db_link, $sql_query);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
@@ -42,11 +42,11 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 	text-align: center;
 	margin-right: 22px;
 	margin-bottom: 5px;
-	
+
 }
 .albumDiv .albuminfo {
 	font-family: "微軟正黑體";
-	font-size: 11pt;   
+	font-size: 11pt;
 }
 .smalltext {
 	font-size: 11px;
@@ -65,11 +65,11 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 	<a style="font-size:large;" class="btn btn-warning  badge badge-warning text-wrap" href="s_orderInqure.php">已完成的訂單</a>
 </div>
 <div class="actionDiv">
-<?php 
+<?php
 
 for($i=0;$i<mysqli_num_rows($result);$i++){
 	$rs=mysqli_fetch_assoc($result);
-//while($row_RecProduct=$RecProduct->fetch_assoc()){ 
+//while($row_RecProduct=$RecProduct->fetch_assoc()){
 ?>
 
 <div class="card mb-3 " style="margin-left: 10%;margin-right:10%;">
@@ -80,8 +80,8 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
                 <?php if($rs['s_price']==""){?>
                 <img src="images/nopic.png" alt="暫無圖片" width="100%" height="100%" border="0" />
                 <?php }else{?>
-                <img class="card-img" src="img/<?php echo $rs['s_id'];?>.jpg" alt="<?php echo $rs["s_model"];?>" 
-				width="100%" height="100%" border="0"/>              
+                <img class="card-img" src="img/<?php echo $rs['s_id'];?>.jpg" alt="<?php echo $rs["s_model"];?>"
+				width="100%" height="100%" border="0"/>
                 <?php }?>
                 </a>
     </div>
@@ -91,18 +91,18 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
         <p class="card-text badge badge-pill badge-secondary">特價<?php echo $rs['s_price'];?>元</p>
         <h4 class="card-title font-weight-light alert alert-primary"><?php echo $rs['s_disc'];?></h4>
 
-        <h5 class="card-title"><?php 
+        <h5 class="card-title"><?php
 			    if($rs['s_num']>0){
-                    
+
 					echo "<buttom class='badge badge-warning text-wrap'>";
 					$s_id=$rs['s_id'];
                     echo "<a href='product.php?id=$s_id'>";
                     echo "<span class='spinner-grow spinner-grow-sm' role='status' aria-hidden='true'></span>";
 			        echo '可租借';
-					echo "</buttom>";	
-				}  
+					echo "</buttom>";
+				}
 				else echo '已全數租出';
-                                
+
                       ?></h5>
       </div>
     </div>

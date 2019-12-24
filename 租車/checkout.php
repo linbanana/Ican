@@ -7,7 +7,7 @@ $cart =& $_SESSION['cart']; // 將購物車的值設定為 Session
 if(!is_object($cart)) $cart = new myCart();
 
 //購物車結束
-	       
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ if(!is_object($cart)) $cart = new myCart();
     <!-- 環境建置 -->
     <title>ican</title>
     <script language="javascript">
-function checkForm(){ 
+function checkForm(){
   if(document.cartform.customername.value==""){
     alert("請填寫姓名!");
     document.cartform.customername.focus();
@@ -39,7 +39,7 @@ function checkForm(){
   if(!checkmail(document.cartform.customeremail)){
     document.cartform.customeremail.focus();
     return false;
-  } 
+  }
   if(document.cartform.customerphone.value==""){
     alert("請填寫電話!");
     document.cartform.customerphone.focus();
@@ -67,15 +67,15 @@ function checkmail(myEmail) {
     include("../layouts/header.php");
     ?>
 <table width="100%" border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
- 
+
   <tr>
     <td class="tdbline"><table width="100%" border="0" cellspacing="0" cellpadding="10">
         <tr valign="top">
-          
+
           <td>
-          
+
             <div class="normalDiv">
-              
+
               <p class="heading alert alert-primary">租車內容</p>
               <table class="table table-sm" width="90%" border="0" align="center" cellpadding="2" cellspacing="1">
                 <tr>
@@ -85,13 +85,13 @@ function checkmail(myEmail) {
                   <th bgcolor="#ECE1E1"><p>單價</p></th>
                   <th bgcolor="#ECE1E1"><p>小計</p></th>
                 </tr>
-<?php	
+<?php
 $selectmember="SELECT `m_id` FROM `memberdata` WHERE `m_username`= '{$_SESSION["loginMember"]}'";
 $pick=$db_link->query($selectmember);
 $messagemember=$pick->fetch_assoc();    //抓資料庫的會員ID
-      
+
    $m_id=$messagemember['m_id'];
-      
+
       $query_RecProduct = "SELECT `r_type`
       FROM `orderdata`,`roomdata`
       WHERE orderdata.r_id=roomdata.r_id
@@ -106,9 +106,9 @@ WHERE orderdata.r_id=roomdata.r_id
     $stmt->execute();
     $stmt->bind_result($r_type);
     $stmt->fetch();
-    
+
     //   echo $r_type."<br>";  //抓值是甚麼房間
-    
+
     $stmt->close();
 }
 
@@ -117,54 +117,54 @@ $i=0;
 $qty=0;
 foreach($cart->get_contents() as $item) {
 			$i++;
-			
+
 			$qty +=$item['qty'];
-			
+
 			}
 		//		echo $qty;  //測試是否可以抓到總值
-        
+
 if($r_type=="套房"&&$qty>4) {
-          
+
           echo "
-          <script> 
+          <script>
           alert('您訂購套房 最多只能租4輛');
           location.href='cart.php';
-                                   
+
           </script>";
-      
-}   
+
+}
 if($r_type=="單人/雙人客房"&&$qty>2) {
-          
+
   echo "
-  <script> 
+  <script>
   alert('您訂購單人/雙人客房 最多只能租2輛');
   location.href='cart.php';
-                           
+
   </script>";
  // header("Location: cart.php");
-}   
+}
 if($r_type=="四人家庭客房"&&$qty>4) {
-          
+
   echo "
-  <script> 
+  <script>
   alert('您訂購四人家庭客房  最多只能租4輛車');
   location.href='cart.php';
-                           
+
   </script>";
  // header("Location: cart.php");
-}   
+}
 if($r_type=="") {
-          
+
   echo "
-  <script> 
+  <script>
   alert('你需要訂房才能租車');
   location.href='cart.php';
-                           
+
   </script>";
  // header("Location: cart.php");
-}   
-  
-				
+}
+
+
 		  	$i=0;
 			foreach($cart->get_contents() as $item) {
 			$i++;
@@ -175,12 +175,12 @@ if($r_type=="") {
                   <td align="center" bgcolor="#F6F6F6" class="tdbline">
                   <p>
                     <?php if($item['qty']>=10) {
-                      echo "數量過多"; 
+                      echo "數量過多";
                       echo "
-                      <script> 
+                      <script>
                       alert('訂購數量過多');
                       location.href='cart.php';
-                                               
+
                       </script>";
                      // header("Location: cart.php");
                     }
@@ -206,25 +206,25 @@ if($r_type=="") {
                   <td align="center" valign="baseline" bgcolor="#F6F6F6"><p class="redword">$ <?php echo number_format($cart->grandtotal);?></p></td>
                 </tr>
               </table>
-              
+
               <form action="cartreport.php" method="post" name="cartform" id="cartform" onSubmit="return checkForm();">
-                
+
                 <hr width="100%" size="1" />
                 <p align="center">
                   <input name="cartaction" type="hidden" id="cartaction" value="update">
-                  
+
                   <input class="btn btn-dark" type="submit" name="updatebtn" id="button3" value="送出">
-                                 
-                  
+
+
                   <input class="btn btn-dark" type="button" name="backbtn" id="button4" value="回上一頁" onClick="window.history.back();">
                 </p>
               </form>
             </div>
-            
+
         </tr>
       </table></td>
   </tr>
-  
+
 </table>
     <?php
     include("../layouts/footer.php");
