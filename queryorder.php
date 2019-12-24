@@ -84,7 +84,7 @@ $r_model=$result['r_model'];
  echo "<td>".$result['r_id']."</td>";
  echo "<td>".$result['r_type']."</td>";
  echo "<td>".$result['r_model']."</td>";
- echo "<td><a class='btn btn-outline-danger' href='?action=delete&o_num=$result[o_num]'><font color='#ff0000'>刪除</font></a></td>";   //用get傳值到網址上
+ echo "<td><a class='btn btn-outline-danger' href='?action=delete&o_num=$result[o_num]'>刪除</a></td>";   //用get傳值到網址上
  echo "<td>"."<a class='btn btn-outline-info' href='upd.php?new=$o_num&nme=$m_name&phne=$o_phone&daaay=$o_citime&o_cotime=$o_cotime&o_total=$o_total&o_day=$o_day'>".'修改'."</a>"."</td>";   //用get傳值到網址上
  echo "</tr>";
 }
