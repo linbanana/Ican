@@ -38,7 +38,7 @@ $roomdata=$db_link->query($sql);
         $result=$roomdata->fetch_assoc();
         
     
-    echo '<table width="900" border="1">
+    echo '<table width="100%" border="1">
     <tr>
     <td>訂單編號</td>
     <td>姓名</td>
@@ -70,7 +70,10 @@ $roomdata=$db_link->query($sql);
  onclick=location.href="updtravel.php?selectonum='.$result['o_num'].'">'."</td>";
  echo "</tr>";
     }
-    echo '<table width="900" border="1">';
+
+echo '<table width="100%" border="1">';
+        
+
     include("layouts/footer.php");
     ?>
 
