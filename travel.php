@@ -1,6 +1,16 @@
 <?php
 require("connMysql.php");  //呼叫connectMysql.php文件
 session_start();
+if($_GET["selectonum"]!=null){
+$sql="SELECT * FROM `t_orderdata`
+      WHERE `t_orderdata`.`o_num`='{$_GET["selectonum"]}'";
+$traveldata=$db_link->query($sql);
+$rs=$traveldata->fetch_assoc();
+
+if($rs['daynum']!==NULL){
+    echo "<script>alert('行程已建立，請選擇修改!');window.location.href = 'picktravel.php';</script>";
+}
+}
 function GetSQLValueString($theValue, $theType)
 {
   switch ($theType) {
@@ -51,7 +61,7 @@ $ind=$_SESSION["ind"];
 $outda=$_SESSION["outda"];
 $rid=$_SESSION["rid"];
 }
-$query_travelday = "SELECT `o_num`,`o_day` FROM `orderdata` WHERE `m_id`='$mid' and `o_citime` >='$ind' AND `o_cotime` <='$outda' AND r_id='$rid'";
+$query_travelday = "SELECT `o_num`,`o_day`,`o_total` FROM `orderdata` WHERE `m_id`='$mid' and `o_citime` >='$ind' AND `o_cotime` <='$outda' AND r_id='$rid'";
 $travelday = $db_link->query($query_travelday);
 $row_travelday = $travelday->fetch_assoc();
 
@@ -61,7 +71,18 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel") && isset($_POST["f
     $mnum = 1;
     $daynum = 1;
     $ferry=$_POST["ferry"];
-    $queryferry="UPDATE `orderdata` SET `o_ferry`='$ferry' WHERE `o_num`='{$row_travelday['o_num']}'";
+    if ($ferry=="公營"){
+        $ferrymoney=380;   
+    }
+    elseif ($ferry=="民營"){
+        $ferrymoney=410;   
+    }
+    else{
+        $ferrymoney=0;   
+    }
+    $total=$row_travelday['o_total'];
+    $alltotal=$total+$ferrymoney;
+    $queryferry="UPDATE `orderdata` SET `o_ferry`='$ferry',`o_total`='$alltotal' WHERE `o_num`='{$row_travelday['o_num']}'";
     $db_link->query($queryferry);       
     for($i=1;$i<=$row_travelday['o_day'];$i++){
         $afnum = $mnum+1;
