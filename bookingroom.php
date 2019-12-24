@@ -68,7 +68,7 @@ function showroom($roomimg,$roomname,$price,$people,$info){
   }
 
   $(function() {
-        $(".ind").change(function() {
+        $(".ind").focus(function() {
             $.ajax({
                 type: "POST", //傳送方式
                 url: "active.php", //傳送目的地
