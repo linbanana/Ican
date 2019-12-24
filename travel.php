@@ -1,7 +1,7 @@
 <?php
 require("connMysql.php");  //呼叫connectMysql.php文件
 session_start();
-if($_GET["selectonum"]!=null){
+if(isset($_GET["selectonum"])){
 $sql="SELECT * FROM `t_orderdata`
       WHERE `t_orderdata`.`o_num`='{$_GET["selectonum"]}'";
 $traveldata=$db_link->query($sql);
