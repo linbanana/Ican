@@ -24,6 +24,12 @@ if (isset($guestname) && $guestcontent != "") {
     //將資料輸入到MySQL資料表中
     $sql_query = "INSERT INTO `message`(`guestID`, `guestname`, `guestgender`, `guestphone`, `guestemail`, `guestcontent`, `guesttime`) value('','$guestname','$guestgender','$guestphone','$guestemail','$guestcontent','$guesttime')";
     $db_link->query($sql_query);
+    //檢查權限是否足夠
+    if ($_SESSION["memberLevel"] == "member") {
+        echo '<script language="javascript">alert("留言成功！");window.location.href = "member/membermessage.php";</script>';
+    }elseif($_SESSION["memberLevel"] == "admin") {
+        echo '<script language="javascript">alert("留言成功！");window.location.href = "admin/adminmessage.php";</script>';
+    }
 }
 if (isset($_POST["logout"]) && ($_POST["logout"] == "true")) {
     unset($_SESSION["membername"]);

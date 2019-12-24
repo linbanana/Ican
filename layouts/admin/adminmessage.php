@@ -8,7 +8,7 @@ if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
 
 //檢查權限是否足夠
 if ($_SESSION["memberLevel"] == "member") {
-    header("Location: member.php");
+    header("Location: membermessage.php");
 }
 
 //選取管理員資料
