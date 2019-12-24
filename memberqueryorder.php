@@ -9,7 +9,7 @@ $sql = "SELECT `orderdata`.*, `memberdata`.`m_name`, `roomdata`.`r_type`, `roomd
         LEFT JOIN `memberdata` ON `orderdata`.`m_id` = `memberdata`.`m_id`
         LEFT JOIN `roomdata` ON `orderdata`.`r_id` = `roomdata`.`r_id`
         WHERE `memberdata`.`m_username`= '{$_SESSION["loginMember"]}'
-        ORDER BY `orderdata`.`o_citime` ASC";//在orderdata資料表中選擇所有欄位
+        ORDER BY `orderdata`.`o_num` ASC";//在orderdata資料表中選擇所有欄位
 $link=$db_link->query($sql);  //執行sql指令
 
 $travelsql = "SELECT `t_orderdata`.* ,`memberdata`.`m_name`, `orderdata`.`o_citime`,`orderdata`.`o_cotime`,
@@ -18,7 +18,7 @@ $travelsql = "SELECT `t_orderdata`.* ,`memberdata`.`m_name`, `orderdata`.`o_citi
               WHERE `t_orderdata`.`m_id` = `memberdata`.`m_id` AND
               `orderdata` .`o_num` = `t_orderdata`.`o_num` AND
               `memberdata`.`m_username`= '{$_SESSION["loginMember"]}'
-              ORDER BY `orderdata`.`o_citime`,`t_orderdata`.`daynum` ASC";
+              ORDER BY `orderdata`.`o_num`,`t_orderdata`.`daynum` ASC";
 $traveldata=$db_link->query($travelsql);
 
 /*刪除資料的部分*/
@@ -52,7 +52,7 @@ if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action
     echo "<div style='margin-left:8%;margin-right:8%;min-height:250px; '>";
     echo "<div style='margin-left: 45%;'>會員訂單表</div>";
     echo '<table width="100%" border="1">
-        <tr>
+            <tr>
             <td>訂單編號</td>
             <td>姓名</td>
             <td>手機號碼</td>
