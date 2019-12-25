@@ -51,7 +51,7 @@
           <a href="../../bookingroom.php" class="list-group-item py-2 list-group-item-action">立即訂房</a>
         </i>
         <i>
-          <a href="querymember.php" class="list-group-item py-2 list-group-item-action">取消訂房</a>
+          <a href="queryorder.php" class="list-group-item py-2 list-group-item-action">取消訂房</a>
         </i>
         <i>
           <a href="../../travel.php" class="list-group-item py-2 list-group-item-action">旅遊行程規劃</a>
