@@ -33,12 +33,13 @@ $roomdata=$db_link->query($sql);
     <?php
     include("layouts/header.php");
 
-    echo "<h3>選取訂單</h3>";
+    echo "<div style='margin-left:8%;margin-right:8%;min-height:250px; margin-bottom:50px'>";
+    echo "<div style='margin-left: 45%;'><h4>選取行程</h4></div>";
     for($i=0;$i<$roomdata->num_rows;$i++){
         $result=$roomdata->fetch_assoc();
         
     
-    echo '<table width="100%" border="1">
+    echo '<table width="100%" border="1" style="table-layout: fixed; word-wrap: break-word;">
     <tr>
     <td>訂單編號</td>
     <td>姓名</td>
@@ -64,16 +65,16 @@ $roomdata=$db_link->query($sql);
  echo "<td>".$result['r_id']."</td>";
  echo "<td>".$result['r_type']."</td>";
  echo "<td>".$result['r_model']."</td>";
- echo "<td>".'<input type="button" value="新增" id="btn"
+ echo "<td>".'<input type="button" value="新增" id="btn" class="btn btn-outline-success"
  onclick=location.href="travel.php?selectonum='.$result['o_num'].'">'."</td>";
- echo "<td>".'<input type="button" value="修改" id="btn"
+ echo "<td>".'<input type="button" value="修改" class="btn btn-outline-info" id="btn"
  onclick=location.href="updtravel.php?selectonum='.$result['o_num'].'">'."</td>";
  echo "</tr>";
     }
 
-echo '<table width="100%" border="1">';
+echo '</table>';
         
-
+echo "</div>";
     include("layouts/footer.php");
     ?>
 
