@@ -49,9 +49,10 @@ if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action
 <?php
     include("../../layouts/header.php");
     
-    echo "<div style='margin-left:8%;margin-right:8%;min-height:250px; '>";
-    echo "<div style='margin-left: 45%;'>會員訂單表</div>";
-    echo '<table width="100%" border="1">
+    echo "<div style='margin-left:8%;margin-right:8%;min-height:250px; margin-top:1%;'>";
+    echo "<div style='margin-left: 45%;'><h4>會員訂單表</h4></div>";
+    echo '<table width="100%" border="1" class="table-hover table-active">
+            <thead>
             <tr>
             <td>訂單編號</td>
             <td>姓名</td>
@@ -64,7 +65,8 @@ if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action
             <td>房間型態</td>
             <td>房間主題</td>
             <td colspan="2">功能</td>
-            </tr>';
+            </tr>
+            </thead>';
         for($i=0;$i<$link->num_rows;$i++){
             $result=$link->fetch_assoc();
             $o_num=$result['o_num'];
@@ -94,8 +96,8 @@ if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action
 }
 
         echo "</table>";
-        echo "<div style='margin-left: 45%;'>會員行程表</div>";
-        echo '<table width="100%" border="1" align="center"><tr>
+        echo "<div style='margin-left: 45%; margin-top:1%;'><h4>會員行程表</h4></div>";
+        echo '<table width="100%" border="1" align="center" class="table-hover table-active"><thead><tr>
         <td>訂單編號</td>
         <td>姓名</td>
         <td>入住的時間</td>
@@ -105,7 +107,8 @@ if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action
         <td>上午</td>
         <td>下午</td>
         <td>晚餐</td>
-        </tr>';
+        </tr>
+        </thead>';
             for($j=0;$j<$traveldata->num_rows;$j++){
                 $rs=$traveldata->fetch_assoc();
                 echo "<tr>";

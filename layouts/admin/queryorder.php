@@ -45,9 +45,10 @@ if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action
 <?php
     include("../../layouts/header.php");?>
 <?php
-echo "<div style='margin-left:8%;margin-right:8%;min-height:250px; '>";
-echo "<div style='margin-left: 45%;'>全會員訂單表</div>";
-echo '<table width="100%" border="1">
+echo "<div style='margin-left:8%;margin-right:8%;min-height:250px; margin-top:1%; margin-bottom:1%;'>";
+echo "<div style='margin-left: 44%;'><h4>全會員訂單表</h4></div>";
+echo '<table width="100%" border="1" class="table-hover table-active">
+<thead>
 <tr>
 <td>訂單編號</td>
 <td>姓名</td>
@@ -60,7 +61,8 @@ echo '<table width="100%" border="1">
 <td>房間型態</td>
 <td>房間主題</td>
 <td colspan="2">功能</td>
-</tr>';
+</tr>
+</thead>';
 for($i=0;$i<$link->num_rows;$i++){
 $result=$link->fetch_assoc();
 $o_num=$result['o_num'];
@@ -89,9 +91,8 @@ $r_model=$result['r_model'];
  echo "</tr>";
 }
 echo '</table>';
-
-echo "<div style='margin-left: 45%;'>全會員行程表</div>";
-echo '<table width="100%" border="1" align="center"><tr>
+echo "<div style='margin-left: 44%; margin-top:1%; margin-bottom:1%;'><h4>全會員行程表</h4></div>";
+echo '<table width="100%" border="1" align="center" class="table-hover table-active"><thead><tr>
 <td>訂單編號</td>
 <td>姓名</td>
 <td>入住的時間</td>
@@ -101,7 +102,8 @@ echo '<table width="100%" border="1" align="center"><tr>
 <td>上午</td>
 <td>下午</td>
 <td>晚餐</td>
-</tr>';
+</tr>
+</thead>';
     for($j=0;$j<$traveldata->num_rows;$j++){
         $rs=$traveldata->fetch_assoc();
         echo "<tr>";
@@ -119,8 +121,6 @@ echo '<table width="100%" border="1" align="center"><tr>
     echo "</table>";
 ?>
 
-<p></p>
-<input type="submit" class="btn btn-primary" style="margin-left: 45%" value="新增" onclick="javascript:location.href='bookingroom.php'"/>
 </div>  
     <?php
     include("../../layouts/footer.php");
