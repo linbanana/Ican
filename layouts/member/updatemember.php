@@ -108,7 +108,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "update")) {
       ?>
       <script language="javascript">
         alert('會員資料修改成功\n請用申請的帳號密碼登入。');
-        window.location.href = '../../member.php';
+        window.location.href = 'member.php';
       </script>
     <?php
     }
