@@ -95,7 +95,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel") && isset($_POST["f
         $db_link->query($query_insert);
         $daynum++;
     }
-    header("Location: memberqueryorder.php");
+    header("Location: layouts/member/memberqueryorder.php");
 }
 ?>
 <!DOCTYPE html>
