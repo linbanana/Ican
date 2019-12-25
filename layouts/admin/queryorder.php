@@ -47,7 +47,7 @@ if(isset($_GET["action"]) && ($_GET["action"]=="delete")){  //如果get到action
 <?php
 echo "<div style='margin-left:8%;margin-right:8%;min-height:250px; margin-top:1%; margin-bottom:1%;'>";
 echo "<div style='margin-left: 44%;'><h4>全會員訂單表</h4></div>";
-echo '<table width="100%" border="1" class="table-hover table-active">
+echo '<table width="100%" border="1" class="table-hover">
 <thead>
 <tr>
 <td>訂單編號</td>
@@ -92,7 +92,7 @@ $r_model=$result['r_model'];
 }
 echo '</table>';
 echo "<div style='margin-left: 44%; margin-top:1%; margin-bottom:1%;'><h4>全會員行程表</h4></div>";
-echo '<table width="100%" border="1" align="center" class="table-hover table-active"><thead><tr>
+echo '<table width="100%" border="1" align="center" class="table-hover"><thead><tr>
 <td>訂單編號</td>
 <td>姓名</td>
 <td>入住的時間</td>

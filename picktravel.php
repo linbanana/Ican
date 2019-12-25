@@ -39,7 +39,7 @@ $roomdata=$db_link->query($sql);
         $result=$roomdata->fetch_assoc();
         
     
-    echo '<table class="table-hover table-active" width="100%" border="1" style="table-layout: fixed; word-wrap: break-word;" >
+    echo '<table class="table-hover" width="100%" border="1" style="table-layout: fixed; word-wrap: break-word;" >
     <thead>
     <tr>
     <td>訂單編號</td>
