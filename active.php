@@ -31,8 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
         }
         echo $tres;
     }
-
-
 }
 
 ?>
