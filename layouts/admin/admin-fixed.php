@@ -45,7 +45,7 @@
           <a href="querymember.php" class="list-group-item py-2 list-group-item-action">查詢、修改會員資料</a>
         </i>
         <i>
-          <a href="../../queryorder.php" class="list-group-item py-2 list-group-item-action">訂單查詢</a>
+          <a href="queryorder.php" class="list-group-item py-2 list-group-item-action">訂單查詢</a>
         </i>
         <i>
           <a href="../../bookingroom.php" class="list-group-item py-2 list-group-item-action">立即訂房</a>
