@@ -91,7 +91,7 @@ session_start();
                     <div class="txt">
                         <h2>行程規劃系統</h2>
                         <p>自由行隨心所欲，完全可以按照自己的喜好去旅行。</p>
-                        <a href="travel.php">查看詳情</a>
+                        <a href="picktravel.php">查看詳情</a>
                     </div>
                 </div>
             </div>
