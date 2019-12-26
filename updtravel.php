@@ -48,7 +48,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "travel") ){
         $db_link->query($query_update);
         $daynum++;
     }
-    header("Location: memberqueryorder.php");
+    header("Location: layouts/member/memberqueryorder.php");
 
 }
 ?>
