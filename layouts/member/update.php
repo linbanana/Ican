@@ -1,5 +1,5 @@
 <?php
-require("connMysql.php");
+require("../../connMysql.php");
 
 $ind=$_POST['ind'];//預計入住日期
 $outda=$_POST['outda'];//退房日期

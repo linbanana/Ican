@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);  //讓這個頁面不要跳出警告
-require("connMysql.php"); //連結connMysql檔
+require("../../connMysql.php"); //連結connMysql檔
 
 ////////////////////////////////////////////////////////////////////////////////////////////////此段是要引入會員資料要用姓名電話之類的
 
@@ -79,7 +79,7 @@ $roommodellist = $db_link->query($selectroommodel);  //執行sql指令
 <body>
 
     <?php
-    include("layouts/header.php");
+    include("../header.php");
     ?>
 
   <div class="bookingroomcontent">
@@ -115,7 +115,7 @@ $roommodellist = $db_link->query($selectroommodel);  //執行sql指令
   </div>
 
   <?php
-  include("layouts/footer.php");
+  include("../footer.php");
   ?>
 
   <!-- 環境建置 -->
