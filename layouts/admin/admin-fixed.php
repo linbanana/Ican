@@ -19,7 +19,7 @@
       <a class="list-group-item py-2 list-group-item-action">後台管理系統</a>
       <ol>
         <i>
-          <a href="../../queryorder.php" class="list-group-item py-2 list-group-item-action">訂單管理</a>
+          <a href="queryorder.php" class="list-group-item py-2 list-group-item-action">訂單管理</a>
         </i>
         <i>
           <a href="../../room.php" class="list-group-item py-2 list-group-item-action">商品管理</a>
