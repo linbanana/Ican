@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-12-24 15:13:58
+-- 產生時間： 2019-12-27 11:13:12
 -- 伺服器版本： 10.4.8-MariaDB
--- PHP 版本： 7.2.24
+-- PHP 版本： 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,12 +49,11 @@ CREATE TABLE `memberdata` (
 --
 
 INSERT INTO `memberdata` (`m_id`, `m_name`, `m_username`, `m_passwd`, `m_sex`, `m_birthday`, `m_email`, `m_phone`, `m_address`, `m_level`, `m_login`, `m_logintime`, `m_jointime`) VALUES
-(1, '系統管理員', 'admin', '$2y$10$5ejczVchwglsQLZtIQmHW.teH8Tvv8aluu.aPeFuYt7CIhHxY4.W6', '男', '2019-11-14', 'admin@gmail.com', '0955445632', '', 'admin', 92, '2019-12-17 19:10:05', '0000-00-00 00:00:00'),
+(1, '系統管理員', 'admin', '$2y$10$1XjAGS760Utkh0cS2Lt8b.eBggZ2Mn5IJSs972pRz1bPydlbJg1zS', '男', '2019-11-14', 'admin@gmail.com', '0955445632', '', 'admin', 118, '2019-12-27 18:06:20', '0000-00-00 00:00:00'),
 (2, '張惠玲', 'elven', '$2y$10$0BVHeh6R97hTcK4guYStm.d49gdFxLF/4CJgvLo0yIYZaoyMbr4ae', '女', '1987-04-05', 'elven@superstar.com', '0966765556', '台北市濟洲北路12號2樓', 'member', 12, '0000-00-00 00:00:00', '2019-11-02 12:03:12'),
 (3, '彭建志', 'jinglun', '$2y$10$WqB2bnMSO/wgBiHSOBV2iuLbrUCsp8VmNJdK2AyIW6IANUL9jeFjC', '男', '1987-07-01', 'jinglun@superstar.com', '0918181111', '台北市敦化南路93號5樓', 'member', 0, NULL, '2019-11-02 12:03:12'),
 (4, '謝耿鴻', 'sugie', '$2y$10$6uWtdYATI3b/wMRk.AaqIei852PLf.WjeKm8X.Asl0VTmpxCkqbW6', '男', '1987-08-11', 'edreamer@gmail.com', '0914530768', '台北市中央路201號7樓', 'member', 2, '0000-00-00 00:00:00', '2019-11-02 12:03:12'),
 (5, '蔣志明', 'shane', '$2y$10$pWefN9xkeXOKCx59GF6ZJuSGNnIFBY4q/DCmCvAwOFtnoTCujb3Te', '男', '1984-06-20', 'shane@superstar.com', '0946820035', '台北市建國路177號6樓', 'member', 0, NULL, '2019-11-02 12:03:12'),
-(6, '王佩珊', 'ivy', '$2y$10$RPrt3YfaSs0d82inYIK6he.JaPqOrisWMqASuxN5g62EyRio.lyEa', '女', '1988-02-15', 'ivy@superstar.com', '0920981230', '台北市忠孝東路520號6樓', 'member', 0, NULL, '2019-11-02 12:03:12'),
 (7, '林志宇', 'zhong', '$2y$10$pee.jvO6f4sSKahlc4cLLO9RUMyx8aphyqkSUdwHTNSy4Ax7YPdpq', '男', '1987-05-05', 'zhong@superstar.com', '0951983366', '台北市三民路1巷10號', 'member', 0, NULL, '2019-11-02 12:03:12'),
 (8, '李曉薇', 'lala', '$2y$10$oiC9CaGiOdWu.6w5b3.b/Ora6fSuh8Lrbj8Kg5BUPT15O3QptksQS', '女', '1985-08-30', 'lala@superstar.com', '0918123456', '台北市仁愛路100號', 'member', 0, NULL, '2019-11-02 12:03:12'),
 (9, '賴秀英', 'crystal', '$2y$10$8Q0.JEGILRM91qAlMmWnB.wpcY.rJEbgNgV5ntIlqZmdGaHPwikji', '女', '1986-12-10', 'crystal@superstar.com', '0907408965', '台北市民族路204號', 'member', 0, NULL, '2019-11-02 12:03:12'),
@@ -67,14 +66,21 @@ INSERT INTO `memberdata` (`m_id`, `m_name`, `m_username`, `m_passwd`, `m_sex`, `
 (38, 'test5556572', 'test5556572', '$2y$10$b.Cm4Mgn2URLj.m9imjalus8D42mGv2ZMmTyku68Vj.pTSxq77YWi', '女', '2019-11-11', 'test5556572@gmail.com', '0944856253', '', 'member', 0, NULL, '2019-11-09 17:51:07'),
 (39, '안녕하세요', 'qwer1234', '$2y$10$CkYjED43/iS8I9w2CpDv8er3c.W1kg4SWxILxn0HwYEN/feEwySBC', '女', '2019-11-09', 'asdf@gm.co', '0912345678', 'Dhdhdjdjdj', 'member', 1, '2019-11-09 18:09:24', '2019-11-09 18:08:49'),
 (40, '小新', 'zxc001', '$2y$10$FQrPTP8sFtlGxmCTSsUD9eW4pIl6Bz5SGrEHLaW6oqBEtTlkmbZuG', '女', '2019-11-07', '123@123.com', '0933123456', '', 'member', 0, NULL, '2019-11-09 19:06:48'),
-(41, 'test123', 'test123', '$2y$10$drleZYpEtRYrDs1IlPK9ROlSUe.hnPh7Xt4OtSHS6S/7L4g2KDP1q', '女', '2014-02-05', 'test123@gmail.com', '0955441256', '', 'member', 44, '2019-12-13 08:46:49', '2019-11-12 23:09:13'),
+(41, 'test123', 'test123', '$2y$10$drleZYpEtRYrDs1IlPK9ROlSUe.hnPh7Xt4OtSHS6S/7L4g2KDP1q', '女', '2014-02-05', 'test123@gmail.com', '0955441256', '', 'member', 47, '2019-12-26 10:37:15', '2019-11-12 23:09:13'),
 (42, 'xss123', 'xss123', '$2y$10$4oRkw/m5bKOgsoKBMGnKMuSSvyrGMOdy.aQPx9q4erMHHRUdgB2Ie', '女', '2019-11-06', '123@gmail.com', '0955446523', '<script type=\\\"text/javascript\\\" src=\\\"https://www.google.com/js/test.js\\\" ></script>', 'member', 0, NULL, '2019-11-13 13:14:56'),
 (45, '系統管理員2', 'admin2', '$2y$10$u7RL7Ib8zSpaZd3qS4Lyh.MEow6qssVhoO5tFk5rUh952PXiKcEzm', '女', '2019-11-04', 'admin2@gmail.com', '0955445632', '', 'admin', 2, '2019-11-23 13:37:28', '2019-11-16 18:03:09'),
 (46, 'Aaa', 'qwerasdf', '$2y$10$CazBtjCeSkKkeeY4d0LPx.B.KILvRoGgvYJYEuMNY7Sf/PO4fclqK', '女', '2019-11-20', 'A@a.com', '0913333333', '', 'member', 1, '2019-11-23 17:23:37', '2019-11-23 17:23:21'),
-(47, '李澎澎', 'ab0722', '$2y$10$rsMEuYPtwj/XZ36rR5fRce.b0jBmNYuTL9JyIFWN4rgZjKSv/e2uK', '男', '1991-07-12', 'ab0722@gmail.com', '0937666565', '', 'member', 6, '2019-12-20 11:25:05', '2019-11-26 08:12:27'),
-(48, '阿樂', 'ac0722', '$2y$10$tixu6KSdrPzUsSvsY9w7puNCVK.qKYRHmGt6FnFFLf1ZKI.PGHzGu', '女', '1992-11-18', 'ac0722@gmail.com', '0933666565', '', 'member', 1, '2019-12-19 10:36:59', '2019-11-26 08:18:54'),
-(49, 'sfwe', 'qwe123', '$2y$10$RPb/NjLyyj7kCKc.Tr2GXelf.YIoPH24ec8ozGfC8oeyEXm.ZfXNy', '女', '2019-11-06', '12347@1423.com', '0945666666', '', 'member', 1, '2019-11-26 08:40:18', '2019-11-26 08:40:10'),
-(50, 'asd123', 'asd123', '$2y$10$M3ch0.VwF5ozyObpt2oCxuNG4eXQc2OmF/m8rioVzp90YgX7X6pUu', '女', '2019-11-27', 'asd123@gmail.com', '0955441253', '', 'member', 1, '2019-11-26 10:49:58', '2019-11-26 10:49:47');
+(47, '李澎澎', 'ab0722', '$2y$10$rsMEuYPtwj/XZ36rR5fRce.b0jBmNYuTL9JyIFWN4rgZjKSv/e2uK', '男', '1991-07-12', 'ab0722@gmail.com', '0937666565', '', 'member', 13, '2019-12-26 08:53:10', '2019-11-26 08:12:27'),
+(48, '阿樂', 'ac0722', '$2y$10$tixu6KSdrPzUsSvsY9w7puNCVK.qKYRHmGt6FnFFLf1ZKI.PGHzGu', '女', '1992-11-18', 'ac0722@gmail.com', '0933666565', '', 'member', 2, '2019-12-26 08:39:34', '2019-11-26 08:18:54'),
+(49, 'sfwe', 'qwe123', '$2y$10$RPb/NjLyyj7kCKc.Tr2GXelf.YIoPH24ec8ozGfC8oeyEXm.ZfXNy', '女', '2019-11-06', '12347@1423.com', '0945666666', '', 'member', 5, '2019-12-26 09:28:58', '2019-11-26 08:40:10'),
+(50, 'zxc123', 'zxc123', '$2y$10$UBd4VuhAcThkMjTdZNdrEe1PYtke/QP7UzG3Lc6Z/ZDv1mpifmc7K', '女', '2019-12-12', 'zxc123@gmail.com', '0945863253', '', 'member', 0, NULL, '2019-12-26 08:47:48'),
+(51, '中文', 'asd123', '$2y$10$Op2qpVQiJCE/2TylrzQvfeiZxMf/s5st/vy057EBRqBUAVkc9P4MS', '男', '2019-12-18', 'asd123@ads.com', '0956462674', '', 'admin', 2, '2019-12-26 09:08:52', '2019-12-26 08:56:45'),
+(52, 'dffff', 'shiori', '$2y$10$bkB2NOtlAPPBgKQYotdiuuv1niPiDYXnPlr0uKA62Gp5dA8lkNy6W', '女', '2019-12-17', '123344@12ddd3.com', '0945666645', '', 'member', 1, '2019-12-26 09:00:19', '2019-12-26 09:00:06'),
+(53, 'qwe1232', 'qwe1232', '$2y$10$QAst.ptc.ggsm3m7Zprptu47YfN76ukAfTQMqzSItKhHVXzZaZOv2', '女', '2019-12-05', 'qwe1232@gmail.com', '0944556325', '', 'member', 0, NULL, '2019-12-26 09:03:30'),
+(54, 'qwe12322', 'qwe12322', '$2y$10$mm2xDIosouadeT/4WY6d7Od6jKErsxS7.hSlURrB5gvNAfy2MZa3y', '女', '2019-12-05', 'qwe12322@gmail.com', '0944556322', '', 'member', 0, NULL, '2019-12-26 09:06:17'),
+(55, '陳聖文', 'h90011h', '$2y$10$eNTfNHR2bdgnDQEDAtOqDuh00Uw5SJj24RmSPeT70SoMOlQ1Xddhq', '男', '1995-04-08', 'h90011h@gmail.com', '0972469448', '高雄市大寮區後庄里民智街15巷5號', 'member', 3, '2019-12-26 09:25:29', '2019-12-26 09:16:26'),
+(56, 'test223', 'test223', '$2y$10$uRkqZxDjV7Bo5/4cR6Zazu9oMJwM2Uk/W2kWMgDxEOAMChMH9wyU6', '男', '2019-12-20', 'test223@gmail.com', '0944886532', '', 'member', 1, '2019-12-26 10:29:15', '2019-12-26 10:29:06'),
+(57, 'Dio', 'diohsu', '$2y$10$v4h2cDmGmzRMb8YZ8KrkIO7cF2MIInCnzBSVmCleWvbRJ.MwvbSpK', '女', '1982-02-09', 'Diohsu@awoo.com.tw', '0903087340', '', 'member', 1, '2019-12-26 10:53:03', '2019-12-26 10:51:38');
 
 -- --------------------------------------------------------
 
@@ -84,13 +90,20 @@ INSERT INTO `memberdata` (`m_id`, `m_name`, `m_username`, `m_passwd`, `m_sex`, `
 
 CREATE TABLE `message` (
   `guestID` int(11) NOT NULL,
-  `guestname` varchar(25) DEFAULT '0',
-  `guestgender` varchar(1) NOT NULL,
+  `guestname` varchar(25) COLLATE utf8_unicode_ci DEFAULT '0',
+  `guestgender` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
   `guestphone` int(15) NOT NULL,
-  `guestemail` varchar(30) NOT NULL,
-  `guestcontent` text NOT NULL,
+  `guestemail` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `guestcontent` text COLLATE utf8_unicode_ci NOT NULL,
   `guesttime` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 傾印資料表的資料 `message`
+--
+
+INSERT INTO `message` (`guestID`, `guestname`, `guestgender`, `guestphone`, `guestemail`, `guestcontent`, `guesttime`) VALUES
+(149, 'test223', '男', 944886532, 'test223@gmail.com', 'test', '2019-12-26 10:36:44');
 
 -- --------------------------------------------------------
 
@@ -104,6 +117,14 @@ CREATE TABLE `newsdata` (
   `newscontent` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `newstime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 傾印資料表的資料 `newsdata`
+--
+
+INSERT INTO `newsdata` (`newsid`, `newstitle`, `newscontent`, `newstime`) VALUES
+(1, '安安', '今天耶誕節，訂房不用錢', '2019-12-25 20:09:07'),
+(2, 'test', 'test', '2019-12-26 10:31:05');
 
 -- --------------------------------------------------------
 
@@ -120,7 +141,7 @@ CREATE TABLE `orderdata` (
   `o_total` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `o_cotime` date NOT NULL,
   `r_id` int(10) NOT NULL,
-  `o_ferry` enum('無船票','公營','民營') COLLATE utf8_unicode_ci NOT NULL DEFAULT '無船票'
+  `o_ferry` enum('自行訂購','公營','民營') COLLATE utf8_unicode_ci NOT NULL DEFAULT '自行訂購'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -128,9 +149,21 @@ CREATE TABLE `orderdata` (
 --
 
 INSERT INTO `orderdata` (`o_num`, `m_id`, `o_phone`, `o_citime`, `o_day`, `o_total`, `o_cotime`, `r_id`, `o_ferry`) VALUES
-(61, '47', '0937666565', '2019-12-20', 2, '4800', '2019-12-21', 4, '公營'),
-(62, '47', '0937666565', '2019-12-21', 2, '4800', '2019-12-22', 5, '民營'),
-(63, '47', '0937666565', '2019-12-21', 2, '4800', '2019-12-22', 6, '民營');
+(1, '1', '0955445632', '2019-01-09', 1, '0', '2019-01-10', 0, '自行訂購'),
+(2, '1', '0955445632', '2019-01-20', 8, '19200', '2019-01-27', 4, '自行訂購'),
+(3, '48', '0933666565', '2019-01-02', 2, '4800', '2019-01-03', 4, '自行訂購'),
+(4, '1', '0955445632', '2019-01-02', 2, '12000', '2019-01-03', 7, '自行訂購'),
+(5, '1', '0955445632', '2019-12-25', 2, '0', '2019-12-27', 0, '自行訂購'),
+(7, '47', '0937666565', '2019-01-02', 2, '5210', '2019-01-03', 5, '民營'),
+(8, '49', '0945666666', '2019-12-26', 2, '4800', '2019-12-27', 4, '自行訂購'),
+(9, '51', '0956462674', '2019-01-10', 2, '5180', '2019-01-11', 5, '公營'),
+(11, '55', '0972469448', '2019-01-05', 2, '3000', '2019-01-06', 3, '自行訂購'),
+(12, '52', '0945666645', '2019-12-26', 2, '4800', '2019-12-27', 5, '自行訂購'),
+(15, '57', '0903087340', '2020-01-01', 8, '12000', '2020-01-08', 1, '自行訂購'),
+(16, '1', '0955445632', '2019-01-02', 2, '4800', '2019-01-03', 6, '自行訂購'),
+(17, '1', '0955445632', '2019-01-05', 2, '12380', '2019-01-06', 7, '公營'),
+(18, '1', '0955445632', '2019-01-10', 2, '3380', '2019-01-11', 1, '公營'),
+(19, '1', '0955445632', '2019-01-02', 2, '3000', '2019-01-03', 1, '自行訂購');
 
 -- --------------------------------------------------------
 
@@ -205,7 +238,13 @@ CREATE TABLE `s_orderdata` (
 INSERT INTO `s_orderdata` (`s_order_id`, `m_id`, `total`) VALUES
 (1, 41, 3850),
 (2, 41, 240),
-(3, 41, 630);
+(3, 41, 630),
+(4, 49, 1000),
+(5, 49, 1260),
+(6, 49, 2260),
+(7, 52, 2130),
+(8, 56, 1850),
+(9, 1, 350);
 
 -- --------------------------------------------------------
 
@@ -228,7 +267,16 @@ CREATE TABLE `s_orderdetail` (
 INSERT INTO `s_orderdetail` (`s_orderdetid`, `s_order_id`, `s_id`, `s_unitprice`, `s_quantity`) VALUES
 (1, 1, 2, 350, 11),
 (2, 2, 3, 240, 1),
-(3, 3, 4, 630, 1);
+(3, 3, 4, 630, 1),
+(4, 4, 1, 500, 2),
+(5, 5, 4, 630, 2),
+(6, 6, 1, 500, 2),
+(7, 6, 4, 630, 2),
+(8, 7, 1, 500, 3),
+(9, 7, 4, 630, 1),
+(10, 8, 2, 350, 1),
+(11, 8, 1, 500, 3),
+(12, 9, 2, 350, 1);
 
 -- --------------------------------------------------------
 
@@ -317,23 +365,24 @@ CREATE TABLE `t_orderdata` (
 --
 
 INSERT INTO `t_orderdata` (`o_num`, `m_id`, `daynum`, `travel_1`, `travel_2`, `travel_3`) VALUES
-(63, 47, 1, '蛤板灣', '王老師手工麻花捲', '品鮮火鍋烤肉吃到飽'),
-(63, 47, 1, '蛤板灣', '蛤板灣', '品鮮火鍋烤肉吃到飽'),
-(63, 47, 2, '王老師手工麻花捲', '王老師手工麻花捲', '平安回家'),
-(61, 47, 1, '蛤板灣', '蛤板灣', '品鮮火鍋烤肉吃到飽'),
-(61, 47, 2, '蛤板灣', '小琉球-小綠龜潛水', '平安回家'),
-(63, 47, 1, '王老師手工麻花捲', '蛤板灣', '品鮮火鍋烤肉吃到飽'),
-(63, 47, 2, '王老師手工麻花捲', '王老師手工麻花捲', '平安回家'),
-(63, 47, 1, '蛤板灣', '王老師手工麻花捲', '品鮮火鍋烤肉吃到飽'),
-(63, 47, 2, '品鮮火鍋烤肉吃到飽', '蛤板灣', '平安回家'),
-(63, 47, 1, '蛤板灣', '王老師手工麻花捲', '品鮮火鍋烤肉吃到飽'),
-(63, 47, 2, '品鮮火鍋烤肉吃到飽', '蛤板灣', '平安回家'),
-(63, 47, 1, '蛤板灣', '王老師手工麻花捲', '品鮮火鍋烤肉吃到飽'),
-(63, 47, 2, '品鮮火鍋烤肉吃到飽', '蛤板灣', '平安回家'),
-(62, 47, 1, '小琉球-小綠龜潛水', '王老師手工麻花捲', '品鮮火鍋烤肉吃到飽'),
-(62, 47, 2, '小琉球-小綠龜潛水', '王老師手工麻花捲', '平安回家'),
-(61, 47, 1, '蛤板灣', '蛤板灣', '品鮮火鍋烤肉吃到飽'),
-(61, 47, 2, '品鮮火鍋烤肉吃到飽', '蛤板灣', '平安回家');
+(6, 1, 1, '王老師手工麻花捲', '蛤板灣', '品鮮火鍋烤肉吃到飽'),
+(6, 1, 2, '王老師手工麻花捲', '小琉球-小綠龜潛水', '平安回家'),
+(7, 47, 1, '蛤板灣', '小琉球-小綠龜潛水', '品鮮火鍋烤肉吃到飽'),
+(7, 47, 2, '王老師手工麻花捲', '小琉球-小綠龜潛水', '平安回家'),
+(9, 51, 1, '王老師手工麻花捲', '蛤板灣', '品鮮火鍋烤肉吃到飽'),
+(9, 51, 2, '龍蝦洞', '王老師手工麻花捲', '平安回家'),
+(10, 55, 1, '蛤板灣', '小琉球-小綠龜潛水', '品鮮火鍋烤肉吃到飽'),
+(10, 55, 2, '王老師手工麻花捲', '品鮮火鍋烤肉吃到飽', '平安回家'),
+(11, 55, 1, '蛤板灣', '品鮮火鍋烤肉吃到飽', '品鮮火鍋烤肉吃到飽'),
+(11, 55, 2, '小琉球-小綠龜潛水', '王老師手工麻花捲', '平安回家'),
+(13, 56, 1, '蛤板灣', '美人洞', '鑫月碳烤'),
+(13, 56, 2, '王老師手工麻花捲', '小琉球-小綠龜潛水', '平安回家'),
+(14, 56, 1, '王老師手工麻花捲', '王老師手工麻花捲', '品鮮火鍋烤肉吃到飽'),
+(14, 56, 2, '品鮮火鍋烤肉吃到飽', '關廟幸山堂', '平安回家'),
+(17, 1, 1, '王老師手工麻花捲', '品鮮火鍋烤肉吃到飽', '品鮮火鍋烤肉吃到飽'),
+(17, 1, 2, '關廟幸山堂', '小琉球-小綠龜潛水', '平安回家'),
+(18, 1, 1, '品鮮火鍋烤肉吃到飽', '蛤板灣', '品鮮火鍋烤肉吃到飽'),
+(18, 1, 2, '品鮮火鍋烤肉吃到飽', '蛤板灣', '平安回家');
 
 --
 -- 已傾印資料表的索引
@@ -402,25 +451,25 @@ ALTER TABLE `traveldata`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `memberdata`
 --
 ALTER TABLE `memberdata`
-  MODIFY `m_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `m_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `message`
 --
 ALTER TABLE `message`
-  MODIFY `guestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `guestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `newsdata`
 --
 ALTER TABLE `newsdata`
-  MODIFY `newsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `newsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orderdata`
 --
 ALTER TABLE `orderdata`
-  MODIFY `o_num` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `o_num` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `roomdata`
@@ -438,13 +487,13 @@ ALTER TABLE `scooterdata`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `s_orderdata`
 --
 ALTER TABLE `s_orderdata`
-  MODIFY `s_order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `s_order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `s_orderdetail`
 --
 ALTER TABLE `s_orderdetail`
-  MODIFY `s_orderdetid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `s_orderdetid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `traveldata`
